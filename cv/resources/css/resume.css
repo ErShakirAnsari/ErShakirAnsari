@@ -28,8 +28,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	font-size: 6rem;
-	line-height: 5.5rem;
+	font-size: 4rem;
+	line-height: 3.5rem;
 }
 
 h2 {
@@ -182,11 +182,11 @@ section.resume-section .resume-item .resume-date {
 }
 
 .text-primary {
-	color: #BD5D38 !important;
+	/*color: #BD5D38 !important;*/
 }
 
 a {
-	color: #BD5D38;
+	/*color: #BD5D38;*/
 }
 
 a:hover, a:focus, a:active {
