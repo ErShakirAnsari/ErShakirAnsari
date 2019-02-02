@@ -5,8 +5,9 @@ https://raw.githubusercontent.com/ErShakirAnsari/Library/master/vendors/jquery/j
 bootstrap
 ------------------------------------------------------------------------------------------
 -- CSSs
-https://raw.githubusercontent.com/ErShakirAnsari/Library/master/vendors/bootstrap/4.0.0/bootstrap.min.css
-https://raw.githubusercontent.com/ErShakirAnsari/Library/master/vendors/bootstrap/4.0.0/bootstrap.css
+https://raw.githubusercontent.com/ErShakirAnsari/ErShakirAnsari.github.io/master/cdn/vendors/bootstrap/css/bootstrap.4.0.0.css
+https://raw.githubusercontent.com/ErShakirAnsari/ErShakirAnsari.github.io/master/cdn/vendors/bootstrap/css/bootstrap.4.0.0.min.css
+
 --- JSs
 https://raw.githubusercontent.com/ErShakirAnsari/Library/master/vendors/bootstrap/4.2.1/bootstrap.bundle.js
 https://raw.githubusercontent.com/ErShakirAnsari/Library/master/vendors/bootstrap/4.2.1/bootstrap.bundle.min.js
