@@ -1,0 +1,20 @@
+jquery
+------------------------------------------------------------------------------------------
+https://raw.githubusercontent.com/ErShakirAnsari/Library/master/vendors/jquery/jquery.3.3.1.min.js
+
+bootstrap
+------------------------------------------------------------------------------------------
+-- CSSs
+https://raw.githubusercontent.com/ErShakirAnsari/Library/master/vendors/bootstrap/4.0.0/bootstrap.min.css
+https://raw.githubusercontent.com/ErShakirAnsari/Library/master/vendors/bootstrap/4.0.0/bootstrap.css
+--- JSs
+https://raw.githubusercontent.com/ErShakirAnsari/Library/master/vendors/bootstrap/4.2.1/bootstrap.bundle.js
+https://raw.githubusercontent.com/ErShakirAnsari/Library/master/vendors/bootstrap/4.2.1/bootstrap.bundle.min.js
+
+
+font-awesome
+------------------------------------------------------------------------------------------
+-- CSSs
+https://raw.githubusercontent.com/ErShakirAnsari/Library/master/vendors/font-awesome/5.7.0/all.min.css
+https://raw.githubusercontent.com/ErShakirAnsari/Library/master/vendors/font-awesome/4.7.0/font-awesome.min.css
+https://raw.githubusercontent.com/ErShakirAnsari/Library/master/vendors/font-awesome/4.7.0/font-awesome.css
