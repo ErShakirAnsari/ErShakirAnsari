@@ -1,4 +1,6 @@
 
+
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans');
 @import url('https://fonts.googleapis.com/css?family=Dosis:400,700&subset=latin-ext');
 @import url('https://fonts.googleapis.com/css?family=Merienda:400,700');
 /*@import url('https://fonts.googleapis.com/css?family=Baloo+Thambi&subset=latin-ext');*/
@@ -21,16 +23,29 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Merienda', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-	font-weight: 700;
-	text-transform: uppercase;
+	font-family: 'Dosis', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 	color: #343a40;
 }
-.date, .content {
+h1, h2 {
+	font-family: 'Merienda', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+	font-size: 5rem;
+	text-transform: uppercase;
+}
+h2 {
+	font-size: 4rem;
+}
+
+.date {
 	text-transform: uppercase;
 	font-weight: 500;
 	font-family: 'Saira Extra Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 	font-size: 1.5rem;
+}
+.paragraph {
+	font-weight: 400;
+	font-family: 'Alegreya Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+	font-size: 1.1rem;
+	color: black;
 }
 
 /*h1 {
@@ -54,7 +69,7 @@ p.lead {
 .subheading {
 	text-transform: uppercase;
 	font-weight: 500;
-	font-family: 'Dosis', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+	font-family: 'Saira Extra Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 	font-size: 1.5rem;
 }
 
