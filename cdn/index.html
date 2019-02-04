@@ -13,13 +13,14 @@
 	</head>
 
 	<body class='m-3'>
+		<input type='hidden' id='hiddenInput'/>
 		<h1>CDN resolver</h1>
 		<div class='card mb-2'>
 			<div class='card-header'> jquery </div>
 			<div class='card-body' style='display: none'>
 				<label>
-					<i class='fa fa-copy'></i>
-					<i class='fa fa-clipboard'></i> |
+					<i class='fa fa-copy' title='copy'></i>
+					<i class='fa fa-clipboard' title='copy as html'></i> |
 					<code>https://ershakiransari.github.io/cdn/vendors/jquery/jquery.3.3.1.js</code>
 				</label>
 				<label>
@@ -65,16 +66,25 @@
 		<script src='https://ershakiransari.github.io/cdn/vendors/jquery/jquery.3.3.1.min.js'></script>
 		<script src='https://ershakiransari.github.io/cdn/vendors/bootstrap/js/bootstrap.bundle.4.2.1.min.js'></script>
 		<script>
-						$(document).ready(function () {
-							$('.card .card-header').click(function () {
-								$(this).next('.card-body').toggle(333);
-							});
-							$('i.fa.fa-copy').click(function(){
-								alert('clicked');
-								$(this).next('code').css( "background", "yellow" );
-								alert($(this).next('code').text());
-							});
-						});
+			$(document).ready(function () {
+				$('.card .card-header').click(function () {
+					$(this).next('.card-body').toggle(333);
+				});
+				$('i.fa.fa-copy').click(function () {
+					let elem = $(this).next().next();
+					window.prompt("Copy to clipboard: Ctrl+C, Enter", elem.text());
+				});
+				$('i.fa.fa-clipboard').click(function () {
+					let elem = $(this).next();
+					let text = elem.text();
+					if (text.endsWith(".css")) {
+						text = "<link rel='stylesheet' type='text/css' href='"+text+"'>";
+					} else {
+						text = "<script type='text/javascript' src='"+text+"'>";
+					}
+					window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+				});
+			});
 		</script>
 	</body>
 </html>
