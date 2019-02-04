@@ -5,7 +5,9 @@
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	  <link rel='stylesheet' type="text/css" href='https://ershakiransari.github.io/cdn/vendors/bootstrap/css/bootstrap.4.0.0.min.css'>
 	  <style>
-		label {display: block}
+		label {display: block; color: #007bff !important}
+		label code {}
+		.card .card-header {cursor: pointer}
 	  </style>
    </head>
 
@@ -13,37 +15,52 @@
 	<h1>CDN resolver</h1>
 	<div class='card mb-2'>
 		<div class='card-header'> jquery </div>
-		<div class='card-body'>
-			<label><code>https://raw.githubusercontent.com/ErShakirAnsari/Library/master/vendors/jquery/jquery.3.3.1.min.js</code></label>
-			<label><code>https://raw.githubusercontent.com/ErShakirAnsari/Library/master/vendors/jquery/jquery.3.3.1.min.js</code></label>
+		<div class='card-body' style='display: none'>
+			<label>https://ershakiransari.github.io/cdn/vendors/jquery/jquery.3.3.1.js</label>
+			<label>https://ershakiransari.github.io/cdn/vendors/jquery/jquery.3.3.1.min.js</label>
 		</div>
 	</div>
    
 	<div class='card mb-2'>
 		<div class='card-header'> bootstrap </div>
-		<div class='card-body'>
-			<label>CSS</label>
-			<label><code>https://ershakiransari.github.io/cdn/vendors/bootstrap/css/bootstrap.4.0.0.css</code></label>
-			<label><code>https://ershakiransari.github.io/cv/cdn/vendors/bootstrap/css/bootstrap.4.0.0.min.css</code></label>
+		<div class='card-body' style='display: none'>
+			<h5>CSS</h5>
+			<label>
+				https://ershakiransari.github.io/cdn/vendors/bootstrap/css/bootstrap.4.0.0.css
+			</label>
+			<label>https://ershakiransari.github.io/cv/cdn/vendors/bootstrap/css/bootstrap.4.0.0.min.css</label>
 			
-			<label>JS</label>
-			<label><code>https://ershakiransari.github.io/cv/cdn/vendors/bootstrap/js/bootstrap.bundle.4.2.1.js</code></label>
-			<label><code>https://ershakiransari.github.io/cv/cdn/vendors/bootstrap/js/bootstrap.bundle.4.2.1.min.js</code></label>
+			<h5>JS</h5>
+			<label>https://ershakiransari.github.io/cv/cdn/vendors/bootstrap/js/bootstrap.bundle.4.2.1.js</label>
+			<label>https://ershakiransari.github.io/cv/cdn/vendors/bootstrap/js/bootstrap.bundle.4.2.1.min.js</label>
+		</div>
+	</div>
+   	
+	<div class='card mb-2'>
+		<div class='card-header'> font-awesome </div>
+		<div class='card-body' style='display: none'>
+			<label>https://ershakiransari.github.io/cv/cdn/vendors/font-awesome/font-awesome.4.7.0.css</label>
+			<label>https://ershakiransari.github.io/cv/cdn/vendors/font-awesome/font-awesome.4.7.0.min.css</label>
+			<label>https://ershakiransari.github.io/cv/cdn/vendors/font-awesome/font-awesome.5.7.0.min.css</label>
 		</div>
 	</div>
    	
 	
 
 	
-	font-awesome<br>
-	-- CSSs<br>
-	https://ershakiransari.github.io/cv/cdn/vendors/font-awesome/font-awesome.4.7.0.css<br>
-	https://ershakiransari.github.io/cv/cdn/vendors/font-awesome/font-awesome.4.7.0.min.css<br>
-	https://ershakiransari.github.io/cv/cdn/vendors/font-awesome/font-awesome.5.7.0.min.css<br>
 	
-	<br><br>
 	<hr>
-	<p style='text-align:right'>&copy; SKR - 2019</p>
-	<script src='https://ershakiransari.github.io/cv/cdn/vendors/bootstrap/js/bootstrap.bundle.4.2.1.min.js'></script>
+	<p class='text-right'>
+		&copy; SKR - 2019
+	</p>
+	<script src='https://ershakiransari.github.io/cdn/vendors/jquery/jquery.3.3.1.js'></script>
+	<script src='https://ershakiransari.github.io/cdn/vendors/bootstrap/js/bootstrap.bundle.4.2.1.min.js'></script>
+	<script>
+		$(document).ready(function(){
+			$('.card .card-header').click(function(){
+				$(this).next('.card-body').toggle(333);
+			});
+		});
+	</script>
    </body>
 </html>
