@@ -6,9 +6,10 @@
 		<link rel='stylesheet' type="text/css" href='https://ershakiransari.github.io/cdn/vendors/bootstrap/css/bootstrap.4.0.0.min.css'>
 		<link rel='stylesheet' type="text/css" href='https://ershakiransari.github.io/cdn/vendors/font-awesome/font-awesome.4.7.0.min.css'>
 		<style>
-			label {display: block; color: #007bff !important}
+			label { display: block }
+			label code { color: #007bff !important }
 			label i { color: #555; cursor: pointer }
-			.card .card-header {cursor: pointer}
+			.card .card-header { cursor: pointer }
 		</style>
 	</head>
 
@@ -19,14 +20,12 @@
 			<div class='card-header'> jquery </div>
 			<div class='card-body' style='display: none'>
 				<label>
-					<i class='fa fa-copy' title='copy'></i>
-					<i class='fa fa-clipboard' title='copy as html'></i> |
+					<i class='fa fa-copy' title='copy'></i>&nbsp;<i class='fa fa-clipboard' title='copy as html'></i> |
 					<code>https://ershakiransari.github.io/cdn/vendors/jquery/jquery.3.3.1.js</code>
 				</label>
 				<label>
-					<i class='fa fa-copy'></i>
-					<i class="fa fa-clipboard"></i> |
-					https://ershakiransari.github.io/cdn/vendors/jquery/jquery.3.3.1.min.js
+					<i class='fa fa-copy' title='copy'></i>&nbsp;<i class='fa fa-clipboard' title='copy as html'></i> |
+					<code>https://ershakiransari.github.io/cdn/vendors/jquery/jquery.3.3.1.min.js</code>
 				</label>
 			</div>
 		</div>
@@ -36,22 +35,41 @@
 			<div class='card-body' style='display: none'>
 				<h5>CSS</h5>
 				<label>
-					https://ershakiransari.github.io/cdn/vendors/bootstrap/css/bootstrap.4.0.0.css
+					<i class='fa fa-copy' title='copy'></i>&nbsp;<i class='fa fa-clipboard' title='copy as html'></i> |
+					<code>https://ershakiransari.github.io/cdn/vendors/bootstrap/css/bootstrap.4.0.0.css</code>
 				</label>
-				<label>https://ershakiransari.github.io/cv/cdn/vendors/bootstrap/css/bootstrap.4.0.0.min.css</label>
+				<label>
+					<i class='fa fa-copy' title='copy'></i>&nbsp;<i class='fa fa-clipboard' title='copy as html'></i> |
+					<code>https://ershakiransari.github.io/cv/cdn/vendors/bootstrap/css/bootstrap.4.0.0.min.css</code>
+				</label>
 
 				<h5>JS</h5>
-				<label>https://ershakiransari.github.io/cv/cdn/vendors/bootstrap/js/bootstrap.bundle.4.2.1.js</label>
-				<label>https://ershakiransari.github.io/cv/cdn/vendors/bootstrap/js/bootstrap.bundle.4.2.1.min.js</label>
+				<label>
+					<i class='fa fa-copy' title='copy'></i>&nbsp;<i class='fa fa-clipboard' title='copy as html'></i> |
+					<code>https://ershakiransari.github.io/cv/cdn/vendors/bootstrap/js/bootstrap.bundle.4.2.1.js</code>
+				</label>
+				<label>
+					<i class='fa fa-copy' title='copy'></i>&nbsp;<i class='fa fa-clipboard' title='copy as html'></i> |
+					<code>https://ershakiransari.github.io/cv/cdn/vendors/bootstrap/js/bootstrap.bundle.4.2.1.min.js</code>
+				</label>
 			</div>
 		</div>
 
 		<div class='card mb-2'>
 			<div class='card-header'> font-awesome </div>
 			<div class='card-body' style='display: none'>
-				<label>https://ershakiransari.github.io/cdn/vendors/font-awesome/font-awesome.4.7.0.css</label>
-				<label>https://ershakiransari.github.io/cdn/vendors/font-awesome/font-awesome.4.7.0.min.css</label>
-				<label>https://ershakiransari.github.io/cdn/vendors/font-awesome/font-awesome.5.7.0.min.css</label>
+				<label>
+					<i class='fa fa-copy' title='copy'></i>&nbsp;<i class='fa fa-clipboard' title='copy as html'></i> |
+					<code>https://ershakiransari.github.io/cdn/vendors/font-awesome/font-awesome.4.7.0.css</code>					
+				</label>
+				<label>
+					<i class='fa fa-copy' title='copy'></i>&nbsp;<i class='fa fa-clipboard' title='copy as html'></i> |
+					<code>https://ershakiransari.github.io/cdn/vendors/font-awesome/font-awesome.4.7.0.min.css</code>
+				</label>
+				<label>
+					<i class='fa fa-copy' title='copy'></i>&nbsp;<i class='fa fa-clipboard' title='copy as html'></i> |
+					<code>https://ershakiransari.github.io/cdn/vendors/font-awesome/font-awesome.5.7.0.min.css</code>
+				</label>
 			</div>
 		</div>
 
@@ -78,9 +96,9 @@
 					let elem = $(this).next();
 					let text = elem.text();
 					if (text.endsWith(".css")) {
-						text = "<link rel='stylesheet' type='text/css' href='"+text+"'>";
+						text = "<link rel='stylesheet' type='text/css' href='" + text + "'>";
 					} else {
-						text = "<script type='text/javascript' src='"+text+"'>";
+						text = "<script type='text/javascript' src='" + text + "'>";
 					}
 					window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
 				});
