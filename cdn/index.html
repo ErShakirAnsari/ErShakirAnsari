@@ -114,7 +114,7 @@
 		<p class='text-right'>
 			&copy; SKR - 2019
 		</p>
-		<script src='https://ershakiransari.github.io/cdn/vendors/jquery/jquery.3.3.1.min.js'></script>
+		<script type='text/javascript' src='https://ershakiransari.github.io/cdn/vendors/jquery/jquery.3.3.1.js'></script>
 		<script src='https://ershakiransari.github.io/cdn/vendors/bootstrap/js/bootstrap.bundle.4.2.1.min.js'></script>
 		<script>
 			$(document).ready(function () {
@@ -131,7 +131,7 @@
 					if (text.endsWith(".css")) {
 						text = "<link rel='stylesheet' type='text/css' href='" + text + "'>";
 					} else {
-						text = "<script type='text/javascript' src='" + text + "'>";
+						text = "<script type='text/javascript' src='" + text + "'></script" + ">";
 					}
 					window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
 				});
