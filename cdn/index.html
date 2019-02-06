@@ -178,15 +178,42 @@
 								continue;
 							}
 
+							let parentId = line.replace(folder, "").replace("\\", "-");
 							if (line.startsWith(folder)) {
-								console.log("FOLDER -- " + line.replace(folder, ""));
+								//console.log("FOLDER -- " + line.replace(folder, ""));
+								addCard(parentId);
 							}
 							if (line.startsWith(file)) {
-								console.log("FILE -- " + line.replace(file, ""));
+								//console.log("FILE -- " + line.replace(file, ""));
+								addLabel(line.replace(file, ""), parentId);
 							}
 						}
 					}
 				});
+			}
+			var addCard = function (title) {
+				let str = "<div class='card mb-2'>";
+				str += "<div class='card-header'> " + title + " </div>";
+				str += "<div class='card-body' style='display: none' id='cardBody" + title + "'>";
+				str += "<label>";
+				str += "<i class='fa fa-copy' title='copy'></i>&nbsp;<i class='fa fa-clipboard' title='copy as html'></i> |";
+				str += "<code>https://ershakiransari.github.io/cdn/vendors/jquery/jquery.3.3.1.js</code>";
+				str += "</label>";
+				str += "<label>";
+				str += "<i class='fa fa-copy' title='copy'></i>&nbsp;<i class='fa fa-clipboard' title='copy as html'></i> |";
+				str += "<code>https://ershakiransari.github.io/cdn/vendors/jquery/jquery.3.3.1.min.js</code>";
+				str += "</label>";
+				str += "</div>";
+				str += "</div>";
+				$('body').append(str);
+			}
+			var addLabel = function (url, parentId) {
+				let str = ""
+				str += "<label>";
+				str += "<i class='fa fa-copy' title='copy'></i>&nbsp;<i class='fa fa-clipboard' title='copy as html'></i> |";
+				str += "<code>https://ershakiransari.github.io/cdn/vendors/" + url + "</code>";
+				str += "</label>";
+				$('#cardBody' + parentId).append(str);
 			}
 		</script>
 	</body>
