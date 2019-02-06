@@ -31,7 +31,7 @@ public class ListMaker
 	
 	private static void walk(String root, Writer writer) throws Exception
 	{
-		writeToFile("folder:" + root.replace(pwd+ File.separator, "").toUpperCase(), writer);
+		writeToFile("folder-" + root.replace(pwd+ File.separator, "").toUpperCase(), writer);
 		
 		File[] fileList = new File(root).listFiles();
 		
@@ -40,7 +40,7 @@ public class ListMaker
 			File file = fileList[i];
 			if (file.isFile())
 			{
-				writeToFile("file:" + file.getAbsolutePath().replace(pwd+ File.separator, "").toLowerCase(), writer);
+				writeToFile("file-" + file.getAbsolutePath().replace(pwd+ File.separator, "").toLowerCase(), writer);
 			} else
 			{
 				walk(file.getAbsolutePath(), writer);
