@@ -169,7 +169,7 @@
 				$.ajax({
 					url: _url,
 					success: function (data) {
-						let list = data.split();
+						let list = data.split('\n');
 
 						for (let i = 0; i < list.length; i++) {
 							let line = list[i];
