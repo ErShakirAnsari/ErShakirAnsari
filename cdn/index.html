@@ -181,6 +181,9 @@
 
 							let parentId = line.replace(folder, "").replace("\\", "-");
 							if (line.startsWith(folder)) {
+								str += "</div>";
+								str += "</div>";
+
 								//console.log("FOLDER -- " + line.replace(folder, ""));
 								str += addCard(parentId);
 //								console.log('card added: ' + parentId);
@@ -191,6 +194,9 @@
 //								console.log('label added: ' + line);
 							}
 						}
+						str += "</div>";
+						str += "</div>";
+
 						$('body').append(str);
 						console.log('str: ' + str);
 
@@ -209,8 +215,9 @@
 //				str += "<i class='fa fa-copy' title='copy'></i>&nbsp;<i class='fa fa-clipboard' title='copy as html'></i> |";
 //				str += "<code>https://ershakiransari.github.io/cdn/vendors/jquery/jquery.3.3.1.min.js</code>";
 //				str += "</label>";
-				str += "</div>";
-				str += "</div>";
+//				
+//				str += "</div>";
+//				str += "</div>";
 				return str;
 //				$('body').append(str);
 			};
