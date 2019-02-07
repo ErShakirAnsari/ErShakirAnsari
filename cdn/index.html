@@ -183,15 +183,17 @@
 							if (line.startsWith(folder)) {
 								//console.log("FOLDER -- " + line.replace(folder, ""));
 								str += addCard(parentId);
-								console.log('card added: ' + parentId);
+//								console.log('card added: ' + parentId);
 							}
 							if (line.startsWith(file)) {
 								//console.log("FILE -- " + line.replace(file, ""));
 								str += addLabel(line.replace(file, ""), parentId);
-								console.log('label added: ' + line);
+//								console.log('label added: ' + line);
 							}
 						}
 						$('body').append(str);
+						console.log('str: ' + str);
+
 					}
 				});
 			};
