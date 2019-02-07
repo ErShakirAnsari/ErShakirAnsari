@@ -138,9 +138,7 @@
 			$(document).ready(function () {
 				getText();
 
-				$('.card .card-header').click(function () {
-					$(this).next('.card-body').toggle(333);
-				});
+
 
 				$('i.fa.fa-copy').click(function () {
 					let elem = $(this).next().next();
@@ -160,6 +158,10 @@
 					window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
 				});
 			});
+
+			var cardToggle = function (THIS) {
+				$(THIS).next('.card-body').toggle(333);
+			}
 
 			var getText = function () {
 				let _url = 'vendors/file.txt';
@@ -206,7 +208,7 @@
 			var addCard = function (title) {
 				let str = "<div class='card mb-2'>";
 				str += "<div class='card-header'> " + title + " </div>";
-				str += "<div class='card-body' style='display: none' id='cardBody" + title + "'>";
+				str += "<div class='card-body' style='display: none' id='cardBody" + title + "' onclick='cardToggle(this)'>";
 //				str += "<label>";
 //				str += "<i class='fa fa-copy' title='copy'></i>&nbsp;<i class='fa fa-clipboard' title='copy as html'></i> |";
 //				str += "<code>https://ershakiransari.github.io/cdn/vendors/jquery/jquery.3.3.1.js</code>";
