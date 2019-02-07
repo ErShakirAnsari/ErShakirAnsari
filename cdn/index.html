@@ -202,9 +202,9 @@
 				});
 			};
 			var addCard = function (title) {
-				let str = "<div class='card mb-2'>";
+				let str = "<div class='card mb-2' onclick='cardToggle(this)'>";
 				str += "<div class='card-header'> " + title + " </div>";
-				str += "<div class='card-body' style='display: none' id='cardBody" + title + "' onclick='cardToggle(this)'>";
+				str += "<div class='card-body' style='display: none' id='cardBody" + title + "'>";
 //				str += "<label>";
 //				str += "<i class='fa fa-copy' title='copy'></i>&nbsp;<i class='fa fa-clipboard' title='copy as html'></i> |";
 //				str += "<code>https://ershakiransari.github.io/cdn/vendors/jquery/jquery.3.3.1.js</code>";
