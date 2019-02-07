@@ -170,6 +170,7 @@
 					url: _url,
 					success: function (data) {
 						let list = data.split('\n');
+						let str = "";
 
 						for (let i = 0; i < list.length; i++) {
 							let line = list[i];
@@ -181,15 +182,16 @@
 							let parentId = line.replace(folder, "").replace("\\", "-");
 							if (line.startsWith(folder)) {
 								//console.log("FOLDER -- " + line.replace(folder, ""));
-								addCard(parentId);
+								str += addCard(parentId);
 								console.log('card added: ' + parentId);
 							}
 							if (line.startsWith(file)) {
 								//console.log("FILE -- " + line.replace(file, ""));
-								addLabel(line.replace(file, ""), parentId);
-								console.log('label added: ' + file);
+								str += addLabel(line.replace(file, ""), parentId);
+								console.log('label added: ' + line);
 							}
 						}
+						$('body').append(str);
 					}
 				});
 			};
@@ -207,7 +209,8 @@
 //				str += "</label>";
 				str += "</div>";
 				str += "</div>";
-				$('body').append(str);
+				return str;
+//				$('body').append(str);
 			};
 			var addLabel = function (url, parentId) {
 				let str = ""
@@ -215,7 +218,8 @@
 				str += "<i class='fa fa-copy' title='copy'></i>&nbsp;<i class='fa fa-clipboard' title='copy as html'></i>&nbsp;|&nbsp;";
 				str += "<code>https://ershakiransari.github.io/cdn/vendors/" + url + "</code>";
 				str += "</label>";
-				$('#cardBody' + parentId).append(str);
+//				$('#cardBody' + parentId).append(str);
+				return str;
 			};
 		</script>
 	</body>
