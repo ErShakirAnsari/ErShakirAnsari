@@ -159,10 +159,6 @@
 				});
 			});
 
-			var cardToggle = function (THIS) {
-				$(THIS).next('.card-body').toggle(333);
-			}
-
 			var getText = function () {
 				let _url = 'vendors/file.txt';
 				let folder = 'folder-';
@@ -231,6 +227,9 @@
 				str += "</label>";
 //				$('#cardBody' + parentId).append(str);
 				return str;
+			};
+			var cardToggle = function (THIS) {
+				$(THIS).next('.card-body').toggle(333);
 			};
 		</script>
 	</body>
