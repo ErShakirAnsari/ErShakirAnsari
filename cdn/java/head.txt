@@ -16,7 +16,6 @@
 	<body class='m-3'>
 		<input type='hidden' id='hiddenInput'/>
 		<h1>
-			<i class="fa fa-archive" aria-hidden="true"></i>
-			CDN resolver
+			<i class="fa fa-archive" aria-hidden="true"></i> Static files
 		</h1>
 		<hr>
