@@ -63,9 +63,12 @@ public class IndexMaker
     private static String getCardDiv(File folder)
     {
         StringBuilder builder = new StringBuilder();
+		
+		String folderName = folder.getName().toLowerCase();
+		folderName = folderName.startsWith("1") ? folderName.replace("1", "") : folderName;
 
         builder.append("<div class='card mb-2'>");
-        builder.append("<div class='card-header'> ").append(folder.getName().toLowerCase()).append(" </div>");
+        builder.append("<div class='card-header'> ").append(folderName).append(" </div>");
         builder.append("<div class='card-body' style='display: none'>");
 
         for (File singleFile : folder.listFiles())
