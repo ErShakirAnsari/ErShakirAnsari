@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> SKR - CDN resolver </title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel='stylesheet' type="text/css" href='https://ershakiransari.github.io/cdn/vendors/bootstrap/css/bootstrap.4.0.0.min.css'>
+		<link rel='stylesheet' type="text/css" href='https://ershakiransari.github.io/cdn/vendors/font-awesome/font-awesome.4.7.0.min.css'>
+		<style>
+			label { display: block }
+			label code { color: #007bff !important }
+			label i { color: #555; cursor: pointer }
+			.card .card-header { cursor: pointer }
+		</style>
+	</head>
+
+	<body class='m-3'>
+		<input type='hidden' id='hiddenInput'/>
+		<h1>
+			<i class="fa fa-archive" aria-hidden="true"></i>
+			CDN resolver
+		</h1>
+		<hr>

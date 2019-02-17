@@ -1,0 +1,36 @@
+		<script type='text/javascript' src='https://ershakiransari.github.io/cdn/vendors/jquery/jquery.3.3.1.js'></script>
+		<script src='https://ershakiransari.github.io/cdn/vendors/bootstrap/js/bootstrap.bundle.4.2.1.min.js'></script>
+		<script>
+			$(document).ready(function ()
+			{
+				$('.card-header').click(function ()
+				{
+					$(this).next('.card-body').toggle(333);
+				});
+
+				$('i.fa.fa-copy').click(function ()
+				{
+					let elem = $(this).next().next();
+					window.prompt("Copy to clipboard: Ctrl+C, Enter", elem.text());
+				});
+
+				$('i.fa.fa-clipboard').click(function ()
+				{
+					let elem = $(this).next();
+					let text = elem.text().toLowerCase();
+					if (text.endsWith(".css"))
+					{
+						text = "<link rel='stylesheet' type='text/css' href='" + text + "'>";
+					} else if (text.endsWith(".js"))
+					{
+						text = "<script type='text/javascript' src='" + text + "'></script" + ">";
+					} else if (text.endsWith(".jpeg") || text.endsWith(".jpg"))
+					{
+						text = "<img '" + text + "' alt='" + text.substring(text.lastIndexOf("/") + 1, text.length) + "' />";
+					}
+					window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+				});
+			});
+		</script>
+	</body>
+</html>
