@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.Writer;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -63,9 +64,9 @@ public class IndexMaker
     private static String getCardDiv(File folder)
     {
         StringBuilder builder = new StringBuilder();
-		
-		String folderName = folder.getName().toLowerCase();
-		folderName = folderName.startsWith("1") ? folderName.replace("1", "") : folderName;
+
+        String folderName = folder.getName().toLowerCase();
+        folderName = folderName.startsWith("1") ? folderName.replace("1", "") : folderName;
 
         builder.append("<div class='card mb-2'>");
         builder.append("<div class='card-header'> ").append(folderName).append(" </div>");
@@ -80,6 +81,7 @@ public class IndexMaker
                 builder.append("<code>");
                 builder.append("https://ershakiransari.github.io/cdn");
                 builder.append(singleFile.getAbsolutePath().replace(vendorFolder, "/vendors").replace("\\", "/"));
+                builder.append(MessageFormat.format("&nbsp; (size: {0} kb)", singleFile.length() / 1024));
                 builder.append("</code>");
                 builder.append("</label>");
             }
