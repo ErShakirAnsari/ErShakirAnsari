@@ -79,8 +79,8 @@ public class IndexMaker
                 builder.append("<label>");
                 builder.append("<i class='fa fa-copy' title='copy'></i>&nbsp;<i class='fa fa-clipboard' title='copy as html'></i>&nbsp;|&nbsp;");
                 builder.append("<code>");
-                builder.append("https://ershakiransari.github.io/cdn");
-                builder.append(singleFile.getAbsolutePath().replace(vendorFolder, "/vendors").replace("\\", "/"));
+//                builder.append("https://ershakiransari.github.io/cdn");
+                builder.append(singleFile.getAbsolutePath().replace(vendorFolder, "").replace("\\", "/"));
                 builder.append("</code>");
                 builder.append(MessageFormat.format("&nbsp; (size: {0} kb)", singleFile.length() / 1024));
                 builder.append("</label>");

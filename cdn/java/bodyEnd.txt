@@ -1,8 +1,12 @@
-		<script type='text/javascript' src='https://ershakiransari.github.io/cdn/vendors/jquery/jquery.3.3.1.js'></script>
-		<script type='text/javascript' src='https://ershakiransari.github.io/cdn/vendors/bootstrap/bootstrap.bundle.4.2.1.min.js'></script>
+		<script type='text/javascript' src='https://ershakiransari.github.io/cdn/vendors/jquery/jquery.3.3.1.min.js'></script>
+		<script type='text/javascript' src='https://ershakiransari.github.io/cdn/vendors/bootstrap/bootstrap.4.2.1.min.js'></script>
 		<script>
 			$(document).ready(function ()
 			{
+				$('code').each(function() {
+					$(this).text('https://ershakiransari.github.io/cdn/vendors' + $(this).text());
+				});
+
 				$('.card-header').click(function ()
 				{
 					$(this).next('.card-body').toggle(333);
@@ -17,15 +21,19 @@
 				$('i.fa.fa-clipboard').click(function ()
 				{
 					let elem = $(this).next();
-					/*let text = elem.text().toLowerCase();*/
 					let text = elem.text();
+					let textLowerCase = text.toLowerCase();
+
 					if (text.endsWith(".css"))
 					{
 						text = "<link rel='stylesheet' type='text/css' href='" + text + "'>";
 					} else if (text.endsWith(".js"))
 					{
 						text = "<script type='text/javascript' src='" + text + "'></script" + ">";
-					} else if (text.endsWith(".jpeg") || text.endsWith(".jpg"))
+					} else if (textLowerCase.endsWith(".jpeg")
+								|| textLowerCase.endsWith(".jpg")
+								|| textLowerCase.endsWith(".gif")
+								|| textLowerCase.endsWith(".png"))
 					{
 						text = "<img '" + text + "' alt='" + text.substring(text.lastIndexOf("/") + 1, text.length) + "' />";
 					}
