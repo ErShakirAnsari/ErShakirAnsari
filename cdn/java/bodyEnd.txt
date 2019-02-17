@@ -17,7 +17,8 @@
 				$('i.fa.fa-clipboard').click(function ()
 				{
 					let elem = $(this).next();
-					let text = elem.text().toLowerCase();
+					/*let text = elem.text().toLowerCase();*/
+					let text = elem.text();
 					if (text.endsWith(".css"))
 					{
 						text = "<link rel='stylesheet' type='text/css' href='" + text + "'>";

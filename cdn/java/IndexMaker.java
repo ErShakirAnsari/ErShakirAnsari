@@ -81,9 +81,10 @@ public class IndexMaker
                 builder.append("<code>");
                 builder.append("https://ershakiransari.github.io/cdn");
                 builder.append(singleFile.getAbsolutePath().replace(vendorFolder, "/vendors").replace("\\", "/"));
-                builder.append(MessageFormat.format("&nbsp; (size: {0} kb)", singleFile.length() / 1024));
                 builder.append("</code>");
+                builder.append(MessageFormat.format("&nbsp; (size: {0} kb)", singleFile.length() / 1024));
                 builder.append("</label>");
+                //System.out.println(singleFile.getAbsolutePath());
             }
         }
 
