@@ -6,21 +6,25 @@
 				$('code').each(function() {
 					$(this).text('https://ershakiransari.github.io/cdn/vendors' + $(this).text());
 				});
+				
+				$('label a').each(function() {
+					$(this).attr('href', $(this).next('code').text()).attr('target', '_blank');
+				});
 
 				$('.card-header').click(function ()
 				{
 					$(this).next('.card-body').toggle(333);
 				});
 
-				$('i.fa.fa-copy').click(function ()
+				$('.fa-copy').click(function ()
 				{
-					let elem = $(this).next().next();
+					let elem = $(this).next('code');
 					window.prompt("Copy to clipboard: Ctrl+C, Enter", elem.text());
 				});
 
-				$('i.fa.fa-clipboard').click(function ()
+				$('.fa-clipboard').click(function ()
 				{
-					let elem = $(this).next();
+					let elem = $(this).next('code');
 					let text = elem.text();
 					let textLowerCase = text.toLowerCase();
 
