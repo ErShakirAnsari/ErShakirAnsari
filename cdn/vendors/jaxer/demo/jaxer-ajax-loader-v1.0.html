@@ -1,0 +1,28 @@
+ <!--
+   - Document : JaxerAjaxLoader-1.0.html
+   - Date    : Jul 15, 2014, 6:18:36 PM
+   - Author  : SKR
+-->
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title> SKR|JaxerAjaxLoader-1.0 </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <style> body { background: transparent url(../../../../RSC/img/FloatingClouds.jpg) no-repeat; background-size: cover cover; } </style>
+      <script type="text/javascript" src="../../../../RSC/jquery-1.9.1.js"></script>
+      <link  href="src/JaxerAjaxLoader-1.0.css" rel="stylesheet">
+      <script src="src/JaxerAjaxLoader-1.0.js"></script>
+      <script type="text/javascript">
+         $(document).ready(function() {
+            $("#LoaderID").click(function(){ jLoad(); });
+            $("#UnLoaderID").click(function(){ jUnLoad(); });
+         });
+      </script>
+   </head>
+
+   <body>
+      <a href="javascript: void(0);" id='LoaderID'> Loader </a> <br>
+      <a href="javascript: void(0);" id='UnLoaderID'> UnLoader </a> <br>
+   </body>
+</html>

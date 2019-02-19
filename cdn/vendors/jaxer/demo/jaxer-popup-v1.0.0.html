@@ -1,0 +1,46 @@
+ <!--
+   - Document : JaxerPopUp-1.0.html
+   - @date    : Jul 12, 2014, 3:01:13 PM
+   - @author  : SKR
+-->
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title> SKR|JaxerPopUp-1.0 </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <style> body { background: transparent url(../../../../RSC/img/FloatingClouds.jpg) no-repeat; background-size: cover; } </style>
+      <script type="text/javascript" src="../../../../RSC/jquery-1.9.1.js"></script>
+      <link  href="src/JaxerPopUp-1.0.css" rel="stylesheet">
+      <script src="src/JaxerPopUp-1.0.js"></script>
+      <script type="text/javascript">
+         $(document).ready(function() {
+            $("#demojNoti").click(function(){
+               $.JaxerPopUp();
+            });
+            $("#demojNoti1").click(function(){
+               $.JaxerPopUp({
+                  title: 'SKR',
+                  message:
+                        'jhfdfvbdkf kdsfjvbsdfk vksjdbvksdfj ffkdvjbsdfouvdsf dkjsbvksdfjvbosd dkfjvbsdfvousdf skjdbvsdjfb \n' +
+                        'jhfdfvbdkf kdsfjvbsdfk vksjdbvksdfj ffkdvjbsdfouvdsf dkjsbvksdfjvbosd dkfjvbsdfvousdf skjdbvsdjfb 11<br>' +
+                        'jhfdfvbdkf kdsfjvbsdfk vksjdbvksdfj ffkdvjbsdfouvdsf dkjsbvksdfjvbosd dkfjvbsdfvousdf skjdbvsdjfb 22<br/>' +
+                        'jhfdfvbdkf kdsfjvbsdfk vksjdbvksdfj ffkdvjbsdfouvdsf dkjsbvksdfjvbosd dkfjvbsdfvousdf skjdbvsdjfb 33<br />',
+
+                  showTime: 500,
+                  hideTime: 500,
+
+                  autoHide: true,
+                  displayTime: 3000,
+                  autoHideTime: 1000
+               });
+            });
+         });
+      </script>
+   </head>
+
+   <body>
+      <a href="javascript: void(0);" id='demojNoti'> PopUp </a> <br>
+      <a href="javascript: void(0);" id='demojNoti1'> PopUp2 </a> <br>
+   </body>
+</html>

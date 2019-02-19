@@ -1,0 +1,47 @@
+ <!--
+   - Document   : JaxerNotifications-1.0.html
+   - @date      : Jul 10, 2014, 5:36:28 PM
+   - @author    : SKR
+-->
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title> SKR|JaxerNotifications-1.0 </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <style> body { background: transparent url(../../../../RSC/img/FloatingClouds.jpg) no-repeat; background-size: cover; } </style>
+      <script type="text/javascript" src="../../../../RSC/jquery-1.9.1.js"></script>
+      <link  href="src/JaxerNotifications-1.0.css" rel="stylesheet">
+      <script src="src/JaxerNotifications-1.0.js"></script>
+      <script type="text/javascript">
+         $(document).ready(function() {
+            $("#demojNoti").click(function(){
+               $.JaxerNotifications();
+            });
+            $("#demojNoti1").click(function(){
+               $.JaxerNotifications({
+                  title: 'SKR',
+                  message:
+                        'jhfdfvbdkf kdsfjvbsdfk vksjdbvksdfj ffkdvjbsdfouvdsf dkjsbvksdfjvbosd dkfjvbsdfvousdf skjdbvsdjfb' +
+                        'jhfdfvbdkf kdsfjvbsdfk vksjdbvksdfj ffkdvjbsdfouvdsf dkjsbvksdfjvbosd dkfjvbsdfvousdf skjdbvsdjfb' +
+                        'jhfdfvbdkf kdsfjvbsdfk vksjdbvksdfj ffkdvjbsdfouvdsf dkjsbvksdfjvbosd dkfjvbsdfvousdf skjdbvsdjfb' +
+                        'jhfdfvbdkf kdsfjvbsdfk vksjdbvksdfj ffkdvjbsdfouvdsf dkjsbvksdfjvbosd dkfjvbsdfvousdf skjdbvsdjfb' +
+                        'jhfdfvbdkf kdsfjvbsdfk vksjdbvksdfj ffkdvjbsdfouvdsf dkjsbvksdfjvbosd dkfjvbsdfvousdf skjdbvsdjfb',
+
+                  showTime: 500,
+                  hideTime: 500,
+
+                  autoHide: true,
+                  displayTime: 3000,
+                  autoHideTime: 1000
+               });
+            });
+         });
+      </script>
+   </head>
+
+   <body>
+      <a href="javascript: void(0);" id='demojNoti'> Alert </a> <br>
+      <a href="javascript: void(0);" id='demojNoti1'> Alert1 </a> <br>
+   </body>
+</html>

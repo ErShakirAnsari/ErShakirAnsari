@@ -1,0 +1,48 @@
+ <!--
+   - Document : JaxerNotifications-1.1.0.html
+   - Date    : Jul 14, 2014, 5:50:31 PM
+   - Author  : SKR
+-->
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title> SKR|JaxerNotifications-1.1.0 </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <style>
+         body { background: url(../../../../RSC/img/bg.jpg) no-repeat; background-size: cover cover; }
+         a, a:link { color: #FFF; font: normal 20px verdana, georgia; text-decoration: none; }
+         a:hover   { color: #DDD; }
+      </style>
+
+      <script type="text/javascript" src="../../../../RSC/jquery-1.9.1.js"></script>
+      <link href="src/JaxerNotifications-1.1.0.css" rel="stylesheet">
+      <script src="src/JaxerNotifications-1.1.0.js"></script>
+      <script type="text/javascript">
+         $(document).ready(function() {
+            $("#demojNoti").click(function(){
+               $.JaxerNotifications();
+            });
+            $("#demojNoti1").click(function(){
+               jNF({
+                  title: 'SKR',
+                  message:
+                        'jhfdfvbdkf kdsfjvbsdfk vksjdbvksdfj ffkdvjbsdfouvdsf dkjsbvksdfjvbosd dkfjvbsdfvousdf skjdbvsdjfb' +
+                        'jhfdfvbdkf kdsfjvbsdfk vksjdbvksdfj ffkdvjbsdfouvdsf dkjsbvksdfjvbosd dkfjvbsdfvousdf skjdbvsdjfb' +
+                        'jhfdfvbdkf kdsfjvbsdfk vksjdbvksdfj ffkdvjbsdfouvdsf dkjsbvksdfjvbosd dkfjvbsdfvousdf skjdbvsdjfb' +
+                        'jhfdfvbdkf kdsfjvbsdfk vksjdbvksdfj ffkdvjbsdfouvdsf dkjsbvksdfjvbosd dkfjvbsdfvousdf skjdbvsdjfb' +
+                        'jhfdfvbdkf kdsfjvbsdfk vksjdbvksdfj ffkdvjbsdfouvdsf dkjsbvksdfjvbosd dkfjvbsdfvousdf skjdbvsdjfb',
+
+                  showTime: 500,
+                  hideTime: 500,
+               });
+            });
+         });
+      </script>
+   </head>
+
+   <body>
+      <a href="javascript: void(0);" id='demojNoti'> Alert </a> <br>
+      <a href="javascript: void(0);" id='demojNoti1'> Alert1 </a> <br>
+   </body>
+</html>
