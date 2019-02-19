@@ -3,12 +3,23 @@
 		<script>
 			$(document).ready(function ()
 			{
+				$('i.fa.fa-copy').each(function(){
+					$(this).attr('title', 'Copy to clipboard');
+				});
+
+				$('i.fa.fa-clipboard').each(function(){
+					$(this).attr('title', 'Copy as html to clipboard');
+				});
+				
 				$('code').each(function() {
 					$(this).text('https://ershakiransari.github.io/cdn/vendors' + $(this).text());
 				});
 				
 				$('label a').each(function() {
-					$(this).attr('href', $(this).next('code').text()).attr('target', '_blank');
+					$(this)
+					.attr('href', $(this).next('code').text())
+					.attr('target', '_blank')
+					.attr('title', 'Open in new tab');
 				});
 
 				$('.card-header').click(function ()
@@ -22,7 +33,7 @@
 					window.prompt("Copy to clipboard: Ctrl+C, Enter", elem.text());
 				});
 
-				$('.fa-clipboard').click(function ()
+				$('i.fa.fa-clipboard').click(function ()
 				{
 					let elem = $(this).next().next();
 					let text = elem.text();

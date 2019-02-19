@@ -77,16 +77,16 @@ public class IndexMaker
             if (singleFile.isFile())
             {
                 builder.append("<label>");
-                builder.append("<i class='fa fa-copy' title='copy'></i>&nbsp;");
-				builder.append("<i class='fa fa-clipboard' title='copy as html'></i>&nbsp;");
-				builder.append("<a href='#'><i class='fa fa-link' title='Open in new tab'></i></a>");
+                builder.append("<i class='fa fa-copy'></i>&nbsp;");
+				builder.append("<i class='fa fa-clipboard'></i>&nbsp;");
+				builder.append("<a href='#'><i class='fa fa-link'></i></a>");
 				builder.append("&nbsp;|&nbsp;");
                 builder.append("<code>");
                 //builder.append("<a href='#'>");
                 builder.append(singleFile.getAbsolutePath().replace(vendorFolder, "").replace("\\", "/"));
                 //builder.append("</a>");
                 builder.append("</code>");
-                builder.append(MessageFormat.format("&nbsp; (size: {0} kb)", singleFile.length() / 1024));
+                builder.append(MessageFormat.format("&nbsp;(size: {0})", getFileSize(singleFile.length())));
                 builder.append("</label>");
                 //System.out.println(singleFile.getAbsolutePath());
             }
@@ -97,6 +97,16 @@ public class IndexMaker
 
         return builder.toString();
     }
+	
+	private static String getFileSize(long fileLength)
+	{
+		if((fileLength / 1024) < 1024)
+		{
+			return String.format("%.2f", (fileLength /1024f))  + " KB";
+		}
+	
+		return String.format("%.2f", (fileLength /1024f/1024f ))  + " MB";
+	}
 
     private static String getHead() throws Exception
     {
