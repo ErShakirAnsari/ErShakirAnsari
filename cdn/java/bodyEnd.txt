@@ -16,15 +16,15 @@
 					$(this).next('.card-body').toggle(333);
 				});
 
-				$('.fa-copy').click(function ()
+				$('i.fa.fa-copy').click(function ()
 				{
-					let elem = $(this).next('code');
+					let elem = $(this).next().next().next();
 					window.prompt("Copy to clipboard: Ctrl+C, Enter", elem.text());
 				});
 
 				$('.fa-clipboard').click(function ()
 				{
-					let elem = $(this).next('code');
+					let elem = $(this).next().next();
 					let text = elem.text();
 					let textLowerCase = text.toLowerCase();
 
