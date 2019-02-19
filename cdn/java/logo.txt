@@ -1,0 +1,22 @@
+<!--
+
+THIS WEB PAGE(S) IS/ARE PROPERTY OF JAXER
+
+  /$$$$$$  /$$   /$$ /$$$$$$$ 
+ /$$__  $$| $$  /$$/| $$__  $$
+| $$  \__/| $$ /$$/ | $$  \ $$
+|  $$$$$$ | $$$$$/  | $$$$$$$/
+ \____  $$| $$  $$  | $$__  $$
+ /$$  \ $$| $$\  $$ | $$  \ $$
+|  $$$$$$/| $$ \  $$| $$  | $$
+ \______/ |__/  \__/|__/  |__/
+
+PLEASE NOTE THAT:
+1) NO WARRANTY EXPRESSED OR IMPLIED.
+2) USE AT YOUR OWN RISK.
+3) USE YOUR OWN COPY.
+4) IT IS EXTREMELY UNWISE TO LOAD CODE FROM SERVERS YOU DO NOT CONTROL.
+5) SOME OF THE CONTENT(S) IS/ARE COPIED FROM THE WWW, IS/ARE UNCHANGED AND FOR ONLY PERSONAL USE.
+
+ -->
+ 

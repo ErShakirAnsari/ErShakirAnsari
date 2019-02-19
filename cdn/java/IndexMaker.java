@@ -22,6 +22,7 @@ public class IndexMaker
     public static final String file = pwd + File.separator + "file.txt";
     public static final String indexFile = new File(pwd).getParent() + File.separator + "index.html";
     public static final String indexHead = pwd + File.separator + "head.txt";
+    public static final String indexLogo = pwd + File.separator + "logo.txt";
     public static final String indexBodyEnd = pwd + File.separator + "bodyEnd.txt";
     public static final String encoding = "UTF-8";
 
@@ -29,6 +30,7 @@ public class IndexMaker
     {
         try (Writer writer = new BufferedWriter(new FileWriter(indexFile));)
         {
+            writer.append(printLogo());
             writer.append(getHead());
             ArrayList<String> folderList = new ArrayList<>();
             folderList = getFolderList(vendorFolder, folderList);
@@ -76,6 +78,7 @@ public class IndexMaker
         {
             if (singleFile.isFile())
             {
+                //builder.append(System.lineSeparator());
                 builder.append("<label>");
                 builder.append("<i class='fa fa-copy'></i>&nbsp;");
 				builder.append("<i class='fa fa-clipboard'></i>&nbsp;");
@@ -88,6 +91,7 @@ public class IndexMaker
                 builder.append("</code>");
                 builder.append(MessageFormat.format("&nbsp;(size: {0})", getFileSize(singleFile.length())));
                 builder.append("</label>");
+                //builder.append(System.lineSeparator());
                 //System.out.println(singleFile.getAbsolutePath());
             }
         }
@@ -107,6 +111,20 @@ public class IndexMaker
 	
 		return String.format("%.2f", (fileLength /1024f/1024f ))  + " MB";
 	}
+
+    private static String printLogo() throws Exception
+    {
+        StringBuilder builder = new StringBuilder();
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(indexLogo));)
+        {
+            String line = null;
+            while ((line = bufferedReader.readLine()) != null)
+            {
+                builder.append(line).append(System.lineSeparator());
+            }
+        }
+        return builder.toString();
+    }
 
     private static String getHead() throws Exception
     {
