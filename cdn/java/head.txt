@@ -18,9 +18,7 @@
 		<h1>
 			<i class="fa fa-archive" aria-hidden="true"></i> Static files
 		</h1>
-		<h6 class='text-danger'>
-			NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.<br>
-			USE YOUR OWN COPY.<br>
-			IT IS EXTREMELY UNWISE TO LOAD CODE FROM SERVERS YOU DO NOT CONTROL.
+		<h6 class='text-danger text-transform: lowercase'>
+			$root: <span id="typed" style="white-space:pre;"></span>
 		</h6>
 		<hr>
