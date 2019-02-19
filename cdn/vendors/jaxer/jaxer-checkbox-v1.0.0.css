@@ -1,0 +1,21 @@
+/*!
+ * @version  : 1.0.0
+ * @date     : Aug 27, 2014, 5:23:37 PM
+ * @licensed : Private
+ * @author   : SKR
+ */
+
+input[type='checkbox'] { display: none; }
+input[type='checkbox'] + label {
+   background: url("data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAABAAAAAwCAYAAAAYX/pXAAADxElEQVR42u2U3U9bdRzGf/+DFxuM0lEWZ0LijYnRC29255X/hInJbrzZpagjMS4biJmirvQNdRaQl8oAQUrpC6NlfW/P6XthLDqdGJTaJW5N+/h7DlJoBQJ4t3iSpy/f7+fztD3npCIYDOpkRmVKMpVjhuw4XREKhRZlcMosinA4DFVVkclkkM1mjxWydOiKXfk0oStOK+/m/4JnpqD2Hwpqolgsbp62gK4ol8t9hUJhK51O4yShQ1cAOFOtVrtlTCdMN13R861Ld33SPXpzylP6YtpbMc/6KtbvfRXbXGM4444MWemM0xW9k57Fz6d9sM0vw+5cwdiSHw534MBwR4YsHbpiQL6we8KYCSTgCitYjqrwx1MINIUz7sjMrCY0h66wuUKY8ks5lJSQ/JNIphBTUoirjeGMOzKucFJzhqQrhn0xzN5LwBdVNCChppGSZzmVaYqccUeGLB27dMWIfJiXb+7GVETlp6ip9OH/QHJHhiydkb2C5F5B+oiC9P6C5DNVMKedRAURuVSOKOAuohUomqMV3PZGtRvDE1EQTKjaNVfk2T4o3JEhS4eu+NIdrTlW4lgIJrXruyqBUHLnptkfzrgjQ5YOXWH2JDbtsmnKH8cPwQSW5F3mlZ9AcH84444MWTp0xdexh30Wd3zrtieCseWobI7hjgSmA43hjDsyZOnQFVZl68xwZqt7Mve7aba4bVpY3zYt3i+ZXBuN4Yw7MmTp0BXt15d0MqMyJZnKMUN2nK4w9Lqd7Tc80Pd6j5X23Wfp0BUd/T50GBV0WgvotB2VIvSWndcdlrzm0BWGQXUHsOaPjM6UwyvfFHDF8zO6hnLajK5oBttMuX/J5wazeM2eg3fjD/CwJTdx0ZrRdg0FrcYsLo2to8WYgeGfWYuUL43ksfrjNnaPyP1f0WWMNxVYcnhzbgPhXx7jrfkHOHsrjbOy8PWxAiIPS3V5Pr6Grg+ncX4grDn1gpeGUtj+q6JBZfn8tnMDb0zkoT4q12VHKIcXro6jtXcZnabUvm9gyeLFWyH0O+N1+PGTp8j/tifb/SouUu67C4M5Xf/Z9QL9QAQt73+HdydW0HyY3XE83zOB1o9WGuTGc2DOoP2TEFrec+DKsFdqNU3+dCGCC1I+1+/XmOYr1HgZzTvfpPXqHVz+yo1rM0F09jjQ9nHgQFkruGDL1xqG8uec/yyKtmtOdN5wQnfz3qEyXfHq8NpPBkvTUl6ejsEU9Eb1UJkOXTG7/uc7L9vXHunNOZwkdOiKag3PlZ9WL5eeVD84SejQ/RttT5WbwdDPtQAAAABJRU5ErkJggg==") no-repeat 0 0 transparent;
+   cursor: pointer;
+   padding: 0 0 1px 20px;
+
+   -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+       -ms-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+           transition: all 0.3s ease-in-out;
+}
+/*input[type='checkbox']:hover + label { background-position: 0 -16px; }*/
+input[type='checkbox']:checked + label { background-position: 0 -32px; }
