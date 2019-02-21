@@ -18,7 +18,7 @@
 		<h1>
 			<i class="fa fa-archive" aria-hidden="true"></i> Static files
 		</h1>
-		<h6 class='text-danger text-transform: lowercase'>
+		<h5 class='text-muted text-transform: lowercase'>
 			$root: <span id="typed" style="white-space:pre;"></span>
-		</h6>
+		</h5>
 		<hr>

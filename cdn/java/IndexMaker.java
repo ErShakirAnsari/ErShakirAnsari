@@ -2,9 +2,9 @@
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.Writer;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.Writer;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -101,14 +101,14 @@ public class IndexMaker
 
         return builder.toString();
     }
-	
+
 	private static String getFileSize(long fileLength)
 	{
 		if((fileLength / 1024) < 1024)
 		{
 			return String.format("%.2f", (fileLength /1024f))  + " KB";
 		}
-	
+
 		return String.format("%.2f", (fileLength /1024f/1024f ))  + " MB";
 	}
 
