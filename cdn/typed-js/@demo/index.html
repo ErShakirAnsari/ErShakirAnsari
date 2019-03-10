@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Typed.js - Type your heart out</title>
+  <script type="text/javascript" src='https://ershakiransari.github.io/cdn/vendors/typedJs/typed.min.2.0.9.js?v=1.0.0'></script>
+</head>
+<body>
+
+<div class="wrap">
+  <h1 class="title">Typed.js</h1>
+  
+   <span id="typed" style="white-space:pre;"></span>
+
+ 
+
+    <script>
+  var typed = new Typed("#typed", {
+//    stringsElement: '#typed-strings',
+	strings: ['Some <i>strings</i> with', 'Some <strong>HTML</strong>', 'Chars &times; &copy;'],
+    typeSpeed: 30,
+    backSpeed: 30,
+    backDelay: 5000,
+    startDelay: 1000,
+    loop: true,
+	cursorChar: '_'
+//    onComplete: function(self) { prettyLog('onCmplete ' + self) },
+//    preStringTyped: function(pos, self) { prettyLog('preStringTyped ' + pos + ' ' + self); },
+//    onStringTyped: function(pos, self) { prettyLog('onStringTyped ' + pos + ' ' + self) },
+//    onLastStringBackspaced: function(self) { prettyLog('onLastStringBackspaced ' + self) },
+//    onTypingPaused: function(pos, self) { prettyLog('onTypingPaused ' + pos + ' ' + self) },
+//    onTypingResumed: function(pos, self) { prettyLog('onTypingResumed ' + pos + ' ' + self) },
+//    onReset: function(self) { prettyLog('onReset ' + self) },
+//    onStop: function(pos, self) { prettyLog('onStop ' + pos + ' ' + self) },
+//    onStart: function(pos, self) { prettyLog('onStart ' + pos + ' ' + self) },
+//    onDestroy: function(self) { prettyLog('onDestroy ' + self) }
+  });
+    </script>
+
+</div>
+
+</body>
+</html>
