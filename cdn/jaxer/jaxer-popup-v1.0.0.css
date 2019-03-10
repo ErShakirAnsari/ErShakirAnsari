@@ -1,0 +1,42 @@
+/*!
+ * @version : 1.0.0
+ * @date    : Jul 12, 2014, 3:00:52 PM
+ * @author  : SKR
+ **/
+
+#JaxerPopUp {
+   background: #fde073;
+   color: #000;
+   font: 100 14px Verdana;
+   left: 0;
+   line-height: 1.5;
+   padding: 7px 10px;
+   position: absolute;
+   right: 0;
+   text-align: center;
+   text-shadow: 0 0 1px #BBB;
+   top: 0;
+   z-index: 999;
+
+   -webkit-box-shadow: 0 2px 2px #777;
+      -moz-box-shadow: 0 2px 2px #777;
+           box-shadow: 0 2px 2px #777;
+}
+#JaxerPopUp b { font-size: 120%; font-weight: 500; }
+#JaxerPopUpClose {
+   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAABABAMAAAA39jDAAAAAMFBMVEUAAABlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWX///8AAAAAAAAAAABoztAKAAAAC3RSTlMATb9mGjOAq7NF5hK2qM4AAAD+SURBVHjajZExbsJAEEX/7IIU2UWcNmVOsEVq4AhwA8R1uISb9C5T0qSOz0HlFHaD7OXPTBKQQFF2inmeffZ8ycAfZ5aAVyAgR8TMZ4xIcQQicHzGp15xxIFC1LFCoqUQ0bZRQegI/nVkc7C+lCcf5PBzFfDQAO/25RJl1Dw9mrK3pesSa4OeZUDHoaGlQIMWYaTD0HdWrLyvLnl2nmchLz6YrvLMa+DNoEAx1zwD6mKwpdsCW4OBZUDHoaalQIMW4UTnxF23K27z7JP1j+Ad6SpProBHhSCQoHkyKsm2tBN0BpllQMehomW/CR0twkRnsglf+TLne0Xrvf3NcwaDf0TY/IngCAAAAABJRU5ErkJggg==);
+   cursor: pointer;
+   float: right;
+   height: 15px;
+   position: relative;
+   width: 15px;
+   z-index: 9992;
+
+/*   -webkit-transition: all .3s ease-in-out;
+      -moz-transition: all .3s ease-in-out;
+       -ms-transition: all .3s ease-in-out;
+        -o-transition: all .3s ease-in-out;
+           transition: all .3s ease-in-out;*/
+}
+#JaxerPopUpClose:hover { background-position: 0 -16px; }
+#JaxerPopUpClose:active { background-position: 0 -48px; }
