@@ -1,0 +1,23 @@
+<!--
+
+THIS WEB PAGE(S) IS/ARE PROPERTY OF JAXER
+
+  /$$$$$$  /$$   /$$ /$$$$$$$ 
+ /$$__  $$| $$  /$$/| $$__  $$
+| $$  \__/| $$ /$$/ | $$  \ $$
+|  $$$$$$ | $$$$$/  | $$$$$$$/
+ \____  $$| $$  $$  | $$__  $$
+ /$$  \ $$| $$\  $$ | $$  \ $$
+|  $$$$$$/| $$ \  $$| $$  | $$
+ \______/ |__/  \__/|__/  |__/
+
+PLEASE NOTE THAT:
+1) NO WARRANTY EXPRESSED OR IMPLIED.
+2) USE AT YOUR OWN RISK.
+3) USE YOUR OWN COPY.
+4) IT IS EXTREMELY UNWISE TO LOAD CODE FROM SERVERS YOU DO NOT CONTROL.
+5) SOME OF THE CONTENT(S) IS/ARE COPIED FROM THE WWW, IS/ARE UNCHANGED AND FOR ONLY PERSONAL USE.
+
+ -->
+ 
+<!DOCTYPE html><html><head><title> SKR - CDN resolver </title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel='stylesheet' type='text/css' href='https://ershakiransari.github.io/cdn/vendors/bootstrap/bootstrap-v4.3.1.min.css'><link rel='stylesheet' type="text/css" href='https://ershakiransari.github.io/cdn/vendors/font-awesome/font-awesome-v4.7.0.min.css'><style>label { display: block }label code { color: #007bff !important }label i { color: #555; cursor: pointer }.card .card-header { cursor: pointer }</style></head><body class='m-3'><input type='hidden' id='hiddenInput'/><h1><i class="fa fa-archive" aria-hidden="true"></i> Static files</h1><h5 class='text-muted text-transform: lowercase'>$root: <span id="typed" style="white-space:pre;"></span></h5><hr><hr><p class='text-right'>&copy; SKR - 2019<br>Updated on: Fri Mar 01 10:15:20 IST 2019</p><script type='text/javascript' src='https://ershakiransari.github.io/cdn/vendors/jquery/jquery-v3.3.1.min.js'></script><script type='text/javascript' src='https://ershakiransari.github.io/cdn/vendors/typed-js/typed-v2.0.9.min.js'></script><script type='text/javascript' src='https://ershakiransari.github.io/cdn/vendors/bootstrap/bootstrap-v4.3.1.min.js'></script><script>$(document).ready(function (){$('i.fa.fa-copy').each(function (){$(this).attr('title', 'Copy to clipboard');});$('i.fa.fa-clipboard').each(function (){$(this).attr('title', 'Copy as html to clipboard');});$('code').each(function (){$(this).text('https://ershakiransari.github.io/cdn/vendors' + $(this).text());});$('label a').each(function (){$(this).attr('href', $(this).next('code').text()).attr('target', '_blank').attr('title', 'Open in new tab');});$('.card-header').click(function (){$(this).next('.card-body').toggle(333);});$('i.fa.fa-copy').click(function (){let elem = $(this).next().next().next();window.prompt("Copy to clipboard: Ctrl+C, Enter", elem.text());});$('i.fa.fa-clipboard').click(function (){let elem = $(this).next().next();let text = elem.text();let textLowerCase = text.toLowerCase();if (text.endsWith(".css")){text = "<link rel='stylesheet' type='text/css' href='" + text + "'>";} else if (text.endsWith(".js")){text = "<script type='text/javascript' src='" + text + "'></script" + ">";} else if (textLowerCase.endsWith(".jpeg")|| textLowerCase.endsWith(".jpg")|| textLowerCase.endsWith(".gif")|| textLowerCase.endsWith(".png")){text = "<img '" + text + "' alt='" + text.substring(text.lastIndexOf("/") + 1, text.length) + "' />";}window.prompt("Copy to clipboard: Ctrl+C, Enter", text);});});var typed = new Typed("#typed", {strings: ['NO WARRANTY EXPRESSED OR IMPLIED.','USE AT YOUR OWN RISK.','USE YOUR OWN COPY.','IT IS EXTREMELY UNWISE TO LOAD CODE FROM SERVERS YOU DO NOT CONTROL.'],typeSpeed: 30,backSpeed: 30,backDelay: 5000,startDelay: 1000,loop: true,cursorChar: '_'});</script></body></html>
