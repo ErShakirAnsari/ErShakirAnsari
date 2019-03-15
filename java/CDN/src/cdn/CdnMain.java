@@ -21,8 +21,8 @@ public class CdnMain
         ArrayList<String> fileNames = new ArrayList<>();
         try (Writer writer = new BufferedWriter(new FileWriter(Constants.indexFile));)
         {
-            writer.append(AppUtilities.printLogo());
-            writer.append(AppUtilities.getHead());
+            writer.append(AppUtilities.getLogo());
+            writer.append(AppUtilities.getHead(1));
 
             for (Object obj : AppUtilities.getChildFolderOfCdnFolders())
             {
@@ -60,7 +60,7 @@ public class CdnMain
                 writer.append(getCardDivEnd());
             }
 
-            writer.append(AppUtilities.getAbout());
+            writer.append(AppUtilities.getAbout(1));
             writer.append("\n\n<!--[");
             for (int i = 0; i < fileNames.size(); i++)
             {
@@ -71,7 +71,7 @@ public class CdnMain
                 }
             }
             writer.append("];-->\n\n");
-            writer.append(AppUtilities.getBodyEnd());
+            writer.append(AppUtilities.getBodyEnd(1));
             System.out.println("****************** DONE ******************");
             System.out.println(Constants.indexFile);
         }

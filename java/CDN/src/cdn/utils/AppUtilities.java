@@ -95,17 +95,17 @@ public class AppUtilities
         return builder.toString();
     }
 
-    public static String getBodyEnd() throws Exception
+    public static String getBodyEnd(int version) throws Exception
     {
-        return readFile(Constants.indexBodyEnd);
+        return readFile(version + Constants.indexBodyEnd);
     }
 
-    public static String getHead() throws Exception
+    public static String getHead(int version) throws Exception
     {
-        return readFile(Constants.indexHead);
+        return readFile(version + Constants.indexHead);
     }
 
-    public static String printLogo() throws Exception
+    public static String getLogo() throws Exception
     {
         return _readFile(Constants.indexLogo, false);
     }
@@ -120,13 +120,12 @@ public class AppUtilities
         return String.format("%.2f", (fileLength / 1024f / 1024f)) + " MB";
     }
 
-    public static String getAbout() throws Exception
+    public static String getAbout(int version) throws Exception
     {
         return "<hr>"
                 + "<p class='text-right'>"
-                + "&copy; SKR - " + (new Date().getYear() + 1900)
+                + "&copy; SKR - " + (new Date().getYear() + 1900) + ", version:" + version
                 + "<br>Updated on: " + new Date()
                 + "</p>";
     }
-
 }
