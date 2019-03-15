@@ -17,7 +17,6 @@ public class CdnMain2
 {
     public static void main(String[] args) throws Exception
     {
-        ArrayList<String> fileNames = new ArrayList<>();
         try (Writer writer = new BufferedWriter(new FileWriter(Constants.indexFile));)
         {
             writer.append(AppUtilities.getLogo());
@@ -42,11 +41,7 @@ public class CdnMain2
         String response = "";
         for (String str : list)
         {
-            System.out.println("str1: " + str);
-            str = str.replace("\\", "/");
-            System.out.println("str2: " + str + "\n");
-
-            response += "'" + str + "',";
+            response += "'" + str.replace("\\", "/") + "',";
         }
 
         return response.substring(0, response.length() - 1);
@@ -69,7 +64,6 @@ public class CdnMain2
             } else
             {
                 list.add(file.getAbsolutePath().replace(Constants.cdnRootFolder + File.separator, ""));
-//                list.add(file.getAbsolutePath());
             }
         }
         return list;
