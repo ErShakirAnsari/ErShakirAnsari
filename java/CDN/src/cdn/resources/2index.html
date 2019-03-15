@@ -26,6 +26,7 @@
       <link rel='stylesheet' type='text/css' href='https://ershakiransari.github.io/cdn/bootstrap/bootstrap-v4.3.1.min.css'>
       <link rel='stylesheet' type="text/css" href='https://ershakiransari.github.io/cdn/font-awesome/font-awesome-v4.7.0.min.css'>
       <style>
+			body{background: transparent url('https://ershakiransari.github.io/cdn/images/web-bgs/web-bg-013.png');}
 			label{display:block;font:normal 1.15em consolas}
 			label code{color:#007bff !important}
 			label i {color:#555;cursor:pointer}
@@ -38,7 +39,7 @@
       <hr>
 
 		<div class='row m-1'>
-			<input type='search' class='form-control' onkeypress='search(this)' placeholder='Search here..'/>
+			<input type='search' class='form-control' onkeydown='search(this)' onkeyup='search(this)' placeholder='Search here..'/>
 		</div>
 
 		<script>
@@ -48,7 +49,7 @@
 		</script>
 
 		<div class='row mx-3'>
-			<div class='col-12' id='idDivSearchResult'>
+			<div class='col-12' id='idDivSearchResult' style='background-color:rgba(255,255,255,0.7)'>
 			</div>
 		</div>
 		<hr>
@@ -83,6 +84,10 @@
 			function search(THIS)
 			{
 			var query = $(THIS).val();
+			if(query === ""){
+				$('#idDivSearchResult').empty();
+				return false;
+			}
 			var lableStr = "";
 			for (let i = 0; i < files.length; i++)
 			{

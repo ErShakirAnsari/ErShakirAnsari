@@ -27,6 +27,11 @@
 	function search(THIS)
 	{
 		var query = $(THIS).val();
+		if (query === "")
+		{
+			$('#idDivSearchResult').empty();
+			return false;
+		}
 		var lableStr = "";
 		for (let i = 0; i < files.length; i++)
 		{
