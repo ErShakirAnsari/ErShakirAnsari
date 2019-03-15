@@ -122,7 +122,7 @@ public class AppUtilities
 
     public static String getAbout(int version) throws Exception
     {
-        return "<hr>"
+        return ""
                 + "<p class='text-right'>"
                 + "&copy; SKR - " + (new Date().getYear() + 1900) + ", version:" + version
                 + "<br>Updated on: " + new Date()
