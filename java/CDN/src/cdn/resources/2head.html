@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title> SKR - CDN resolver </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <link rel='stylesheet' type='text/css' href='https://ershakiransari.github.io/cdn/bootstrap/bootstrap-v4.3.1.min.css'>
+      <link rel='stylesheet' type="text/css" href='https://ershakiransari.github.io/cdn/font-awesome/font-awesome-v4.7.0.min.css'>
+      <style>
+			label{display:block;font:normal 1.15em consolas}
+			label code{color:#007bff !important}
+			label i {color:#555;cursor:pointer}
+			button {width:100%}
+		</style>
+   </head>
+	<body class='my-3 mx-5'>
+		<h1><i class="fa fa-archive" aria-hidden="true"></i> Static files</h1>
+		<h5 class='text-muted text-transform: lowercase'>$root: <span id="typed" style="white-space:pre;"></span></h5>
+		<hr>
+
+		<div class='row m-1'>
+			<input type='search' class='form-control' onkeypress='search(this)' placeholder='Search here..'/>
+		</div>
+
+		<div class='row mx-3'>
+			<div class='col-12' id='idDivSearchResult'>
+			</div>
+		</div>
+		<hr>

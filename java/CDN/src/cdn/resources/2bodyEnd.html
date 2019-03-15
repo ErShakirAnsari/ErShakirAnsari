@@ -1,0 +1,58 @@
+<script type='text/javascript' src='https://ershakiransari.github.io/cdn/jquery/jquery-v3.3.1.min.js'></script>
+<script type='text/javascript' src='https://ershakiransari.github.io/cdn/typed-js/typed-v2.0.9.min.js'></script>
+<script type='text/javascript' src='https://ershakiransari.github.io/cdn/bootstrap/bootstrap-v4.3.1.min.js'></script>
+<script>
+	var typed = new Typed("#typed", {strings: ['NO WARRANTY EXPRESSED OR IMPLIED.', 'USE AT YOUR OWN RISK.', 'USE YOUR OWN COPY.', 'IT IS EXTREMELY UNWISE TO LOAD CODE FROM SERVERS YOU DO NOT CONTROL.'], typeSpeed: 30, backSpeed: 30, backDelay: 5000, startDelay: 1000, loop: true, cursorChar: '_'});
+	function copyAsHtml(text)
+	{
+		let textLowerCase = text.toLowerCase();
+		if (text.endsWith(".css"))
+		{
+			text = "<link rel='stylesheet' type='text/css' href='" + text + "'>";
+		} else if (text.endsWith(".js"))
+		{
+			text = "<script type='text/javascript' src='" + text + "'></script" + ">";
+		} else if (textLowerCase.endsWith(".jpeg") || textLowerCase.endsWith(".jpg") || textLowerCase.endsWith(".gif") || textLowerCase.endsWith(".png"))
+		{
+			text = "<img '" + text + "' alt='" + text.substring(text.lastIndexOf("/") + 1, text.length) + "' />";
+		}
+		window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+	}
+
+	function copy(url)
+	{
+		window.prompt("Copy to clipboard: Ctrl+C, Enter", url);
+	}
+
+	function search(THIS)
+	{
+		var query = $(THIS).val();
+		var lableStr = "";
+		for (let i = 0; i < files.length; i++)
+		{
+			if (files[i].indexOf(query) !== -1)
+			{
+				lableStr += createLable(files[i]);
+			}
+		}
+
+		lableStr = lableStr.length === 0 ? "<br>No data found!" : lableStr;
+
+		$('#idDivSearchResult').empty().html(lableStr);
+	}
+
+	function createLable(fileName)
+	{
+		var url = "https://ershakiransari.github.io/cdn/" + fileName;
+		var str = "";
+		str += "<label class='px-2 my-2'>";
+		str += "<i class='fa fa-copy' title='Copy to clipboard' onclick=\"copy('" + url + "')\"></i> ";
+		str += "<i class='fa fa-clipboard' title='Copy to clipboard as HTML' onclick=\"copyAsHtml('" + url + "')\"></i> ";
+		str += "<a href='" + url + "' target='_blank'>" + url + "</a>";
+		str += "</label>";
+		return str;
+	}
+
+</script>
+</body>
+</html>
