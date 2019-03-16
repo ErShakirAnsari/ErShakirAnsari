@@ -127,8 +127,8 @@ public class AppUtilities
                 + "<br>"
                 + "<hr>"
                 + "<h6 class='text-right p-0 m-0'>"
-                + "Writter by - SKR<br>"
-                + "&copy; Jaxer - " + (new Date().getYear() + 1900)
+                + "Writter by - <a href='https://ershakiransari.github.io/cv' target='_blank'>Shakir Ansari</a>"
+                + "<br>&copy; Jaxer - " + (new Date().getYear() + 1900)
                 + " | Version - " + version
                 + "<br>Last updated on: " + new SimpleDateFormat("dd MMM, yyyy - HH:mm ").format(new Date())
                 + "</h6>";
