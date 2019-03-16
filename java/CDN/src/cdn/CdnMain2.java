@@ -23,7 +23,7 @@ public class CdnMain2
             writer.append(AppUtilities.getHead(2));
 
             writer.append("<script>");
-            writer.append("var files = [" + getFileLists() + "];");
+            writer.append("var files=[" + getFileLists() + "];");
             writer.append("</script>");
 
             writer.append(AppUtilities.getAbout(2));

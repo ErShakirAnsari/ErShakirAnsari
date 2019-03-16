@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title> SKR - CDN resolver </title>
+      <title> Static quick links </title>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <link rel='stylesheet' type='text/css' href='https://ershakiransari.github.io/cdn/bootstrap/bootstrap-v4.3.1.min.css'>
 		<link rel='stylesheet' type='text/css' href='https://ershakiransari.github.io/cdn/fonts/font-awesome-v4.7.0.min.css'>
@@ -20,10 +20,16 @@
 		<hr>
 
 		<div class='row m-1'>
-			<input type='search' class='form-control' onkeydown='search(this)' onkeyup='search(this)' placeholder='Search here..'/>
+			<div class='col-md-11 col-sm-10'>
+				<input type='search' class='form-control' onkeydown='search(this)' onkeyup='search(this)' placeholder='Search here..'/>
+			</div>
+			<div class='col-md-1 col-sm-2'>
+				<select class='form-control' id='idSelectResultSize'></select>
+			</div>
 		</div>
 
 		<div class='row mx-2'>
-			<div class='col-12' id='idDivSearchResult' style='background-color:rgba(255,255,255,0.7)'>
+			<div class='col-12' id='idDivSearchResult' style='background-color:rgba(255,255,255,0.2)'>
+			<!--<div class='col-12' id='idDivSearchResult' style='background-color:rgba(0,0,0,0.1)'>-->
 			</div>
 		</div>

@@ -4,6 +4,7 @@ package cdn.utils;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -123,9 +124,13 @@ public class AppUtilities
     public static String getAbout(int version) throws Exception
     {
         return ""
-                + "<p class='text-right'>"
-                + "&copy; SKR - " + (new Date().getYear() + 1900) + ", version:" + version
-                + "<br>Updated on: " + new Date()
-                + "</p>";
+                + "<br>"
+                + "<hr>"
+                + "<h6 class='text-right p-0 m-0'>"
+                + "Writter by - SKR<br>"
+                + "&copy; Jaxer - " + (new Date().getYear() + 1900)
+                + " | Version - " + version
+                + "<br>Last updated on: " + new SimpleDateFormat("dd MMM, yyyy - HH:mm ").format(new Date())
+                + "</h6>";
     }
 }

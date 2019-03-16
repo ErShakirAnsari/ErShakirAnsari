@@ -3,6 +3,19 @@
 <script type='text/javascript' src='https://ershakiransari.github.io/cdn/bootstrap/bootstrap-v4.3.1.min.js'></script>
 <script>
 	var typed = new Typed("#typed", {strings: ['NO WARRANTY EXPRESSED OR IMPLIED.', 'USE AT YOUR OWN RISK.', 'USE YOUR OWN COPY.', 'IT IS EXTREMELY UNWISE TO LOAD CODE FROM SERVERS YOU DO NOT CONTROL.'], typeSpeed: 30, backSpeed: 30, backDelay: 5000, startDelay: 1000, loop: true, cursorChar: '_'});
+	var SEARCH_RESULT_SELECT = $('#idSelectResultSize');
+
+	function genResultSize()
+	{
+		let str = "";
+		for (let i = 1; i <= 5; i++)
+		{
+			str += "<option value='" + (i * 10) + "'>" + (i * 10) + "</option>";
+		}
+		SEARCH_RESULT_SELECT.html('').html(str);
+	}
+	genResultSize();
+
 	function copyAsHtml(text)
 	{
 		let textLowerCase = text.toLowerCase();
@@ -12,7 +25,10 @@
 		} else if (text.endsWith(".js"))
 		{
 			text = "<script type='text/javascript' src='" + text + "'></script" + ">";
-		} else if (textLowerCase.endsWith(".jpeg") || textLowerCase.endsWith(".jpg") || textLowerCase.endsWith(".gif") || textLowerCase.endsWith(".png"))
+		} else if (textLowerCase.endsWith(".jpeg") ||
+				  textLowerCase.endsWith(".jpg") ||
+				  textLowerCase.endsWith(".gif") ||
+				  textLowerCase.endsWith(".png"))
 		{
 			text = "<img '" + text + "' alt='" + text.substring(text.lastIndexOf("/") + 1, text.length) + "' />";
 		}
@@ -26,18 +42,36 @@
 
 	function search(THIS)
 	{
+		let searchResultSize = SEARCH_RESULT_SELECT.val();
 		var query = $(THIS).val();
 		if (query === "")
 		{
 			$('#idDivSearchResult').empty();
 			return false;
 		}
-		var lableStr = "";
+
+		var lableStr = "", subQueries = query.split(" "), matchCount = 0;
 		for (let i = 0; i < files.length; i++)
 		{
-			if (files[i].indexOf(query) !== -1)
+			let matchFound = true;
+			for (let j = 0; j < subQueries.length; j++)
+			{
+				if (files[i].indexOf(subQueries[j]) === -1)
+				{
+					matchFound = false;
+					break;
+				}
+			}
+
+			if (matchFound)
 			{
 				lableStr += createLable(files[i]);
+				++matchCount;
+			}
+
+			if (matchCount == searchResultSize)
+			{
+				break;
 			}
 		}
 
