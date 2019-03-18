@@ -1,0 +1,74 @@
+<!--
+    Document   : index
+    Created on : Apr 15, 2014, 1:46:44 PM
+    Author     : SKR
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SKR | Syntax High-lighter</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">   
+    <link type="text/css" rel="stylesheet" href="../css/shCoreDefault.css">
+  </head>
+  <body>
+      <h1>PlainText: </h1>
+      <pre class="brush: plain;">
+ShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakirShakir
+function helloSyntaxHighlighter()
+{
+
+   return "hi!";
+}
+      </pre>
+
+      <h1>JS: </h1>
+      <pre class="brush: js;">
+function helloSyntaxHighlighter()
+{
+   return "hi!";
+}
+      </pre>
+
+      <h1>CPP: </h1>
+      <pre class="brush: cpp;">
+void helloSyntaxHighlighter()
+{
+   return "hi!";
+}
+      </pre>
+
+      <h1>JAVA: </h1>
+      <pre class="brush: java; toolbar: true; collapse: true;">
+private void _SKR(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+
+      jaxer.util.User us = new jaxer.util.User(req, res);
+      if(!us.getPermission()) {
+         throw new jaxer.exceptions.UnAuthorizedException();
+      }
+
+      res.setContentType("text/html;charset=UTF-8");
+      java.io.PrintWriter out = res.getWriter();
+      jaxer.util.Printer pr = new jaxer.util.Printer(us);
+      out.print(pr.headStart(jaxer.util.Printer.LOGO + "-" + jaxer.util.Printer.SLOGAN));
+
+      out.print("<h1> Nam feugiat consequat justo porttitor accumsan.</h1> "
+              + "<strong> placerat urna, dignissim sagittis leo ipsum sit amet augue. Mauris pellentesque. </strong> "
+              + "<p class='P'> " + STRING_X.shuffle(Home.PAGE_LINE) + " </p> ");
+
+      out.print(pr.getADHorizontal() + pr.getFooter(this.getLastModified(req)));
+      out.close();
+   }      </pre>
+   
+	<script type="text/javascript" src="../js/shCore.js"></script>
+    <script type="text/javascript" src="../js/shBrushPlain.js"></script>
+    <script type="text/javascript" src="../js/shBrushDiff.js"></script>
+    <script type="text/javascript" src="../js/shBrushJScript.js"></script>
+    <script type="text/javascript" src="../js/shBrushCpp.js"></script>
+    <script type="text/javascript" src="../js/shBrushJava.js"></script>
+
+    <script type="text/javascript">
+		SyntaxHighlighter.all();
+	</script>
+
+  </body>
+</html>
