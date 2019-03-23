@@ -78,7 +78,7 @@ public class AppUtilities
         }
     }
 
-    public static String readFile(String fileName) throws Exception
+    public static String readFile(String fileName, boolean minified) throws Exception
     {
         if (fileName == null)
         {
@@ -93,16 +93,13 @@ public class AppUtilities
             String line = null;
             while ((line = bufferedReader.readLine()) != null)
             {
-                if (Constants.MODE.equals(Constants.MODE_PROD))
+                if (minified)
                 {
                     builder.append(line.trim());
-                } else if (Constants.MODE.equals(Constants.MODE_DEV))
+                } else
                 {
                     builder.append(line);
                     builder.append(System.lineSeparator());
-                } else
-                {
-                    throw new IllegalAccessError("Mode is undefined - Constants.MODE: " + Constants.MODE);
                 }
             }
         }
@@ -111,17 +108,19 @@ public class AppUtilities
 
     public static String getBodyEnd(int version) throws Exception
     {
-        return readFile(version + Constants.indexBodyEnd);
+        boolean minified = Constants.MODE.equals(Constants.MODE_PROD);
+        return readFile(version + Constants.indexBodyEnd, minified);
     }
 
     public static String getHead(int version) throws Exception
     {
-        return readFile(version + Constants.indexHead);
+        boolean minified = Constants.MODE.equals(Constants.MODE_PROD);
+        return readFile(version + Constants.indexHead, minified);
     }
 
     public static String getLogo() throws Exception
     {
-        return readFile(Constants.indexLogo);
+        return readFile(Constants.indexLogo, false);
     }
 
     public static String getFileSize(long fileLength)
