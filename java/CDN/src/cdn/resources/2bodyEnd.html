@@ -116,6 +116,8 @@
 		if (localTimestamp && localfileList && localTimestamp === timestamp)
 		{
 			files = localfileList;
+			console.log('getFileListFromServer - data found returning without contacting server..');
+			return false;
 		}
 
 		$.ajax({
