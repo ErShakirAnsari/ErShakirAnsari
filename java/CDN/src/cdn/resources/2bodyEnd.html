@@ -125,14 +125,12 @@
 
 			success: function (response)
 			{
+				console.log('getFileListFromServer - response: ' + response);
 				if (response)
 				{
-					alert(JSON.stringify(response));
 					setLocal('fileList', response);
 					setLocal('timestamp', timestamp);
-				} else
-				{
-					console.log('getFileListFromServer - response: ' + response);
+					files = JSON.stringify(response);
 				}
 			}
 		});
