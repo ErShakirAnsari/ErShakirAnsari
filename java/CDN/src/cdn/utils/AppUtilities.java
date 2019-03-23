@@ -2,8 +2,12 @@
 package cdn.utils;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -63,12 +67,18 @@ public class AppUtilities
         return _getChildFolderList(root);
     }
 
-    public static String readFile(String fileName) throws Exception
+    public static void writeFile(String fileName, String fileData) throws IOException
     {
-        return _readFile(fileName, true);
+        fileName = Constants.cdnRootFolder + Constants.slash + fileName;
+
+        try (Writer writer = new BufferedWriter(new FileWriter(fileName));)
+        {
+            writer.append(fileData);
+            System.out.println("cdn.utils.AppUtilities.writeFile() - fileName: " + fileName);
+        }
     }
 
-    private static String _readFile(String fileName, boolean minified) throws Exception
+    public static String readFile(String fileName) throws Exception
     {
         if (fileName == null)
         {
@@ -83,13 +93,16 @@ public class AppUtilities
             String line = null;
             while ((line = bufferedReader.readLine()) != null)
             {
-                if (minified)
+                if (Constants.MODE.equals(Constants.MODE_PROD))
                 {
                     builder.append(line.trim());
-                } else
+                } else if (Constants.MODE.equals(Constants.MODE_DEV))
                 {
                     builder.append(line);
                     builder.append(System.lineSeparator());
+                } else
+                {
+                    throw new IllegalAccessError("Mode is undefined - Constants.MODE: " + Constants.MODE);
                 }
             }
         }
@@ -108,7 +121,7 @@ public class AppUtilities
 
     public static String getLogo() throws Exception
     {
-        return _readFile(Constants.indexLogo, false);
+        return readFile(Constants.indexLogo);
     }
 
     public static String getFileSize(long fileLength)

@@ -17,19 +17,28 @@ public class CdnMain2
 {
     public static void main(String[] args) throws Exception
     {
+        Constants.MODE = args[0];
+        System.out.println("cdn.CdnMain2.main() - Constants.MODE: " + Constants.MODE);
+
         try (Writer writer = new BufferedWriter(new FileWriter(Constants.indexFile));)
         {
             writer.append(AppUtilities.getLogo());
             writer.append(AppUtilities.getHead(2));
 
             writer.append("<script>");
-            writer.append("var files=[" + getFileLists() + "];");
+
+            String fileList = "[" + getFileLists() + "]";
+
+            AppUtilities.writeFile("fileList.json", fileList);
+//            writer.append("var files=" + fileList + ";");
+            writer.append("var timestamp=" + System.currentTimeMillis() + ";");
             writer.append("</script>");
 
             writer.append(AppUtilities.getAbout(2));
             writer.append(AppUtilities.getBodyEnd(2));
+
+            System.out.println("cdn.CdnMain2.main() - " + Constants.indexFile);
             System.out.println("****************** DONE ******************");
-            System.out.println(Constants.indexFile);
         }
     }
 
@@ -38,10 +47,12 @@ public class CdnMain2
         ArrayList<String> list = new ArrayList<>();
         list = walker(list, Constants.cdnRootFolder);
 
+        System.out.println("cdn.CdnMain2.getFileLists() - list.size(): " + list.size());
+
         String response = "";
         for (String str : list)
         {
-            response += "'" + str.replace("\\", "/") + "',";
+            response += "\"" + str.replace("\\", "/") + "\",";
         }
 
         return response.substring(0, response.length() - 1);

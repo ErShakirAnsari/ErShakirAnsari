@@ -21,4 +21,8 @@ public class Constants
     public static final String indexLogo = "logo.html";
     public static final String indexBodyEnd = "bodyEnd.html";
     public static final String encoding = "UTF-8";
+
+    public static String MODE = "";
+    public static final String MODE_DEV = "dev";
+    public static final String MODE_PROD = "prod";
 }

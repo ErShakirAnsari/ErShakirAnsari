@@ -1,9 +1,23 @@
-<script type='text/javascript' src='https://ershakiransari.github.io/cdn/jquery/jquery-v3.3.1.min.js'></script>
-<script type='text/javascript' src='https://ershakiransari.github.io/cdn/typed-js/typed-v2.0.9.min.js'></script>
-<script type='text/javascript' src='https://ershakiransari.github.io/cdn/bootstrap/bootstrap-v4.3.1.min.js'></script>
+<script type='text/javascript' src='./jquery/jquery-v3.3.1.min.js'></script>
+<script type='text/javascript' src='./typed-js/typed-v2.0.9.min.js'></script>
+<script type='text/javascript' src='./bootstrap/bootstrap-v4.3.1.min.js'></script>
 <script>
 	var typed = new Typed("#typed", {strings: ['NO WARRANTY EXPRESSED OR IMPLIED.', 'USE AT YOUR OWN RISK.', 'USE YOUR OWN COPY.', 'IT IS EXTREMELY UNWISE TO LOAD CODE FROM SERVERS YOU DO NOT CONTROL.'], typeSpeed: 30, backSpeed: 30, backDelay: 5000, startDelay: 1000, loop: true, cursorChar: '_'});
 	var SEARCH_RESULT_SELECT = $('#idSelectResultSize');
+
+	function setLocal(key, valueObj)
+	{
+		localStorage.setItem(key, JSON.stringify(valueObj));
+	}
+
+	function getLocal(key)
+	{
+		if (localStorage.getItem(key) && localStorage.getItem(key) !== 'undefined')
+		{
+			return JSON.parse(localStorage.getItem(key));
+		}
+		return null;
+	}
 
 	function genResultSize()
 	{
@@ -91,6 +105,40 @@
 		str += "</label>";
 		return str;
 	}
+
+	function getFileListFromServer()
+	{
+		debugger;
+		let localTimestamp = getLocal('timestamp');
+		let localfileList = getLocal('fileList');
+
+		if (localTimestamp && localfileList && localTimestamp === timestamp)
+		{
+			files = localfileList;
+		}
+
+		$.ajax({
+			type: "post",
+			url: 'fileList.json',
+			method: "POST",
+			dataType: 'json',
+			contentType: "application/json; charset=utf-8",
+
+			success: function (response)
+			{
+				if (response)
+				{
+					alert(JSON.stringify(response));
+					setLocal('fileList', response);
+					setLocal('timestamp', timestamp);
+				} else
+				{
+					console.log('getFileListFromServer - response: ' + response);
+				}
+			}
+		});
+	}
+	getFileListFromServer();
 
 </script>
 </body>
