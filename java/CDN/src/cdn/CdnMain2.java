@@ -1,12 +1,12 @@
 
 package cdn;
 
-import cdn.utils.Constants;
 import cdn.utils.AppUtilities;
+import cdn.utils.Constants;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.Writer;
-import java.io.File;
 import java.util.ArrayList;
 
 /**
