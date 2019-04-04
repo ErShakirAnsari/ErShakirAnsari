@@ -6,61 +6,83 @@
 		<meta name="viewport" content="width=device width, initial scale=1.0">
 		<link href="../cdn/bootstrap/bootstrap-v4.3.1.min.css" rel="stylesheet">
 		<style>
+			body { font-size: 1em }
+			code { border: 1px solid #DDD; padding: 2px 5px; border-radius: 2px}
 		</style>
 	</head>
+	
 	<body>
+		<div class="container">
+			<div class="row mb-2">
+				<div class="col-lg-12">
+					<h1 class="mt-4">How to create local network without internet in raspberry</h1>
 
-	<div class="container">
-		<div class="row mb-2">
-			<div class="col-lg-12">
-				<h1 class="mt-4">How to create local network without internet in raspberry</h1>
+					<p class="lead">
+						by <a href='../cv/index.html' target='_blank'>Shakir Ansari</a>
+					</p>
 
-				<p class="lead">
-					by <a href='../cv/index.html' target='_blank'>Shakir Ansari</a>
-				</p>
+					<hr>
 
-				<hr>
+					<p>Posted on April 4, 2019 at 17:45 PM</p>
 
-				<p>Posted on April 4, 2019 at 17:45 PM</p>
+					<hr>
+					
+					<!-- Preview Image -->
+					<img class="img-fluid rounded" src="images/raspberry-pi3.jpg" alt="raspberry-pi3" height='80%'>
+					
+					<hr>
 
-				<hr>
-				
-				<!-- Preview Image -->
-				<img class="img-fluid rounded" src="images/raspberry-pi3.jpg" alt="raspberry-pi3" height='80%'>
-				
-				<hr>
+					<!-- Step1 -->
+					<div class="alert alert-dark mb-1" role="alert">
+						Step 1 <strong>PACKAGES</strong>
+					</div>
+					
+					<p class='mb-0'> install the required packages:</p>
+					<code>sudo apt-get install dnsmasq</code>
+					<br>
+					<code>sudo apt-get install hostapd</code>
+										
+					<!-- Step1 -->
+					<div class="alert alert-dark mb-1 mt-4" role="alert">
+						Step 2 <strong>CONFIGURING INTERFACES</strong>
+					</div>
+					
+					<p class='mb-0 pl-2'>
+						The first thing you'll need to do is to configure your <b>wlan0</b> interface with a static IP.<br>
+						If you're connected to the Pi via WiFi, connect via ethernet/serial/keyboard first.<br>
+						In newer Raspian versions, interface configuration is handled by dhcpcd by default.<br>
+						We need to tell it to ignore wlan0, as we will be configuring it with a static IP address elsewhere.<br>
+						So open up the dhcpcd configuration file with <code>sudo nano /etc/dhcpcd.conf</code> and add the following line to the bottom of the file:<br>
+						
+						<code>denyinterfaces wlan0</code><br>
+						<b><i>Note: This must be ABOVE any interface lines you may have added!</i></b>
+					</p>
+					
+					
+					
 
-				<!-- Post Content -->
-				<h3 class='lead bg-dark text-light rounded px-2 py-1'>Step 1</h3>
-				<p class="lead">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?
-				</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
-
-				<blockquote class="blockquote">
-					<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-					<footer class="blockquote-footer">Someone famous in
-						<cite title="Source Title">Source Title</cite>
-					</footer>
-				</blockquote>
-
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
-
+					
+					<blockquote class="blockquote">
+						<a href='https://frillip.com/using-your-raspberry-pi-3-as-a-wifi-access-point-with-hostapd/'>
+							https://frillip.com/using-your-raspberry-pi-3-as-a-wifi-access-point-with-hostapd/
+						</a>
+						<footer class="blockquote-footer">Reference
+							<!--<cite title="Source Title">Please visit</cite>-->
+						</footer>
+					</blockquote>
+				</div>
 			</div>
 		</div>
-	</div>
-  
-    <!-- Footer -->
-	<footer class="py-5 bg-dark">
-		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
-		</div>
-	</footer>
+	  
+		<!-- Footer -->
+		<footer class="py-5 bg-dark">
+			<div class="container">
+				<p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+			</div>
+		</footer>
 
-	<script src="../cdn/jquery/jquery-v3.3.1.min.js"></script>
-	<script src="../cdn/bootstrap/bootstrap-v4.3.1.min.js"></script>
+		<script src="../cdn/jquery/jquery-v3.3.1.min.js"></script>
+		<script src="../cdn/bootstrap/bootstrap-v4.3.1.min.js"></script>
 
 	</body>
 </html>
