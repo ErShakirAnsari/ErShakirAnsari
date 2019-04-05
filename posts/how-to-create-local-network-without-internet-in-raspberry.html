@@ -7,8 +7,10 @@
 		<link href="../cdn/bootstrap/bootstrap-v4.3.1.min.css" rel="stylesheet">
 		<link href="../cdn/fonts/font-awesome-v4.7.0.min.css" rel="stylesheet">
 		<style>
-			body { font-size: 1em }
-			code { border: 1px solid #DDD; padding: 2px 5px; border-radius: 2px; background:#FEFEFE; color:#333}
+			body { font-size: 1em; line-height: 1.8em }
+			/*code { border: 1px solid #DDD; padding: 2px 5px; border-radius: 2px; background:#FEFEFE; color:#333}*/
+			textarea { min-height: 250px; resize: none }
+			b, input, textarea { font-family: consolas }
 		</style>
 	</head>
 	
@@ -43,9 +45,9 @@
 								install the required packages as below:
 								<br>
 								<br>
-								<code>sudo apt-get install dnsmasq</code>
+								<input class='form-control' value='sudo apt-get install dnsmasq'/>
 								&amp;
-								<code>sudo apt-get install hostapd</code>
+								<input class='form-control' value='sudo apt-get install hostapd'/>
 							</p>
 						</div>
 					</div>
@@ -59,38 +61,40 @@
 						</div>
 						<div class='card-body'>
 							<p class='mb-0'>
-								The first thing you'll need to do is to configure your <b>wlan0</b> interface with a static IP.<br>
-								If you're connected to the Pi via WiFi, connect via ethernet/serial/keyboard first.<br>
-								In newer Raspian versions, interface configuration is handled by dhcpcd by default.<br>
-								We need to tell it to ignore wlan0, as we will be configuring it with a static IP address elsewhere.<br>
-								So open up the dhcpcd configuration file with <code>sudo nano /etc/dhcpcd.conf</code> and add the following line to the bottom of the file:<br>
-						
+								The first thing you'll need to do is to configure your <b>wlan0</b> interface with a static IP.
+								If you're connected to the Pi via WiFi, connect via ethernet/serial/keyboard first.
+								In newer Raspian versions, interface configuration is handled by dhcpcd by default.
+								We need to tell it to ignore wlan0, as we will be configuring it with a static IP address elsewhere.
+								So open up the dhcpcd configuration file with:
 								<br>
+								<input class='form-control' value='sudo nano /etc/dhcpcd.conf'/>
 								<br>
-								<code>denyinterfaces wlan0</code>
+								and add the following line to the bottom of the file:
+								<i class='text-danger'>(Note: This must be ABOVE any interface lines you may have added!)</i>
 								<br>
-								<br>
-								<em class='text-muted'>
-									<i class='fa fa-mail-forward'></i>
-									Note: This must be ABOVE any interface lines you may have added!
-								</em>
+								<input class='form-control' value='denyinterfaces wlan0'/>
 							</p>
+							
 							<hr class='my-4'>
+							
 							<p>
-								Now we need to configure our static IP.<br>
-								To do this open up the interface configuration file with 
-								<code>sudo nano /etc/network/interfaces</code> and edit the <b>wlan0</b> section<br>
-								so that it looks like this:<br>
+								Now we need to configure our static IP, to do this open up the interface configuration file with:<br>
+								<input class='form-control' value='sudo nano /etc/network/interfaces'/>
+
+								<br>
+								and edit the <b>wlan0</b> section, so that it looks like this: 
+								<i class='text-danger'>(add the following lines to the bottom of the file)</i>
 								
-							<code>
-								allow-hotplug wlan0
-iface wlan0 inet static  
+							<textarea class='form-control'>allow-hotplug wlan0
+iface wlan0 inet static
+    post-up /usr/sbin/hostapd -B /etc/hostapd/hostapd.conf
+    post-up service isc-dhcp-server restart
     address 172.24.1.1
     netmask 255.255.255.0
     network 172.24.1.0
     broadcast 172.24.1.255
 #    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-								</code>
+</textarea>
 								
 							</p>
 						</div>
