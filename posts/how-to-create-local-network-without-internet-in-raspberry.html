@@ -1,90 +1,117 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>How to create local network without internet in raspberry</title>
-		<meta charset="UTF 8">
-		<meta name="viewport" content="width=device width, initial scale=1.0">
-		<link href="../cdn/bootstrap/bootstrap-v4.3.1.min.css" rel="stylesheet">
-		<link href="../cdn/fonts/font-awesome-v4.7.0.min.css" rel="stylesheet">
-		<style>
-			body { font-size: 1em; line-height: 1.8em }
-			/*code { border: 1px solid #DDD; padding: 2px 5px; border-radius: 2px; background:#FEFEFE; color:#333}*/
-			textarea { min-height: 250px; resize: none }
-			b, input, textarea { font-family: consolas }
-		</style>
-	</head>
-	
-	<body>
-		<div class="container">
-			<div class="row mb-2">
-				<div class="col-lg-12">
-					<h1 class="mt-4">How to create local network without internet in raspberry</h1>
 
-					<p class="lead">
-						by <a href='../cv/index.html' target='_blank'>Shakir Ansari</a>
-					</p>
+<head>
+	<title>How to create local network without internet in raspberry</title>
+	<meta charset="UTF 8">
+	<meta name="viewport" content="width=device width, initial scale=1.0">
+	<link href="../cdn/bootstrap/bootstrap-v4.3.1.min.css" rel="stylesheet">
+	<link href="../cdn/fonts/font-awesome-v4.7.0.min.css" rel="stylesheet">
+	<style>
+		body {
+			font-size: 1em;
+			line-height: 1.8em
+		}
 
-					<hr>
+		/*code { border: 1px solid #DDD; padding: 2px 5px; border-radius: 2px; background:#FEFEFE; color:#333}*/
+		textarea {
+			min-height: 250px;
+			resize: none
+		}
 
-					<p>Posted on April 4, 2019 at 17:45 PM</p>
+		b,
+		input,
+		textarea {
+			font-family: consolas
+		}
 
-					<hr>
-					
-					<!-- Preview Image -->
-					<img class="img-fluid rounded" src="images/raspberry-pi3.jpg" alt="raspberry-pi3" height='80%'>
-					
-					<hr>
+		.card-header {
+			cursor: pointer
+		}
 
-					<!-- Step1 -->
-					<div class='card'>
-						<div class='card-header'>
-							<h5 class='m-0'>Step 1 PACKAGES</h5>
-						</div>
-						<div class='card-body'>
-							<p class='mb-0'>
-								install the required packages as below:
-								<br>
-								<br>
-								<input class='form-control' value='sudo apt-get install dnsmasq'/>
-								&amp;
-								<input class='form-control' value='sudo apt-get install hostapd'/>
-							</p>
-						</div>
+		.post-logo {
+			background: transparent url(./images/raspberry-pi3.jpg);
+			background-repeat: no-repeat;
+			background-position: center
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row mb-2">
+			<div class="col-lg-12">
+				<h1 class="mt-4">How to create local network without internet in raspberry</h1>
+
+				<p class="lead">
+					by <a href='../cv/index.html' target='_blank'>Shakir Ansari</a>
+				</p>
+
+				<hr>
+
+				<p>Posted on April 4, 2019 at 17:45 PM</p>
+
+				<hr>
+
+				<!-- Preview Image -->
+				<div class="post-logo">
+					<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+				</div>
+
+				<hr>
+
+				<!-- Step1 -->
+				<div class='card'>
+					<div class='card-header'>
+						<h5 class='m-0'>Step - PACKAGES</h5>
 					</div>
+					<div class='card-body' style='display:none'>
+						<p class='mb-0'>
+							install the required packages as below:
+							<br>
+							<br>
+							<input class='form-control' value='sudo apt-get install dnsmasq' />
+							&amp;
+							<input class='form-control' value='sudo apt-get install hostapd' />
+						</p>
+					</div>
+				</div>
 
-					<br><br>
-					
-					<!-- Step1 -->
-					<div class='card'>
-						<div class='card-header'>
-							<h5 class='m-0'>Step - CONFIGURING INTERFACES</h5>
-						</div>
-						<div class='card-body'>
-							<p class='mb-0'>
-								The first thing you'll need to do is to configure your <b>wlan0</b> interface with a static IP.
-								If you're connected to the Pi via WiFi, connect via ethernet/serial/keyboard first.
-								In newer Raspian versions, interface configuration is handled by dhcpcd by default.
-								We need to tell it to ignore wlan0, as we will be configuring it with a static IP address elsewhere.
-								So open up the dhcpcd configuration file with:
-								<br>
-								<input class='form-control' value='sudo nano /etc/dhcpcd.conf'/>
-								<br>
-								and add the following line to the bottom of the file:
-								<i class='text-danger'>(Note: This must be ABOVE any interface lines you may have added!)</i>
-								<br>
-								<input class='form-control' value='denyinterfaces wlan0'/>
-							</p>
-							
-							<hr class='my-4'>
-							
-							<p>
-								Now we need to configure our static IP, to do this open up the interface configuration file with:<br>
-								<input class='form-control' value='sudo nano /etc/network/interfaces'/>
+				<br>
 
-								<br>
-								and edit the <b>wlan0</b> section, so that it looks like this: 
-								<i class='text-danger'>(add the following lines to the bottom of the file)</i>
-								
+				<!-- Step2 -->
+				<div class='card'>
+					<div class='card-header'>
+						<h5 class='m-0'>Step - CONFIGURING INTERFACES</h5>
+					</div>
+					<div class='card-body' style='display:none'>
+						<p class='mb-0'>
+							The first thing you'll need to do is to configure your <b>wlan0</b> interface with a static
+							IP.
+							If you're connected to the Pi via WiFi, connect via ethernet/serial/keyboard first.
+							In newer Raspian versions, interface configuration is handled by dhcpcd by default.
+							We need to tell it to ignore wlan0, as we will be configuring it with a static IP address
+							elsewhere.
+							So open up the dhcpcd configuration file with:
+							<br>
+							<input class='form-control' value='sudo nano /etc/dhcpcd.conf' />
+							<br>
+							and add the following line to the bottom of the file:
+							<i class='text-danger'>(Note: This must be ABOVE any interface lines you may have
+								added!)</i>
+							<br>
+							<input class='form-control' value='denyinterfaces wlan0' />
+
+							<br>
+
+							Now we need to configure our static IP, to do this open up the interface configuration file
+							with:<br>
+							<input class='form-control' value='sudo nano /etc/network/interfaces' />
+
+							<br>
+							and edit the <b>wlan0</b> section, so that it looks like this:
+							<i class='text-danger'>(add the following lines to the bottom of the file)</i>
+
 							<textarea class='form-control'>allow-hotplug wlan0
 iface wlan0 inet static
     post-up /usr/sbin/hostapd -B /etc/hostapd/hostapd.conf
@@ -95,32 +122,246 @@ iface wlan0 inet static
     broadcast 172.24.1.255
 #    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 </textarea>
-								
-							</p>
-						</div>
-					</div>					
-					
-					<br>
-					<br>
-					<blockquote class="blockquote">
-						https://frillip.com/using-your-raspberry-pi-3-as-a-wifi-access-point-with-hostapd/
-						<footer class="blockquote-footer">Reference
-							<!--<cite title="Source Title">Please visit</cite>-->
-						</footer>
-					</blockquote>
+							<br>
+							Now restart <b>dhcpcd</b> with:<br>
+							<input class='form-control' value='sudo service dhcpcd restart' />
+							<br>
+
+							and then reload the configuration for <b>wlan0</b> with:<br>
+							<input class='form-control' value='sudo ifdown wlan0; sudo ifup wlan0' />
+						</p>
+					</div>
 				</div>
+
+				<br>
+
+				<!-- Step3 -->
+				<div class='card'>
+					<div class='card-header'>
+						<h5 class='m-0'>Step - CONFIGURE HOSTAPD</h5>
+					</div>
+					<div class='card-body' style='display:none'>
+						<p class='mb-0'>
+							Now, we need to configure <b>hostapd</b>, create a new configuration file with:<br>
+							<input class='form-control' value='sudo nano /etc/hostapd/hostapd.conf'><br>
+							with the following contents:
+							<textarea class='form-control'># This is the name of the WiFi interface we configured above
+interface=wlan0
+
+# Use the nl80211 driver with the brcmfmac driver
+driver=nl80211
+
+# This is the name of the network
+ssid=PI-NETWORK
+
+# Use the 2.4GHz band
+hw_mode=g
+
+# Use channel 6
+channel=6
+
+# Enable 802.11n
+ieee80211n=1
+
+# Enable WMM
+wmm_enabled=1
+
+# Enable 40MHz channels with 20ns guard interval
+ht_capab=[HT40][SHORT-GI-20][DSSS_CCK-40]
+
+# Accept all MAC addresses
+macaddr_acl=0
+
+# Use WPA authentication
+auth_algs=1
+
+# Require clients to know the network name
+ignore_broadcast_ssid=0
+
+# Use WPA2
+wpa=2
+
+# Use a pre-shared key
+wpa_key_mgmt=WPA-PSK
+
+# The network passphrase
+wpa_passphrase=raspberry
+
+# Use AES, instead of TKIP
+rsn_pairwise=CCMP</textarea>
+
+							<br>
+							We can check if it's working at this stage by running <b>sudo /usr/sbin/hostapd</b> and
+							<b>/etc/hostapd/hostapd.conf</b>.
+							If it's all gone well thus far, you should be able to see to the network <b>PI-NETWORK</b>!
+							If you try
+							connecting to it,
+							you will see some output from the Pi, but you won't receive and IP address until we set up
+							dnsmasq in the next
+							step.
+							Use <b>Ctrl+C</b> to stop it.
+
+							<br>
+							<br>
+
+							We aren't quite done yet, because we also need to tell <b>hostapd</b> where to look for the
+							config file when it
+							starts up on boot.
+							Open up the default configuration file with <b>sudo nano /etc/default/hostapd</b> and find
+							the line <b>#DAEMON_CONF=""</b>
+							and replace it with <b>DAEMON_CONF="/etc/hostapd/hostapd.conf"</b>.
+						</p>
+					</div>
+				</div>
+
+				<br>
+
+				<!-- Step4 -->
+				<div class='card'>
+					<div class='card-header'>
+						<h5 class='m-0'>Step - CONFIGURE DNSMASQ</h5>
+					</div>
+					<div class='card-body' style='display:none'>
+						<p class='mb-0'>
+							The shipped <b>dnsmasq</b> config file contains a wealth of information on how to use it,
+							but the majority of it is largely redundant for our purposes.
+							I'd advise moving it (rather than deleting it), and creating a new one with
+
+							<br>
+							<input type="text" class="form-control"
+								value="sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.orig">
+							<br>
+							<input type="text" class="form-control" value="sudo nano /etc/dnsmasq.conf">
+
+							<br>
+							Paste the following into the new file:<br>
+							<textarea class="form-control">
+# Use interface wlan0
+interface=wlan0
+
+# Explicitly specify the address to listen on
+listen-address=172.24.1.1
+
+# Bind to the interface to make sure we aren't sending things elsewhere
+bind-interfaces
+
+# Forward DNS requests to Google DNS
+server=8.8.8.8
+
+# Don't forward short names
+domain-needed
+
+# Never forward addresses in the non-routed address spaces.
+bogus-priv
+
+# Assign IP addresses between 172.24.1.50 and 172.24.1.150 with a 12 hour lease time
+dhcp-range=172.24.1.50,172.24.1.150,12h</textarea>
+						</p>
+					</div>
+				</div> <br>
+
+				<!-- Step4 -->
+				<div class='card'>
+					<div class='card-header'>
+						<h5 class='m-0'>Step - IPV4 FORWARDING</h5>
+					</div>
+					<div class='card-body' style='display:none'>
+						<p class='mb-0'>
+							One of the last things that we need to do before we send traffic anywhere is to enable
+							packet forwarding.
+
+							<br><br>
+
+							To do this, open up the <b>sysctl.conf</b> file with:<br>
+							<input type="text" class="form-control" value="sudo nano /etc/sysctl.conf">
+
+							<br>
+							and remove the <b>#</b> from the beginning of the line containing
+							<b>net.ipv4.ip_forward=1</b>.
+							This will enable it on the next reboot, but because we are impatient, activate it
+							immediately with:<br>
+							<input type="text" class="form-control"
+								value='sudo sh -c "echo 1 > /proc/sys/net/ipv4/ip_forward"'>
+
+							<br>
+							<br>
+
+							We also need to share our Pi's internet connection to our devices connected over WiFi by the
+							configuring
+							a NAT between our <b>wlan0</b> interface and our <b>eth0</b> interface.
+							We can do this using the following commands:<br>
+
+							<input type="text" class="form-control mb-1"
+								value='sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE'>
+							<input type="text" class="form-control mb-1"
+								value='sudo iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT'>
+							<input type="text" class="form-control mb-3"
+								value='sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT'>
+
+							However, we need these rules to be applied every time we reboot the Pi, so run:<br>
+							<input type="text" class="form-control"
+								value='sudo sh -c "iptables-save > /etc/iptables.ipv4.nat"'> <br>
+							to save the rules to the file <b>/etc/iptables.ipv4.nat</b> Now we need to run this after
+							each reboot,
+							so open the <b>rc.local</b> file with:<br>
+							<input type="text" class="form-control" value='sudo nano /etc/rc.local'>
+							<br>
+							and just above the line <b>exit 0</b>, add the following line:<br>
+							<input type="text" class="form-control" value='iptables-restore < /etc/iptables.ipv4.nat '>
+						</p>
+					</div>
+				</div>
+
+
+				<br>
+
+				<!-- Step4 -->
+				<div class='card'>
+					<div class='card-header'>
+						<h5 class='m-0'>Step - ALMOST THERE</h5>
+					</div>
+					<div class='card-body' style='display:none'>
+						<p class='mb-0'>
+							Now we just need to start our services:<br>
+							<input type="text" class="form-control mb-1" value='sudo service hostapd start'>
+							<input type="text" class="form-control mb-1" value='sudo service dnsmasq start'>
+
+							And that's it! You should now be able to connect to the internet through your Pi, via the
+							on-board WiFi!
+							<br>
+							To double check we have got everything configured correctly, reboot with <b>sudo reboot</b>
+						</p>
+					</div>
+				</div>
+
+				<br>
+				<br>
+				<blockquote class="blockquote">
+					https://frillip.com/using-your-raspberry-pi-3-as-a-wifi-access-point-with-hostapd/
+					<footer class="blockquote-footer">Reference
+						<!--<cite title="Source Title">Please visit</cite>-->
+					</footer>
+				</blockquote>
 			</div>
 		</div>
-	  
-		<!-- Footer -->
-		<footer class="py-5 bg-dark">
-			<div class="container">
-				<p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
-			</div>
-		</footer>
+	</div>
 
-		<script src="../cdn/jquery/jquery-v3.3.1.min.js"></script>
-		<script src="../cdn/bootstrap/bootstrap-v4.3.1.min.js"></script>
+	<!-- Footer -->
+	<footer class="py-5 bg-dark">
+		<div class="container">
+			<p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+		</div>
+	</footer>
 
-	</body>
+	<script src="../cdn/jquery/jquery-v3.3.1.min.js"></script>
+	<script src="../cdn/bootstrap/bootstrap-v4.3.1.min.js"></script>
+
+	<script>
+		$('.card-header').click(function () {
+			$(this).next('.card-body').toggle(500);
+		});
+	</script>
+
+</body>
+
 </html>
