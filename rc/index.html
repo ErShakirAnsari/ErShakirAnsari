@@ -9,6 +9,7 @@
 		<style>
 			body { padding-top: 56px }
 			footer { position: absolute; bottom: 0; width: 100%; }
+			.btn { width:100% !important }
 		</style>
 	</head>
 	<body>
@@ -41,31 +42,27 @@
 		</nav>
 		
 		<div class="container">
-
-			<div class="row my-2 text-muted">
-				<h1>Rest client</h1>
-			</div>
-
-			<hr>			
-			
-			<div class="row my-2">
-				<div class='col-10'>
+		
+			<div class="row my-4 py-2">
+				<div class='col-8'>
 					URL:<br>
 					<input id='idInputUrl' class='form-control'/>
 				</div>
 				
-				<div class='col-2'>
+				<div class='col-2 border-left'>
 					Method:<br>
 					<select id='idSelectMethod' class='form-control'>
 						<option value='get'>GET</option>
 						<option value='post'>POST</option>
 					</select>
+				</div>
+				<div class='col-2 border-left'>
 					<br>
 					<button class='btn btn-danger' style='width:100%'>Send</button>
 				</div>
 			</div>
 			
-			<hr>
+			
 			
 			<!-- Nav tabs -->
 			<div class="row my-2">
@@ -93,24 +90,38 @@
 						<!-- Params -->
 						<div class="tab-pane active" id="params" role="tabpanel" aria-labelledby="params-tab">
 							<div class="row my-2">
-								<div class='col-10'>
-									<table class='table'>
-										<tr>
-											<th>Key</th>
-											<th>Value</th>
-										</tr>
-										<tr>
-											<td>
-												<input class='form-control'/>
-											</td>
-											<td>
-												<input class='form-control'/>
-											</td>
-										</tr>
-									</table>
-								</div>
-								<div class='col-2'>
-									<button class='btn btn-light' style='width:100%'>Add more</button>
+								<div class="col-12">
+									<div class="row my-1">
+										<div class='col-5'>Parameter key</div>
+										<div class='col-5'>Parameter value</div>
+										<div class='col-1'>Remove</div>									
+										<div class='col-1'>Add</div>
+									</div>
+									<div class="row my-1">
+										<div class='col-5'>
+											<input class='form-control'/>
+										</div>
+										<div class='col-5'>
+											<input class='form-control'/>
+										</div>
+										<div class='col-1'>
+											<button class='btn btn-light' onclick='toggleParams(this)'>x</button>
+										</div>
+									</div>
+									<div class="row my-1">
+										<div class='col-5'>
+											<input class='form-control'/>
+										</div>
+										<div class='col-5'>
+											<input class='form-control'/>
+										</div>
+										<div class='col-1'>
+											<button class='btn btn-light' onclick='toggleParams(this)'>x</button>
+										</div>
+										<div class='col-1'>
+											<button class='btn btn-primary' onclick='toggleParams(this)'>+</button>
+										</div>									
+									</div>
 								</div>
 							</div>
 						</div>
@@ -207,5 +218,6 @@
 		<!-- Bootstrap core JavaScript -->
 		<script src="../cdn/jquery/jquery-v3.3.1.min.js"></script>
 		<script src="../cdn/bootstrap/bootstrap-v4.3.1.min.js"></script>
+		<script src="index.js"></script>
 	</body>
 </html>
