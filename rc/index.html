@@ -42,6 +42,12 @@
 		
 		<div class="container">
 
+			<div class="row my-2 text-muted">
+				<h1>Rest client</h1>
+			</div>
+
+			<hr>			
+			
 			<div class="row my-2">
 				<div class='col-10'>
 					URL:<br>
@@ -61,38 +67,145 @@
 			
 			<hr>
 			
+			<!-- Nav tabs -->
 			<div class="row my-2">
-				<div class='col-10'>
-					Request body:<br>
-					<textarea id='idTextRequestBody' class='form-control' rows='10' style='resize:none'></textarea>
+				<div class='col-12'>
+					<ul class="nav nav-tabs" id="myTab" role="tablist">
+						<li class="nav-item">
+							<a class="nav-link active" id="params-tab" data-toggle="tab" href="#params" role="tab" aria-controls="params" aria-selected="true">Params</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="headers-tab" data-toggle="tab" href="#headers" role="tab" aria-controls="headers" aria-selected="false">Headers</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="authorizations-tab" data-toggle="tab" href="#authorizations" role="tab" aria-controls="authorizations" aria-selected="false">Authorizations</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="request-body-tab" data-toggle="tab" href="#request-body" role="tab" aria-controls="request-body" aria-selected="false">Request body</a>
+						</li>
+					</ul>
 				</div>
-				<div class='col-2'>
-					<br>
-					<select id='idSelectMethod' class='form-control'>
-						<option value='json'>text/json</option>
-					</select>				
+			</div>
 
-					<hr>
-					<button class='btn btn-light' style='width:100%'>format</button>
-					<hr>
-					<button class='btn btn-light' style='width:100%'>minify</button>
-					
+			<div class="row my-2">
+				<div class='col-12'>
+					<div class="tab-content">
+						<!-- Params -->
+						<div class="tab-pane active" id="params" role="tabpanel" aria-labelledby="params-tab">
+							<div class="row my-2">
+								<div class='col-10'>
+									<table class='table'>
+										<tr>
+											<th>Key</th>
+											<th>Value</th>
+										</tr>
+										<tr>
+											<td>
+												<input class='form-control'/>
+											</td>
+											<td>
+												<input class='form-control'/>
+											</td>
+										</tr>
+									</table>
+								</div>
+								<div class='col-2'>
+									<button class='btn btn-light' style='width:100%'>Add more</button>
+								</div>
+							</div>
+						</div>
+
+						<!-- Headers -->
+						<div class="tab-pane" id="headers" role="tabpanel" aria-labelledby="headers-tab">
+							<div class="row my-2">
+								<div class='col-10'>
+									<table class='table'>
+										<tr>
+											<th>Key</th>
+											<th>Value</th>
+										</tr>
+										<tr>
+											<td>
+												<input class='form-control'/>
+											</td>
+											<td>
+												<input class='form-control'/>
+											</td>
+										</tr>
+									</table>
+								</div>
+								<div class='col-2'>
+									<button class='btn btn-light' style='width:100%'>Add more</button>
+								</div>
+							</div>
+						</div>
+
+						<!-- Authorizations -->
+						<div class="tab-pane" id="authorizations" role="tabpanel" aria-labelledby="authorizations-tab">
+							<div class="row my-2">
+								<div class='col-10'>
+									<table class='table'>
+										<tr>
+											<th>Key</th>
+											<th>Value</th>
+										</tr>
+										<tr>
+											<td>
+												<input class='form-control'/>
+											</td>
+											<td>
+												<input class='form-control'/>
+											</td>
+										</tr>
+									</table>
+								</div>
+								<div class='col-2'>
+									<button class='btn btn-light' style='width:100%'>Add more</button>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Request body -->
+						<div class="tab-pane" id="request-body" role="tabpanel" aria-labelledby="request-body-tab">
+							<div class="row my-2">
+								<div class='col-10'>					
+									<textarea id='idTextRequestBody' class='form-control' rows='10' style='resize:none'></textarea>
+								</div>
+								<div class='col-2'>
+									<br>
+									<select id='idSelectMethod' class='form-control'>
+										<option value='json'>text/json</option>
+									</select>				
+
+									<hr>
+									<button class='btn btn-light' style='width:100%'>format</button>
+									<hr>
+									<button class='btn btn-light' style='width:100%'>minify</button>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 		
+		<br>
+		<br>
+		<br>
+					
 		<!-- Footer -->
+		<!--
 		<footer class="py-3 mt-3 bg-dark" style='display:none1'>
 			<div class="container">
 				<h6 class="m-0 text-right text-light">
 					Copyright &copy; <em>ErShakirAnsari</em> 2019
-					<!--<img src='./cdn/images/ErShakirAnsari.png' atl='coming_soon' class='ml-4' width='64'/>-->
 				</h6>
 			</div>
 		</footer>
+		-->
 
 		<!-- Bootstrap core JavaScript -->
-		<script src="./cdn/jquery/jquery-v3.3.1.min.js"></script>
-		<script src="./cdn/bootstrap/bootstrap-v4.3.1.min.js"></script>
+		<script src="../cdn/jquery/jquery-v3.3.1.min.js"></script>
+		<script src="../cdn/bootstrap/bootstrap-v4.3.1.min.js"></script>
 	</body>
 </html>
