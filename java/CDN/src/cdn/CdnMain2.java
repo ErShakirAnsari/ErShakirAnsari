@@ -15,68 +15,70 @@ import java.util.ArrayList;
  */
 public class CdnMain2
 {
-    public static void main(String[] args) throws Exception
-    {
-        Constants.MODE = args[0];
-        System.out.println("cdn.CdnMain2.main() - Constants.MODE: " + Constants.MODE);
+	public static void main(String[] args) throws Exception
+	{
+		Constants.MODE = args[0];
+		System.out.println("cdn.CdnMain2.main() - Constants.MODE: " + Constants.MODE);
 
-        try (Writer writer = new BufferedWriter(new FileWriter(Constants.indexFile));)
-        {
-            writer.append(AppUtilities.getLogo());
-            writer.append(AppUtilities.getHead(2));
+		try (Writer writer = new BufferedWriter(new FileWriter(Constants.indexFile));)
+		{
+			writer.append(AppUtilities.getLogo());
+			writer.append(AppUtilities.getHead(2));
 
-            writer.append("<script>");
+			writer.append("<script>");
 
-            String fileList = "[" + getFileLists() + "]";
+			String fileList = "[" + System.lineSeparator() + getFileLists() + System.lineSeparator() + "]";
 
-            AppUtilities.writeFile("fileList.json", fileList);
+			AppUtilities.writeFile("fileList.json", fileList);
 //            writer.append("var files=" + fileList + ";");
-            writer.append("var timestamp=" + System.currentTimeMillis() + ";");
-            writer.append("</script>");
+			writer.append("var timestamp=" + System.currentTimeMillis() + ";");
+			writer.append("</script>");
 
-            writer.append(AppUtilities.getAbout(2));
-            writer.append(AppUtilities.getBodyEnd(2));
+			writer.append(AppUtilities.getAbout(2));
+			writer.append(AppUtilities.getBodyEnd(2));
 
-            System.out.println("cdn.CdnMain2.main() - " + Constants.indexFile);
-            System.out.println("****************** DONE ******************");
-        }
-    }
+			System.out.println("cdn.CdnMain2.main() - " + Constants.indexFile);
+			System.out.println("****************** DONE ******************");
+		}
+	}
 
-    private static String getFileLists()
-    {
-        ArrayList<String> list = new ArrayList<>();
-        list = walker(list, Constants.cdnRootFolder);
+	private static String getFileLists()
+	{
+		ArrayList<String> list = new ArrayList<>();
+		list = walker(list, Constants.cdnRootFolder);
 
-        System.out.println("cdn.CdnMain2.getFileLists() - list.size(): " + list.size());
+		System.out.println("cdn.CdnMain2.getFileLists() - list.size(): " + list.size());
 
-        String response = "";
-        for (String str : list)
-        {
-            response += "\"" + str.replace("\\", "/") + "\",";
-        }
+		String response = "";
+		for (String str : list)
+		{
+			response += "\t\"" + str.replace("\\", "/") + "\",";
+		}
 
-        return response.substring(0, response.length() - 1);
-    }
+		return response
+				.substring(0, response.length() - 1)
+				.replace(",", "," + System.lineSeparator());
+	}
 
-    private static ArrayList walker(ArrayList list, String root)
-    {
-        File[] fileList = new File(root).listFiles();
+	private static ArrayList walker(ArrayList list, String root)
+	{
+		File[] fileList = new File(root).listFiles();
 
-        for (File file : fileList)
-        {
-            if (file.getName().startsWith("@"))
-            {
-                continue;
-            }
+		for (File file : fileList)
+		{
+			if (file.getName().startsWith("@"))
+			{
+				continue;
+			}
 
-            if (file.isDirectory())
-            {
-                walker(list, file.getAbsolutePath());
-            } else
-            {
-                list.add(file.getAbsolutePath().replace(Constants.cdnRootFolder + File.separator, ""));
-            }
-        }
-        return list;
-    }
+			if (file.isDirectory())
+			{
+				walker(list, file.getAbsolutePath());
+			} else
+			{
+				list.add(file.getAbsolutePath().replace(Constants.cdnRootFolder + File.separator, ""));
+			}
+		}
+		return list;
+	}
 }
