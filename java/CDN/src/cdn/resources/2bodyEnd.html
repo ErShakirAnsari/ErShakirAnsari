@@ -65,13 +65,13 @@
 			return false;
 		}
 
-		var lableStr = "", subQueries = query.split(" "), matchCount = 0;
+		var lableStr = "", subQueries = query.toLowerCase().split(" "), matchCount = 0;
 		for (let i = 0; i < files.length; i++)
 		{
 			let matchFound = true;
 			for (let j = 0; j < subQueries.length; j++)
 			{
-				if (files[i].indexOf(subQueries[j]) === -1)
+				if (files[i].toLowerCase().indexOf(subQueries[j]) === -1)
 				{
 					matchFound = false;
 					break;
