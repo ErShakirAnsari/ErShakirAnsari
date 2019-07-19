@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>Web page title</title>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	  <style>
-	  .w3-table-all{font-size:2.5em}
-	  </style>
-   </head>
-   <body>
-      <h1>emoji</h1>
+	<head>
+		<title>Web page title</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			.emoji-box {
+				background-color: #EEE;
+				display: inline-block;
+				text-align: center;
+				padding: 5px 7px;
+				margin: 5px;
+				width: 70px;
+				height: 90px;
+				border-bottom: 1px #999 solid;
+				border-right: 1px #999 solid;
+			}
+			.emoji-icon {
+				font-size: 50px;
+				line-height: 50px;
+				margin-bottom: 3px;
+			}
+			.emoji-code {
+				font-size: 20px
+				line-height: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>emoji</h1>
+		
+		<div id='emojiHolder'></div>		
+		<hr>
+	  
       <table class="w3-table-all">
         
             <tr>
@@ -7303,5 +7327,19 @@
             </tr>
          </tbody>
       </table>
+	  
+	  <script>
+		var emojis=[8986,8987,9000,9167];
+
+		let str = ""
+		for(let i = 0; i < emojis.length;i++)
+		{
+			str += "<div class='emoji-box'>";
+			str += "<div class='emoji-icon'>&#" + emojis[i] + ";</div>";
+			str += "<div class='emoji-code'>" + emojis[i] + "</div>";
+			str += "</div>";
+		}
+		document.getElementById("emojiHolder").innerHTML = str;
+	  </script>
    </body>
 </html>
