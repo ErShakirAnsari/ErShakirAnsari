@@ -7329,17 +7329,29 @@
       </table>
 	  
 	  <script>
-		var emojis=[8986,8987,9000,9167];
+		var emojis=[
+			8986,8987,9000,9167,
+		];
 
-		let str = ""
-		for(let i = 0; i < emojis.length;i++)
+		//for(let i = 0; i < emojis.length;i++)
+		for(let i = 0; i < 100000;i++)
 		{
-			str += "<div class='emoji-box'>";
-			str += "<div class='emoji-icon'>&#" + emojis[i] + ";</div>";
-			str += "<div class='emoji-code'>" + emojis[i] + "</div>";
-			str += "</div>";
+			var emojiBox = document.createElement("div");
+			var emojiIcon = document.createElement("div");			
+			var emojiCode = document.createElement("div");
+			
+			emojiIcon.innerHTML = "&#" + i + ";";
+			emojiCode.innerHTML =  i;
+
+			emojiBox.appendChild(emojiIcon);
+			emojiBox.appendChild(emojiCode);
+			
+			emojiBox.className = "emoji-box";
+			emojiIcon.className = "emoji-icon";
+			emojiCode.className = "emoji-code";
+			
+			document.getElementById("emojiHolder").appendChild(emojiBox);
 		}
-		document.getElementById("emojiHolder").innerHTML = str;
 	  </script>
    </body>
 </html>
