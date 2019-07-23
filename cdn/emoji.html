@@ -6,16 +6,24 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link rel='stylesheet' type='text/css' href='./bootstrap/bootstrap-v4.1.1.min.css'>
  <style>
-  .emoji-icon {
-     margin: 5px;
-     display: inline-block;
-     font-size: 50px;
-     line-height: 50px;
-  }
+  .emoji-icon {margin: 5px;display: inline-block;font-size: 2.5em;transition: transform .3s;}
+  .emoji-icon:hover { transform: scale(2); }
 </style>
 </head>
 
 <body>
+
+   <div class='card mx-3 my-2'>
+      <div class='card-header' onclick='toggler(this);'>Mahjong</div>
+      <div class='card-body' style='display:none' emoji-name='mahjong'>
+      </div>
+   </div>
+
+   <div class='card mx-3 my-2'>
+      <div class='card-header' onclick='toggler(this);'>Style texts</div>
+      <div class='card-body' style='display:none' emoji-name='styleText'>
+      </div>
+   </div>
 
    <div class='card mx-3 my-2'>
       <div class='card-header' onclick='toggler(this);'>Icons</div>
@@ -7332,66 +7340,126 @@
          <td></td>
       </tr>
    </tbody>
-</table>
+	</table>
 
-<script type='text/javascript' src='./bootstrap/bootstrap-v4.1.1.min.js'></script>
-<script type='text/javascript' src='./jquery/jquery-v3.4.1.min.js'></script>
+	<script type='text/javascript' src='./bootstrap/bootstrap-v4.1.1.min.js'></script>
+	<script type='text/javascript' src='./jquery/jquery-v3.4.1.min.js'></script>
 
-<script>
-   function toggler(THIS)
-   {
-      let obj = $(THIS).next('.card-body');
-      let functionName = obj.attr('emoji-name');
+	<script>
+		function toggler(THIS)
+		{
+			let obj = $(THIS).next('.card-body');
+			let functionName = obj.attr('emoji-name');
 
-      if(!obj.is(":visible"))
-      {
-         obj.empty();
-         obj.html("<button class='btn btn-dark' onclick='" + functionName + "(this);'>Load emoji</button>");
-      }
-      obj.toggle('slow');
-   }
+			if(!obj.is(":visible"))
+			{
+				obj.empty();
+				obj.html("<button class='btn btn-dark' onclick='" + functionName + "(this);'>Load emoji</button>");
+			}
+			obj.toggle('slow');
+		}
 
-   function emojiMaker(number, parent)
-   {
-      let str = "";
-      str += "<div class='emoji-icon' title='" + number + "'>";
-      str += "&#" + number + ";";
-      str += "</div>";
-      parent.append(str);
-   }
+		function emojiMaker(number, parent)
+		{
+			let str = "";
+			str += "<div class='emoji-icon' onclick='copyCode("+number+")'>";
+			str += "&#" + number + ";";
+			str += "</div>";
+			parent.append(str);
+		}
+		
+		function copyCode(number)
+		{
+			window.prompt("Copy to clipboard: Ctrl+C, Enter", number);
+		}
 
-   function emojiMakerJS(number, htmlHolder)
-   {
-      var emojiIcon = document.createElement("div");        
-      
-      emojiIcon.innerHTML = "&#" + number + ";";
+		function emojiMakerJS(number, htmlHolder)
+		{
+			var emojiIcon = document.createElement("div");
+			emojiIcon.innerHTML = "&#" + number + ";";
+			emojiIcon.className = "emoji-icon";
+			emojiIcon.title = '' + number;
+			document.getElementById(htmlHolder).appendChild(emojiIcon);
+		}
 
-      emojiIcon.className = "emoji-icon";
-      
-      emojiIcon.title = '' + number;
-      document.getElementById(htmlHolder).appendChild(emojiIcon);
-   }  
+		function buttonHandler(THIS)
+		{
+			let parent = $(THIS).parent();
+			parent.empty();
+			return parent;
+		}
+		
+		function defaultEmoji(THIS)
+		{
+			let parent = buttonHandler(THIS);
+			for(let i = 0; i < 10;i++)
+			{
+				emojiMaker(i + 126980, parent);
+			}
+		}
 
-   function defaultEmoji(THIS)
-   {
-      let parent = $(THIS).parent();
-      parent.empty();
-      for(let i = 0; i < 10;i++)
-      {
-         emojiMaker(i + 126980, parent);
-      }
-   }
+		function icons(THIS)
+		{
+			let parent = buttonHandler(THIS);
+			for(let i = 0; i < 10000;i++)
+			{
+				emojiMaker(i + 126980, parent);
+			}
+		}
+		
+		function mahjong(THIS)
+		{
+			let parent = buttonHandler(THIS);
+			for(let i = 126980; i <= 127019;i++)
+			{
+				emojiMaker(i, parent);
+			}
+			
+			parent.append("<hr>");
+			for(let i = 127024; i <= 127073;i++)
+			{
+				emojiMaker(i, parent);
+			}
 
-   function icons(THIS)
-   {
-      let parent = $(THIS).parent();
-      parent.empty();
-      for(let i = 0; i < 10000;i++)
-      {
-         emojiMaker(i + 126980, parent);
-      }
-   }
+			parent.append("<hr>");
+			for(let i = 127074; i <= 127123;i++)
+			{
+				emojiMaker(i, parent);
+			}
+		}
+		
+		function styleText(THIS)
+		{
+			let parent = buttonHandler(THIS);
+			for(let i = 0; i < 26;i++)
+			{
+				emojiMaker(i + 127248, parent);
+			}
+			
+			parent.append("<br>");
+			for(let i = 0; i < 26;i++)
+			{
+				emojiMaker(i + 127280, parent);
+			}
 
-   </script>
+			parent.append("<br>");
+			for(let i = 0; i < 26;i++)
+			{
+				emojiMaker(i + 127312, parent);
+			}
+
+			parent.append("<br>");
+			for(let i = 0; i < 26;i++)
+			{
+				emojiMaker(i + 127344, parent);
+			}
+
+			parent.append("<br>");
+			for(let i = 0; i < 26;i++)
+			{
+				emojiMaker(i + 127462, parent);
+			}
+		}
+	</script>
 </body>
 </html>
