@@ -18,15 +18,16 @@
 <body>
 
    <div class='card mx-3 my-2'>
-      <div class='card-header'>
-         hello
-      </div>
-      <div class='card-body' id='demo-emoji'>
-         <button class="'btn btn-primary" onclick='loadEmoji(this)'> load </button>
+      <div class='card-header' onclick='toggler(this);'>Icons</div>
+      <div class='card-body' style='display:none' emoji-name='icons'>
       </div>
    </div>
 
-
+   <div class='card mx-3 my-2'>
+      <div class='card-header' onclick='toggler(this);'>Dummy</div>
+      <div class='card-body' style='display:none' emoji-name='dummy'>
+      </div>
+   </div>
 
    <hr>
    <i class='fas fa-folder-open'></i>
@@ -7334,31 +7335,32 @@
 </table>
 
 <script type='text/javascript' src='./bootstrap/bootstrap-v4.1.1.min.js'></script>
+<script type='text/javascript' src='./jquery/jquery-v3.4.1.min.js'></script>
 
 <script>
-	for(let i = 0; i < 10;i++)
-	{
-      /*
-		var emojiBox = document.createElement("div");
-		var emojiIcon = document.createElement("div");			
-		var emojiCode = document.createElement("div");
-		
-		emojiIcon.innerHTML = "&#" + i + ";";
-		emojiCode.innerHTML =  i;
+   function toggler(THIS)
+   {
+      let obj = $(THIS).next('.card-body');
+      let functionName = obj.attr('emoji-name');
 
-		emojiBox.appendChild(emojiIcon);
-		emojiBox.appendChild(emojiCode);
-			
-		emojiBox.className = "emoji-box";
-		emojiIcon.className = "emoji-icon";
-		emojiCode.className = "emoji-code";
-		
-      document.getElementById("myAbbr").title = '' + i;
-      document.getElementById("emojiHolder").appendChild(emojiBox);
-      */
+      if(!obj.is(":visible"))
+      {
+         obj.empty();
+         obj.html("<button class='btn btn-dark' onclick='" + functionName + "(this);'>Load emoji</button>");
+      }
+      obj.toggle('slow');
    }
 
-   function emojiMaker(number, htmlHolder)
+   function emojiMaker(number, parent)
+   {
+      let str = "";
+      str += "<div class='emoji-icon' title='" + number + "'>";
+      str += "&#" + number + ";";
+      str += "</div>";
+      parent.append(str);
+   }
+
+   function emojiMakerJS(number, htmlHolder)
    {
       var emojiIcon = document.createElement("div");        
       
@@ -7368,16 +7370,28 @@
       
       emojiIcon.title = '' + number;
       document.getElementById(htmlHolder).appendChild(emojiIcon);
-   }
+   }  
 
-   function loadEmoji(THIS)
+   function defaultEmoji(THIS)
    {
-      THIS.style.display = "none";
+      let parent = $(THIS).parent();
+      parent.empty();
       for(let i = 0; i < 10;i++)
       {
-         emojiMaker(i + 126980, 'demo-emoji');
+         emojiMaker(i + 126980, parent);
       }
    }
+
+   function icons(THIS)
+   {
+      let parent = $(THIS).parent();
+      parent.empty();
+      for(let i = 0; i < 10000;i++)
+      {
+         emojiMaker(i + 126980, parent);
+      }
+   }
+
    </script>
 </body>
 </html>
