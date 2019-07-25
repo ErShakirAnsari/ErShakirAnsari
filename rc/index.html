@@ -44,25 +44,26 @@
 		<div class="container">
 		
 			<div class="row my-4 py-2">
-				<div class='col-8'>
-					URL:<br>
-					<input id='idInputUrl' class='form-control'/>
-				</div>
-				
-				<div class='col-2 border-left'>
+				<div class='col-lg-2 col-md-6 col-sm-12'>
 					Method:<br>
 					<select id='idSelectMethod' class='form-control'>
 						<option value='get'>GET</option>
 						<option value='post'>POST</option>
 					</select>
 				</div>
-				<div class='col-2 border-left'>
-					<br>
-					<button class='btn btn-danger' style='width:100%'>Send</button>
+
+				<div class='col-lg-8 col-md-6 col-sm-12'>
+					URL:<br>
+					<input id='idInputUrl' class='form-control'/>
+				</div>
+				
+				<div class='col-lg-2 col-md-6 col-sm-12'>
+					Action:<br>
+					<button class='btn btn-primary' onclick='sendRequest()'>Send</button>
 				</div>
 			</div>
 			
-			
+			<hr class='my-4'>
 			
 			<!-- Nav tabs -->
 			<div class="row my-2">
@@ -90,38 +91,12 @@
 						<!-- Params -->
 						<div class="tab-pane active" id="params" role="tabpanel" aria-labelledby="params-tab">
 							<div class="row my-2">
-								<div class="col-12">
-									<div class="row my-1">
-										<div class='col-5'>Parameter key</div>
-										<div class='col-5'>Parameter value</div>
-										<div class='col-1'>Remove</div>									
-										<div class='col-1'>Add</div>
-									</div>
-									<div class="row my-1">
-										<div class='col-5'>
-											<input class='form-control'/>
-										</div>
-										<div class='col-5'>
-											<input class='form-control'/>
-										</div>
-										<div class='col-1'>
-											<button class='btn btn-light' onclick='toggleParams(this)'>x</button>
-										</div>
-									</div>
-									<div class="row my-1">
-										<div class='col-5'>
-											<input class='form-control'/>
-										</div>
-										<div class='col-5'>
-											<input class='form-control'/>
-										</div>
-										<div class='col-1'>
-											<button class='btn btn-light' onclick='toggleParams(this)'>x</button>
-										</div>
-										<div class='col-1'>
-											<button class='btn btn-primary' onclick='toggleParams(this)'>+</button>
-										</div>									
-									</div>
+								<div class='col-lg-2 col-md-4 col-sm-4'>
+									<button class='btn btn-dark' onclick='addParam()'>Add params</button>
+								</div>
+							</div>
+							<div class="row my-2">
+								<div class="col-12" id='idDivParams'>
 								</div>
 							</div>
 						</div>
@@ -129,24 +104,12 @@
 						<!-- Headers -->
 						<div class="tab-pane" id="headers" role="tabpanel" aria-labelledby="headers-tab">
 							<div class="row my-2">
-								<div class='col-10'>
-									<table class='table'>
-										<tr>
-											<th>Key</th>
-											<th>Value</th>
-										</tr>
-										<tr>
-											<td>
-												<input class='form-control'/>
-											</td>
-											<td>
-												<input class='form-control'/>
-											</td>
-										</tr>
-									</table>
+								<div class='col-lg-2 col-md-4 col-sm-6'>
+									<button class='btn btn-dark' onclick='addHeader()'>Add headers</button>
 								</div>
-								<div class='col-2'>
-									<button class='btn btn-light' style='width:100%'>Add more</button>
+							</div>
+							<div class="row my-2">
+								<div class="col-12" id='idDivHeaders'>
 								</div>
 							</div>
 						</div>
@@ -154,24 +117,12 @@
 						<!-- Authorizations -->
 						<div class="tab-pane" id="authorizations" role="tabpanel" aria-labelledby="authorizations-tab">
 							<div class="row my-2">
-								<div class='col-10'>
-									<table class='table'>
-										<tr>
-											<th>Key</th>
-											<th>Value</th>
-										</tr>
-										<tr>
-											<td>
-												<input class='form-control'/>
-											</td>
-											<td>
-												<input class='form-control'/>
-											</td>
-										</tr>
-									</table>
+								<div class='col-lg-2 col-md-4 col-sm-6'>
+									<button class='btn btn-dark' onclick='addAuthorizations()'>Add authorizations</button>
 								</div>
-								<div class='col-2'>
-									<button class='btn btn-light' style='width:100%'>Add more</button>
+							</div>
+							<div class="row my-2">
+								<div class="col-12" id='idDivAuthorizations'>
 								</div>
 							</div>
 						</div>

@@ -17,6 +17,11 @@ public class CdnMain2
 {
 	public static void main(String[] args) throws Exception
 	{
+		if (args == null || args.length == 0)
+		{
+			throw new IllegalArgumentException("Please provide build mode [" + Constants.MODE_DEV + " OR " + Constants.MODE_PROD + "]");
+		}
+
 		Constants.MODE = args[0];
 		System.out.println("cdn.CdnMain2.main() - Constants.MODE: " + Constants.MODE);
 
@@ -30,7 +35,6 @@ public class CdnMain2
 			String fileList = "[" + System.lineSeparator() + getFileLists() + System.lineSeparator() + "]";
 
 			AppUtilities.writeFile("fileList.json", fileList);
-//            writer.append("var files=" + fileList + ";");
 			writer.append("var timestamp=" + System.currentTimeMillis() + ";");
 			writer.append("</script>");
 
@@ -66,7 +70,8 @@ public class CdnMain2
 
 		for (File file : fileList)
 		{
-			if (file.getName().startsWith("@"))
+			if (file.getName().startsWith("@")
+					|| file.getName().equals("src"))
 			{
 				continue;
 			}
