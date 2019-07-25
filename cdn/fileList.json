@@ -309,8 +309,6 @@
 	"LICENSE",
 	"popper/popper-v1.11.1.js",
 	"popper/popper-v1.11.1.min.js",
-	"push-js/ErShakirAnsari.png",
-	"push-js/index.html",
 	"push-js/push.js",
 	"push-js/push.min.js",
 	"push-js/serviceWorker.min.js",
