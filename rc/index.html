@@ -10,6 +10,7 @@
 			body { padding-top: 56px }
 			footer { position: absolute; bottom: 0; width: 100%; }
 			.btn { width:100% !important }
+			#idTextRequestBody { resize: none; font: normal 18px consolas }
 		</style>
 	</head>
 	<body>
@@ -131,12 +132,13 @@
 						<div class="tab-pane" id="request-body" role="tabpanel" aria-labelledby="request-body-tab">
 							<div class="row my-2">
 								<div class='col-10'>					
-									<textarea id='idTextRequestBody' class='form-control' rows='10' style='resize:none'></textarea>
+									<textarea id='idTextRequestBody' class='form-control' rows='10'></textarea>
 								</div>
 								<div class='col-2'>
-									<br>
 									<select id='idSelectMethod' class='form-control'>
-										<option value='json'>text/json</option>
+										<option value='json'>text / json</option>
+										<option value='html'>text / html</option>
+										<option value='xml'>text / xml</option>
 									</select>				
 
 									<hr>
