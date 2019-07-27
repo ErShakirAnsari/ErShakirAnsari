@@ -2,13 +2,22 @@
 var IS_PARAMS = false;
 var divParams = $('#idDivParams');
 
-$().ready(function(){
+$().ready(function()
+{
+	$('.card-header').click(function()
+	{
+		$(this).next('.card-body').toggle('slow');
+	});
+	
+	/**
+	$("#idTextRequestBody").bcralnit(
+	{
+		width: '50px',
+		background: '#75BAFF',
+		color: '#fff'
+	});
+	*/
 });
-
-function sendRequest() {
-	alert('sendRequest()');
-	getParams();
-}
 
 function _toggle(THIS, tableId, variable)
 {	
@@ -59,12 +68,16 @@ function getParams()
 	//divParams;
 	let paramKeys = document.getElementsByName("paramKey");
 	
+	let str = [];
 	for(let i = 0; i< paramKeys.length; i++)
 	{
 		let time = paramKeys[i].getAttribute("time-stamp");
-		let str = "param: " + paramKeys[i].value + ", value: " + document.getElementById("idParamValue" + time).value;
-		alert(str);
+		str[paramKeys[i].value] = document.getElementById("idParamValue" + time).value;
 	}
+
+	let strJson = JSON.parse(str);
+	
+	return strJson;
 }
  
 function addHeader()

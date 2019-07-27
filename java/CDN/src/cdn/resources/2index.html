@@ -20,32 +20,32 @@
 -->
 <!DOCTYPE html>
 <html>
-   <head>
-      <title> SKR - CDN resolver </title>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <link rel='stylesheet' type='text/css' href='https://ershakiransari.github.io/cdn/bootstrap/bootstrap-v4.3.1.min.css'>
-      <link rel='stylesheet' type="text/css" href='https://ershakiransari.github.io/cdn/font-awesome/font-awesome-v4.7.0.min.css'>
-      <style>
+	<head>
+		<title> SKR - CDN resolver </title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel='stylesheet' type='text/css' href='https://ershakiransari.github.io/cdn/bootstrap/bootstrap-v4.3.1.min.css'>
+		<link rel='stylesheet' type="text/css" href='https://ershakiransari.github.io/cdn/font-awesome/font-awesome-v4.7.0.min.css'>
+		<style>
 			body{background: transparent url('https://ershakiransari.github.io/cdn/images/web-bgs/web-bg-013.png');}
 			label{display:block;font:normal 1.15em consolas}
 			label code{color:#007bff !important}
 			label i {color:#555;cursor:pointer}
 			button {width:100%}
 		</style>
-   </head>
-   <body class='my-3 mx-5'>
-      <h1><i class="fa fa-archive" aria-hidden="true"></i> Static files</h1>
-      <h5 class='text-muted text-transform: lowercase'>$root: <span id="typed" style="white-space:pre;"></span></h5>
-      <hr>
+	</head>
+	<body class='my-3 mx-5'>
+		<h1><i class="fa fa-archive" aria-hidden="true"></i> Static files</h1>
+		<h5 class='text-muted text-transform: lowercase'>$root: <span id="typed" style="white-space:pre;"></span></h5>
+		<hr>
 
 		<div class='row m-1'>
 			<input type='search' class='form-control' onkeydown='search(this)' onkeyup='search(this)' placeholder='Search here..'/>
 		</div>
 
 		<script>
-			var files = [
-					  'angular-v1.6.9.js', 'angular-v1.6.9.min.js', 'animate-v3.7.0.css', 'animate-v3.7.0.min.css', 'back-to-top-v1.0.css', 'back-to-top-v1.0.js', 'bootstrap-checkbox-v1.4.0.js', 'bootstrap-checkbox-v1.4.0.min.js', 'bootstrap-datepicker-v1.0.css', 'bootstrap-datepicker-v1.0.js', 'bootstrap-datetimepicker-v4.17.37.css', 'bootstrap-datetimepicker-v4.17.37.min.css', 'bootstrap-datetimepicker-v4.17.37.min.js', 'bootstrap-datetimepicker-v4.17.37.standalone.css', 'bootstrap-filestyle-v1.0.0.min.js', 'bootstrap-select-v1.13.1.css', 'bootstrap-select-v1.13.1.min.css', 'bootstrap-select-v1.13.1.min.js', 'bootstrap-v4.0.0.css', 'bootstrap-v4.0.0.min.css', 'bootstrap-v4.1.1.css', 'bootstrap-v4.1.1.min.css', 'bootstrap-v4.1.1.min.js', 'bootstrap-v4.2.1.js', 'bootstrap-v4.2.1.min.js', 'bootstrap-v4.3.1.css', 'bootstrap-v4.3.1.js', 'bootstrap-v4.3.1.min.css', 'bootstrap-v4.3.1.min.js', 'aes-v3.1.2.js', 'aes-v3.1.2.min.js', 'cipher-core-v3.1.2.js', 'cipher-core-v3.1.2.min.js', 'core-v3.1.2.js', 'core-v3.1.2.min.js', 'enc-base64-v3.1.2.js', 'enc-base64-v3.1.2.min.js', 'enc-utf16-v3.1.2.js', 'enc-utf16-v3.1.2.min.js', 'evpkdf-v3.1.2.js', 'evpkdf-v3.1.2.min.js', 'format-hex-v3.1.2.js', 'format-hex-v3.1.2.min.js', 'hmac-v3.1.2.js', 'hmac-v3.1.2.min.js', 'lib-typedarrays-v3.1.2.js', 'lib-typedarrays-v3.1.2.min.js', 'md5-v3.1.2.js', 'md5-v3.1.2.min.js', 'mode-cfb-v3.1.2.js', 'mode-cfb-v3.1.2.min.js', 'mode-ctr-gladman-v3.1.2.js', 'mode-ctr-gladman-v3.1.2.min.js', 'mode-ctr-v3.1.2.js', 'mode-ctr-v3.1.2.min.js', 'mode-ecb-v3.1.2.js', 'mode-ecb-v3.1.2.min.js', 'mode-ofb-v3.1.2.js', 'mode-ofb-v3.1.2min.js', 'pad-ansix923-v3.1.2.js', 'pad-ansix923-v3.1.2.min.js', 'pad-iso10126-v3.1.2.js', 'pad-iso10126-v3.1.2.min.js', 'pad-iso97971-v3.1.2.js', 'pad-iso97971-v3.1.2.min.js', 'pad-nopadding-v3.1.2.js', 'pad-nopadding-v3.1.2.min.js', 'pad-zeropadding-v3.1.2.js', 'pad-zeropadding-v3.1.2min.js', 'pbkdf2-v3.1.2.js', 'pbkdf2-v3.1.2.min.js', 'rabbit-legacy-v3.1.2.js', 'rabbit-legacy-v3.1.2.min.js', 'rabbit-v3.1.2.js', 'rabbit-v3.1.2.min.js', 'rc4-v3.1.2.js', 'rc4-v3.1.2.min.js', 'ripemd160-v3.1.2.js', 'ripemd160-v3.1.2.min.js', 'sha1-v3.1.2.js', 'sha1-v3.1.2.min.js', 'sha224-v3.1.2.js', 'sha224-v3.1.2.min.js', 'sha256-v3.1.2.js', 'sha256-v3.1.2.min.js', 'sha3-v3.1.2.js', 'sha3-v3.1.2.min.js', 'sha384-v3.1.2.js', 'sha384-v3.1.2.min.js', 'sha512-v3.1.2.js', 'sha512-v3.1.2.min.js', 'tripledes-v3.1.2.js', 'tripledes-v3.1.2.min.js', 'x64-core-v3.1.2.js', 'x64-core-v3.1.2.min.js', 'aes-v3.1.2.js', 'hmac-md5-v3.1.2.js', 'hmac-ripemd160-v3.1.2.js', 'hmac-sha1-v3.1.2.js', 'hmac-sha224-v3.1.2.js', 'hmac-sha256-v3.1.2.js', 'hmac-sha3-v3.1.2.js', 'hmac-sha384-v3.1.2.js', 'hmac-sha512-v3.1.2.js', 'md5-v3.1.2.js', 'pbkdf2-v3.1.2.js', 'rabbit-legacy-v3.1.2.js', 'rabbit-v3.1.2.js', 'rc4-v3.1.2.js', 'ripemd160-v3.1.2.js', 'sha1-v3.1.2.js', 'sha224-v3.1.2.js', 'sha256-v3.1.2.js', 'sha3-v3.1.2.js', 'sha384-v3.1.2.js', 'sha512-v3.1.2.js', 'tripledes-v3.1.2.js', 'font-awesome-v4.7.0.css', 'font-awesome-v4.7.0.min.css', 'font-awesome-v5.7.0.css', 'font-awesome-v5.7.0.min.css', 'font-awesome-v5.7.0.min.js', 'fullcalendar-v2.8.0.min.css', 'fullcalendar-v2.8.0.min.js', 'fullcalendar-v2.8.0.print.css', 'glDatePicker-v2.0.darkneon.css', 'glDatePicker-v2.0.default.css', 'glDatePicker-v2.0.flatwhite.css', 'glDatePicker-v2.0.js', 'glDatePicker-v2.0.min.js', 'joker.jpeg', 'marty.jpg', 'jaxer-ajax-loader-v1.0.css', 'jaxer-ajax-loader-v1.0.js', 'jaxer-ajax-loader-v1.0.min.js', 'jaxer-alerts-v1.0.css', 'jaxer-alerts-v1.0.js', 'jaxer-alerts-v1.1.0.css', 'jaxer-alerts-v1.1.0.js', 'jaxer-alerts-v2.0.css', 'jaxer-alerts-v2.0.js', 'jaxer-button-v1.0.css', 'jaxer-checkbox-v1.0.0.css', 'jaxer-checkbox-v1.0.0.min.css', 'jaxer-fit-text-v1.0.js', 'jaxer-hashing-md4-v1.0.js', 'jaxer-hashing-md5-v1.0.js', 'jaxer-hashing-sha1-v1.0.js', 'jaxer-inputx-v1.0.css', 'jaxer-jquery-validations-v1.0.js', 'jaxer-notifications-v1.0.0.css', 'jaxer-notifications-v1.0.0.js', 'jaxer-notifications-v1.1.0.css', 'jaxer-notifications-v1.1.0.js', 'jaxer-popup-v1.0.0.css', 'jaxer-popup-v1.0.0.js', 'jaxer-twitter-v1.0.js', 'jBox.all-v0.5.3.css', 'jBox.all-v0.5.3.js', 'jBox.all-v0.5.3.min.css', 'jBox.all-v0.5.3.min.js', 'jquery-v2.1.1.min.js', 'jquery-v3.2.1.js', 'jquery-v3.2.1.min.js', 'jquery-v3.3.1.js', 'jquery-v3.3.1.min.js', 'jquery.easing-v1.4.1.js', 'jquery.easing-v1.4.1.min.js', 'jquery.serializejson-v2.9.0.min.js', 'lazyload-v2.0.0.beta.js', 'lazyload-v2.0.0.beta.min.js', 'popper-v1.11.1.js', 'popper-v1.11.1.min.js', 'spin-v1.0.js', 'tipped-v4.5.7.css', 'tipped-v4.5.7.js', 'typed-v2.0.9.js', 'typed-v2.0.9.min.js', 'ajax-loader-v1.gif', 'ajax-loader-v2.gif', 'ajax-loader-v3.gif', 'dp-v1.jpeg', 'dp-v2.jpg', 'skr-artwork.jpg', 'transbg-black-v.png', 'transbg-black-v0.1.png', 'transbg-black-v0.4.png', 'transbg-black-v0.5.png', 'addAutoResizeTextarea-v1.0.js', 'common-ajax-call-v1.0.js', 'cookies-handler-v1.0.js', 'cookies-handler-v1.0.min.js', 'get-context-path-v1.0.1.js', 'news-ticker.min-v1.0.js', 'sorttable-v1.0.js'
-			];
+		var files = [
+		   'angular-v1.6.9.js', 'angular-v1.6.9.min.js', 'animate-v3.7.0.css', 'animate-v3.7.0.min.css', 'back-to-top-v1.0.css', 'back-to-top-v1.0.js', 'bootstrap-checkbox-v1.4.0.js', 'bootstrap-checkbox-v1.4.0.min.js', 'bootstrap-datepicker-v1.0.css', 'bootstrap-datepicker-v1.0.js', 'bootstrap-datetimepicker-v4.17.37.css', 'bootstrap-datetimepicker-v4.17.37.min.css', 'bootstrap-datetimepicker-v4.17.37.min.js', 'bootstrap-datetimepicker-v4.17.37.standalone.css', 'bootstrap-filestyle-v1.0.0.min.js', 'bootstrap-select-v1.13.1.css', 'bootstrap-select-v1.13.1.min.css', 'bootstrap-select-v1.13.1.min.js', 'bootstrap-v4.0.0.css', 'bootstrap-v4.0.0.min.css', 'bootstrap-v4.1.1.css', 'bootstrap-v4.1.1.min.css', 'bootstrap-v4.1.1.min.js', 'bootstrap-v4.2.1.js', 'bootstrap-v4.2.1.min.js', 'bootstrap-v4.3.1.css', 'bootstrap-v4.3.1.js', 'bootstrap-v4.3.1.min.css', 'bootstrap-v4.3.1.min.js', 'aes-v3.1.2.js', 'aes-v3.1.2.min.js', 'cipher-core-v3.1.2.js', 'cipher-core-v3.1.2.min.js', 'core-v3.1.2.js', 'core-v3.1.2.min.js', 'enc-base64-v3.1.2.js', 'enc-base64-v3.1.2.min.js', 'enc-utf16-v3.1.2.js', 'enc-utf16-v3.1.2.min.js', 'evpkdf-v3.1.2.js', 'evpkdf-v3.1.2.min.js', 'format-hex-v3.1.2.js', 'format-hex-v3.1.2.min.js', 'hmac-v3.1.2.js', 'hmac-v3.1.2.min.js', 'lib-typedarrays-v3.1.2.js', 'lib-typedarrays-v3.1.2.min.js', 'md5-v3.1.2.js', 'md5-v3.1.2.min.js', 'mode-cfb-v3.1.2.js', 'mode-cfb-v3.1.2.min.js', 'mode-ctr-gladman-v3.1.2.js', 'mode-ctr-gladman-v3.1.2.min.js', 'mode-ctr-v3.1.2.js', 'mode-ctr-v3.1.2.min.js', 'mode-ecb-v3.1.2.js', 'mode-ecb-v3.1.2.min.js', 'mode-ofb-v3.1.2.js', 'mode-ofb-v3.1.2min.js', 'pad-ansix923-v3.1.2.js', 'pad-ansix923-v3.1.2.min.js', 'pad-iso10126-v3.1.2.js', 'pad-iso10126-v3.1.2.min.js', 'pad-iso97971-v3.1.2.js', 'pad-iso97971-v3.1.2.min.js', 'pad-nopadding-v3.1.2.js', 'pad-nopadding-v3.1.2.min.js', 'pad-zeropadding-v3.1.2.js', 'pad-zeropadding-v3.1.2min.js', 'pbkdf2-v3.1.2.js', 'pbkdf2-v3.1.2.min.js', 'rabbit-legacy-v3.1.2.js', 'rabbit-legacy-v3.1.2.min.js', 'rabbit-v3.1.2.js', 'rabbit-v3.1.2.min.js', 'rc4-v3.1.2.js', 'rc4-v3.1.2.min.js', 'ripemd160-v3.1.2.js', 'ripemd160-v3.1.2.min.js', 'sha1-v3.1.2.js', 'sha1-v3.1.2.min.js', 'sha224-v3.1.2.js', 'sha224-v3.1.2.min.js', 'sha256-v3.1.2.js', 'sha256-v3.1.2.min.js', 'sha3-v3.1.2.js', 'sha3-v3.1.2.min.js', 'sha384-v3.1.2.js', 'sha384-v3.1.2.min.js', 'sha512-v3.1.2.js', 'sha512-v3.1.2.min.js', 'tripledes-v3.1.2.js', 'tripledes-v3.1.2.min.js', 'x64-core-v3.1.2.js', 'x64-core-v3.1.2.min.js', 'aes-v3.1.2.js', 'hmac-md5-v3.1.2.js', 'hmac-ripemd160-v3.1.2.js', 'hmac-sha1-v3.1.2.js', 'hmac-sha224-v3.1.2.js', 'hmac-sha256-v3.1.2.js', 'hmac-sha3-v3.1.2.js', 'hmac-sha384-v3.1.2.js', 'hmac-sha512-v3.1.2.js', 'md5-v3.1.2.js', 'pbkdf2-v3.1.2.js', 'rabbit-legacy-v3.1.2.js', 'rabbit-v3.1.2.js', 'rc4-v3.1.2.js', 'ripemd160-v3.1.2.js', 'sha1-v3.1.2.js', 'sha224-v3.1.2.js', 'sha256-v3.1.2.js', 'sha3-v3.1.2.js', 'sha384-v3.1.2.js', 'sha512-v3.1.2.js', 'tripledes-v3.1.2.js', 'font-awesome-v4.7.0.css', 'font-awesome-v4.7.0.min.css', 'font-awesome-v5.7.0.css', 'font-awesome-v5.7.0.min.css', 'font-awesome-v5.7.0.min.js', 'fullcalendar-v2.8.0.min.css', 'fullcalendar-v2.8.0.min.js', 'fullcalendar-v2.8.0.print.css', 'glDatePicker-v2.0.darkneon.css', 'glDatePicker-v2.0.default.css', 'glDatePicker-v2.0.flatwhite.css', 'glDatePicker-v2.0.js', 'glDatePicker-v2.0.min.js', 'joker.jpeg', 'marty.jpg', 'jaxer-ajax-loader-v1.0.css', 'jaxer-ajax-loader-v1.0.js', 'jaxer-ajax-loader-v1.0.min.js', 'jaxer-alerts-v1.0.css', 'jaxer-alerts-v1.0.js', 'jaxer-alerts-v1.1.0.css', 'jaxer-alerts-v1.1.0.js', 'jaxer-alerts-v2.0.css', 'jaxer-alerts-v2.0.js', 'jaxer-button-v1.0.css', 'jaxer-checkbox-v1.0.0.css', 'jaxer-checkbox-v1.0.0.min.css', 'jaxer-fit-text-v1.0.js', 'jaxer-hashing-md4-v1.0.js', 'jaxer-hashing-md5-v1.0.js', 'jaxer-hashing-sha1-v1.0.js', 'jaxer-inputx-v1.0.css', 'jaxer-jquery-validations-v1.0.js', 'jaxer-notifications-v1.0.0.css', 'jaxer-notifications-v1.0.0.js', 'jaxer-notifications-v1.1.0.css', 'jaxer-notifications-v1.1.0.js', 'jaxer-popup-v1.0.0.css', 'jaxer-popup-v1.0.0.js', 'jaxer-twitter-v1.0.js', 'jBox.all-v0.5.3.css', 'jBox.all-v0.5.3.js', 'jBox.all-v0.5.3.min.css', 'jBox.all-v0.5.3.min.js', 'jquery-v2.1.1.min.js', 'jquery-v3.2.1.js', 'jquery-v3.2.1.min.js', 'jquery-v3.3.1.js', 'jquery-v3.3.1.min.js', 'jquery.easing-v1.4.1.js', 'jquery.easing-v1.4.1.min.js', 'jquery.serializejson-v2.9.0.min.js', 'lazyload-v2.0.0.beta.js', 'lazyload-v2.0.0.beta.min.js', 'popper-v1.11.1.js', 'popper-v1.11.1.min.js', 'spin-v1.0.js', 'tipped-v4.5.7.css', 'tipped-v4.5.7.js', 'typed-v2.0.9.js', 'typed-v2.0.9.min.js', 'ajax-loader-v1.gif', 'ajax-loader-v2.gif', 'ajax-loader-v3.gif', 'dp-v1.jpeg', 'dp-v2.jpg', 'skr-artwork.jpg', 'transbg-black-v.png', 'transbg-black-v0.1.png', 'transbg-black-v0.4.png', 'transbg-black-v0.5.png', 'addAutoResizeTextarea-v1.0.js', 'common-ajax-call-v1.0.js', 'cookies-handler-v1.0.js', 'cookies-handler-v1.0.min.js', 'get-context-path-v1.0.1.js', 'news-ticker.min-v1.0.js', 'sorttable-v1.0.js'
+		];
 		</script>
 
 		<div class='row mx-3'>
@@ -59,59 +59,60 @@
 		<script type='text/javascript' src='https://ershakiransari.github.io/cdn/typed-js/typed-v2.0.9.min.js'></script>
 		<script type='text/javascript' src='https://ershakiransari.github.io/cdn/bootstrap/bootstrap-v4.3.1.min.js'></script>
 		<script>
-			var typed = new Typed("#typed", {strings: ['NO WARRANTY EXPRESSED OR IMPLIED.', 'USE AT YOUR OWN RISK.', 'USE YOUR OWN COPY.', 'IT IS EXTREMELY UNWISE TO LOAD CODE FROM SERVERS YOU DO NOT CONTROL.'], typeSpeed: 30, backSpeed: 30, backDelay: 5000, startDelay: 1000, loop: true, cursorChar: '_'});
-			function copyAsHtml(text)
-			{
-			let textLowerCase = text.toLowerCase();
-			if (text.endsWith(".css"))
-			{
+		var typed = new Typed("#typed", {strings: ['NO WARRANTY EXPRESSED OR IMPLIED.', 'USE AT YOUR OWN RISK.', 'USE YOUR OWN COPY.', 'IT IS EXTREMELY UNWISE TO LOAD CODE FROM SERVERS YOU DO NOT CONTROL.'], typeSpeed: 30, backSpeed: 30, backDelay: 5000, startDelay: 1000, loop: true, cursorChar: '_'});
+		function copyAsHtml(text)
+		{
+		   let textLowerCase = text.toLowerCase();
+		   if (text.endsWith(".css"))
+		   {
 			text = "<link rel='stylesheet' type='text/css' href='" + text + "'>";
-			} else if (text.endsWith(".js"))
-			{
+		   } else if (text.endsWith(".js"))
+		   {
 			text = "<script type='text/javascript' src='" + text + "'></script" + ">";
-			} else if (textLowerCase.endsWith(".jpeg") || textLowerCase.endsWith(".jpg") || textLowerCase.endsWith(".gif") || textLowerCase.endsWith(".png"))
-			{
+		   } else if (textLowerCase.endsWith(".jpeg") || textLowerCase.endsWith(".jpg") || textLowerCase.endsWith(".gif") || textLowerCase.endsWith(".png"))
+		   {
 			text = "<img '" + text + "' alt='" + text.substring(text.lastIndexOf("/") + 1, text.length) + "' />";
-			}
-			window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
-			}
+		   }
+		   window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+		}
 
-			function copy(url)
-			{
-			window.prompt("Copy to clipboard: Ctrl+C, Enter", url);
-			}
+		function copy(url)
+		{
+		   window.prompt("Copy to clipboard: Ctrl+C, Enter", url);
+		}
 
-			function search(THIS)
+		function search(THIS)
+		{
+		   var query = $(THIS).val();
+		   if (query === "")
 			{
-			var query = $(THIS).val();
-			if(query === ""){
-				$('#idDivSearchResult').empty();
-				return false;
-			}
-			var lableStr = "";
-			for (let i = 0; i < files.length; i++)
+			$('#idDivSearchResult').empty();
+			return false;
+		   }
+		   var lableStr = "";
+		   for (let i = 0; i < files.length; i++)
+		   {
+			if (files[i].indexOf(query) !== -1)
 			{
-			if (files[i].indexOf(query) !== - 1)
-			{
-			lableStr += createLable(files[i]);
+			   lableStr += createLable(files[i]);
 			}
-			}
+		   }
 
-			lableStr = lableStr.length === 0 ? "<br>No data found!" : lableStr;
-			$('#idDivSearchResult').empty().html(lableStr);
-			}
+		   lableStr = lableStr.length === 0 ? "<br>No data found!" : lableStr;
+		   $('#idDivSearchResult').empty().html(lableStr);
+		}
 
-			function createLable(fileName)
-			{
-			var url = "https://ershakiransari.github.io/cdn/" + fileName;
-			var str = "";
-			str += "<label class='px-2 my-2'>";
-			str += "<i class='fa fa-copy' title='Copy to clipboard' onclick=\"copy('" + url + "')\"></i> ";
-			str += "<i class='fa fa-clipboard' title='Copy to clipboard as HTML' onclick=\"copyAsHtml('" + url + "')\"></i> ";
-			str += "<a href='" + url + "' target='_blank'>" + url + "</a>";
-			str += "</label>";
-			return str;
-			}
+		function createLable(fileName)
+		{
+		   var url = "https://ershakiransari.github.io/cdn/" + fileName;
+		   var str = "";
+		   str += "<label class='px-2 my-2'>";
+		   str += "<i class='fa fa-copy' title='Copy to clipboard' onclick=\"copy('" + url + "')\"></i> ";
+		   str += "<i class='fa fa-clipboard' title='Copy to clipboard as HTML' onclick=\"copyAsHtml('" + url + "')\"></i> ";
+		   str += "<a href='" + url + "' target='_blank'>" + url + "</a>";
+		   str += "</label>";
+		   return str;
+		}
 
 		</script>
 	</body>

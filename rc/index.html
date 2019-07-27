@@ -10,13 +10,14 @@
 			body { padding-top: 56px }
 			footer { position: absolute; bottom: 0; width: 100%; }
 			.btn { width:100% !important }
-			#idInputUrl, #idDivParams, #idDivHeaders, #idDivAuthorizations, #idTextRequestBody {font-family: 'consolas'}
-			#idTextRequestBody { resize: none; font-size: 1em; }
-			
+			#idInputUrl, #idDivParams, #idDivHeaders, #idDivAuthorizations, #idTextRequestBody, #idTextResponse {font-family: 'consolas'}
+			#idTextRequestBody, #idTextResponse { resize: vertical; font-size: 1em; }
+			.card-header { cursor: pointer; }
+		
 			/* *** */
-			.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active
+			.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active, .card-header
 			{
-				background: linear-gradient(to top, #fff 0%, #eee 100%) !important;
+				background: linear-gradient(to top, #fff 0%, #efefef 100%) !important;
 			}
 		</style>
 	</head>
@@ -64,122 +65,170 @@
 
 				<div class='col-lg-8 col-md-6 col-sm-12'>
 					URL:<br>
-					<input id='idInputUrl' class='form-control' placeholder='http://www.somehost.com/end-point'/>
+					<input
+						id='idInputUrl'
+						class='form-control'
+						placeholder='http://www.somehost.com/end-point'
+						value='http://localhost:8080/RestClientTesting/demoApi'
+					/>
 				</div>
 				
 				<div class='col-lg-2 col-md-6 col-sm-12'>
 					Action:<br>
-					<button class='btn btn-primary' onclick='sendRequest()'>Send</button>
+					<button class='btn btn-primary' onclick='sendRequest(this);'>Send</button>
 				</div>
 			</div>
 			
 			<hr class='my-4'>
 			
-			<!-- Nav tabs -->
-			<div class="row my-2">
-				<div class='col-12'>
-					<ul class="nav nav-tabs" id="myTab" role="tablist">
-						<li class="nav-item">
-							<a class="nav-link active" id="params-tab" data-toggle="tab" href="#params" role="tab" aria-controls="params" aria-selected="true">Params</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" id="headers-tab" data-toggle="tab" href="#headers" role="tab" aria-controls="headers" aria-selected="false">Headers</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" id="authorizations-tab" data-toggle="tab" href="#authorizations" role="tab" aria-controls="authorizations" aria-selected="false">Authorizations</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" id="request-body-tab" data-toggle="tab" href="#request-body" role="tab" aria-controls="request-body" aria-selected="false">Request body</a>
-						</li>
-					</ul>
+			<div class='card'>
+				<div class='card-header'>
+					<h5 class='m-0'>Payloads</h5>
 				</div>
-			</div>
-
-			<div class="row my-2">
-				<div class='col-12'>
-					<div class="tab-content">
-						<!-- Params -->
-						<div class="tab-pane active" id="params" role="tabpanel" aria-labelledby="params-tab">
-							<div class="row my-2">
-								<div class='col-lg-2 col-md-4 col-sm-4'>
-									<button class='btn btn-dark' onclick='addParam()'>Add params</button>
-								</div>
-							</div>
-							<div class="row my-2">
-								<div class="col-12" id='idDivParams'>
-								</div>
-							</div>
+				<div class='card-body' style='display: none'>
+					<!-- Nav tabs -->
+					<div class="row my-2">
+						<div class='col-12'>
+							<ul class="nav nav-tabs" id="myTab" role="tablist">
+								<li class="nav-item">
+									<a class="nav-link active" id="params-tab" data-toggle="tab" href="#params" role="tab" aria-controls="params" aria-selected="true">Params</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="headers-tab" data-toggle="tab" href="#headers" role="tab" aria-controls="headers" aria-selected="false">Headers</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="authorizations-tab" data-toggle="tab" href="#authorizations" role="tab" aria-controls="authorizations" aria-selected="false">Authorizations</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="request-body-tab" data-toggle="tab" href="#request-body" role="tab" aria-controls="request-body" aria-selected="false">Request body</a>
+								</li>
+							</ul>
 						</div>
+					</div>
 
-						<!-- Headers -->
-						<div class="tab-pane" id="headers" role="tabpanel" aria-labelledby="headers-tab">
-							<div class="row my-2">
-								<div class='col-lg-2 col-md-4 col-sm-6'>
-									<button class='btn btn-dark' onclick='addHeader()'>Add headers</button>
+					<div class="row my-2">
+						<div class='col-12'>
+							<div class="tab-content">
+								<!-- Params -->
+								<div class="tab-pane active" id="params" role="tabpanel" aria-labelledby="params-tab">
+									<div class="row my-2">
+										<div class='col-lg-3 col-md-4 col-sm-4'>
+											<button class='btn btn-dark' onclick='addParam()'>Add params</button>
+										</div>
+									</div>
+									<div class="row my-2">
+										<div class="col-12" id='idDivParams'>
+										</div>
+									</div>
 								</div>
-							</div>
-							<div class="row my-2">
-								<div class="col-12" id='idDivHeaders'>
-								</div>
-							</div>
-						</div>
 
-						<!-- Authorizations -->
-						<div class="tab-pane" id="authorizations" role="tabpanel" aria-labelledby="authorizations-tab">
-							<div class="row my-2">
-								<div class='col-lg-2 col-md-4 col-sm-6'>
-									<button class='btn btn-dark' onclick='addAuthorizations()'>Add authorizations</button>
+								<!-- Headers -->
+								<div class="tab-pane" id="headers" role="tabpanel" aria-labelledby="headers-tab">
+									<div class="row my-2">
+										<div class='col-lg-3 col-md-4 col-sm-6'>
+											<button class='btn btn-dark' onclick='addHeader()'>Add headers</button>
+										</div>
+									</div>
+									<div class="row my-2">
+										<div class="col-12" id='idDivHeaders'>
+										</div>
+									</div>
 								</div>
-							</div>
-							<div class="row my-2">
-								<div class="col-12" id='idDivAuthorizations'>
-								</div>
-							</div>
-						</div>
-						
-						<!-- Request body -->
-						<div class="tab-pane" id="request-body" role="tabpanel" aria-labelledby="request-body-tab">
-							<div class="row my-2">
-								<div class='col-10'>					
-									<textarea id='idTextRequestBody' class='form-control' rows='10'></textarea>
-								</div>
-								<div class='col-2'>
-									<select id='idSelectMethod' class='form-control'>
-										<option value='json'>text / json</option>
-										<option value='html'>text / html</option>
-										<option value='xml'>text / xml</option>
-									</select>				
 
-									<hr>
-									<button class='btn btn-light' style='width:100%'>format</button>
-									<hr>
-									<button class='btn btn-light' style='width:100%'>minify</button>
+								<!-- Authorizations -->
+								<div class="tab-pane" id="authorizations" role="tabpanel" aria-labelledby="authorizations-tab">
+									<div class="row my-2">
+										<div class='col-lg-3 col-md-4 col-sm-6'>
+											<button class='btn btn-dark' onclick='addAuthorizations()'>Add authorizations</button>
+										</div>
+									</div>
+									<div class="row my-2">
+										<div class="col-12" id='idDivAuthorizations'>
+										</div>
+									</div>
+								</div>
+								
+								<!-- Request body -->
+								<div class="tab-pane" id="request-body" role="tabpanel" aria-labelledby="request-body-tab">
+									<div class="row my-2">
+										<div class='col-10'>					
+											<textarea id='idTextRequestBody' class='form-control' rows='8'>shakir</textarea>
+										</div>
+										<div class='col-2'>
+											<select id='idSelectMethod' class='form-control'>
+												<option value='json'>text / json</option>
+												<option value='html'>text / html</option>
+												<option value='xml'>text / xml</option>
+											</select>				
+
+											<hr>
+											<button class='btn btn-light' style='width:100%'>format</button>
+											<hr>
+											<button class='btn btn-light' style='width:100%'>minify</button>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> <!-- END OF REQUEST CARD -->
+
+			<br>
+
+			<div class='card'>
+				<div class='card-header'>
+					<h5 class='m-0'>Response</h5>
+				</div>
+				<div class='card-body' style='display: none' id='idDivResponse'>
+					<textarea id='idTextResponse' class='form-control' rows='8'></textarea>
+				</div>
+			</div> <!-- END OF RESPONSE CARD -->
 		</div>
-		
-		<br>
-		<br>
-		<br>
-					
+
 		<!-- Footer -->
-		<!--
-		<footer class="py-3 mt-3 bg-dark" style='display:none1'>
-			<div class="container">
-				<h6 class="m-0 text-right text-light">
-					Copyright &copy; <em>ErShakirAnsari</em> 2019
-				</h6>
-			</div>
-		</footer>
-		-->
+		<br><br><br>
+		<hr>
+		<h6 class="footer m-0 px-5 text-right">
+			Written by <em>ErShakirAnsari</em>
+			<br>
+			&copy; 2019
+		</h6>
+		<hr>
 		
 		<!-- Bootstrap core JavaScript -->
 		<script src="../cdn/jquery/jquery-v3.3.1.min.js"></script>
 		<script src="../cdn/bootstrap/bootstrap-v4.3.1.min.js"></script>
+		<!-- <script src="../cdn/js/bcralnit-textarea-line-numbers-v0.0.1.js"></script> -->
 		<script src="index.js?v=1.0.0"></script>
+		
+		<script>
+			function sendRequest()
+			{
+				$.ajax(
+				{
+					url: $('#idInputUrl').val(),
+					type: $('#idSelectMethod').val(),
+					data: getParams(),
+					//dataType: 'json',
+					//contentType: "application/json; charset=utf-8",
+					beforeSend: function (xhr)
+					{
+						console.log('beforeSend():\nxhr: ' + JSON.stringify(xhr, null, 3));
+					},
+					complete: function (xhr, status)
+					{
+						console.log('complete():\nxhr: ' + JSON.stringify(xhr, null, 3) + '\nstatus:' + status);
+					},
+					success: function (response, status, xhr)
+					{
+						console.log('success():\nresponse:' + JSON.stringify(response, null, 3) + '\nxhr: ' + JSON.stringify(xhr, null, 3) + '\nstatus:' + status);
+						$('#idTextResponse').text(JSON.stringify(xhr.responseJSON, null, 3));
+					},
+					error: function (xhr, status, error)
+					{}
+				});
+			}
+		</script>
 	</body>
 </html>
