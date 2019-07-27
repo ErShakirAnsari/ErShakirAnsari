@@ -37,6 +37,8 @@ public class DemoApi extends javax.servlet.http.HttpServlet
 				UUID.randomUUID().toString()
 		);
 
+		System.out.println("list\n" + list);
+
 		res.setContentType("application/json");
 		res.setCharacterEncoding("UTF-8");
 		java.io.PrintWriter out = res.getWriter();

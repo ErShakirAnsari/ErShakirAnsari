@@ -75,7 +75,12 @@ function getParams()
 		str[paramKeys[i].value] = document.getElementById("idParamValue" + time).value;
 	}
 
-	let strJson = JSON.parse(str);
+	let strJson = null;
+	
+	if(str.length !== 0)
+	{
+		strJson = JSON.stringify(str);
+	}
 	
 	return strJson;
 }

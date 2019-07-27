@@ -17,7 +17,7 @@
 			/* *** */
 			.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active, .card-header
 			{
-				background: linear-gradient(to top, #fff 0%, #efefef 100%) !important;
+				background: linear-gradient(to top, #fff 0%, #efefef 150%) !important;
 			}
 		</style>
 	</head>
@@ -28,7 +28,7 @@
 			<div class="container">
 				<a class="navbar-brand" href="#">
 					<img src='../cdn/images/ErShakirAnsari.png' atl='coming_soon' class='thumbnail' width='25'/>
-					ErShakirAnsari
+					Rest client
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -69,7 +69,7 @@
 						id='idInputUrl'
 						class='form-control'
 						placeholder='http://www.somehost.com/end-point'
-						value='http://localhost:8080/RestClientTesting/demoApi'
+						value='http://dummy.restapiexample.com/api/v1/employees'
 					/>
 				</div>
 				
@@ -215,6 +215,7 @@
 					beforeSend: function (xhr)
 					{
 						console.log('beforeSend():\nxhr: ' + JSON.stringify(xhr, null, 3));
+						$('#idTextResponse').text('');
 					},
 					complete: function (xhr, status)
 					{
@@ -223,7 +224,8 @@
 					success: function (response, status, xhr)
 					{
 						console.log('success():\nresponse:' + JSON.stringify(response, null, 3) + '\nxhr: ' + JSON.stringify(xhr, null, 3) + '\nstatus:' + status);
-						$('#idTextResponse').text(JSON.stringify(xhr.responseJSON, null, 3));
+						//$('#idTextResponse').text(JSON.stringify(xhr.responseJSON, null, 3));
+						$('#idTextResponse').text(JSON.stringify(JSON.parse(response), null, 3));
 					},
 					error: function (xhr, status, error)
 					{}
