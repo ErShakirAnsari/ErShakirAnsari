@@ -53,7 +53,7 @@
 		<div class="container">
 		
 			<div class="row my-4 py-2">
-				<div class='col-lg-2 col-md-6 col-sm-12'>
+				<div class='col-lg-2 col-md-2 col-sm-12'>
 					Method:<br>
 					<select id='idSelectMethod' class='form-control'>
 						<option value='get'>GET</option>
@@ -63,17 +63,17 @@
 					</select>
 				</div>
 
-				<div class='col-lg-8 col-md-6 col-sm-12'>
+				<div class='col-lg-8 col-md-7 col-sm-12'>
 					URL:<br>
 					<input
 						id='idInputUrl'
 						class='form-control'
 						placeholder='http://www.somehost.com/end-point'
-						value='http://dummy.restapiexample.com/api/v1/employees'
+						value='http://dummy.restapiexample.com/api/v1/employee/290'
 					/>
 				</div>
 				
-				<div class='col-lg-2 col-md-6 col-sm-12'>
+				<div class='col-lg-2 col-md-3 col-sm-12'>
 					Action:<br>
 					<button class='btn btn-primary' onclick='sendRequest(this);'>Send</button>
 				</div>
@@ -85,7 +85,7 @@
 				<div class='card-header'>
 					<h5 class='m-0'>Payloads</h5>
 				</div>
-				<div class='card-body' style='display: none'>
+				<div class='card-body pb-0' style='display: none'>
 					<!-- Nav tabs -->
 					<div class="row my-2">
 						<div class='col-12'>
@@ -151,23 +151,30 @@
 								<!-- Request body -->
 								<div class="tab-pane" id="request-body" role="tabpanel" aria-labelledby="request-body-tab">
 									<div class="row my-2">
-										<div class='col-10'>					
+										<div class='col-lg-10 col-md-12 col-sm-12'>
 											<textarea id='idTextRequestBody' class='form-control' rows='8'>shakir</textarea>
 										</div>
-										<div class='col-2'>
-											<select id='idSelectMethod' class='form-control'>
-												<option value='json'>text / json</option>
-												<option value='html'>text / html</option>
-												<option value='xml'>text / xml</option>
-											</select>				
+										<div class='col-lg-2 col-md-12 col-sm-12'>
+											<div class="row my-2">
+												<div class='col-lg-12 col-md-4 col-sm-4 mb-1'>
+													<select id='idSelectMethod' class='form-control'>
+														<option value='json'>text / json</option>
+														<option value='html'>text / html</option>
+														<option value='xml'>text / xml</option>
+													</select>
+												</div>
 
-											<hr>
-											<button class='btn btn-light' style='width:100%'>format</button>
-											<hr>
-											<button class='btn btn-light' style='width:100%'>minify</button>
+												<div class='col-lg-12 col-md-4 col-sm-4 mb-1'>
+													<button class='btn btn-light' style='width:100%'>Beautify</button>
+												</div>
+												<div class='col-lg-12 col-md-4 col-sm-4 mb-1'>
+													<button class='btn btn-light' style='width:100%'>Minify</button>
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
+								</div><!-- END OF Request body -->
+								
 							</div>
 						</div>
 					</div>
@@ -215,20 +222,37 @@
 					beforeSend: function (xhr)
 					{
 						console.log('beforeSend():\nxhr: ' + JSON.stringify(xhr, null, 3));
-						$('#idTextResponse').text('');
 					},
 					complete: function (xhr, status)
 					{
-						console.log('complete():\nxhr: ' + JSON.stringify(xhr, null, 3) + '\nstatus:' + status);
+						//debugger;
+						//console.log('complete():\nxhr: ' + JSON.stringify(xhr, null, 3) + '\nstatus:' + status);
+						console.log(
+							'complete():\nHeaders:\n'+ xhr.getAllResponseHeaders()
+							+ '\nxhr: ' + JSON.stringify(xhr, null, 3)
+							+ '\nstatus:' + status							
+						);
 					},
 					success: function (response, status, xhr)
 					{
-						console.log('success():\nresponse:' + JSON.stringify(response, null, 3) + '\nxhr: ' + JSON.stringify(xhr, null, 3) + '\nstatus:' + status);
+						//console.log('success():\nresponse:' + JSON.stringify(response, null, 3) + '\nxhr: ' + JSON.stringify(xhr, null, 3) + '\nstatus:' + status);
 						//$('#idTextResponse').text(JSON.stringify(xhr.responseJSON, null, 3));
-						$('#idTextResponse').text(JSON.stringify(JSON.parse(response), null, 3));
+						//$('#idTextResponse').text(JSON.stringify(JSON.parse(response), null, 3));
+						
+						if(xhr.getAllResponseHeaders())
+						{
+							if(xhr.getAllResponseHeaders().indexOf('text'))
+							{
+								$('#idDivResponse').html(response);
+							} else if(xhr.getAllResponseHeaders().indexOf('text'))
+							{
+								$('#idDivResponse').html(response);
+							}
+						}
 					},
 					error: function (xhr, status, error)
-					{}
+					{
+					}
 				});
 			}
 		</script>
