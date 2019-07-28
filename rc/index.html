@@ -13,6 +13,16 @@
 			#idInputUrl, #idDivParams, #idDivHeaders, #idDivAuthorizations, #idTextRequestBody, #idTextResponse {font-family: 'consolas'}
 			#idTextRequestBody, #idTextResponse { resize: vertical; font-size: 1em; }
 			.card-header { cursor: pointer; }
+			
+			.btn { cursor: pointer; }
+			.btn.disabled, .btn.disabled:hover, .btn.disabled:focus
+			{
+			   cursor: not-allowed;
+			   background-image: url(../cdn/images/gif/loader-001.gif);
+			   background-position: 0 center;
+			   background-size: calc(36px);
+			   background-repeat: no-repeat;
+			}
 		
 			/* *** */
 			.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active, .card-header
@@ -65,11 +75,13 @@
 
 				<div class='col-lg-8 col-md-7 col-sm-12'>
 					URL:<br>
+					<!-- http://dummy.restapiexample.com/api/v1/employee/290 -->
+					<!-- http://localhost:8080/RestClientTesting/demoApi -->
 					<input
 						id='idInputUrl'
 						class='form-control'
 						placeholder='http://www.somehost.com/end-point'
-						value='http://dummy.restapiexample.com/api/v1/employee/290'
+						value='http://localhost:8080/RestClientTesting/demoApi'
 					/>
 				</div>
 				
@@ -165,10 +177,10 @@
 												</div>
 
 												<div class='col-lg-12 col-md-4 col-sm-4 mb-1'>
-													<button class='btn btn-light' style='width:100%'>Beautify</button>
+													<button class='btn btn-light' style='width:100%' onclick='beautifyRequestBody()'>Beautify</button>
 												</div>
 												<div class='col-lg-12 col-md-4 col-sm-4 mb-1'>
-													<button class='btn btn-light' style='width:100%'>Minify</button>
+													<button class='btn btn-light' style='width:100%' onclick='minifyRequestBody();'>Minify</button>
 												</div>
 											</div>
 										</div>
@@ -187,8 +199,10 @@
 				<div class='card-header'>
 					<h5 class='m-0'>Response</h5>
 				</div>
-				<div class='card-body' style='display: none' id='idDivResponse'>
-					<textarea id='idTextResponse' class='form-control' rows='8'></textarea>
+				<div class='card-body' style='display: none' id='idDivResponseBox'>
+					<textarea id='idTextResponse' class='form-control' rows='8' style='display: none'></textarea>
+					<pre id='idPreResponse' class='code'></pre>
+					<div id='idDivResponse' class='code'></div>
 				</div>
 			</div> <!-- END OF RESPONSE CARD -->
 		</div>
@@ -205,23 +219,28 @@
 		
 		<!-- Bootstrap core JavaScript -->
 		<script src="../cdn/jquery/jquery-v3.3.1.min.js"></script>
+		<script src="../cdn/jquery/jquery-serializejson-v2.9.0.min.js"></script>
 		<script src="../cdn/bootstrap/bootstrap-v4.3.1.min.js"></script>
 		<!-- <script src="../cdn/js/bcralnit-textarea-line-numbers-v0.0.1.js"></script> -->
 		<script src="index.js?v=1.0.0"></script>
 		
 		<script>
-			function sendRequest()
+			function sendRequest(THIS)
 			{
+				var params = getParams();
+				params = params === '' ? '' : '?' + params;
+				
 				$.ajax(
-				{
-					url: $('#idInputUrl').val(),
+				{					
+					async: true,
+					url: $('#idInputUrl').val() + params,
 					type: $('#idSelectMethod').val(),
-					data: getParams(),
+					//data: {  getParams()  },
 					//dataType: 'json',
 					//contentType: "application/json; charset=utf-8",
 					beforeSend: function (xhr)
 					{
-						console.log('beforeSend():\nxhr: ' + JSON.stringify(xhr, null, 3));
+						disableButton(THIS);
 					},
 					complete: function (xhr, status)
 					{
@@ -232,23 +251,27 @@
 							+ '\nxhr: ' + JSON.stringify(xhr, null, 3)
 							+ '\nstatus:' + status							
 						);
+						
+						debugger;
+						if(xhr.getAllResponseHeaders())
+						{
+							let heradersString = xhr.getAllResponseHeaders();
+							if(heradersString.indexOf('content-type: text/html;') >= 0)
+							{
+								$('#idDivResponse').html(xhr.responseText);
+							} else if(heradersString.indexOf('content-type: text/json;') >= 0
+										|| heradersString.indexOf('content-type: application/json;') >= 0)
+							{
+								$('#idPreResponse').text(JSON.stringify(JSON.parse(xhr.responseText), null, 3)).show('slow');
+							}
+						}
+						$('#idDivResponseBox').show('slow');
+						enableButton(THIS);
 					},
 					success: function (response, status, xhr)
 					{
 						//console.log('success():\nresponse:' + JSON.stringify(response, null, 3) + '\nxhr: ' + JSON.stringify(xhr, null, 3) + '\nstatus:' + status);
 						//$('#idTextResponse').text(JSON.stringify(xhr.responseJSON, null, 3));
-						//$('#idTextResponse').text(JSON.stringify(JSON.parse(response), null, 3));
-						
-						if(xhr.getAllResponseHeaders())
-						{
-							if(xhr.getAllResponseHeaders().indexOf('text'))
-							{
-								$('#idDivResponse').html(response);
-							} else if(xhr.getAllResponseHeaders().indexOf('text'))
-							{
-								$('#idDivResponse').html(response);
-							}
-						}
 					},
 					error: function (xhr, status, error)
 					{

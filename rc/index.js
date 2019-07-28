@@ -68,21 +68,19 @@ function getParams()
 	//divParams;
 	let paramKeys = document.getElementsByName("paramKey");
 	
-	let str = [];
+	let str = "";
 	for(let i = 0; i< paramKeys.length; i++)
 	{
 		let time = paramKeys[i].getAttribute("time-stamp");
-		str[paramKeys[i].value] = document.getElementById("idParamValue" + time).value;
+		//str[paramKeys[i].value] = document.getElementById("idParamValue" + time).value;
+		str += paramKeys[i].value + ':' + document.getElementById('idParamValue' + time).value + ',';
 	}
-
-	let strJson = null;
-	
-	if(str.length !== 0)
+	if(str !== '')
 	{
-		strJson = JSON.stringify(str);
+		str = str.substr(0, str.length - 1);
 	}
 	
-	return strJson;
+	return str;
 }
  
 function addHeader()
@@ -129,4 +127,38 @@ function addAuthorizations()
 function removeAuthorizations(THIS)
 {
 	$(THIS).parent().parent().remove();
+}
+
+function disableButton(obj)
+{
+   disableThis(obj);
+   $(obj).addClass("disabled");
+}
+function enableButton(obj)
+{
+   $(obj).removeClass("disabled");
+   enableThis(obj);
+}
+function disableThis(obj) 
+{
+   $(obj).prop("disabled", true);
+}
+function enableThis(obj) 
+{
+   $(obj).prop("disabled", false);
+}
+
+function beautifyRequestBody()
+{
+	$('#idTextRequestBody').val(beautifyAndMinify($('#idTextRequestBody').val(), 3));
+}
+
+function minifyRequestBody()
+{
+	$('#idTextRequestBody').val( beautifyAndMinify( $('#idTextRequestBody').val(), 0));
+}
+
+function beautifyAndMinify(str, paddingSize)
+{
+	return JSON.stringify(JSON.parse(str), null, paddingSize);
 }
