@@ -7,12 +7,38 @@
 		<link href="../cdn/bootstrap/bootstrap-v4.3.1.min.css" rel="stylesheet">
 		<link href="../cdn/fonts/font-awesome-v4.7.0.min.css" rel="stylesheet">
 		<link rel="icon" type="image/gif" href="../cdn/images/gif/loader-001.gif">
+		<script src="./printer.js"></script>
+		
+		<style>
+			.btn { width: 100% }
+		</style>
 	</head>
 	<body class='p-4'>
 		<h5> JSON beautifier and minifier</h5>
 		<hr>
 		
-		<textarea class='form-control'></textarea>
-		<textarea class='form-control'></textarea>
+		<div class='row'>
+			<div class='col-6'>
+				Source<br>
+				<textarea class='form-control' rows='14'></textarea>
+			</div>
+			<div class='col-6'>
+				Target<br>
+				<textarea class='form-control' rows='14'></textarea>
+			</div>
+		</div>
+		
+		<div class='row my-2'>
+			<div class='col-2'>
+				<button class='btn btn-primary'>Beautify</button>
+			</div>
+			<div class='col-2'>
+				<button class='btn btn-primary'>Minify</button>
+			</div>
+		</div>
+		
+		<script>
+			printFooter();
+		</script>
 	</body>
 </html>
