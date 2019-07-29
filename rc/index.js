@@ -94,18 +94,19 @@ function addHeader()
 {
 	let time = new Date().getTime();
 	
-	let str = "";
-	str += "<div class='row my-1'>";
-	str += "<div class='col-lg-5 col-sm-4'>";
-	str += "<input class='form-control' placeholder='Header key' name='headerKey' id='idHeaderKey" + time + "' time-stamp='" + time + "' />";
-	str += "</div>";
-	str += "<div class='col-lg-5 col-sm-4'>";
-	str += "<input class='form-control' placeholder='Header value' name='headerValue' id='idHeaderValue" + time + "' />";
-	str += "</div>";
-	str += "<div class='col-lg-2 col-sm-4'>";
-	str += "<button class='btn btn-light' onclick='removeHeader(this)'>Remove</button>";
-	str += "</div>";
-	str += "</div>";
+	let str = `
+		<div class='row my-1'>
+			<div class='col-lg-5 col-sm-4'>
+				<input class='form-control' placeholder='Header key' name='headerKey' id='idHeaderKey${time}' time-stamp='${time}' />
+			</div>
+			<div class='col-lg-5 col-sm-4'>
+				<input class='form-control' placeholder='Header value' name='headerValue' id='idHeaderValue${time}' />
+			</div>
+			<div class='col-lg-2 col-sm-4'>
+				<button class='btn btn-light' onclick='removeHeader(this)'>Remove</button>
+			</div>
+		</div>
+	`;
 
 	divHeaders.append(str);	 
  }
@@ -140,18 +141,20 @@ function getHeaders()
 // [START AUTHORIZATIONS]
 function addAuthorizations()
 {
-	let str = "";
-	str += "<div class='row my-1'>";
-	str += "<div class='col-lg-5 col-sm-4'>";
-	str += "<input class='form-control' placeholder='Authorizations key'/>";
-	str += "</div>";
-	str += "<div class='col-lg-5 col-sm-4'>";
-	str += "<input class='form-control' placeholder='Authorizations value'/>";
-	str += "</div>";
-	str += "<div class='col-lg-2 col-sm-4'>";
-	str += "<button class='btn btn-light' onclick='removeAuthorizations(this)'>Remove</button>";
-	str += "</div>";
-	str += "</div>";
+	let time = new Date().getTime();
+	let str = `
+		<div class='row my-1'>
+			<div class='col-lg-5 col-sm-4'>
+				<input class='form-control' placeholder='Authorizations key' name='authorizationKey' id='idAuthorizationKey${time}' time-stamp='${time}' />
+			</div>
+			<div class='col-lg-5 col-sm-4'>
+				<input class='form-control' placeholder='Authorizations value' name='authorizationValue' id='idAuthorizationValue${time}' />
+			</div>
+			<div class='col-lg-2 col-sm-4'>
+				<button class='btn btn-light' onclick='removeAuthorizations(this)'>Remove</button>
+			</div>
+		</div>
+	`;
 
 	divAuthorizations.append(str);	 
 }
