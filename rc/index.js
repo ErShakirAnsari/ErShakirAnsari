@@ -200,6 +200,55 @@ function beautifyAndMinify(str, paddingSize)
 	return JSON.stringify(JSON.parse(str), null, paddingSize);
 }
 
+// -------------------------------
+function request(THIS)
+{
+	var data = JSON.stringify(
+	{
+		"ACTION": "scl_testApi",
+		"APP_VERSION": "500",
+		"APP_TYPE": "CUSTOMER",
+		"REQ_SOURCE": "ANDROID",
+		"param0": "10",
+		"param1": "20",
+		"ACCESS_TOKEN": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxIiwiaWF0IjoxNTY0NDAyNzkyLCJpc3MiOiI2OWEyNDM5Mjk3OWI0YzI1ZGQyYjU4ZGM4ODJmOTJhNiJ9.Dra7JCCQcs0uFZfTq67k44FvSu9c4hX_pmpNFJya64Q"
+	});
+	
+	data = JSON.stringify(JSON.parse($('#idTextRequestBody').val()));
+	
+	var method = $('#idSelectMethod').val();
+	var params = getParams();
+	params = params && params === '' ? '' : '?' + params;
+	var url = $('#idInputUrl').val() + params;
+
+	//var xhr = new XMLHttpRequest();
+	//xhr.withCredentials = true;
+	
+	var xhr = createCORSRequest(method, url);
+	if (!xhr)
+	{
+		throw new Error('CORS not supported');
+	}
+	xhr.addEventListener("readystatechange", function () 
+	{
+		if (this.readyState === 4) 
+		{
+			console.log(this.responseText);
+		}
+	});
+
+	xhr.setRequestHeader("Content-Type", "application/json");
+	//xhr.setRequestHeader("Accept", "*/*");
+	//xhr.setRequestHeader("Cache-Control", "no-cache");
+	//xhr.setRequestHeader("Host", "localhost:8080");
+	//xhr.setRequestHeader("Cookie", "X-XSRF-TOKEN=SuhelKhan");
+	//xhr.setRequestHeader("Accept-Encoding", "gzip, deflate");
+	//xhr.setRequestHeader("Content-Length", "335");
+	//xhr.setRequestHeader("Connection", "keep-alive");
+	//xhr.setRequestHeader("cache-control", "no-cache");
+
+	xhr.send(data);
+}
 
 function createCORSRequest(method, url)
 {
@@ -223,8 +272,9 @@ function createCORSRequest(method, url)
 	}
 	return xhr;
 }
-
+/*
 var xhr = createCORSRequest('GET', url);
 if (!xhr) {
 	throw new Error('CORS not supported');
 }
+*/
