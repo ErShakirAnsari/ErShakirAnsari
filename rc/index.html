@@ -218,64 +218,8 @@
 		</h6>
 		<hr>
 		
-		<!-- Bootstrap core JavaScript -->
 		<script src="../cdn/jquery/jquery-v3.3.1.min.js"></script>
 		<script src="../cdn/bootstrap/bootstrap-v4.3.1.min.js"></script>
 		<script src="index.js?v=1.0.0"></script>
-		
-		<script>
-			function NOsendRequest(THIS)
-			{
-				debugger;
-				var params = getParams();
-				params = params && params === '' ? '' : '?' + params;
-				
-				$.ajax(
-				{					
-					async: true,
-					url: $('#idInputUrl').val() + params,
-					type: $('#idSelectMethod').val(),
-					//data: {  getParams()  },
-					//dataType: 'json',
-					//contentType: "application/json; charset=utf-8",
-					beforeSend: function (xhr)
-					{
-						disableButton(THIS);
-					},
-					complete: function (xhr, status)
-					{
-						//debugger;
-						console.log(
-							'complete():'
-							+ '\nHeaders:\n'+ xhr.getAllResponseHeaders()
-							+ '\nxhr: ' + JSON.stringify(xhr, null, 3)
-							+ '\nstatus:' + status							
-						);
-						
-						debugger;
-						if(xhr.getAllResponseHeaders())
-						{
-							let heradersString = xhr.getAllResponseHeaders();
-							if(heradersString.indexOf('content-type: text/html;') >= 0)
-							{
-								$('#idDivResponse').html(xhr.responseText);
-							} else if(heradersString.indexOf('content-type: text/json;') >= 0
-										|| heradersString.indexOf('content-type: application/json;') >= 0)
-							{
-								$('#idPreResponse').text(JSON.stringify(JSON.parse(xhr.responseText), null, 3)).show('slow');
-							}
-						}
-						$('#idDivResponseBox').show('slow');
-						enableButton(THIS);
-					},
-					success: function (response, status, xhr)
-					{
-					},
-					error: function (xhr, status, error)
-					{
-					}
-				});
-			}
-		</script>
 	</body>
 </html>
