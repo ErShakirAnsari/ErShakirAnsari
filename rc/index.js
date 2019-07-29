@@ -1,14 +1,16 @@
 
 var IS_PARAMS = false;
 var divParams = $('#idDivParams');
+var divHeaders = $('#idDivHeaders');
+var divAuthorizations = $('#idDivAuthorizations');
 
 $().ready(function()
 {
 	$('.card-header').click(function()
 	{
 		$(this).next('.card-body').toggle('slow');
-	});
-	
+});
+
 	/**
 	$("#idTextRequestBody").bcralnit(
 	{
@@ -38,23 +40,35 @@ function toggleParams(THIS)
 	_toggle(THIS, 'idTableParams', IS_PARAMS);
 }
 
+// [START PARAM]
 function addParam()
 {
 	let time = new Date().getTime();
-	
+	/*
 	let str = "";
 	str += "<div class='row my-1'>";
+//	str += "<div class='col-lg-1 col-sm-1'>";
+//	str += "<input class='form-control' type='checkbox' />";
+//	str += "</div>";
 	str += "<div class='col-lg-5 col-sm-4'>";
 	str += "<input class='form-control' placeholder='Param key' name='paramKey' id='idParamKey" + time + "' time-stamp='" + time + "' />";
 	str += "</div>";
 	str += "<div class='col-lg-5 col-sm-4'>";
-	str += "<input class='form-control' placeholder='Param value' name='paramValue'  id='idParamValue" + time + "'/>";
+	str += "<input class='form-control' placeholder='Param value' name='paramValue' id='idParamValue" + time + "'/>";
 	str += "</div>";
-	str += "<div class='col-lg-2 col-sm-4'>";
+	str += "<div class='col-lg-2 col-sm-2'>";
 	str += "<button class='btn btn-light' onclick='removeParam(this)'>Remove</button>";
 	str += "</div>";
 	str += "</div>";
-
+	*/
+	
+	let str = `
+		<div class='row my-1'>
+			<div class='col-lg-5 col-sm-4'>
+				<input class='form-control' placeholder='Param key' name='paramKey' id='idParamKey${time}' time-stamp='${time}' />
+			</div>
+		</div>
+	`;
 	divParams.append(str);
 }
 
@@ -65,40 +79,47 @@ function removeParam(THIS)
 
 function getParams()
 {
-	//divParams;
 	let paramKeys = document.getElementsByName("paramKey");
 	
-	let str = "";
+	let paramString = "";
 	for(let i = 0; i< paramKeys.length; i++)
 	{
-		let time = paramKeys[i].getAttribute("time-stamp");
-		//str[paramKeys[i].value] = document.getElementById("idParamValue" + time).value;
-		str += paramKeys[i].value + ':' + document.getElementById('idParamValue' + time).value + ',';
-	}
-	if(str !== '')
-	{
-		str = str.substr(0, str.length - 1);
+		let paramName = paramKeys[i].value;
+		let paramValue = document.getElementById("idParamValue" + paramKeys[i].getAttribute("time-stamp")).value;
+		
+		paramString += paramName + "=" + paramValue + "&";
 	}
 	
-	return str;
+	if(paramString.length !== 0) 
+	{
+		paramString = paramString.substring(0, paramString.length - 1);
+	}
+	
+	paramString = encodeURI(paramString);
+	console.log("paramString: " + paramString);
 }
- 
+// [END PARAM]
+
+
+// [START HEADER]
 function addHeader()
 {
-	let str = `
-		<div class="row my-1">
-			<div class='col-lg-5 col-sm-4'>
-				<input class='form-control' placeholder='Header key'/>
-			</div>
-			<div class='col-lg-5 col-sm-4'>
-				<input class='form-control' placeholder='Header value'/>
-			</div>
-			<div class='col-lg-2 col-sm-4'>
-				<button class='btn btn-light' onclick='removeHeader(this)'>Remove</button>
-			</div>
-		</div>
-	`;
-	$('#idDivHeaders').append(str);	 
+	let time = new Date().getTime();
+	
+	let str = "";
+	str += "<div class='row my-1'>";
+	str += "<div class='col-lg-5 col-sm-4'>";
+	str += "<input class='form-control' placeholder='Header key' name='headerKey' id='idHeaderKey" + time + "' time-stamp='" + time + "' />";
+	str += "</div>";
+	str += "<div class='col-lg-5 col-sm-4'>";
+	str += "<input class='form-control' placeholder='Header value' name='headerValue' id='idHeaderValue" + time + "' />";
+	str += "</div>";
+	str += "<div class='col-lg-2 col-sm-4'>";
+	str += "<button class='btn btn-light' onclick='removeHeader(this)'>Remove</button>";
+	str += "</div>";
+	str += "</div>";
+
+	divHeaders.append(str);	 
  }
  
 function removeHeader(THIS)
@@ -106,22 +127,45 @@ function removeHeader(THIS)
 	$(THIS).parent().parent().remove();
 }
 
+function getHeaders()
+{
+	let headerKeys = document.getElementsByName("headerKey");
+	
+	let headerString = "";
+	for(let i = 0; i< headerKeys.length; i++)
+	{
+		let paramName = headerKeys[i].value;
+		let paramValue = document.getElementById("idHeaderValue" + headerKeys[i].getAttribute("time-stamp")).value;
+		
+		headerString += paramName + "=" + paramValue + "\n";
+	}
+	
+	if(headerString.length !== 0) 
+	{
+		headerString = headerString.substring(0, headerString.length - 1);
+	}
+	
+	console.log("headerString: " + headerString);
+}
+// [END HEADER]
+
+// [START AUTHORIZATIONS]
 function addAuthorizations()
 {
-	let str = `
-		<div class="row my-1">
-			<div class='col-lg-5 col-sm-4'>
-				<input class='form-control' placeholder='Authorizations key'/>
-			</div>
-			<div class='col-lg-5 col-sm-4'>
-				<input class='form-control' placeholder='Authorizations value'/>
-			</div>
-			<div class='col-lg-2 col-sm-4'>
-				<button class='btn btn-light' onclick='removeAuthorizations(this)'>Remove</button>
-			</div>
-		</div>
-	`;
-	$('#idDivAuthorizations').append(str);	 
+	let str = "";
+	str += "<div class='row my-1'>";
+	str += "<div class='col-lg-5 col-sm-4'>";
+	str += "<input class='form-control' placeholder='Authorizations key'/>";
+	str += "</div>";
+	str += "<div class='col-lg-5 col-sm-4'>";
+	str += "<input class='form-control' placeholder='Authorizations value'/>";
+	str += "</div>";
+	str += "<div class='col-lg-2 col-sm-4'>";
+	str += "<button class='btn btn-light' onclick='removeAuthorizations(this)'>Remove</button>";
+	str += "</div>";
+	str += "</div>";
+
+	divAuthorizations.append(str);	 
 }
 
 function removeAuthorizations(THIS)

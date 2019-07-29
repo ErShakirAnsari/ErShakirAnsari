@@ -301,6 +301,8 @@
 	"js/common-ajax-call-v1.0.js",
 	"js/cookies-handler-v1.0.js",
 	"js/cookies-handler-v1.0.min.js",
+	"js/fetch-jsonp-v1.0.6.js",
+	"js/fetch-jsonp-v1.0.6.min.js",
 	"js/get-context-path-v1.0.1.js",
 	"js/news-ticker-v1.0.min.js",
 	"js/sorttable-v1.0.js",
