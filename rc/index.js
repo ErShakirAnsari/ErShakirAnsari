@@ -44,28 +44,16 @@ function toggleParams(THIS)
 function addParam()
 {
 	let time = new Date().getTime();
-	/*
-	let str = "";
-	str += "<div class='row my-1'>";
-//	str += "<div class='col-lg-1 col-sm-1'>";
-//	str += "<input class='form-control' type='checkbox' />";
-//	str += "</div>";
-	str += "<div class='col-lg-5 col-sm-4'>";
-	str += "<input class='form-control' placeholder='Param key' name='paramKey' id='idParamKey" + time + "' time-stamp='" + time + "' />";
-	str += "</div>";
-	str += "<div class='col-lg-5 col-sm-4'>";
-	str += "<input class='form-control' placeholder='Param value' name='paramValue' id='idParamValue" + time + "'/>";
-	str += "</div>";
-	str += "<div class='col-lg-2 col-sm-2'>";
-	str += "<button class='btn btn-light' onclick='removeParam(this)'>Remove</button>";
-	str += "</div>";
-	str += "</div>";
-	*/
-	
 	let str = `
 		<div class='row my-1'>
 			<div class='col-lg-5 col-sm-4'>
 				<input class='form-control' placeholder='Param key' name='paramKey' id='idParamKey${time}' time-stamp='${time}' />
+			</div>
+			<div class='col-lg-5 col-sm-4'>
+				<input class='form-control' placeholder='Param value' name='paramValue' id='idParamValue${time}' />
+			</div>
+			<div class='col-lg-2 col-sm-2'>
+				<button class='btn btn-light' onclick='removeParam(this)'>Remove</button>
 			</div>
 		</div>
 	`;
