@@ -214,7 +214,13 @@ function request(THIS)
 		"ACCESS_TOKEN": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxIiwiaWF0IjoxNTY0NDAyNzkyLCJpc3MiOiI2OWEyNDM5Mjk3OWI0YzI1ZGQyYjU4ZGM4ODJmOTJhNiJ9.Dra7JCCQcs0uFZfTq67k44FvSu9c4hX_pmpNFJya64Q"
 	});
 	
-	data = JSON.stringify(JSON.parse($('#idTextRequestBody').val()));
+	if($('#idTextRequestBody').val() === '')
+	{
+		data = null;
+	} else 
+	{
+		data = JSON.stringify(JSON.parse($('#idTextRequestBody').val()));
+	}
 	
 	var method = $('#idSelectMethod').val();
 	var params = getParams();
@@ -239,7 +245,7 @@ function request(THIS)
 
 	xhr.setRequestHeader("Content-Type", "application/json");
 	//xhr.setRequestHeader("Accept", "*/*");
-	//xhr.setRequestHeader("Cache-Control", "no-cache");
+	xhr.setRequestHeader("Cache-Control", "no-cache");
 	//xhr.setRequestHeader("Host", "localhost:8080");
 	//xhr.setRequestHeader("Cookie", "X-XSRF-TOKEN=SuhelKhan");
 	//xhr.setRequestHeader("Accept-Encoding", "gzip, deflate");
