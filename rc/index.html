@@ -79,17 +79,18 @@
 					URL:<br>
 					<!-- http://dummy.restapiexample.com/api/v1/employee/290 -->
 					<!-- http://localhost:8080/RestClientTesting/demoApi -->
+					<!-- http://jsonplaceholder.typicode.com/posts -->
 					<input
 						id='idInputUrl'
 						class='form-control'
 						placeholder='http://www.somehost.com/end-point'
-						value='http://localhost:8080/RestClientTesting/demoApi'
+						value='http://jsonplaceholder.typicode.com/posts'
 					/>
 				</div>
 				
 				<div class='col-lg-2 col-md-3 col-sm-12'>
 					Action:<br>
-					<button class='btn btn-primary' onclick='request(this);'>Send</button>
+					<button class='btn btn-primary' onclick='sendRequest(this);'>Send</button>
 				</div>
 			</div>
 			
@@ -166,10 +167,7 @@
 								<div class="tab-pane" id="request-body" role="tabpanel" aria-labelledby="request-body-tab">
 									<div class="row my-2">
 										<div class='col-lg-10 col-md-12 col-sm-12'>
-											<textarea id='idTextRequestBody' class='form-control' rows='8'>{    "ACTION": "cms_login",
-    "APP_VERSION": "55",    "APP_TYPE": "CUSTOMER",    "REQ_SOURCE": "ANDROID",    "mobileNumber": "9876543210",    "password": "1234567890",
-    "USER_PROFILE_TYPE": "STUDENT"
-}</textarea>
+											<textarea id='idTextRequestBody' class='form-control' rows='8'></textarea>
 										</div>
 										<div class='col-lg-2 col-md-12 col-sm-12'>
 											<div class="row my-2">
@@ -199,7 +197,8 @@
 			</div> <!-- END OF REQUEST CARD -->
 
 			<br>
-
+			
+			<!--
 			<div class='card'>
 				<div class='card-header'>
 					<h5 class='m-0'>Response</h5>
@@ -210,10 +209,13 @@
 					<div id='idDivResponse' class='code'></div>
 				</div>
 			</div> <!-- END OF RESPONSE CARD -->
+			
+			<div id='idDivResponseBox' class='border rounded px-3 py-2' style='display: none'>
+			</div>			
 		</div>
 
 		<!-- Footer -->
-		<br><br><br>
+		<br>
 		<hr>
 		<h6 class="footer m-0 px-5 text-right">
 			Written by <em>ErShakirAnsari</em>

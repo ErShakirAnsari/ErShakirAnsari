@@ -3,6 +3,7 @@ var IS_PARAMS = false;
 var divParams = $('#idDivParams');
 var divHeaders = $('#idDivHeaders');
 var divAuthorizations = $('#idDivAuthorizations');
+var divResponseBox = $('#idDivResponseBox');
 
 $().ready(function()
 {
@@ -67,7 +68,6 @@ function removeParam(THIS)
 
 function getParams()
 {
-	debugger;
 	let paramKeys = document.getElementsByName("paramKey");
 	
 	let paramString = "";
@@ -201,7 +201,30 @@ function beautifyAndMinify(str, paddingSize)
 }
 
 // -------------------------------
-function request(THIS)
+function createCORSRequest(method, url)
+{
+	var xhr = new XMLHttpRequest();
+
+	if ("withCredentials" in xhr)
+	{
+		// Check if the XMLHttpRequest object has a "withCredentials" property.
+		// "withCredentials" only exists on XMLHTTPRequest2 objects.
+		xhr.open(method, url, true);
+	} else if (typeof XDomainRequest != "undefined")
+	{
+		// Otherwise, check if XDomainRequest.
+		// XDomainRequest only exists in IE, and is IE's way of making CORS requests.
+		xhr = new XDomainRequest();
+		xhr.open(method, url);
+	} else 
+	{
+		// Otherwise, CORS is not supported by the browser.
+		xhr = null;
+	}
+	return xhr;
+}
+
+function sendRequest(THIS)
 {
 	var data = JSON.stringify(
 	{
@@ -235,11 +258,18 @@ function request(THIS)
 	{
 		throw new Error('CORS not supported');
 	}
+	
 	xhr.addEventListener("readystatechange", function () 
 	{
-		if (this.readyState === 4) 
+		if (this.readyState < 4)
 		{
-			console.log(this.responseText);
+			divResponseBox.empty().fadeOut('slow');
+			disableButton(THIS);
+		}
+		else if (this.readyState === 4) 
+		{
+			enableButton(THIS);
+			xhrResponseHandler(xhr, this.responseText);
 		}
 	});
 
@@ -252,35 +282,40 @@ function request(THIS)
 	//xhr.setRequestHeader("Content-Length", "335");
 	//xhr.setRequestHeader("Connection", "keep-alive");
 	//xhr.setRequestHeader("cache-control", "no-cache");
-
+	xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+	
+	
 	xhr.send(data);
 }
 
-function createCORSRequest(method, url)
+function xhrResponseHandler(xhr, responseText)
 {
-	var xhr = new XMLHttpRequest();
-
-	if ("withCredentials" in xhr)
+	console.log(responseText);
+	console.log('heradersString: ' + xhr.getAllResponseHeaders());
+	
+	let heradersString = xhr.getAllResponseHeaders();
+	
+	if(isHtmlResponse(heradersString))
 	{
-		// Check if the XMLHttpRequest object has a "withCredentials" property.
-		// "withCredentials" only exists on XMLHTTPRequest2 objects.
-		xhr.open(method, url, true);
-	} else if (typeof XDomainRequest != "undefined")
-	{
-		// Otherwise, check if XDomainRequest.
-		// XDomainRequest only exists in IE, and is IE's way of making CORS requests.
-		xhr = new XDomainRequest();
-		xhr.open(method, url);
-	} else 
-	{
-		// Otherwise, CORS is not supported by the browser.
-		xhr = null;
+		divResponseBox.html(responseText);
 	}
-	return xhr;
+	else if(isJsonResponse(heradersString))
+	{
+		divResponseBox.html(`<pre>${JSON.stringify(JSON.parse(responseText), null, 3)}</pre>`);
+	}
+	
+	divResponseBox.fadeIn('slow');
 }
-/*
-var xhr = createCORSRequest('GET', url);
-if (!xhr) {
-	throw new Error('CORS not supported');
+
+function isHtmlResponse(heradersString)
+{
+	return heradersString.indexOf('content-type: text/html') > 0;
 }
-*/
+
+function isJsonResponse(heradersString)
+{
+	let response = 
+			heradersString.indexOf('content-type: text/json;') > 0
+			|| heradersString.indexOf('content-type: application/json;') > 0
+	return response;
+}
