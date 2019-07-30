@@ -10,7 +10,7 @@ $().ready(function()
 	$('.card-header').click(function()
 	{
 		$(this).next('.card-body').toggle('slow');
-});
+	});
 
 	/**
 	$("#idTextRequestBody").bcralnit(
@@ -226,6 +226,7 @@ function createCORSRequest(method, url)
 
 function sendRequest(THIS)
 {
+	disableButton(THIS);
 	var data = JSON.stringify(
 	{
 		"ACTION": "scl_testApi",
@@ -264,7 +265,6 @@ function sendRequest(THIS)
 		if (this.readyState < 4)
 		{
 			divResponseBox.empty().fadeOut('slow');
-			disableButton(THIS);
 		}
 		else if (this.readyState === 4) 
 		{
