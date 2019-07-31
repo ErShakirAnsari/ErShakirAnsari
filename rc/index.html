@@ -5,9 +5,11 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+		<link rel="icon" type="image/gif" href="../cdn/images/gif/loader-001.gif">
+
 		<link href="../cdn/bootstrap/bootstrap-v4.3.1.min.css" rel="stylesheet">
 		<link href="../cdn/fonts/font-awesome-v4.7.0.min.css" rel="stylesheet">
-		<link rel="icon" type="image/gif" href="../cdn/images/gif/loader-001.gif">
+		<link href="../cdn/json/json-viewer/json-viewer-v1.3.0.css" rel="stylesheet">
 		<style>
 			body { padding-top: 56px }
 			footer { position: absolute; bottom: 0; width: 100%; }
@@ -210,8 +212,8 @@
 				</div>
 			</div> <!-- END OF RESPONSE CARD -->
 			
-			<div id='idDivResponseBox' class='border rounded px-3 py-2' style='display: none'>
-			</div>			
+			<div id='idDivResponseBox' class='border rounded px-3 py-2' style='display: none'></div>
+			<pre id="json-renderer"></pre>
 		</div>
 
 		<!-- Footer -->
@@ -226,6 +228,7 @@
 		
 		<script src="../cdn/jquery/jquery-v3.3.1.min.js"></script>
 		<script src="../cdn/bootstrap/bootstrap-v4.3.1.min.js"></script>
+		<script src="../cdn/json/json-viewer/json-viewer-v1.0.0.js"></script>
 		<script src="index.js?v=1.0.0"></script>
 	</body>
 </html>

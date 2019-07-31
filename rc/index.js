@@ -201,6 +201,7 @@ function beautifyAndMinify(str, paddingSize)
 }
 
 // -------------------------------
+// -------------------------------
 function createCORSRequest(method, url)
 {
 	var xhr = new XMLHttpRequest();
@@ -210,7 +211,8 @@ function createCORSRequest(method, url)
 		// Check if the XMLHttpRequest object has a "withCredentials" property.
 		// "withCredentials" only exists on XMLHTTPRequest2 objects.
 		xhr.open(method, url, true);
-	} else if (typeof XDomainRequest != "undefined")
+	} else
+	if (typeof XDomainRequest != "undefined")
 	{
 		// Otherwise, check if XDomainRequest.
 		// XDomainRequest only exists in IE, and is IE's way of making CORS requests.
@@ -224,9 +226,19 @@ function createCORSRequest(method, url)
 	return xhr;
 }
 
-function sendRequest(THIS)
+function preRequest(THIS)
 {
 	disableButton(THIS);
+	divResponseBox.hide(function()
+	{
+		$(this).empty();
+	});
+}
+
+function sendRequest(THIS)
+{
+	preRequest(THIS);
+	
 	var data = JSON.stringify(
 	{
 		"ACTION": "scl_testApi",
@@ -248,7 +260,7 @@ function sendRequest(THIS)
 	
 	var method = $('#idSelectMethod').val();
 	var params = getParams();
-	params = params && params === '' ? '' : '?' + params;
+	params = !params || params === '' ? '' : '?' + params;
 	var url = $('#idInputUrl').val() + params;
 
 	//var xhr = new XMLHttpRequest();
@@ -262,35 +274,33 @@ function sendRequest(THIS)
 	
 	xhr.addEventListener("readystatechange", function () 
 	{
-		if (this.readyState < 4)
-		{
-			divResponseBox.empty().fadeOut('slow');
-		}
-		else if (this.readyState === 4) 
+		if (this.readyState === 4) 
 		{
 			enableButton(THIS);
 			xhrResponseHandler(xhr, this.responseText);
 		}
 	});
 
-	xhr.setRequestHeader("Content-Type", "application/json");
+	//xhr.setRequestHeader("Content-Type", "application/json");
 	//xhr.setRequestHeader("Accept", "*/*");
-	xhr.setRequestHeader("Cache-Control", "no-cache");
+	//xhr.setRequestHeader("Cache-Control", "no-cache");
 	//xhr.setRequestHeader("Host", "localhost:8080");
 	//xhr.setRequestHeader("Cookie", "X-XSRF-TOKEN=SuhelKhan");
 	//xhr.setRequestHeader("Accept-Encoding", "gzip, deflate");
 	//xhr.setRequestHeader("Content-Length", "335");
 	//xhr.setRequestHeader("Connection", "keep-alive");
 	//xhr.setRequestHeader("cache-control", "no-cache");
-	xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
 	
+	// [DO NOT ADD]
+	//xhr.setRequestHeader("Access-Control-Allow-Origin", null);
+	// [DO NOT ADD]
 	
 	xhr.send(data);
 }
 
 function xhrResponseHandler(xhr, responseText)
 {
-	console.log(responseText);
+	//console.log(responseText);
 	console.log('heradersString: ' + xhr.getAllResponseHeaders());
 	
 	let heradersString = xhr.getAllResponseHeaders();
@@ -301,10 +311,26 @@ function xhrResponseHandler(xhr, responseText)
 	}
 	else if(isJsonResponse(heradersString))
 	{
-		divResponseBox.html(`<pre>${JSON.stringify(JSON.parse(responseText), null, 3)}</pre>`);
-	}
-	
-	divResponseBox.fadeIn('slow');
+		//divResponseBox.html(`<pre>${JSON.stringify(JSON.parse(responseText), null, 3)}</pre>`);
+		try
+		{
+			var input = eval('(' + responseText + ')');
+		}
+		catch (error)
+		{
+			return alert("Cannot eval JSON: " + error);
+		}
+		
+		var options = {
+			collapsed: false,
+			rootCollapsable: false,
+			withQuotes: true,
+			withLinks: true
+		};
+		$('#json-renderer').jsonViewer(input, options);
+
+	}	
+	//divResponseBox.fadeIn('slow');
 }
 
 function isHtmlResponse(heradersString)
