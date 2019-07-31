@@ -27,6 +27,8 @@ public class DemoApi extends javax.servlet.http.HttpServlet
 	{
 		res.setHeader("Access-Control-Allow-Origin", "*");
 
+		HashMap<String, Object> hashMap = new HashMap<>();
+
 		List<String> list = Arrays.asList(
 				UUID.randomUUID().toString(),
 				UUID.randomUUID().toString(),
@@ -37,12 +39,13 @@ public class DemoApi extends javax.servlet.http.HttpServlet
 				UUID.randomUUID().toString()
 		);
 
-		System.out.println("list\n" + list);
+		hashMap.put("serverTime", System.currentTimeMillis());
+		hashMap.put("randomStrings", "shakir");
 
 		res.setContentType("application/json");
 		res.setCharacterEncoding("UTF-8");
 		java.io.PrintWriter out = res.getWriter();
-		out.write(gson.toJson(list));
+		out.write(gson.toJson(hashMap));
 		out.flush();
 		out.close();
 	}

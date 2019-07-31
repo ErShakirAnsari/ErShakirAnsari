@@ -300,7 +300,7 @@ function sendRequest(THIS)
 
 function xhrResponseHandler(xhr, responseText)
 {
-	//console.log(responseText);
+	console.log(responseText);
 	console.log('heradersString: ' + xhr.getAllResponseHeaders());
 	
 	let heradersString = xhr.getAllResponseHeaders();
@@ -335,13 +335,11 @@ function xhrResponseHandler(xhr, responseText)
 
 function isHtmlResponse(heradersString)
 {
-	return heradersString.indexOf('content-type: text/html') > 0;
+	return heradersString.indexOf('text/html') > 0;
 }
 
 function isJsonResponse(heradersString)
 {
-	let response = 
-			heradersString.indexOf('content-type: text/json;') > 0
-			|| heradersString.indexOf('content-type: application/json;') > 0
+	let response = heradersString.includes('text/json') || heradersString.includes('application/json')
 	return response;
 }
