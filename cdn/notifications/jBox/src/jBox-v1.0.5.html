@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jBoxDemo</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel='stylesheet' type='text/css' href='../jBox-all-v1.0.5.min.css'>
+	</head>
+	<body style='padding: 20px'>
+	
+		<span class="tooltip" title="My tooltip">Hover me!</span>
+		<br>
+		<br>
+		<span class="tooltip" title="Another tooltip">Hover me!</span>
+
+		<!-- SRCIPTS -->
+		<script type='text/javascript' src='../../../jquery/jquery-v3.4.1.min.js'></script>
+		<script type='text/javascript' src='../jBox-all-v1.0.5.min.js'></script>
+		
+		<script>
+			$(function()
+			{
+				new jBox('Tooltip',
+				{
+					attach: '.tooltip'
+				});
+			});
+		</script>
+	</body>
+</html>
