@@ -5,6 +5,8 @@ var divHeaders = $('#idDivHeaders');
 var divAuthorizations = $('#idDivAuthorizations');
 var divResponseBox = $('#idDivResponseBox');
 
+class Request{}
+
 $().ready(function()
 {
 	$('.card-header').click(function()
@@ -12,12 +14,15 @@ $().ready(function()
 		$(this).next('.card-body').toggle('slow');
 	});
 	
-	let localUrl = getLocal('requestUrl');
-	if(localUrl)
+	let requestObj = getLocal('requestObj');
+	if(requestObj)
 	{
-		$('#idInputUrl').val(localUrl);
+		//requestObj = new Request();
+		$('#idSelectMethod').val(requestObj.method);
+		$('#idInputUrl').val(requestObj.url);
+		$('#idTextRequestBody').val(requestObj.requestBody);
 	}
-
+	
 	/**
 	$("#idTextRequestBody").bcralnit(
 	{
@@ -234,7 +239,12 @@ function createCORSRequest(method, url)
 
 function preRequest(THIS)
 {
-	setLocal('requestUrl', $('#idInputUrl').val());
+	requestObj = new Request();
+	requestObj.method = $('#idSelectMethod').val();
+	requestObj.url = $('#idInputUrl').val();
+	requestObj.requestBody = $('#idTextRequestBody').val();
+	setLocal('requestObj', requestObj);
+	
 	disableButton(THIS);
 	divResponseBox.hide(function()
 	{
