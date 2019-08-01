@@ -11,6 +11,12 @@ $().ready(function()
 	{
 		$(this).next('.card-body').toggle('slow');
 	});
+	
+	let localUrl = getLocal('requestUrl');
+	if(localUrl)
+	{
+		$('#idInputUrl').val(localUrl);
+	}
 
 	/**
 	$("#idTextRequestBody").bcralnit(
@@ -228,6 +234,7 @@ function createCORSRequest(method, url)
 
 function preRequest(THIS)
 {
+	setLocal('requestUrl', $('#idInputUrl').val());
 	disableButton(THIS);
 	divResponseBox.hide(function()
 	{
@@ -342,4 +349,18 @@ function isJsonResponse(heradersString)
 {
 	let response = heradersString.includes('text/json') || heradersString.includes('application/json')
 	return response;
+}
+
+function setLocal(key, valueObj)
+{
+	localStorage.setItem(key, JSON.stringify(valueObj));
+}
+
+function getLocal(key)
+{
+	if (localStorage.getItem(key) && localStorage.getItem(key) !== 'undefined')
+	{
+		return JSON.parse(localStorage.getItem(key));
+	}
+	return null;
 }
