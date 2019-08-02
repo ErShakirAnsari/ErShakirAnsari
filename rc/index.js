@@ -342,7 +342,7 @@ function xhrResponseHandler(xhr, responseText)
 			collapsed: false,
 			rootCollapsable: false,
 			withQuotes: true,
-			withLinks: true
+			withLinks: false
 		};
 		$('#json-renderer').jsonViewer(input, options);
 
