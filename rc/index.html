@@ -2,9 +2,15 @@
 <html>
 	<head>
 		<title>Rest client</title>
+		<meta name="description" content="Rest client is a light weight but powerfull tool to test your rest apis with support of analyze and validate responses">
+		<meta name="keywords" content="API Testing, Rest Client, Advance Rest Client, API Automation">
+
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+		
+
+		
 		<link rel="icon" type="image/gif" href="../cdn/images/gif/loader-001.gif">
 
 		<link href="../cdn/bootstrap/bootstrap-v4.3.1.min.css" rel="stylesheet">
@@ -98,17 +104,19 @@
 			
 			<hr class='my-3'>
 			
+			<!-- <a href='javascript:void(0)'> <i class='fa fa-cog'></i> payloads</a> -->
+			
 			<div class='card'>
 				<div class='card-header'>
 					<h5 class='m-0'>Payloads</h5>
 				</div>
-				<div class='card-body pb-0' style='display: none'>
+				<div class='card-body pb-0' style='display: none1'>
 					<!-- Nav tabs -->
 					<div class="row my-2">
 						<div class='col-12'>
 							<ul class="nav nav-tabs" id="myTab" role="tablist">
 								<li class="nav-item">
-									<a class="nav-link active" id="params-tab" data-toggle="tab" href="#params" role="tab" aria-controls="params" aria-selected="true">Params</a>
+									<a class="nav-link" id="params-tab" data-toggle="tab" href="#params" role="tab" aria-controls="params" aria-selected="true">Params</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" id="headers-tab" data-toggle="tab" href="#headers" role="tab" aria-controls="headers" aria-selected="false">Headers</a>
@@ -117,7 +125,7 @@
 									<a class="nav-link" id="authorizations-tab" data-toggle="tab" href="#authorizations" role="tab" aria-controls="authorizations" aria-selected="false">Authorizations</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" id="request-body-tab" data-toggle="tab" href="#request-body" role="tab" aria-controls="request-body" aria-selected="false">Request body</a>
+									<a class="nav-link active" id="request-body-tab" data-toggle="tab" href="#request-body" role="tab" aria-controls="request-body" aria-selected="false">Request body</a>
 								</li>
 							</ul>
 						</div>
@@ -127,7 +135,7 @@
 						<div class='col-12'>
 							<div class="tab-content">
 								<!-- Params -->
-								<div class="tab-pane active" id="params" role="tabpanel" aria-labelledby="params-tab">
+								<div class="tab-pane" id="params" role="tabpanel" aria-labelledby="params-tab">
 									<div class="row my-2">
 										<div class='col-lg-3 col-md-4 col-sm-4'>
 											<button class='btn btn-dark' onclick='addParam()'>Add params</button>
@@ -166,7 +174,7 @@
 								</div>
 								
 								<!-- Request body -->
-								<div class="tab-pane" id="request-body" role="tabpanel" aria-labelledby="request-body-tab">
+								<div class="tab-pane active" id="request-body" role="tabpanel" aria-labelledby="request-body-tab">
 									<div class="row my-2">
 										<div class='col-lg-10 col-md-12 col-sm-12'>
 											<textarea id='idTextRequestBody' class='form-control' rows='8'></textarea>
@@ -214,10 +222,16 @@
 			
 			<div id='idDivResponseBox' class='border rounded px-3 py-2' style='display: none'></div>
 			<pre id="json-renderer"></pre>
+			
+			<br>
+			<div class='text-center'>
+				Rest client is a light weight but powerfull tool to test your rest apis with support of analyze and validate responses.
+				<br>
+				Advance features live auto save last request makes it advacne rest client.
+			</div>
 		</div>
 
 		<!-- Footer -->
-		<br>
 		<hr>
 		<h6 class="footer m-0 px-5 text-right">
 			Written by <em>ErShakirAnsari</em>

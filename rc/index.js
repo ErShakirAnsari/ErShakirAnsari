@@ -14,6 +14,11 @@ $().ready(function()
 		$(this).next('.card-body').toggle('slow');
 	});
 	
+	$('#idAnchorPayloads').click(function()
+	{
+		$('#idDivPayloads').toggle('slow');
+	});
+	
 	let requestObj = getLocal('requestObj');
 	if(requestObj)
 	{
