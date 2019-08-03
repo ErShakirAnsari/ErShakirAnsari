@@ -2,6 +2,7 @@
 package com.demo.api;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -20,7 +21,7 @@ public class DemoApi extends javax.servlet.http.HttpServlet
 {
 	private static final long serialVersionUID = 1L;
 	public static final String landingPage = "DemoApi";
-	private static final Gson gson = new Gson();
+	private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
@@ -30,17 +31,26 @@ public class DemoApi extends javax.servlet.http.HttpServlet
 		HashMap<String, Object> hashMap = new HashMap<>();
 
 		List<String> list = Arrays.asList(
-				UUID.randomUUID().toString(),
-				UUID.randomUUID().toString(),
-				UUID.randomUUID().toString(),
-				UUID.randomUUID().toString(),
-				UUID.randomUUID().toString(),
-				UUID.randomUUID().toString(),
-				UUID.randomUUID().toString()
+				UUID.randomUUID().toString().toUpperCase(),
+				UUID.randomUUID().toString().toUpperCase(),
+				UUID.randomUUID().toString().toUpperCase(),
+				UUID.randomUUID().toString().toUpperCase(),
+				UUID.randomUUID().toString().toUpperCase(),
+				UUID.randomUUID().toString().toUpperCase(),
+				UUID.randomUUID().toString().toUpperCase(),
+				UUID.randomUUID().toString().toUpperCase(),
+				UUID.randomUUID().toString().toUpperCase(),
+				UUID.randomUUID().toString().toUpperCase(),
+				UUID.randomUUID().toString().toUpperCase(),
+				UUID.randomUUID().toString().toUpperCase(),
+				UUID.randomUUID().toString().toUpperCase(),
+				UUID.randomUUID().toString().toUpperCase(),
+				UUID.randomUUID().toString().toUpperCase()
 		);
 
 		hashMap.put("serverTime", System.currentTimeMillis());
 		hashMap.put("randomStrings", "shakir");
+		hashMap.put("list", list);
 
 		res.setContentType("application/json");
 		res.setCharacterEncoding("UTF-8");
