@@ -18,7 +18,9 @@ public class Main
 			return;
 		}
 
-		Helpers.readChangeLogs();
+		//Helpers.readChangeLogs();
+
+		String fileList = "[" + System.lineSeparator() + Helpers.getFileLists() + System.lineSeparator() + "]";
 
 		System.out.println("Done");
 	}

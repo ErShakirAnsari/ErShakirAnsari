@@ -1,8 +1,9 @@
 
 package cdn;
 
-import cdn.utils.AppUtilities;
-import cdn.utils.Constants;
+
+import cdn.github.utils.AppUtilities;
+import cdn.github.utils.Constants;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;

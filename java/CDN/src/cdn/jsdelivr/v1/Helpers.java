@@ -3,6 +3,8 @@ package cdn.jsdelivr.v1;
 
 import cdn.common.AppUtilities;
 import cdn.common.ConsoleInput;
+import cdn.github.utils.Constants;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,5 +62,46 @@ public class Helpers
 		}
 
 		System.out.println("Saved");
+	}
+
+	public static String getFileLists()
+	{
+		ArrayList<String> list = new ArrayList<>();
+		list = walker(list, Constants.cdnRootFolder);
+
+		System.out.println("Helpers.getFileLists() - list.size(): " + list.size());
+
+		String response = "";
+		for (String str : list)
+		{
+			response += "\t\"" + str.replace("\\", "/") + "\",";
+		}
+
+		return response
+				.substring(0, response.length() - 1)
+				.replace(",", "," + System.lineSeparator());
+	}
+
+	private static ArrayList walker(ArrayList list, String root)
+	{
+		File[] fileList = new File(root).listFiles();
+
+		for (File file : fileList)
+		{
+			if (file.getName().startsWith("@")
+					|| file.getName().equals("src"))
+			{
+				continue;
+			}
+
+			if (file.isDirectory())
+			{
+				walker(list, file.getAbsolutePath());
+			} else
+			{
+				list.add(file.getAbsolutePath().replace(Constants.cdnRootFolder + File.separator, ""));
+			}
+		}
+		return list;
 	}
 }
