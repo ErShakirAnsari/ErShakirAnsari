@@ -50,6 +50,7 @@ input[type="checkbox"], input[type="radio"]
 {
 	/*font-size: 22px;*/
 	/* width: 22px; */
+	font-size: inherit;
 	outline: none
 	appearance: none;
 	-webkit-appearance: none;
