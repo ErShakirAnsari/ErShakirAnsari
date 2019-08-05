@@ -24,43 +24,13 @@
 		<link href='https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@0.0.1/cdn/bootstrap/bootstrap-v4.3.1.min.css' rel='stylesheet' type='text/css'>
 		<link href='https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@0.0.1/cdn/fonts/font-awesome-v4.7.0.min.css' rel='stylesheet' type='text/css'>
 		<link href='https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@0.0.1/cdn/jaxer/jaxer.styles-v1.0.min.css' rel='stylesheet' type='text/css'>
+		<link href='./jaxer/jaxer.styles-v1.1.0.css' rel='stylesheet' type='text/css'>
 		<style>
-			body{background: transparent url('./images/web-bgs/min/web-bg-013.png');}
-			1label{display:block1;font:normal 1.15em consolas}
-			label code{color:#007bff !important}
-			label i {color:#555;cursor:pointer}
-			table label { min-width: 60px }
-			th{ font-weight; normal; vertical-align: inherit !important}
-			
-			input[type="checkbox"]:before 
-			{
-				display: inline-block;
-				font: normal normal normal 14px/1 FontAwesome;
-				font-size: inherit;
-				text-rendering: auto;
-				-webkit-font-smoothing: antialiased;
-				content: "\f096";
-				opacity: 1 !important;
-				margin-top: -25px;
-				appearance: none;
-				background: #fff;
-			}
-			input[type="checkbox"]:checked:before 
-			{
-				content: "\f046";
-			}
-			input[type="checkbox"]
-			{
-				font-size: 22px;
-				width: 22px;
-				appearance: none;
-				-webkit-appearance: none;
-				-moz-appearance: none;
-			}
-			input[type="checkbox"]
-			{
-				outline: none
-			}
+			body{ background: transparent url('./images/web-bgs/min/web-bg-013.png') }
+			.resultRow { margin: 3px 10px;	font: normal 1.15em consolas }
+			.resultRow code { color: #007bff !important }
+			.resultRow i { color: #333 !important }
+			.resultRow a, .resultRow i, .resultRow code { cursor: pointer !important }
 		</style>
 	</head>
 	<body class='my-3 mx-5'>
@@ -70,16 +40,16 @@
 		</h1>
 
 		<h5 class='text-muted m-0 p-0' style='text-transform: lowercase'>
-			$root: <span id="typed" style="white-space:pre;"></span>
+			<i class="fa fa-terminal" aria-hidden="true"></i> <span id="typed" style="white-space:pre;"></span>
 		</h5>
 
 		<hr class='mt-0'>
 
 		<div class='row m-1'>
-			<div class='col-11 p-0'>
+			<div class='col-11'>
 				<input type='search' class='form-control' onkeydown='search(this)' onkeyup='search(this)' placeholder='Search here..'/>
 			</div>
-			<div class='col-1 p-0  text-center'>
+			<div class='col-1'>
 				<button class='btn btn-light' data-toggle="modal" data-target="#myModal" style='width: 100%;'>
 					<i class='fa fa-cog'></i>
 				</button>
@@ -332,7 +302,7 @@
 
 				lableStr = lableStr.length === 0 ? "<br>No data found!" : lableStr;
 
-				$('#idDivSearchResult').empty().html(lableStr);
+				$('#idDivSearchResult').empty().html('<hr>' + lableStr);
 			}
 
 			function createLable(fileName)
@@ -346,12 +316,15 @@
 					url = 'https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@' + version + '/cdn/' + fileName;
 				}
 								
-				var str = '';
-				str += "<label class='px-2 my-2'>";
-				str += "<i class='fa fa-copy' title='Copy to clipboard' onclick=\"copy('" + url + "')\"></i> ";
-				str += "<i class='fa fa-clipboard' title='Copy to clipboard as HTML' onclick=\"copyAsHtml('" + url + "')\"></i> ";
-				str += "<a href='" + url + "' target='_blank'>" + fileName + "</a>";
-				str += "</label>";
+				var str = `
+					<div class='row resultRow'>
+						<i class='fa fa-copy' title='Copy to clipboard' onclick="copy('${url}')"></i>
+						&nbsp;
+						<i class='fa fa-clipboard' title='Copy to clipboard as HTML' onclick="copyAsHtml('${url}')"></i>
+						&nbsp;&nbsp;
+						<a href='${url}' target='_blank'>${fileName}</a>
+					</div>
+				`;
 				return str;
 			}
 
