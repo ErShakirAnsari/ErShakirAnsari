@@ -70,164 +70,61 @@
 			</div>
 		</nav>
 		
-		<div class="container">
+		<div class="container-fluid">
 		
 			<div class="row my-3 py-2">
-				<div class='col-lg-2 col-md-2 col-sm-12'>
-					Method:<br>
-					<select id='idSelectMethod' class='form-control'>
-						<option value='get'>GET</option>
-						<option value='post'>POST</option>
-						<option value='head'>HEAD</option>
-						<option value='delete'>DELETE</option>
-					</select>
-				</div>
 
-				<div class='col-lg-8 col-md-7 col-sm-12'>
-					URL:<br>
-					<!-- http://dummy.restapiexample.com/api/v1/employee/290 -->
-					<!-- http://localhost:8080/RestClientTesting/demoApi -->
-					<!-- http://jsonplaceholder.typicode.com/posts -->
-					<input
-						id='idInputUrl'
-						class='form-control'
-						placeholder='http://www.somehost.com/end-point'
-						value='http://jsonplaceholder.typicode.com/posts'
-					/>
+				<!-- LEFT CONTAINER -->
+				<div class='col-lg-4 col-md-4 col-sm-12'>
+					<div class="row">
+						<div class='col-lg-12 col-md-12 col-sm-12 my-1'>
+							<input
+								id='idInputUrl'
+								class='form-control'
+								placeholder='http://www.somehost.com/end-point'
+								value='http://jsonplaceholder.typicode.com/posts'/>
+						</div>
+					</div>
+					<div class="row">
+						<div class='col-lg-6 col-md-6 col-sm-12'>
+							<select id='idSelectMethod' class='form-control'>
+								<option value='get'>GET</option>
+								<option value='post'>POST</option>
+								<option value='head'>HEAD</option>
+								<option value='delete'>DELETE</option>
+							</select>
+						</div>
+						<div class='col-lg-6 col-md-6 col-sm-12'>
+							<button class='btn btn-primary' onclick='sendRequest(this);'>Send</button>
+						</div>
+					</div>
+					<div class="row mt-2">
+						<div class='col-12'>
+							<h6>
+								Parameters
+							</h6>
+						</div>
+					</div>
 				</div>
+				<!-- LEFT CONTAINER END -->
 				
-				<div class='col-lg-2 col-md-3 col-sm-12'>
-					Action:<br>
-					<button class='btn btn-primary' onclick='sendRequest(this);'>Send</button>
+				<!-- RIGHT CONTAINER -->
+				<div class='col-lg-4 col-md-4 col-sm-12'>
 				</div>
+				<!-- RIGHT CONTAINER END -->
+
 			</div>
 			
-			<hr class='my-3'>
-			
-			<!-- <a href='javascript:void(0)'> <i class='fa fa-cog'></i> payloads</a> -->
-			
-			<div class='card'>
-				<div class='card-header'>
-					<h5 class='m-0'>Payloads</h5>
+			<div class="row mt-5 mb-2 py-2">
+				<div class='col-12 text-center'>
+					<blockquote class="blockquote">
+						<p class="mb-0">
+							Rest client is a light weight but powerfull tool to test your rest apis with support of analyze and validate responses.
+							<br>
+							Advance features live auto save last request makes it advacne rest client.
+						</p>
+					</blockquote>
 				</div>
-				<div class='card-body pb-0' style='display: none1'>
-					<!-- Nav tabs -->
-					<div class="row my-2">
-						<div class='col-12'>
-							<ul class="nav nav-tabs" id="myTab" role="tablist">
-								<li class="nav-item">
-									<a class="nav-link" id="params-tab" data-toggle="tab" href="#params" role="tab" aria-controls="params" aria-selected="true">Params</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" id="headers-tab" data-toggle="tab" href="#headers" role="tab" aria-controls="headers" aria-selected="false">Headers</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" id="authorizations-tab" data-toggle="tab" href="#authorizations" role="tab" aria-controls="authorizations" aria-selected="false">Authorizations</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link active" id="request-body-tab" data-toggle="tab" href="#request-body" role="tab" aria-controls="request-body" aria-selected="false">Request body</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-
-					<div class="row my-2">
-						<div class='col-12'>
-							<div class="tab-content">
-								<!-- Params -->
-								<div class="tab-pane" id="params" role="tabpanel" aria-labelledby="params-tab">
-									<div class="row my-2">
-										<div class='col-lg-3 col-md-4 col-sm-4'>
-											<button class='btn btn-dark' onclick='addParam()'>Add params</button>
-										</div>
-									</div>
-									<div class="row my-2">
-										<div class="col-12" id='idDivParams'>
-										</div>
-									</div>
-								</div>
-
-								<!-- Headers -->
-								<div class="tab-pane" id="headers" role="tabpanel" aria-labelledby="headers-tab">
-									<div class="row my-2">
-										<div class='col-lg-3 col-md-4 col-sm-6'>
-											<button class='btn btn-dark' onclick='addHeader()'>Add headers</button>
-										</div>
-									</div>
-									<div class="row my-2">
-										<div class="col-12" id='idDivHeaders'>
-										</div>
-									</div>
-								</div>
-
-								<!-- Authorizations -->
-								<div class="tab-pane" id="authorizations" role="tabpanel" aria-labelledby="authorizations-tab">
-									<div class="row my-2">
-										<div class='col-lg-3 col-md-4 col-sm-6'>
-											<button class='btn btn-dark' onclick='addAuthorizations()'>Add authorizations</button>
-										</div>
-									</div>
-									<div class="row my-2">
-										<div class="col-12" id='idDivAuthorizations'>
-										</div>
-									</div>
-								</div>
-								
-								<!-- Request body -->
-								<div class="tab-pane active" id="request-body" role="tabpanel" aria-labelledby="request-body-tab">
-									<div class="row my-2">
-										<div class='col-lg-10 col-md-12 col-sm-12'>
-											<textarea id='idTextRequestBody' class='form-control' rows='8'></textarea>
-										</div>
-										<div class='col-lg-2 col-md-12 col-sm-12'>
-											<div class="row my-2">
-												<div class='col-lg-12 col-md-4 col-sm-4 mb-1'>
-													<select id='idSelectMethod' class='form-control'>
-														<option value='json'>text / json</option>
-														<option value='html'>text / html</option>
-														<option value='xml'>text / xml</option>
-													</select>
-												</div>
-
-												<div class='col-lg-12 col-md-4 col-sm-4 mb-1'>
-													<button class='btn btn-light' style='width:100%' onclick='beautifyRequestBody()'>Beautify</button>
-												</div>
-												<div class='col-lg-12 col-md-4 col-sm-4 mb-1'>
-													<button class='btn btn-light' style='width:100%' onclick='minifyRequestBody();'>Minify</button>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div><!-- END OF Request body -->
-								
-							</div>
-						</div>
-					</div>
-				</div>
-			</div> <!-- END OF REQUEST CARD -->
-
-			<br>
-			
-			<!--
-			<div class='card'>
-				<div class='card-header'>
-					<h5 class='m-0'>Response</h5>
-				</div>
-				<div class='card-body' style='display: none' id='idDivResponseBox'>
-					<textarea id='idTextResponse' class='form-control' rows='8' style='display: none'></textarea>
-					<pre id='idPreResponse' class='code'></pre>
-					<div id='idDivResponse' class='code'></div>
-				</div>
-			</div> <!-- END OF RESPONSE CARD -->
-			
-			<div id='idDivResponseBox' class='border rounded px-3 py-2' style='display: none'></div>
-			<pre id="json-renderer"></pre>
-			
-			<br>
-			<div class='text-center'>
-				Rest client is a light weight but powerfull tool to test your rest apis with support of analyze and validate responses.
-				<br>
-				Advance features live auto save last request makes it advacne rest client.
 			</div>
 		</div>
 
