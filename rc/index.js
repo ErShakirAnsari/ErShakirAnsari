@@ -70,7 +70,9 @@ function addParam()
 				<input class='form-control' placeholder='Param value' name='paramValue' id='idParamValue${time}' />
 			</div>
 			<div class='col-lg-2 col-sm-2'>
-				<button class='btn btn-light' onclick='removeParam(this)'>Remove</button>
+				<button class='btn btn-light' onclick='removeParam(this)'>
+					<i class='fa fa-trash'></i>
+				</button>
 			</div>
 		</div>
 	`;
@@ -121,7 +123,9 @@ function addHeader()
 				<input class='form-control' placeholder='Header value' name='headerValue' id='idHeaderValue${time}' />
 			</div>
 			<div class='col-lg-2 col-sm-4'>
-				<button class='btn btn-light' onclick='removeHeader(this)'>Remove</button>
+				<button class='btn btn-light' onclick='removeHeader(this)'>
+					<i class='fa fa-trash'></i>
+				</button>
 			</div>
 		</div>
 	`;
