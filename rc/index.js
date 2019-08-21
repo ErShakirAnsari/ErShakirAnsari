@@ -5,29 +5,29 @@ var divHeaders = $('#idDivHeaders');
 var divAuthorizations = $('#idDivAuthorizations');
 var divResponseBox = $('#idDivResponseBox');
 
-class Request{}
+class Request { }
 
-$().ready(function()
+$().ready(function ()
 {
-	$('.card-header').click(function()
+	$('.card-header').click(function ()
 	{
 		$(this).next('.card-body').toggle('slow');
 	});
-	
-	$('#idAnchorPayloads').click(function()
+
+	$('#idAnchorPayloads').click(function ()
 	{
 		$('#idDivPayloads').toggle('slow');
 	});
-	
+
 	let requestObj = getLocal('requestObj');
-	if(requestObj)
+	if (requestObj)
 	{
 		//requestObj = new Request();
 		$('#idSelectMethod').val(requestObj.method);
 		$('#idInputUrl').val(requestObj.url);
 		$('#idTextRequestBody').val(requestObj.requestBody);
 	}
-	
+
 	/**
 	$("#idTextRequestBody").bcralnit(
 	{
@@ -39,8 +39,8 @@ $().ready(function()
 });
 
 function _toggle(THIS, tableId, variable)
-{	
-	if(variable)
+{
+	if (variable)
 	{
 		$(THIS).text('Disable').removeClass('btn-primary').addClass('btn-light');
 		$('#' + tableId).fadeIn(333);
@@ -81,27 +81,27 @@ function addParam()
 
 function removeParam(THIS)
 {
-	 $(THIS).parent().parent().remove();
+	$(THIS).parent().parent().remove();
 }
 
 function getParams()
 {
 	let paramKeys = document.getElementsByName("paramKey");
-	
+
 	let paramString = "";
-	for(let i = 0; i< paramKeys.length; i++)
+	for (let i = 0; i < paramKeys.length; i++)
 	{
 		let paramName = paramKeys[i].value;
 		let paramValue = document.getElementById("idParamValue" + paramKeys[i].getAttribute("time-stamp")).value;
-		
+
 		paramString += paramName + "=" + paramValue + "&";
 	}
-	
-	if(paramString.length !== 0) 
+
+	if (paramString.length !== 0)
 	{
 		paramString = paramString.substring(0, paramString.length - 1);
 	}
-	
+
 	paramString = encodeURI(paramString);
 	console.log("paramString: " + paramString);
 	return paramString;
@@ -113,7 +113,7 @@ function getParams()
 function addHeader()
 {
 	let time = new Date().getTime();
-	
+
 	let str = `
 		<div class='row my-1'>
 			<div class='col-lg-5 col-sm-4'>
@@ -130,9 +130,9 @@ function addHeader()
 		</div>
 	`;
 
-	divHeaders.append(str);	 
- }
- 
+	divHeaders.append(str);
+}
+
 function removeHeader(THIS)
 {
 	$(THIS).parent().parent().remove();
@@ -141,21 +141,21 @@ function removeHeader(THIS)
 function getHeaders()
 {
 	let headerKeys = document.getElementsByName("headerKey");
-	
+
 	let headerString = "";
-	for(let i = 0; i< headerKeys.length; i++)
+	for (let i = 0; i < headerKeys.length; i++)
 	{
 		let paramName = headerKeys[i].value;
 		let paramValue = document.getElementById("idHeaderValue" + headerKeys[i].getAttribute("time-stamp")).value;
-		
+
 		headerString += paramName + "=" + paramValue + "\n";
 	}
-	
-	if(headerString.length !== 0) 
+
+	if (headerString.length !== 0)
 	{
 		headerString = headerString.substring(0, headerString.length - 1);
 	}
-	
+
 	console.log("headerString: " + headerString);
 }
 // [END HEADER]
@@ -173,12 +173,14 @@ function addAuthorizations()
 				<input class='form-control' placeholder='Authorizations value' name='authorizationValue' id='idAuthorizationValue${time}' />
 			</div>
 			<div class='col-lg-2 col-sm-4'>
-				<button class='btn btn-light' onclick='removeAuthorizations(this)'>Remove</button>
+				<button class='btn btn-light' onclick='removeAuthorizations(this)'>
+					<i class='fa fa-trash'></i>
+				</button>
 			</div>
 		</div>
 	`;
 
-	divAuthorizations.append(str);	 
+	divAuthorizations.append(str);
 }
 
 function removeAuthorizations(THIS)
@@ -188,21 +190,21 @@ function removeAuthorizations(THIS)
 
 function disableButton(obj)
 {
-   disableThis(obj);
-   $(obj).addClass("disabled");
+	disableThis(obj);
+	$(obj).addClass("disabled");
 }
 function enableButton(obj)
 {
-   $(obj).removeClass("disabled");
-   enableThis(obj);
+	$(obj).removeClass("disabled");
+	enableThis(obj);
 }
-function disableThis(obj) 
+function disableThis(obj)
 {
-   $(obj).prop("disabled", true);
+	$(obj).prop("disabled", true);
 }
-function enableThis(obj) 
+function enableThis(obj)
 {
-   $(obj).prop("disabled", false);
+	$(obj).prop("disabled", false);
 }
 
 function beautifyRequestBody()
@@ -212,7 +214,7 @@ function beautifyRequestBody()
 
 function minifyRequestBody()
 {
-	$('#idTextRequestBody').val( beautifyAndMinify( $('#idTextRequestBody').val(), 0));
+	$('#idTextRequestBody').val(beautifyAndMinify($('#idTextRequestBody').val(), 0));
 }
 
 function beautifyAndMinify(str, paddingSize)
@@ -232,17 +234,17 @@ function createCORSRequest(method, url)
 		// "withCredentials" only exists on XMLHTTPRequest2 objects.
 		xhr.open(method, url, true);
 	} else
-	if (typeof XDomainRequest != "undefined")
-	{
-		// Otherwise, check if XDomainRequest.
-		// XDomainRequest only exists in IE, and is IE's way of making CORS requests.
-		xhr = new XDomainRequest();
-		xhr.open(method, url);
-	} else 
-	{
-		// Otherwise, CORS is not supported by the browser.
-		xhr = null;
-	}
+		if (typeof XDomainRequest != "undefined")
+		{
+			// Otherwise, check if XDomainRequest.
+			// XDomainRequest only exists in IE, and is IE's way of making CORS requests.
+			xhr = new XDomainRequest();
+			xhr.open(method, url);
+		} else
+		{
+			// Otherwise, CORS is not supported by the browser.
+			xhr = null;
+		}
 	return xhr;
 }
 
@@ -253,9 +255,9 @@ function preRequest(THIS)
 	requestObj.url = $('#idInputUrl').val();
 	requestObj.requestBody = $('#idTextRequestBody').val();
 	setLocal('requestObj', requestObj);
-	
+
 	disableButton(THIS);
-	divResponseBox.hide(function()
+	divResponseBox.hide(function ()
 	{
 		$(this).empty();
 	});
@@ -264,26 +266,26 @@ function preRequest(THIS)
 function sendRequest(THIS)
 {
 	preRequest(THIS);
-	
+
 	var data = JSON.stringify(
-	{
-		"ACTION": "scl_testApi",
-		"APP_VERSION": "500",
-		"APP_TYPE": "CUSTOMER",
-		"REQ_SOURCE": "ANDROID",
-		"param0": "10",
-		"param1": "20",
-		"ACCESS_TOKEN": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxIiwiaWF0IjoxNTY0NDAyNzkyLCJpc3MiOiI2OWEyNDM5Mjk3OWI0YzI1ZGQyYjU4ZGM4ODJmOTJhNiJ9.Dra7JCCQcs0uFZfTq67k44FvSu9c4hX_pmpNFJya64Q"
-	});
-	
-	if($('#idTextRequestBody').val() === '')
+		{
+			"ACTION": "scl_testApi",
+			"APP_VERSION": "500",
+			"APP_TYPE": "CUSTOMER",
+			"REQ_SOURCE": "ANDROID",
+			"param0": "10",
+			"param1": "20",
+			"ACCESS_TOKEN": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxIiwiaWF0IjoxNTY0NDAyNzkyLCJpc3MiOiI2OWEyNDM5Mjk3OWI0YzI1ZGQyYjU4ZGM4ODJmOTJhNiJ9.Dra7JCCQcs0uFZfTq67k44FvSu9c4hX_pmpNFJya64Q"
+		});
+
+	if ($('#idTextRequestBody').val() === '')
 	{
 		data = null;
-	} else 
+	} else
 	{
 		data = JSON.stringify(JSON.parse($('#idTextRequestBody').val()));
 	}
-	
+
 	var method = $('#idSelectMethod').val();
 	var params = getParams();
 	params = !params || params === '' ? '' : '?' + params;
@@ -291,16 +293,16 @@ function sendRequest(THIS)
 
 	//var xhr = new XMLHttpRequest();
 	//xhr.withCredentials = true;
-	
+
 	var xhr = createCORSRequest(method, url);
 	if (!xhr)
 	{
 		throw new Error('CORS not supported');
 	}
-	
-	xhr.addEventListener("readystatechange", function () 
+
+	xhr.addEventListener("readystatechange", function ()
 	{
-		if (this.readyState === 4) 
+		if (this.readyState === 4)
 		{
 			enableButton(THIS);
 			xhrResponseHandler(xhr, this.responseText);
@@ -316,11 +318,11 @@ function sendRequest(THIS)
 	//xhr.setRequestHeader("Content-Length", "335");
 	//xhr.setRequestHeader("Connection", "keep-alive");
 	//xhr.setRequestHeader("cache-control", "no-cache");
-	
+
 	// [DO NOT ADD]
 	//xhr.setRequestHeader("Access-Control-Allow-Origin", null);
 	// [DO NOT ADD]
-	
+
 	xhr.send(data);
 }
 
@@ -328,14 +330,14 @@ function xhrResponseHandler(xhr, responseText)
 {
 	console.log(responseText);
 	console.log('heradersString: ' + xhr.getAllResponseHeaders());
-	
+
 	let heradersString = xhr.getAllResponseHeaders();
-	
-	if(isHtmlResponse(heradersString))
+
+	if (isHtmlResponse(heradersString))
 	{
 		divResponseBox.html(responseText);
 	}
-	else if(isJsonResponse(heradersString))
+	else if (isJsonResponse(heradersString))
 	{
 		//divResponseBox.html(`<pre>${JSON.stringify(JSON.parse(responseText), null, 3)}</pre>`);
 		try
@@ -346,7 +348,7 @@ function xhrResponseHandler(xhr, responseText)
 		{
 			return alert("Cannot eval JSON: " + error);
 		}
-		
+
 		var options = {
 			collapsed: false,
 			rootCollapsable: false,
@@ -355,7 +357,7 @@ function xhrResponseHandler(xhr, responseText)
 		};
 		$('#json-renderer').jsonViewer(input, options);
 
-	}	
+	}
 	//divResponseBox.fadeIn('slow');
 }
 
