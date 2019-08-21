@@ -50,13 +50,11 @@ function _toggle(THIS, tableId, variable)
 		$('#' + tableId).fadeOut(333);
 	}
 }
-
 function toggleParams(THIS)
 {
 	IS_PARAMS = !IS_PARAMS;
 	_toggle(THIS, 'idTableParams', IS_PARAMS);
 }
-
 // [START PARAM]
 function addParam()
 {
@@ -78,12 +76,10 @@ function addParam()
 	`;
 	divParams.append(str);
 }
-
 function removeParam(THIS)
 {
 	$(THIS).parent().parent().remove();
 }
-
 function getParams()
 {
 	let paramKeys = document.getElementsByName("paramKey");
@@ -106,8 +102,6 @@ function getParams()
 	console.log("paramString: " + paramString);
 	return paramString;
 }
-// [END PARAM]
-
 
 // [START HEADER]
 function addHeader()
@@ -132,12 +126,10 @@ function addHeader()
 
 	divHeaders.append(str);
 }
-
 function removeHeader(THIS)
 {
 	$(THIS).parent().parent().remove();
 }
-
 function getHeaders()
 {
 	let headerKeys = document.getElementsByName("headerKey");
@@ -158,7 +150,6 @@ function getHeaders()
 
 	console.log("headerString: " + headerString);
 }
-// [END HEADER]
 
 // [START AUTHORIZATIONS]
 function addAuthorizations()
@@ -182,7 +173,6 @@ function addAuthorizations()
 
 	divAuthorizations.append(str);
 }
-
 function removeAuthorizations(THIS)
 {
 	$(THIS).parent().parent().remove();
@@ -247,7 +237,6 @@ function createCORSRequest(method, url)
 		}
 	return xhr;
 }
-
 function preRequest(THIS)
 {
 	requestObj = new Request();
@@ -262,7 +251,6 @@ function preRequest(THIS)
 		$(this).empty();
 	});
 }
-
 function sendRequest(THIS)
 {
 	preRequest(THIS);
@@ -325,7 +313,6 @@ function sendRequest(THIS)
 
 	xhr.send(data);
 }
-
 function xhrResponseHandler(xhr, responseText)
 {
 	console.log(responseText);
@@ -365,7 +352,6 @@ function isHtmlResponse(heradersString)
 {
 	return heradersString.indexOf('text/html') > 0;
 }
-
 function isJsonResponse(heradersString)
 {
 	let response = heradersString.includes('text/json') || heradersString.includes('application/json')
@@ -376,7 +362,6 @@ function setLocal(key, valueObj)
 {
 	localStorage.setItem(key, JSON.stringify(valueObj));
 }
-
 function getLocal(key)
 {
 	if (localStorage.getItem(key) && localStorage.getItem(key) !== 'undefined')
