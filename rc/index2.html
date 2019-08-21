@@ -101,8 +101,17 @@
 
 		#idDivParams,
 		#idDivHeaders,
-		#idDivAuthorizations {
+		#idDivAuthorizations,
+		#idDivAddRequestBody {
+			border-bottom: 1px solid #ddd;
 			grid-column: 1/3;
+			padding-bottom: 0.5em;
+		}
+
+		#idDivParams {
+			display: grid;
+			grid-template-columns: 3fr 3fr 1fr;
+			grid-gap: 0.5em;
 		}
 
 		#idDivRightBox {
@@ -160,20 +169,22 @@
 			</div>
 
 			<div id='idDivAddParams'>
-				<button class='btn btn-dark' onclick='addParam()'>Add params</button>
+				<a href='#' onclick='addParam()'><i class="fa fa-plus"></i> &nbsp;Params</a>
 			</div>
-			<div id='idDivParams' class='bg-dark'>
+			<div id='idDivParams'>
+				
 			</div>
 
 			<div id='idDivAddHeaders'>
-				<button class='btn btn-dark' onclick='addHeader()'>Add headers</button>
+				<a href='#' onclick='addHeader()'><i class="fa fa-plus"></i> &nbsp;Headers</a>
 			</div>
-			<div id='idDivHeaders'>
-			</div>
+			<div id='idDivHeaders'> </div>
 			<div id='idDivAddAuthorization'>
-				<button class='btn btn-dark' onclick='addAuthorizations()'>Add authorizations</button>
+				<a href='#' onclick='addAuthorizations()'><i class="fa fa-plus"></i> &nbsp;Authorizations</a>
 			</div>
-			<div id='idDivAuthorizations'>
+			<div id='idDivAuthorizations'> </div>
+			<div id='idDivAddRequestBody'>
+				<a href='#' onclick='idRequestBody()'><i class="fa fa-plus"></i> &nbsp;Request body</a>
 			</div>
 		</div>
 

@@ -60,18 +60,16 @@ function addParam()
 {
 	let time = new Date().getTime();
 	let str = `
-		<div class='row my-1'>
-			<div class='col-lg-5 col-sm-4'>
-				<input class='form-control' placeholder='Param key' name='paramKey' id='idParamKey${time}' time-stamp='${time}' />
-			</div>
-			<div class='col-lg-5 col-sm-4'>
-				<input class='form-control' placeholder='Param value' name='paramValue' id='idParamValue${time}' />
-			</div>
-			<div class='col-lg-2 col-sm-2'>
-				<button class='btn btn-light' onclick='removeParam(this)'>
-					<i class='fa fa-trash'></i>
-				</button>
-			</div>
+		<div>
+			<input class='form-control' placeholder='Param key' name='paramKey' id='idParamKey${time}'	time-stamp='${time}' />
+		</div>
+		<div>
+			<input class='form-control' placeholder='Param value' name='paramValue' id='idParamValue${time}' />
+		</div>
+		<div>
+			<button class='btn btn-light' onclick='removeParam(this)'>
+				<i class='fa fa-trash'></i>
+			</button>
 		</div>
 	`;
 	divParams.append(str);
