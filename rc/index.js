@@ -59,24 +59,27 @@ function toggleParams(THIS)
 function addParam()
 {
 	let time = new Date().getTime();
+
 	let str = `
-		<div>
-			<input class='form-control' placeholder='Param key' name='paramKey' id='idParamKey${time}'	time-stamp='${time}' />
-		</div>
-		<div>
-			<input class='form-control' placeholder='Param value' name='paramValue' id='idParamValue${time}' />
-		</div>
 		<div>
 			<button class='btn btn-light' onclick='removeParam(this)'>
 				<i class='fa fa-trash'></i>
 			</button>
+		</div>
+		<div class='key'>
+			<input class='form-control' placeholder='Param key' name='paramKey' id='idParamKey${time}'	time-stamp='${time}' />
+		</div>
+		<div class='value'>
+			<input class='form-control' placeholder='Param value' name='paramValue' id='idParamValue${time}' />
 		</div>
 	`;
 	divParams.append(str);
 }
 function removeParam(THIS)
 {
-	$(THIS).parent().parent().remove();
+	$(THIS).parent().next('.key').remove();
+	$(THIS).parent().next('.value').remove();
+	$(THIS).parent().remove();
 }
 function getParams()
 {
@@ -107,18 +110,16 @@ function addHeader()
 	let time = new Date().getTime();
 
 	let str = `
-		<div class='row my-1'>
-			<div class='col-lg-5 col-sm-4'>
-				<input class='form-control' placeholder='Header key' name='headerKey' id='idHeaderKey${time}' time-stamp='${time}' />
-			</div>
-			<div class='col-lg-5 col-sm-4'>
-				<input class='form-control' placeholder='Header value' name='headerValue' id='idHeaderValue${time}' />
-			</div>
-			<div class='col-lg-2 col-sm-4'>
-				<button class='btn btn-light' onclick='removeHeader(this)'>
-					<i class='fa fa-trash'></i>
-				</button>
-			</div>
+		<div>
+			<button class='btn btn-light' onclick='removeHeader(this)'>
+				<i class='fa fa-trash'></i>
+			</button>
+		</div>
+		<div class='key'>
+			<input class='form-control' placeholder='Header key' name='headerKey' id='idHeaderKey${time}' time-stamp='${time}' />
+		</div>
+		<div class='value'>
+			<input class='form-control' placeholder='Header value' name='headerValue' id='idHeaderValue${time}' />
 		</div>
 	`;
 
@@ -126,7 +127,9 @@ function addHeader()
 }
 function removeHeader(THIS)
 {
-	$(THIS).parent().parent().remove();
+	$(THIS).parent().next('.key').remove();
+	$(THIS).parent().next('.value').remove();
+	$(THIS).parent().remove();
 }
 function getHeaders()
 {
@@ -154,18 +157,16 @@ function addAuthorizations()
 {
 	let time = new Date().getTime();
 	let str = `
-		<div class='row my-1'>
-			<div class='col-lg-5 col-sm-4'>
-				<input class='form-control' placeholder='Authorizations key' name='authorizationKey' id='idAuthorizationKey${time}' time-stamp='${time}' />
-			</div>
-			<div class='col-lg-5 col-sm-4'>
-				<input class='form-control' placeholder='Authorizations value' name='authorizationValue' id='idAuthorizationValue${time}' />
-			</div>
-			<div class='col-lg-2 col-sm-4'>
-				<button class='btn btn-light' onclick='removeAuthorizations(this)'>
-					<i class='fa fa-trash'></i>
-				</button>
-			</div>
+		<div>
+			<button class='btn btn-light' onclick='removeAuthorizations(this)'>
+				<i class='fa fa-trash'></i>
+			</button>
+		</div>
+		<div class='key'>
+			<input class='form-control' placeholder='Authorizations key' name='authorizationKey' id='idAuthorizationKey${time}' time-stamp='${time}' />
+		</div>
+		<div class='value'>
+			<input class='form-control' placeholder='Authorizations value' name='authorizationValue' id='idAuthorizationValue${time}' />
 		</div>
 	`;
 
