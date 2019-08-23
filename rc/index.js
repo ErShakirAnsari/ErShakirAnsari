@@ -195,6 +195,10 @@ function enableThis(obj)
 {
 	$(obj).prop("disabled", false);
 }
+// [START REQUEST BODY]
+function toggleRequestBody() { 
+	$('#idDivRequestBody').toggle('slow');
+}
 
 function beautifyRequestBody()
 {
