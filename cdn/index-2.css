@@ -1,0 +1,38 @@
+body {
+  background: transparent url("./images/web-bgs/min/web-bg-013.png");
+}
+
+.resultRow {
+  margin: 3px 10px;
+  font: normal 1.15em consolas;
+}
+
+.resultRow code {
+  color: #007bff !important;
+}
+
+.resultRow i {
+  color: #333 !important;
+}
+
+.resultRow a,
+.resultRow i,
+.resultRow code {
+  cursor: pointer !important;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  outline: none;
+}
+.btn-light {
+  background-color: #eee;
+}
+
+/* *********************** */
+
+.search-wrapper {
+  display: grid;
+  grid-template-columns: 11fr 1fr;
+  grid-column-gap: 0.5em;
+}

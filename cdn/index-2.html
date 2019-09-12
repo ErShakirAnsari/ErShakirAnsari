@@ -1,0 +1,175 @@
+<!--
+  /$$$$$$  /$$   /$$ /$$$$$$$
+ /$$__  $$| $$  /$$/| $$__  $$
+| $$  \__/| $$ /$$/ | $$  \ $$
+|  $$$$$$ | $$$$$/  | $$$$$$$/
+ \____  $$| $$  $$  | $$__  $$
+ /$$  \ $$| $$\  $$ | $$  \ $$
+|  $$$$$$/| $$ \  $$| $$  | $$
+ \______/ |__/  \__/|__/  |__/
+
+"THE WEB PAGE(S) IS/ARE PROPERTY OF JAXER"
+- NO WARRANTY EXPRESSED OR IMPLIED.
+- USE AT YOUR OWN RISK.
+- USE YOUR OWN COPY.
+- IT IS EXTREMELY UNWISE TO LOAD CODE FROM SERVERS YOU DO NOT CONTROL.
+- SOME OF THE CONTENT(S) IS/ARE COPIED FROM THE WWW, IS/ARE UNCHANGED AND FOR ONLY PERSONAL USE.
+---------------------------------------------------------------------------------------------- -->
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title> Static quick links </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="icon" type="image/gif"
+		href="https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@0.0.1/cdn/images/gif/loader-001.gif">
+	<link
+		href='https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@0.0.1/cdn/bootstrap/bootstrap-v4.3.1.min.css'
+		rel='stylesheet' type='text/css'>
+	<link
+		href='https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@0.0.1/cdn/fonts/font-awesome-v4.7.0.min.css'
+		rel='stylesheet' type='text/css'>
+	<link
+		href='https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@0.0.1/cdn/jaxer/jaxer.styles-v1.0.min.css'
+		rel='stylesheet' type='text/css'>
+		<link href='./jaxer/jaxer-styles-v1.1.0.css' rel='stylesheet' type='text/css'>
+		<link href='./index-2.css' rel='stylesheet' type='text/css'>
+</head>
+
+<body class='my-3 mx-5'>
+	<h1>
+		<i class="fa fa-archive" aria-hidden="true"></i>
+		Static files
+	</h1>
+
+	<h5 class='text-muted m-0 p-0' style='text-transform: lowercase'>
+		<i class="fa fa-terminal" aria-hidden="true"></i> <span id="typed" style="white-space:pre;"></span>
+	</h5>
+
+	<hr class='mt-0'>
+
+	<div class='search-wrapper'>
+		<div>
+			<input type='search' class='form-control' onkeydown='search(this)' onkeyup='search(this)'
+				placeholder='Search here..' />
+		</div>
+		<div>
+			<button class='btn btn-light' data-toggle="modal" data-target="#myModal" style='width: 100%;'>
+				<i class='fa fa-cog'></i>
+			</button>
+		</div>
+	</div>
+	<div class='row mx-2'>
+		<div class='col-12' id='idDivSearchResult' style='background-color:rgba(255,255,255,0.2)'>
+		</div>
+	</div>
+
+	<script>
+		var timestamp = 1564844526701;
+		var version = '0.0.1';
+	</script>
+
+	<hr>
+	<h6 class='text-right p-0 m-0'>
+		Writter by - <a href='https://ershakiransari.github.io/cv' target='_blank'>Shakir Ansari</a>
+		<br>
+		&copy; Jaxer - 2019 | Version -
+		<script>document.write(version)</script>
+		<!-- <br>Last updated on: 03 Aug, 2019 - 20:32  -->
+	</h6>
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog modal-md">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Settings</h5>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<div class='container'>
+						<form name='formCdnOptions'>
+							<div class='row p-1'>
+								<div class='col-sm-3'>
+									CDN type
+								</div>
+								<div class='col-sm-9'>
+									<input type="radio" name="cdnType" value="gitHub" id="gitHub" checked>
+									<label for="gitHub">Github</label>
+									&nbsp;&nbsp;
+									<input type="radio" name="cdnType" value="jsDelivr" id="jsDelivr">
+									<label for="jsDelivr">jsDelivr</label>
+								</div>
+							</div>
+							<div class='row p-1'>
+								<div class='col-sm-3'>
+									File type
+								</div>
+								<div class='col-sm-9'>
+									<input type="radio" name="resourceType" value="all" id="all" checked>
+									<label for="all">ALL</label>
+									&nbsp;&nbsp;
+									<input type="radio" name="resourceType" value="css" id="css">
+									<label for="css">CSS</label>
+									&nbsp;&nbsp;
+									<input type="radio" name="resourceType" value="js" id="js">
+									<label for="js">JS</label>
+									&nbsp;&nbsp;
+									<input type="radio" name="resourceType" value="image" id="image">
+									<label for="image">Image</label>
+								</div>
+
+								<div class='col-sm-3'>
+									&nbsp;
+								</div>
+								<div class='col-sm-9'>
+									<input type='checkbox' name="onlyMinified" id="onlyMinified">
+									<label for="onlyMinified">Show only minified files</label>
+								</div>
+							</div>
+							<div class='row p-1'>
+								<div class='col-sm-3'>
+									Max result
+								</div>
+								<div class='col-sm-9'>
+									<select name='maxResult' class='form-control' id='idSelectResultSize'>
+										<option value='10'>10</option>
+										<option value='20'>20</option>
+										<option value='30'>30</option>
+										<option value='40'>40</option>
+										<option value='50'>50</option>
+										<option value='100'>100</option>
+									</select>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="modal-footer p-2">
+					<button type="button" class="btn btn-primary min-width-49" data-dismiss="modal"
+						onclick='saveOptions();'>
+						Save
+					</button>
+					<button type="button" class="btn btn-light min-width-49" data-dismiss="modal">
+						Close
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script
+		src='https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@0.0.1/cdn/jquery/jquery-v3.4.1.min.js'
+		type='text/javascript'></script>
+	<script
+		src='https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@0.0.1/cdn/typed-js/typed-v2.0.9.min.js'
+		type='text/javascript'></script>
+	<script
+		src='https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@0.0.1/cdn/bootstrap/bootstrap-v4.3.1.min.js'
+		type='text/javascript'></script>
+	<script src='index-2.js' type='text/javascript'></script>
+</body>
+
+</html>
