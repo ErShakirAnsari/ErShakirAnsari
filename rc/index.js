@@ -174,7 +174,9 @@ function addAuthorizations()
 }
 function removeAuthorizations(THIS)
 {
-	$(THIS).parent().parent().remove();
+	$(THIS).parent().next('.key').remove();
+	$(THIS).parent().next('.value').remove();
+	$(THIS).parent().remove();
 }
 
 function disableButton(obj)
@@ -196,7 +198,8 @@ function enableThis(obj)
 	$(obj).prop("disabled", false);
 }
 // [START REQUEST BODY]
-function toggleRequestBody() { 
+function toggleRequestBody()
+{
 	$('#idDivRequestBody').toggle('slow');
 }
 
