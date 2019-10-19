@@ -16,350 +16,371 @@
 - SOME OF THE CONTENT(S) IS/ARE COPIED FROM THE WWW, IS/ARE UNCHANGED AND FOR ONLY PERSONAL USE.
 ---------------------------------------------------------------------------------------------- -->
 <!DOCTYPE html>
-<html>
-	<head>
-		<title> Static quick links </title>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<link rel="icon" type="image/gif" href="https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@0.0.1/cdn/images/gif/loader-001.gif">
-		<link href='https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@0.0.1/cdn/bootstrap/bootstrap-v4.3.1.min.css' rel='stylesheet' type='text/css'>
-		<link href='https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@0.0.1/cdn/fonts/font-awesome-v4.7.0.min.css' rel='stylesheet' type='text/css'>
-		<link href='https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@0.0.1/cdn/jaxer/jaxer.styles-v1.0.min.css' rel='stylesheet' type='text/css'>
-		<link href='./jaxer/jaxer-styles-v1.1.0.css' rel='stylesheet' type='text/css'>
-		<style>
-			body{ background: transparent url('./images/web-bgs/min/web-bg-013.png') }
-			.resultRow { margin: 3px 10px;	font: normal 1.15em consolas }
-			.resultRow code { color: #007bff !important }
-			.resultRow i { color: #333 !important }
-			.resultRow a, .resultRow i, .resultRow code { cursor: pointer !important }
-		</style>
-	</head>
-	<body class='my-3 mx-5'>
-		<h1>
-			<i class="fa fa-archive" aria-hidden="true"></i>
-			Static files
-		</h1>
 
-		<h5 class='text-muted m-0 p-0' style='text-transform: lowercase'>
-			<i class="fa fa-terminal" aria-hidden="true"></i> <span id="typed" style="white-space:pre;"></span>
-		</h5>
+<head>
+	<title> Static quick links </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="icon" type="image/gif" href="./images/gif/loader-001.gif">
+	<link href='./bootstrap/bootstrap-v4.3.1.min.css' rel='stylesheet' type='text/css'>
+	<link href='./fonts/font-awesome-v4.7.0.min.css' rel='stylesheet' type='text/css'>
+	<link href='./jaxer/jaxer.styles-v1.0.min.css' rel='stylesheet' type='text/css'>
+	<link href='./jaxer/jaxer-styles-v1.1.0.css' rel='stylesheet' type='text/css'>
+	<style>
+		body {
+			background: transparent url('./images/web-bgs/min/web-bg-013.png')
+		}
 
-		<hr class='mt-0'>
+		.resultRow {
+			margin: 3px 10px;
+			font: normal 1.15em consolas
+		}
 
-		<div class='row m-1'>
-			<div class='col-11'>
-				<input type='search' class='form-control' onkeydown='search(this)' onkeyup='search(this)' placeholder='Search here..'/>
-			</div>
-			<div class='col-1'>
-				<button class='btn btn-light' data-toggle="modal" data-target="#myModal" style='width: 100%;'>
-					<i class='fa fa-cog'></i>
-				</button>
-			</div>
+		.resultRow code {
+			color: #007bff !important
+		}
+
+		.resultRow i {
+			color: #333 !important
+		}
+
+		.resultRow a,
+		.resultRow i,
+		.resultRow code {
+			cursor: pointer !important
+		}
+	</style>
+</head>
+
+<body class='my-3 mx-5'>
+	<h1>
+		<i class="fa fa-archive" aria-hidden="true"></i>
+		Static files
+	</h1>
+
+	<h5 class='text-muted m-0 p-0' style='text-transform: lowercase'>
+		<i class="fa fa-terminal" aria-hidden="true"></i> <span id="typed" style="white-space:pre;"></span>
+	</h5>
+
+	<hr class='mt-0'>
+
+	<div class='row m-1'>
+		<div class='col-11'>
+			<input type='search' class='form-control' onkeydown='search(this)' onkeyup='search(this)'
+				placeholder='Search here..' />
 		</div>
-		
-		<div class='row mx-2'>
-			<div class='col-12' id='idDivSearchResult' style='background-color:rgba(255,255,255,0.2)'>
-			</div>
+		<div class='col-1'>
+			<button class='btn btn-light' data-toggle="modal" data-target="#myModal" style='width: 100%;'>
+				<i class='fa fa-cog'></i>
+			</button>
 		</div>
-		
-		<script>
-			var timestamp=1564844526701;
-			var version = '0.0.1';
-		</script>
-		
-		<hr>
-		<h6 class='text-right p-0 m-0'>
-			Writter by - <a href='https://ershakiransari.github.io/cv' target='_blank'>Shakir Ansari</a>
-			<br>
-			&copy; Jaxer - 2019 | Version - <script>document.write(version)</script>
-			<!-- <br>Last updated on: 03 Aug, 2019 - 20:32  -->
-		</h6>
-		
-		
-		<!-- Modal -->
-		<div class="modal fade" id="myModal" role="dialog">
-			<div class="modal-dialog modal-md">
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title">Settings</h5>
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-					</div>
-					<div class="modal-body">
-						<div class='container'>
-							<form name='formCdnOptions'>
-								<div class='row p-1'>
-									<div class='col-sm-3'>
-										CDN type
-									</div>
-									<div class='col-sm-9'>
-										<input type="radio" name="cdnType" value="gitHub" id="gitHub" checked>
-										<label for="gitHub">Github</label>
-										&nbsp;&nbsp;
-										<input type="radio" name="cdnType" value="jsDelivr" id="jsDelivr">
-										<label for="jsDelivr">jsDelivr</label>
-									</div>
+	</div>
+
+	<div class='row mx-2'>
+		<div class='col-12' id='idDivSearchResult' style='background-color:rgba(255,255,255,0.2)'>
+		</div>
+	</div>
+
+	<script>
+		var timestamp = 1564844526701;
+		var version = '0.0.1';
+	</script>
+
+	<hr>
+	<h6 class='text-right p-0 m-0'>
+		Writter by - <a href='https://ershakiransari.github.io/cv' target='_blank'>Shakir Ansari</a>
+		<br>
+		&copy; Jaxer - 2019 | Version -
+		<script>document.write(version)</script>
+		<!-- <br>Last updated on: 03 Aug, 2019 - 20:32  -->
+	</h6>
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog modal-md">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Settings</h5>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<div class='container'>
+						<form name='formCdnOptions'>
+							<div class='row p-1'>
+								<div class='col-sm-3'>
+									CDN type
 								</div>
-								<div class='row p-1'>
-									<div class='col-sm-3'>
-										File type
-									</div>
-									<div class='col-sm-9'>
-										<input type="radio" name="resourceType" value="all" id="all" checked>
-										<label for="all">ALL</label>
-										&nbsp;&nbsp;
-										<input type="radio" name="resourceType" value="css" id="css">
-										<label for="css">CSS</label>
-										&nbsp;&nbsp;
-										<input type="radio" name="resourceType" value="js" id="js">
-										<label for="js">JS</label>
-										&nbsp;&nbsp;
-										<input type="radio" name="resourceType" value="image" id="image">
-										<label for="image">Image</label>
-									</div>
-									
-									<div class='col-sm-3'>
-										&nbsp;
-									</div>
-									<div class='col-sm-9'>
-										<input type='checkbox' name="onlyMinified" id="onlyMinified">
-										<label for="onlyMinified">Show only minified files</label>
-									</div>
+								<div class='col-sm-9'>
+									<input type="radio" name="cdnType" value="gitHub" id="gitHub" checked>
+									<label for="gitHub">Github</label>
+									&nbsp;&nbsp;
+									<input type="radio" name="cdnType" value="jsDelivr" id="jsDelivr">
+									<label for="jsDelivr">jsDelivr</label>
 								</div>
-								<div class='row p-1'>
-									<div class='col-sm-3'>
-										Max result
-									</div>
-									<div class='col-sm-9'>
-										<select name='maxResult' class='form-control' id='idSelectResultSize'>
-											<option value='10'>10</option>
-											<option value='20'>20</option>
-											<option value='30'>30</option>
-											<option value='40'>40</option>
-											<option value='50'>50</option>
-											<option value='100'>100</option>
-										</select>
-									</div>
+							</div>
+							<div class='row p-1'>
+								<div class='col-sm-3'>
+									File type
 								</div>
-							</form>
-						</div>
+								<div class='col-sm-9'>
+									<input type="radio" name="resourceType" value="all" id="all" checked>
+									<label for="all">ALL</label>
+									&nbsp;&nbsp;
+									<input type="radio" name="resourceType" value="css" id="css">
+									<label for="css">CSS</label>
+									&nbsp;&nbsp;
+									<input type="radio" name="resourceType" value="js" id="js">
+									<label for="js">JS</label>
+									&nbsp;&nbsp;
+									<input type="radio" name="resourceType" value="image" id="image">
+									<label for="image">Image</label>
+								</div>
+
+								<div class='col-sm-3'>
+									&nbsp;
+								</div>
+								<div class='col-sm-9'>
+									<input type='checkbox' name="onlyMinified" id="onlyMinified">
+									<label for="onlyMinified">Show only minified files</label>
+								</div>
+							</div>
+							<div class='row p-1'>
+								<div class='col-sm-3'>
+									Max result
+								</div>
+								<div class='col-sm-9'>
+									<select name='maxResult' class='form-control' id='idSelectResultSize'>
+										<option value='10'>10</option>
+										<option value='20'>20</option>
+										<option value='30'>30</option>
+										<option value='40'>40</option>
+										<option value='50'>50</option>
+										<option value='100'>100</option>
+									</select>
+								</div>
+							</div>
+						</form>
 					</div>
-					<div class="modal-footer p-2">
-						<button type="button" class="btn btn-primary min-width-49" data-dismiss="modal" onclick='saveOptions();'>
-							Save
-						</button>
-						<button type="button" class="btn btn-light min-width-49" data-dismiss="modal">
-							Close
-						</button>
-					</div>
+				</div>
+				<div class="modal-footer p-2">
+					<button type="button" class="btn btn-primary min-width-49" data-dismiss="modal"
+						onclick='saveOptions();'>
+						Save
+					</button>
+					<button type="button" class="btn btn-light min-width-49" data-dismiss="modal">
+						Close
+					</button>
 				</div>
 			</div>
 		</div>
-  		
-		<script src='https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@0.0.1/cdn/jquery/jquery-v3.4.1.min.js' type='text/javascript'></script>
-		<script src='https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@0.0.1/cdn/typed-js/typed-v2.0.9.min.js' type='text/javascript'></script>
-		<script src='https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@0.0.1/cdn/bootstrap/bootstrap-v4.3.1.min.js' type='text/javascript'></script>
-		<script>
-			class Options{};
-			const LOCAL_OPTIONS = 'options';
-			var OPT = null;
+	</div>
 
-			$('#myModal').on('show.bs.modal', function (e)
-			{
-				initOptionModal();
-			});
+	<script src='./jquery/jquery-v3.4.1.min.js' type='text/javascript'></script>
+	<script src='./typed-js/typed-v2.0.9.min.js' type='text/javascript'></script>
+	<script src='./bootstrap/bootstrap-v4.3.1.min.js' type='text/javascript'></script>
+	<script>
+		class Options { };
+		const LOCAL_OPTIONS = 'options';
+		var OPT = null;
 
-			function initOptionModal()
-			{
-				if(!getLocal(LOCAL_OPTIONS))
-				{
-					return false;
-				}
-				
-				OPT = getLocal(LOCAL_OPTIONS);
-				console.log(LOCAL_OPTIONS, [JSON.stringify(OPT)]);
-
-				let form = document.formCdnOptions;
-				
-				form.cdnType.value = OPT.cdnType;
-				form.onlyMinified.checked = OPT.onlyMinified
-				form.resourceType.value = OPT.resourceType;
-				form.maxResult.value = OPT.maxResult;
-			}
+		$('#myModal').on('show.bs.modal', function (e)
+		{
 			initOptionModal();
+		});
+
+		function initOptionModal()
+		{
+			if (!getLocal(LOCAL_OPTIONS))
+			{
+				return false;
+			}
+
+			OPT = getLocal(LOCAL_OPTIONS);
+			console.log(LOCAL_OPTIONS, [JSON.stringify(OPT)]);
+
+			let form = document.formCdnOptions;
+
+			form.cdnType.value = OPT.cdnType;
+			form.onlyMinified.checked = OPT.onlyMinified
+			form.resourceType.value = OPT.resourceType;
+			form.maxResult.value = OPT.maxResult;
+		}
+		initOptionModal();
+
+		function saveOptions()
+		{
+			let form = document.formCdnOptions;
+			OPT = new Options();
+
+			OPT.cdnType = form.cdnType.value;
+			OPT.onlyMinified = form.onlyMinified && form.onlyMinified.checked;
+			OPT.resourceType = form.resourceType.value;
+			OPT.maxResult = form.maxResult.value;
+
+			console.log(LOCAL_OPTIONS, [JSON.stringify(OPT)]);
+			setLocal(LOCAL_OPTIONS, OPT);
+		}
+
+		function setLocal(key, valueObj)
+		{
+			localStorage.setItem(key, JSON.stringify(valueObj));
+		}
+
+		function getLocal(key)
+		{
+			if (localStorage.getItem(key) && localStorage.getItem(key) !== 'undefined')
+			{
+				return JSON.parse(localStorage.getItem(key));
+			}
+			return null;
+		}
+
+		var SEARCH_RESULT_SELECT = $('#idSelectResultSize');
+		var files = null;
+
+		var typed = new Typed("#typed",
+		{
+			strings: [
+				'NO WARRANTY EXPRESSED OR IMPLIED.',
+				'USE AT YOUR OWN RISK.',
+				'USE YOUR OWN COPY.',
+				'IT IS EXTREMELY UNWISE TO LOAD CODE FROM SERVERS YOU DO NOT CONTROL.'
+			],
+			typeSpeed: 30,
+			backSpeed: 30,
+			backDelay: 5000,
+			startDelay: 1000,
+			loop: true,
+			cursorChar: '_'
+		});
+
+		function search(THIS)
+		{
+			if(!files)
+			{
+				getFileListFromServer();
+			}
+			let searchResultSize = SEARCH_RESULT_SELECT.val();
+			var query = $(THIS).val();
+			if (query === "")
+			{
+				$('#idDivSearchResult').empty();
+				return false;
+			}
+
+			let lableStr = "";
+			let subQueries = query.toLowerCase().split(" ");
+			let matchCount = 0;
 			
-			function saveOptions()
+			for (let i = 0; i < files.length; i++)
 			{
-				let form = document.formCdnOptions;
-				OPT = new Options();
-				
-				OPT.cdnType = form.cdnType.value;
-				OPT.onlyMinified = form.onlyMinified && form.onlyMinified.checked;
-				OPT.resourceType = form.resourceType.value;
-				OPT.maxResult = form.maxResult.value;
-				
-				console.log(LOCAL_OPTIONS, [JSON.stringify(OPT)]);
-				setLocal(LOCAL_OPTIONS, OPT);
-			}
-
-			var typed = new Typed("#typed",
-			{
-				strings: [
-					'NO WARRANTY EXPRESSED OR IMPLIED.',
-					'USE AT YOUR OWN RISK.',
-					'USE YOUR OWN COPY.',
-					'IT IS EXTREMELY UNWISE TO LOAD CODE FROM SERVERS YOU DO NOT CONTROL.'
-				],
-				typeSpeed: 30, 
-				backSpeed: 30, 
-				backDelay: 5000, 
-				startDelay: 1000, 
-				loop: true, 
-				cursorChar: '_'
-			});
-
-			var SEARCH_RESULT_SELECT = $('#idSelectResultSize');
-			var files = null;
-
-			function setLocal(key, valueObj)
-			{
-				localStorage.setItem(key, JSON.stringify(valueObj));
-			}
-
-			function getLocal(key)
-			{
-				if (localStorage.getItem(key) && localStorage.getItem(key) !== 'undefined')
+				let matchFound = true;
+				for (let j = 0; j < subQueries.length; j++)
 				{
-					return JSON.parse(localStorage.getItem(key));
-				}
-				return null;
-			}
-
-			function copyAsHtml(text)
-			{
-				let textLowerCase = text.toLowerCase();
-				if (text.endsWith(".css"))
-				{
-					text = "<link href='" + text + "' rel='stylesheet' type='text/css'>";
-				} else if (text.endsWith(".js"))
-				{
-					text = "<script src='" + text + "' type='text/javascript'></script" + ">";
-				} else if (textLowerCase.endsWith(".jpeg")
-					|| textLowerCase.endsWith(".jpg")
-					|| textLowerCase.endsWith(".gif")
-					|| textLowerCase.endsWith(".png"))
-				{
-					text = "<img '" + text + "' alt='" + text.substring(text.lastIndexOf("/") + 1, text.length) + "' />";
-				}
-				window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
-			}
-
-			function copy(url)
-			{
-				window.prompt("Copy to clipboard: Ctrl+C, Enter", url);
-			}
-
-			function search(THIS)
-			{
-				if(!files)
-				{
-					getFileListFromServer();
-				}
-				let searchResultSize = SEARCH_RESULT_SELECT.val();
-				var query = $(THIS).val();
-				if (query === "")
-				{
-					$('#idDivSearchResult').empty();
-					return false;
-				}
-
-				let lableStr = "";
-				let subQueries = query.toLowerCase().split(" ");
-				let matchCount = 0;
-				
-				for (let i = 0; i < files.length; i++)
-				{
-					let matchFound = true;
-					for (let j = 0; j < subQueries.length; j++)
+					if (files[i].toLowerCase().indexOf(subQueries[j]) === -1)
 					{
-						if (files[i].toLowerCase().indexOf(subQueries[j]) === -1)
-						{
-							matchFound = false;
-							break;
-						}
-					}
-
-					if (matchFound)
-					{
-						lableStr += createLable(files[i]);
-						++matchCount;
-					}
-
-					if (matchCount == searchResultSize)
-					{
+						matchFound = false;
 						break;
 					}
 				}
 
-				lableStr = lableStr.length === 0 ? "<br>No data found!" : lableStr;
-
-				$('#idDivSearchResult').empty().html('<hr>' + lableStr);
-			}
-
-			function createLable(fileName)
-			{
-				var url = '';
-				if(OPT.cdnType === 'gitHub')
+				if (matchFound)
 				{
-					url = 'https://ershakiransari.github.io/cdn/' + fileName;
-				} else
-				{
-					url = 'https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@' + version + '/cdn/' + fileName;
-				}
-								
-				var str = `
-					<div class='row resultRow'>
-						<i class='fa fa-copy' title='Copy to clipboard' onclick="copy('${url}')"></i>
-						&nbsp;
-						<i class='fa fa-clipboard' title='Copy to clipboard as HTML' onclick="copyAsHtml('${url}')"></i>
-						&nbsp;&nbsp;
-						<a href='${url}' target='_blank'>${fileName}</a>
-					</div>
-				`;
-				return str;
-			}
-
-			function getFileListFromServer()
-			{
-				debugger;
-				let localTimestamp = getLocal('timestamp');
-				let localfileList = getLocal('fileList');
-
-				if (localTimestamp && localfileList && localTimestamp === timestamp)
-				{
-					files = localfileList;
-					console.log('getFileListFromServer - data found returning without contacting server..');
-					return false;
+					lableStr += createLable(files[i]);
+					++matchCount;
 				}
 
-				$.ajax(
+				if (matchCount == searchResultSize)
 				{
-					url: 'fileList.json',
-					dataType: 'json',
-					contentType: "application/json; charset=utf-8",
+					break;
+				}
+			}
 
-					success: function (response)
+			lableStr = lableStr.length === 0 ? "<br>No data found!" : lableStr;
+			$('#idDivSearchResult').empty().html('<hr>' + lableStr);
+		}
+
+		function createLable(fileName)
+		{
+			var url = '';
+			if(OPT.cdnType === 'gitHub')
+			{
+				url = 'https://ershakiransari.github.io/cdn/' + fileName;
+			} else
+			{
+				url = 'https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@' + version + '/cdn/' + fileName;
+			}
+							
+			var str = `
+				<div class='row resultRow'>
+					<i class='fa fa-copy' title='Copy to clipboard' onclick="copy('${url}')"></i>
+					&nbsp;
+					<i class='fa fa-clipboard' title='Copy to clipboard as HTML' onclick="copyAsHtml('${url}')"></i>
+					&nbsp;&nbsp;
+					<a href='${url}' target='_blank'>${fileName}</a>
+				</div>
+			`;
+			return str;
+		}
+
+		function getFileListFromServer()
+		{
+			debugger;
+			let localTimestamp = getLocal('timestamp');
+			let localfileList = getLocal('fileList');
+
+			if (localTimestamp && localfileList && localTimestamp === timestamp)
+			{
+				files = localfileList;
+				console.log('getFileListFromServer - data found returning without contacting server..');
+				return false;
+			}
+
+			$.ajax(
+			{
+				url: 'fileList.json',
+				dataType: 'json',
+				contentType: "application/json; charset=utf-8",
+
+				success: function (response)
+				{
+					console.log('getFileListFromServer - response: ' + response);
+					if (response)
 					{
-						console.log('getFileListFromServer - response: ' + response);
-						if (response)
-						{
-							setLocal('fileList', response);
-							setLocal('timestamp', timestamp);
-							files = JSON.stringify(response);
-						}
+						setLocal('fileList', response);
+						setLocal('timestamp', timestamp);
+						files = JSON.stringify(response);
 					}
-				});
+				}
+			});
+		}
+		getFileListFromServer();
+		
+		function copy(url)
+		{
+			window.prompt("Copy to clipboard: Ctrl+C, Enter", url);
+		}
+
+		function copyAsHtml(text)
+		{
+			text = text.toLowerCase();
+			if (text.endsWith(".css"))
+			{
+				text = `<link href='${text}' rel='stylesheet' type='text/css'>`;
+			} else if (text.endsWith(".js"))
+			{
+				text = "<script src='" + text + "' type='text/javascript'></script" + ">";
+			} else if (text.endsWith(".jpeg")
+				|| text.endsWith(".jpg")
+				|| text.endsWith(".gif")
+				|| text.endsWith(".png"))
+			{
+				text = `<img '${text}' alt='${text.substring(text.lastIndexOf("/") + 1, text.length)}' />`;
 			}
-			getFileListFromServer();
-		</script>
-	</body>
+			window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+		}
+	</script>
+</body>
+
 </html>
