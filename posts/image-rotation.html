@@ -18,21 +18,29 @@
 	<br>
 	<hr>
 	
-	<button onclick='rotateImage(1)'>clockwise</button>
-	<button onclick='rotateImage(-1)'>anti-clockwise</button>
+	<br><br>
+	<input type='number' onchange='__rotateImage(this.value)' id='angle-value' />
+	<br><br>
+	OR
+	<br><br>
+	<input type="range" name="points" min="0" max="360" onchange='__rotateImage(this.value)'>
+	<br><br>
+	OR
+	<br><br>
+	<button onclick='rotateImage90(90)'>clockwise (+90)</button>
+	<button onclick='rotateImage90(-90)'>anti-clockwise (-90)</button>
 	
 	
 	<script>
 		var angle = 0;
-		function rotateImage(value)
+		function __rotateImage(value)
 		{
-			if(value > 0)
-			{
-				angle += 90;
-			} else {
-				angle -= 90;
-			}
-			document.getElementById("my-image").style.transform = "rotate("+angle+"deg)";
+			document.getElementById("my-image").style.transform = "rotate(" + value + "deg)";
+		}
+		function rotateImage90(value)
+		{
+			angle += value;
+			__rotateImage(angle);
 		}
 	</script>
 	</body>
