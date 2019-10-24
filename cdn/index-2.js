@@ -99,6 +99,7 @@ function copy(url)
 
 function search(THIS)
 {
+	debugger;
 	if (!files)
 	{
 		getFileListFromServer();
@@ -116,7 +117,7 @@ function search(THIS)
 	let searchResultSize = 20;
 	let resourceType = null;
 
-	if (!getLocal(LOCAL_OPTIONS))
+	if (getLocal(LOCAL_OPTIONS))
 	{
 		OPT = getLocal(LOCAL_OPTIONS);
 		//form.cdnType.value = OPT.cdnType;
@@ -125,33 +126,36 @@ function search(THIS)
 		searchResultSize = OPT.maxResult;
 	}
 
-	console.log();
-
-	for (let i = 0; i < files.length; i++)
+//	console.log('resourceType', resourceType);
+	
+	resourceType = resourceType.toLowerCase();
+	for(let i = 0; i < files.length; i++)
 	{
-		if (!resourceType
-			|| !files[i].toLowerCase.endsWith(resourceType.toLowerCase))
+		let singleFile = files[i].toLowerCase();
+		let matchFound = false;
 
-			let matchFound = true;
-		for (let j = 0; j < subQueries.length; j++)
+		if (resourceType &&
+			(singleFile.endsWith(resourceType)|| resourceType === "all"))
 		{
-			if (files[i].toLowerCase().indexOf(subQueries[j]) === -1)
+			for(let j = 0; j < subQueries.length; j++)
 			{
-				matchFound = false;
-				break;
+				if (singleFile.includes(subQueries[j]))
+				{
+					matchFound = true;
+					break;
+				}
 			}
 		}
 
 		if (matchFound)
 		{
-			lableStr += createLable(files[i]);
+			lableStr += createLable(singleFile);
+			if (++matchCount == searchResultSize)
+			{
+				break;
+			}
 		}
-
-		if (++matchCount == searchResultSize)
-		{
-			break;
-		}
-	}
+	};
 
 	lableStr = lableStr.length === 0 ? "<br>No data found!" : lableStr;
 
@@ -170,14 +174,14 @@ function createLable(fileName)
 	}
 
 	var str = `
-					<div class='row resultRow'>
-						<i class='fa fa-copy' title='Copy to clipboard' onclick="copy('${url}')"></i>
-						&nbsp;
-						<i class='fa fa-clipboard' title='Copy to clipboard as HTML' onclick="copyAsHtml('${url}')"></i>
-						&nbsp;&nbsp;
-						<a href='${url}' target='_blank'>${fileName}</a>
-					</div>
-				`;
+			<div class='row resultRow'>
+				<i class='fa fa-copy' title='Copy to clipboard' onclick="copy('${url}')"></i>
+				&nbsp;
+				<i class='fa fa-clipboard' title='Copy to clipboard as HTML' onclick="copyAsHtml('${url}')"></i>
+				&nbsp;&nbsp;
+				<a href='${url}' target='_blank'>${fileName}</a>
+			</div>
+		`;
 	return str;
 }
 
@@ -194,22 +198,21 @@ function getFileListFromServer()
 		return false;
 	}
 
-	$.ajax(
-		{
-			url: 'fileList.json',
-			dataType: 'json',
-			contentType: "application/json; charset=utf-8",
+	$.ajax({
+		url: 'fileList.json',
+		dataType: 'json',
+		contentType: "application/json; charset=utf-8",
 
-			success: function (response)
+		success: function (response)
+		{
+			console.log('getFileListFromServer - response: ' + response);
+			if (response)
 			{
-				console.log('getFileListFromServer - response: ' + response);
-				if (response)
-				{
-					setLocal('fileList', response);
-					setLocal('timestamp', timestamp);
-					files = JSON.stringify(response);
-				}
+				setLocal('fileList', response);
+				setLocal('timestamp', timestamp);
+				files = JSON.stringify(response);
 			}
-		});
+		}
+	});
 }
 getFileListFromServer();
