@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>custom-scrollbar</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<style>
+		body {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.scroll {
+  width: 20px;
+  height: 200px;
+  overflow: auto;
+  float: left;
+  margin: 0 10px;
+}
+
+.content {
+  height: 500px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2em;
+  font-family: sans-serif;
+  margin: 20px;
+}
+
+.scroll1::-webkit-scrollbar {
+  width: 5px;
+}
+ 
+.scroll1::-webkit-scrollbar-track {
+  background: #ddd;
+}
+ 
+.scroll1::-webkit-scrollbar-thumb {
+  background: #666; 
+}
+
+.scroll2::-webkit-scrollbar {
+  width: 5px;
+}
+ 
+.scroll2::-webkit-scrollbar-thumb {
+  background: #666; 
+}
+
+.scroll3::-webkit-scrollbar {
+  width: 5px;
+}
+ 
+.scroll3::-webkit-scrollbar-thumb {
+  background: #ddd; 
+}
+
+.scroll3::-webkit-scrollbar-track {
+  background: #666; 
+}
+
+.scroll4::-webkit-scrollbar {
+  width: 10px;
+}
+ 
+.scroll4::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 20px;
+}
+
+.scroll4::-webkit-scrollbar-track {
+  background: #ddd;
+  border-radius: 20px;
+}
+
+.scroll5::-webkit-scrollbar {
+  width: 15px;
+}
+ 
+.scroll5::-webkit-scrollbar-thumb {
+  background: #666;
+}
+
+.scroll5::-webkit-scrollbar-track {
+  background: #ddd;
+}
+
+.scroll5::-webkit-scrollbar-button {
+  background: #666;
+  height: 15px;
+  border-radius: 50%;
+}
+
+
+
+		</style>
+	</head>
+	<body>
+		<h1>Custom Scroll Bar for Chrome</h1>
+
+<div class="scroll scroll1">
+  <div class="content"></div>
+</div>
+<div class="scroll scroll2">
+  <div class="content"></div>
+</div>
+<div class="scroll scroll3">
+  <div class="content"></div>
+</div>
+<div class="scroll scroll4">
+  <div class="content"></div>
+</div>
+<div class="scroll scroll5">
+  <div class="content"></div>
+</div>
+	</body>
+</html>
