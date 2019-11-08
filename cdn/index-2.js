@@ -1,6 +1,7 @@
 class Options { };
 const LOCAL_OPTIONS = 'options';
 var OPT = null;
+var IMAGE_TYPES = ['.png', '.jpg', '.jpeg', '.gif'];
 
 $('#myModal').on('show.bs.modal', function (e)
 {
@@ -99,72 +100,88 @@ function copy(url)
 
 function search(THIS)
 {
-	debugger;
-	if (!files)
-	{
-		getFileListFromServer();
-	}
 	var query = $(THIS).val();
-	if (query === "")
+	if (!query || query === "")
 	{
 		$('#idDivSearchResult').empty();
 		return false;
 	}
 
-	let lableStr = "";
-	let subQueries = query.toLowerCase().split(" ");
-	let matchCount = 0;
-	let searchResultSize = 20;
-	let resourceType = null;
-
-	if (getLocal(LOCAL_OPTIONS))
+	if (!files)
 	{
-		OPT = getLocal(LOCAL_OPTIONS);
-		//form.cdnType.value = OPT.cdnType;
-		//form.onlyMinified.checked = OPT.onlyMinified
-		resourceType = OPT.resourceType;
-		searchResultSize = OPT.maxResult;
+		getFileListFromServer();
 	}
-
-//	console.log('resourceType', resourceType);
+		
+	OPT = getLocal(LOCAL_OPTIONS);
+	let searchResultSize = OPT.maxResult;
+	let resourceType = OPT.resourceType;
+	let lableStr = "";
+	let matchCount = 0;
 	
-	resourceType = resourceType.toLowerCase();
-	for(let i = 0; i < files.length; i++)
+	if (resourceType)
 	{
-		let singleFile = files[i].toLowerCase();
-		let matchFound = false;
-
-		if (resourceType &&
-			(singleFile.endsWith(resourceType)|| resourceType === "all"))
+		resourceType = resourceType.toLowerCase();
+		
+		for(let i = 0; i < files.length; i++)
 		{
-			for(let j = 0; j < subQueries.length; j++)
+			let matchFound = false;
+			let singleFile = files[i].toLowerCase();
+			
+			if(resourceType === 'all')
 			{
-				if (singleFile.includes(subQueries[j]))
+				matchFound = isFileNameContainsSearchQuery(singleFile, query);
+			} else if(resourceType === 'css' || resourceType === 'js')
+			{
+				if(singleFile.endsWith(resourceType))
 				{
-					matchFound = true;
+					matchFound = isFileNameContainsSearchQuery(singleFile, query);
+				}
+			} else if(resourceType === 'image')
+			{
+				for(let j = 0; j < IMAGE_TYPES.length; j++)
+				{
+					if(singleFile.endsWith(IMAGE_TYPES[j]))
+					{
+						matchFound = isFileNameContainsSearchQuery(singleFile, query);
+					}
+				}
+			}
+
+			if (matchFound)
+			{
+				lableStr += createLable(singleFile);
+				if (++matchCount == searchResultSize)
+				{
 					break;
 				}
 			}
-		}
-
-		if (matchFound)
-		{
-			lableStr += createLable(singleFile);
-			if (++matchCount == searchResultSize)
-			{
-				break;
-			}
-		}
-	};
-
+		};
+	}
+	
 	lableStr = lableStr.length === 0 ? "<br>No data found!" : lableStr;
-
 	$('#idDivSearchResult').empty().html('<hr>' + lableStr);
+}
+
+function isFileNameContainsSearchQuery(singleFile, searchQuery)
+{
+	let allSubQueriesFound = true;
+	let subQueries = searchQuery.toLowerCase().split(" ");	
+	for(let j = 0; j < subQueries.length; j++)
+	{
+		if (singleFile.indexOf(subQueries[j]) === -1)
+		{
+			allSubQueriesFound = false;
+			break;
+		}
+	}
+	return allSubQueriesFound;
 }
 
 function createLable(fileName)
 {
-	var url = '';
+	let url = '';
+	let version = $('#idSelectVersion').val();
+	
 	if (OPT.cdnType === 'gitHub')
 	{
 		url = 'https://ershakiransari.github.io/cdn/' + fileName;

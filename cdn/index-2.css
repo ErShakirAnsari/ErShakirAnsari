@@ -36,3 +36,8 @@ input[type="checkbox"] {
   grid-template-columns: 11fr 1fr;
   grid-column-gap: 0.5em;
 }
+
+
+small{color: #999}
+
+.padding-modal-text{padding-top:6px !important}

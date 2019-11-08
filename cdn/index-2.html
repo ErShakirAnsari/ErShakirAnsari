@@ -21,19 +21,12 @@
 <head>
 	<title> Static quick links </title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="icon" type="image/gif"
-		href="https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@0.0.1/cdn/images/gif/loader-001.gif">
-	<link
-		href='https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@0.0.1/cdn/bootstrap/bootstrap-v4.3.1.min.css'
-		rel='stylesheet' type='text/css'>
-	<link
-		href='https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@0.0.1/cdn/fonts/font-awesome-v4.7.0.min.css'
-		rel='stylesheet' type='text/css'>
-	<link
-		href='https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@0.0.1/cdn/jaxer/jaxer.styles-v1.0.min.css'
-		rel='stylesheet' type='text/css'>
-		<link href='./jaxer/jaxer-styles-v1.1.0.css' rel='stylesheet' type='text/css'>
-		<link href='./index-2.css' rel='stylesheet' type='text/css'>
+	<link rel="icon" type="image/gif" href="https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@0.0.1/cdn/images/gif/loader-001.gif">
+	<link href='https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@0.0.1/cdn/bootstrap/bootstrap-v4.3.1.min.css' rel='stylesheet' type='text/css'>
+	<link href='https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@0.0.1/cdn/fonts/font-awesome-v4.7.0.min.css' rel='stylesheet' type='text/css'>
+	<link href='https://cdn.jsdelivr.net/gh/ershakiransari/ErShakirAnsari.github.io@0.0.1/cdn/jaxer/jaxer.styles-v1.0.min.css' rel='stylesheet' type='text/css'>
+	<link href='./jaxer/jaxer-styles-v1.1.0.css?v=1' rel='stylesheet' type='text/css'>
+	<link href='./index-2.css' rel='stylesheet' type='text/css'>
 </head>
 
 <body class='my-3 mx-5'>
@@ -66,15 +59,14 @@
 
 	<script>
 		var timestamp = 1564844526701;
-		var version = '0.0.1';
 	</script>
 
 	<hr>
 	<h6 class='text-right p-0 m-0'>
 		Writter by - <a href='https://ershakiransari.github.io/cv' target='_blank'>Shakir Ansari</a>
 		<br>
-		&copy; Jaxer - 2019 | Version -
-		<script>document.write(version)</script>
+		&copy; Jaxer - 2019
+		<!--| Version -<script>document.write($('#idSelectVersion').val())</script>-->
 		<!-- <br>Last updated on: 03 Aug, 2019 - 20:32  -->
 	</h6>
 
@@ -100,7 +92,7 @@
 									<label for="gitHub">Github</label>
 									&nbsp;&nbsp;
 									<input type="radio" name="cdnType" value="jsDelivr" id="jsDelivr">
-									<label for="jsDelivr">jsDelivr</label>
+									<label for="jsDelivr">jsDelivr <small>(recommended)</small></label>
 								</div>
 							</div>
 							<div class='row p-1'>
@@ -130,7 +122,17 @@
 								</div>
 							</div>
 							<div class='row p-1'>
-								<div class='col-sm-3'>
+								<div class='col-sm-3 padding-modal-text'>
+									Version
+								</div>
+								<div class='col-sm-9'>
+									<select name='maxResult' class='form-control' id='idSelectVersion'>
+										<option value='0.0.1'>0.0.1 (Pilot)</option>
+									</select>
+								</div>
+							</div>
+							<div class='row p-1'>
+								<div class='col-sm-3 padding-modal-text'>
 									Max result
 								</div>
 								<div class='col-sm-9'>
