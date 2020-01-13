@@ -22,23 +22,34 @@ label img { height: 100px; width: 100px; transition-duration: 0.2s; transform-or
 <div class="container">
   <ul>
   <li>
-	<input type="checkbox" id="cb1" />
+	<input type="checkbox" id="cb1" name="type" value='1' />
     <label for="cb1"><img src="https://www.gravatar.com/avatar/c0c658d7d75266a36a707e0f6407f9c0?s=328&d=identicon&r=PG" /></label>
   </li>
-  <li><input type="checkbox" id="cb2" />
+  <li><input type="checkbox" id="cb2" name="type" value='2'/>
     <label for="cb2"><img src="https://www.gravatar.com/avatar/c0c658d7d75266a36a707e0f6407f9c0?s=328&d=identicon&r=PG" /></label>
   </li>
-  <li><input type="checkbox" id="cb3" />
+  <li><input type="checkbox" id="cb3" name="type" value='3'/>
     <label for="cb3"><img src="https://www.gravatar.com/avatar/c0c658d7d75266a36a707e0f6407f9c0?s=328&d=identicon&r=PG" /></label>
   </li>
-  <li><input type="checkbox" id="cb4" />
+  <li><input type="checkbox" id="cb4" name="type" value='4'/>
     <label for="cb4"><img src="https://www.gravatar.com/avatar/c0c658d7d75266a36a707e0f6407f9c0?s=328&d=identicon&r=PG" /></label>
   </li>
 </ul>
 </div>
 
-
+<hr>
+<button onclick='go()'>go</button>
+<script type='text/javascript' src='https://ershakiransari.github.io/cdn/jquery/jquery-v3.4.1.min.js'></script>
 <script>
+function go()
+{
+	var yourArray = [];
+	$("input:checkbox[name=type]:checked").each(function()
+	{
+		yourArray.push($(this).val());
+	});
+	alert(yourArray);
+}
 </script>
 </body>
 </html>
