@@ -9,8 +9,6 @@ li { display: inline-block; }
 input[type="checkbox"][id^="cb"]
 {
     display: block;
-    width: 30px;
-    height: 30px;
 	position: fixed;
 	cursor: pointer;
     -webkit-appearance: none;
@@ -20,8 +18,18 @@ input[type="checkbox"][id^="cb"]
     background-size: contain;
 }
 
-input[type=checkbox]:not(:checked) { background-image: url('./images/add.svg') }
-input[type=checkbox]:checked { background-image: url('./images/added.svg') }
+input[type=checkbox]:not(:checked)
+{
+	background-image: url('./images/add.svg');
+	width: 34px;
+    height: 53px;
+}
+input[type=checkbox]:checked
+{
+	background-image: url('./images/added.svg');
+	width: 34px;
+    height: 34px;
+}
 img { width:200px }
 </style>
 </head>
