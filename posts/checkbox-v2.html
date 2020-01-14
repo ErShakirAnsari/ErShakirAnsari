@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<style>
+ul { list-style-type: none; }
+li { display: inline-block; }
+input[type="checkbox"][id^="cb"]
+{
+    display: block;
+    width: 30px;
+    height: 30px;
+	position: fixed;
+	cursor: pointer;
+    -webkit-appearance: none;
+    outline: 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+
+input[type=checkbox]:not(:checked) { background-image: url('./images/add.svg') }
+input[type=checkbox]:checked { background-image: url('./images/added.svg') }
+img { width:200px }
+</style>
+</head>
+
+<body>
+	<div class="container">
+		<ul>
+			<li>
+				<input type="checkbox" id="cb1" name="type" value='1' />
+				<a href='https://stackoverflow.com/questions/16352864/how-to-display-image-in-place-of-checkbox'>
+				<img src="https://www.gravatar.com/avatar/c0c658d7d75266a36a707e0f6407f9c0?s=328&d=identicon&r=PG" /></a>
+			</li>
+			<li>
+				<input type="checkbox" id="cb2" name="type" value='2' />
+				<a href='https://stackoverflow.com/questions/16352864/how-to-display-image-in-place-of-checkbox'>
+				<img src="https://www.gravatar.com/avatar/c0c658d7d75266a36a707e0f6407f9c0?s=328&d=identicon&r=PG" /></a>
+			</li>
+		</ul>
+	</div>
+
+	<hr>
+	<button onclick='go()'>go</button>
+	
+	<script type='text/javascript' src='https://ershakiransari.github.io/cdn/jquery/jquery-v3.4.1.min.js'></script>
+	<script>
+	function go()
+	{
+		var yourArray = [];
+		$("input:checkbox[name=type]:checked").each(function()
+		{
+			yourArray.push($(this).val());
+		});
+		alert(yourArray);
+	}
+	</script>
+</body>
+</html>
