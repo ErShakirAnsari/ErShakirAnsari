@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>github-ajax</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<div>
+			<input id="userId" placeholder="Enter User Id"/>
+			<button id="userDetails"> Get User Details </button>
+			<button id="repoList"> Get Repositories </button>
+		</div>
+		
+		
+		<script>
+			function makeAjaxCall(url, methodType)
+			{
+				var xhr = new XMLHttpRequest();
+				xhr.open(methodType, url, true);
+				xhr.send();
+
+				xhr.onreadystatechange = function()
+				{
+					if (xhr.readyState === 4)
+					{
+						if (xhr.status === 200)
+						{
+							console.log("xhr done successfully");
+							var resp = xhr.responseText;
+							var respJson = JSON.parse(resp);
+						} else
+						{
+							console.log("xhr failed");
+						}
+					} else
+					{
+						console.log("xhr processing going on");
+					}
+				}
+				console.log("request sent succesfully");
+			}
+
+			// git hub url to get btford details
+			var URL = "https://api.github.com/users/btford";
+			makeAjaxCall(URL, "GET");
+		</script>
+	</body>
+</html>
