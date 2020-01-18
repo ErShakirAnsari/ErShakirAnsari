@@ -6,12 +6,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
 		<style>
-			.background-class
+			#myDIV
 			{
 				width: 500px;
 				height: 400px;
 				background-color: #ddd;
-				background-image: url('https://picsum.photos/200/300');
+				background-image: url('https://i.picsum.photos/id/1052/200/300.jpg');
 				background-repeat: no-repeat;
 				background-position: center center;
 			}
@@ -20,25 +20,37 @@
 	</head>
 	<body>
 		
-		<div class='background-class'>
+		<div id='myDIV'>
 		</div>
 		
 		<button onclick='zoomIn()'> + </button>
 		<button onclick='zoomOut()'> - </button>
 		
 		<script>
-			var divObj = document.getElementsByClassName("background-class");
-			console.log(divObj);
+			var myDIV = document.getElementById("myDIV");
+			console.log(myDIV);
+			var bgWidth = 200, bgHeight = 300;
+			
+			function __zoom(weight)
+			{
+				bgWidth = bgWidth + (bgWidth * weight)/100;
+				bgHeight = bgHeight + (bgHeight * weight)/100;
+				
+				console.log('bgWidth: ' + bgWidth + ', bgHeight: ' + bgHeight + ', weight: ' + weight);
+
+				myDIV.style.backgroundSize = bgWidth + "% " + bgHeight + "%";				
+			}
+			
 			function zoomIn()
 			{
-				console.log('zoomIn clicked');
+				__zoom(2);
 			}
 			
 			function zoomOut()
 			{
-				console.log('zoomOut clicked');
+				__zoom(-2);
 			}
-		</script>	
+			</script>	
 		
 	</body>
 </html>
