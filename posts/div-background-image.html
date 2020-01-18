@@ -4,28 +4,41 @@
 		<title>.:.</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<style>
+			.background-class
+			{
+				width: 500px;
+				height: 400px;
+				background-color: #ddd;
+				background-image: url('https://picsum.photos/200/300');
+				background-repeat: no-repeat;
+				background-position: center center;
+			}
+		</style>
+		
 	</head>
 	<body>
-		<!-- Navigation -->
-		<script language='javascript' type='text/javascript' src='nav-bar.txt'></script>
-		<div style='text-align:center;font-size:100px'>Its&#39;s working!</div>
 		
+		<div class='background-class'>
+		</div>
 		
-		<!-- Footer -->
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-		<script language='javascript' type='text/javascript' src='footer.txt'></script>
-
-		<!-- Bootstrap core JavaScript -->
-		<script src="../cdn/jquery/jquery-v3.3.1.min.js"></script>
-		<script src="../cdn/bootstrap/bootstrap-v4.3.1.min.js"></script>
-	
+		<button onclick='zoomIn()'> + </button>
+		<button onclick='zoomOut()'> - </button>
+		
 		<script>
-		(function ($, window, document, undefined) {
-			$(function () {
-				$("#header").load("header.html");
-				$("#footer").load("./footer.html");
-			});
-		})(jQuery, window, document);
-		</script>
+			var divObj = document.getElementsByClassName("background-class");
+			console.log(divObj);
+			function zoomIn()
+			{
+				console.log('zoomIn clicked');
+			}
+			
+			function zoomOut()
+			{
+				console.log('zoomOut clicked');
+			}
+		</script>	
+		
 	</body>
 </html>
