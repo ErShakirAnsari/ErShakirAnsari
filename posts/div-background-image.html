@@ -27,9 +27,26 @@
 		<button onclick='zoomOut()'> - </button>
 		
 		<script>
-			var myDIV = document.getElementById("myDIV");
-			console.log(myDIV);
-			var bgWidth = 200, bgHeight = 300;
+			var myDIV = null;
+			var bgWidth = 0, bgHeight = 0;
+			var myDivWidth = 500, myDivHeight = 400;
+			var zoomStep = 5;
+			var bgPosX = 0;
+			var bgPosY = 0;
+			
+			function init()
+			{
+				myDIV = document.getElementById("myDIV");
+				console.log('from init()', myDIV);
+				bgWidth = 200;
+				bgHeight = 300;
+				
+				bgPosX = -(bgWidth - myDivWidth)/2;
+				bgPosY = -(bgHeight - myDivHeight)/2;
+				
+				myDIV.addEventListener('wheel', onWheel);
+				myDIV.addEventListener('mousedown', draggable);
+			} init();
 			
 			function __zoom(weight)
 			{
@@ -38,17 +55,60 @@
 				
 				console.log('bgWidth: ' + bgWidth + ', bgHeight: ' + bgHeight + ', weight: ' + weight);
 
-				myDIV.style.backgroundSize = bgWidth + "% " + bgHeight + "%";				
+				myDIV.style.backgroundSize = bgWidth + "px " + bgHeight + "px";
+				myDIV.style.backgroundPosition = bgPosX + 'px ' + bgPosY + 'px';
 			}
 			
 			function zoomIn()
 			{
-				__zoom(2);
+				__zoom(zoomStep);
 			}
 			
 			function zoomOut()
 			{
-				__zoom(-2);
+				__zoom(-zoomStep);
+			}
+			
+			function onWheel(e)
+			{
+				e.preventDefault();
+				//console.log('onWheel()', e);
+				if (e.deltaY)
+				{ // FireFox 17+ (IE9+, Chrome 31+?)
+					deltaY = e.deltaY;
+				} else if (e.wheelDelta) {
+					deltaY = -e.wheelDelta;
+				}
+				
+				if(deltaY > 0)
+				{
+					__zoom(-zoomStep);
+				} else
+				{
+					__zoom(zoomStep);
+				}
+			}
+			function draggable(e)
+			{
+				e.preventDefault();
+				previousEvent = e;
+				document.addEventListener('mousemove', drag);
+				document.addEventListener('mouseup', removeDrag);
+			}
+			
+			function drag(e) {
+				e.preventDefault();
+				bgPosX += (e.pageX - previousEvent.pageX);
+				bgPosY += (e.pageY - previousEvent.pageY);
+				previousEvent = e;
+				
+				myDIV.style.backgroundSize = bgWidth + "px " + bgHeight + "px";
+				myDIV.style.backgroundPosition = bgPosX + 'px ' + bgPosY + 'px';
+				
+			}
+			function removeDrag() {
+				document.removeEventListener('mouseup', removeDrag);
+				document.removeEventListener('mousemove', drag);
 			}
 			</script>	
 		
