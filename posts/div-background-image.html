@@ -11,7 +11,7 @@
 				width: 500px;
 				height: 400px;
 				background-color: #ddd;
-				background-image: url('https://i.picsum.photos/id/1052/200/300.jpg');
+				background-image: url('https://picsum.photos/200/300');
 				background-repeat: no-repeat;
 				background-position: center center;
 			}
@@ -53,7 +53,8 @@
 				bgWidth = bgWidth + (bgWidth * weight)/100;
 				bgHeight = bgHeight + (bgHeight * weight)/100;
 				
-				console.log('bgWidth: ' + bgWidth + ', bgHeight: ' + bgHeight + ', weight: ' + weight);
+				//console.log('bgWidth: ' + bgWidth + ', bgHeight: ' + bgHeight + ', weight: ' + weight);
+				//console.log('bgPosX: ' + bgPosX + ', bgPosY: ' + bgPosY);
 
 				myDIV.style.backgroundSize = bgWidth + "px " + bgHeight + "px";
 				myDIV.style.backgroundPosition = bgPosX + 'px ' + bgPosY + 'px';
@@ -80,6 +81,30 @@
 					deltaY = -e.wheelDelta;
 				}
 				
+				var rect = myDIV.getBoundingClientRect();
+				var offsetX = e.pageX - rect.left - window.pageXOffset;
+				var offsetY = e.pageY - rect.top - window.pageYOffset;
+				
+				//console.log('offsetX: ' + offsetX + ', offsetY: ' + offsetY);
+
+
+				// Record the offset between the bg edge and cursor:
+				var bgCursorX = offsetX - bgPosX;
+				var bgCursorY = offsetY - bgPosY;
+
+				console.log('bgCursorX: ' + bgCursorX + ', bgCursorY: ' + bgCursorY);
+				
+				// Use the previous offset to get the percent offset between the bg edge and cursor:
+				var bgRatioX = bgCursorX/myDivWidth;
+				var bgRatioY = bgCursorY/myDivHeight;
+				
+				console.log('bgRatioX: ' + bgRatioX + ', bgRatioY: ' + bgRatioY);
+				
+				// Take the percent offset and apply it to the new size:
+				bgPosX = offsetX - (myDivWidth * bgRatioX);
+				bgPosY = offsetY - (myDivHeight * bgRatioY);
+
+				
 				if(deltaY > 0)
 				{
 					__zoom(-zoomStep);
@@ -88,6 +113,7 @@
 					__zoom(zoomStep);
 				}
 			}
+			
 			function draggable(e)
 			{
 				e.preventDefault();
