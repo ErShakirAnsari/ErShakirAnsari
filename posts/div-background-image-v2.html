@@ -15,23 +15,10 @@
 				background-position: center center;
 				position: absolute;
 			}
-			#myDIV1
-			{
-				width: 500px;
-				height: 400px;
-				background-image: url('https://picsum.photos/200/300');
-				background-repeat: no-repeat;
-				background-position: center center;
-				position: absolute;
-			}
 		</style>
 		
 	</head>
 	<body>
-		
-		<div id='myDIV1'>
-		</div>
-		
 		<div id='myDIV'>
 		</div>
 		
@@ -75,13 +62,16 @@
 			{
 				e.preventDefault();
 				//console.log('onWheel()', e);
-				if (e.deltaY){
+				if (e.deltaY)
+				{
 					deltaY = e.deltaY;
-				}else if (e.wheelDelta) {
+				} else if (e.wheelDelta) 
+				{
 					deltaY = -e.wheelDelta;
 				}
 				
-				if(deltaY > 0){
+				if(deltaY > 0)
+				{
 					var weight = -zoomStep;
 				} else
 				{
@@ -93,19 +83,19 @@
 				var offsetY = e.pageY - bgPosY;
 				
 				
-				offsetX = offsetX/bgWidth;
-				offsetY = offsetY/bgHeight;
+				offsetX = offsetX / bgWidth;
+				offsetY = offsetY / bgHeight;
 				
-				bgPosX = bgPosX - (bgWidth * weight*offsetX)/100;
-				bgPosY = bgPosY - (bgHeight * weight*offsetY)/100;
+				bgPosX = bgPosX - (bgWidth * weight * offsetX) / 100;
+				bgPosY = bgPosY - (bgHeight * weight * offsetY) / 100;
 				
 				
 				//console.log(rect);
-				console.log('e.pageX: ' + e.pageX + ', rect.left: ' + rect.left+ ', bgPosX: ' + bgPosX);
+				//console.log('e.pageX: ' + e.pageX + ', rect.left: ' + rect.left+ ', bgPosX: ' + bgPosX);
 
 
-				bgWidth = bgWidth + (bgWidth * weight)/100;
-				bgHeight = bgHeight + (bgHeight * weight)/100;
+				bgWidth = bgWidth + (bgWidth * weight) / 100;
+				bgHeight = bgHeight + (bgHeight * weight) / 100;
 
 				myDIV.style.backgroundSize = bgWidth + "px " + bgHeight + "px";
 				myDIV.style.backgroundPosition = bgPosX + 'px ' + bgPosY + 'px';
@@ -132,6 +122,7 @@
 				myDIV.style.backgroundPosition = bgPosX + 'px ' + bgPosY + 'px';
 				
 			}
+			
 			function removeDrag() {
 				document.removeEventListener('mouseup', removeDrag);
 				document.removeEventListener('mousemove', drag);
