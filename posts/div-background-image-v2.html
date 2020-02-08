@@ -10,10 +10,10 @@
 			{
 				width: 500px;
 				height: 400px;
+				background-color: lightgray;
 				background-image: url('https://picsum.photos/200/300');
 				background-repeat: no-repeat;
 				background-position: center center;
-				position: absolute;
 			}
 		</style>
 		
@@ -21,6 +21,8 @@
 	<body>
 		<div id='myDIV'>
 		</div>
+		
+		<br>
 		
 		<button onclick='zoomIn()'> + </button>
 		<button onclick='zoomOut()'> - </button>
@@ -56,6 +58,18 @@
 			function zoomOut()
 			{
 				__zoom(-zoomStep);
+			}
+			
+			function __zoom(weight)
+			{
+				bgWidth = bgWidth + (bgWidth * weight)/100;
+				bgHeight = bgHeight + (bgHeight * weight)/100;
+				
+				//console.log('bgWidth: ' + bgWidth + ', bgHeight: ' + bgHeight + ', weight: ' + weight);
+				//console.log('bgPosX: ' + bgPosX + ', bgPosY: ' + bgPosY);
+
+				myDIV.style.backgroundSize = bgWidth + "px " + bgHeight + "px";
+				myDIV.style.backgroundPosition = bgPosX + 'px ' + bgPosY + 'px';
 			}
 			
 			function onWheel(e)
