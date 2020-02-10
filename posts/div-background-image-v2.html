@@ -12,6 +12,7 @@
 				height: 400px;
 				background-color: lightgray;
 				background-image: url('https://picsum.photos/200/300');
+				background-image: url('http://wallpaperswide.com/download/straight_road_2-wallpaper-5472x1824.jpg');
 				background-repeat: no-repeat;
 				background-position: center center;
 			}
@@ -39,8 +40,9 @@
 			{
 				myDIV = document.getElementById("myDIV");
 				console.log('from init()', myDIV);
-				bgWidth = 200;
-				bgHeight = 300;
+							
+				bgWidth = 5472;
+				bgHeight = 1824;
 				
 				bgPosX = -(bgWidth - myDivWidth)/2;
 				bgPosY = -(bgHeight - myDivHeight)/2;
@@ -141,6 +143,17 @@
 				document.removeEventListener('mouseup', removeDrag);
 				document.removeEventListener('mousemove', drag);
 			}
+			
+			
+			function getMeta(url)
+			{   
+				var img = new Image();
+				img.addEventListener("load", function(){
+					alert( this.naturalWidth +' '+ this.naturalHeight );
+				});
+				img.src = url;
+			}
+			//getMeta('http://wallpaperswide.com/download/straight_road_2-wallpaper-5472x1824.jpg');
 			</script>	
 		
 	</body>
