@@ -19,19 +19,40 @@
 		<script>
 			$(document).ready(function ()
 			{
-				$('select').selectpicker();
+				$('#my-select').selectpicker();
 			});
+			
+			function getVal()
+			{
+				var a = $('#my-select').val();
+				console.log(a);
+				
+				const sel = document.getElementById("my-select"); // or this if only called onchange
+				let value = sel.options[sel.selectedIndex].value; // or just sel.value
+				let text = sel.options[sel.selectedIndex].text;
+				console.log(value, text);
+			}
 		</script>
 
-		<select class="selectpicker" multiple data-live-search="true">
-			<option>Mustard</option>
-			<option>Ketchup</option>
-			<option>Relish</option>
-			<option>shakir</option>
-			<option>ansari</option>
-			<option>faisal</option>
-			<option>fawaz</option>
-			<option>aiman</option>
+		<select id='my-select'
+			class="selectpicker"
+			data-live-search="true"
+			data-selected-text-format="count"
+			data-style="btn-dark"
+			onchange='getVal()'
+			multiple >
+			<optgroup label="Men">
+				<option value='ansari'>Ansari</option>
+				<option value='shakir'>Shakir</option>
+				<option value='avez'>Avez</option>
+				<option value='faisal'>Faisal</option>
+			</optgroup>
+			<optgroup label="Kids">
+				<option value='ansari'>Ansari</option>
+				<option value='aiman'>Aiman</option>
+				<option value='fawaz'>Fawaz</option>
+				<option value='affan'>Affan</option>
+			</optgroup>
 		</select>
 	</body>
 </html>
