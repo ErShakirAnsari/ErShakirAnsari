@@ -15,7 +15,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 	</head>
 
-	<body>
+	<body style='padding: 20px'>
 		<script>
 			$(document).ready(function ()
 			{
@@ -27,19 +27,31 @@
 				var a = $('#my-select').val();
 				console.log(a);
 				
-				const sel = document.getElementById("my-select"); // or this if only called onchange
-				let value = sel.options[sel.selectedIndex].value; // or just sel.value
-				let text = sel.options[sel.selectedIndex].text;
-				console.log(value, text);
+				var responseText = 'Seleted options: ';
+				$('#my-select option:selected').each(function ()
+				{
+					var $this = $(this);
+					if ($this.length)
+					{
+						responseText += $this.text() + ', ';
+					}
+				});
+				$('#idDivResponse').text(responseText);
 			}
 		</script>
+		
+		
+		<div id='idDivResponse'>
+		</div>
+		
 
 		<select id='my-select'
-			class="selectpicker"
+			class="selectpicker show-tick"
 			data-live-search="true"
 			data-selected-text-format="count"
-			data-style="btn-dark"
+			data-style="btn-light"
 			onchange='getVal()'
+			data-size="5"
 			multiple >
 			<optgroup label="Men">
 				<option value='ansari'>Ansari</option>
