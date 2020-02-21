@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Reverse numbers</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<style>
+			* { font: normal 1.2em Arial }
+			#container
+			{
+				<!-- background-color: #f0f0f; -->
+				margin: auto 20px;
+				text-align: center;
+				padding: 20px;
+			}
+			
+			#number
+			{
+				padding: 10px 20px;
+				border: 1px #dfdfdf solid;
+				border-radius: 5px;
+			}
+			
+			.button {
+				border: none;
+				color: white;
+				padding: 14px 30px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				margin: 4px 2px;
+				transition-duration: 0.4s;
+				cursor: pointer;
+				background-color: white; 
+				color: black; 
+				border: 2px solid #008CBA;
+			}
+			.button:hover {
+				background-color: #008CBA;
+				color: white;
+			}
+			#result
+			{
+				
+			}
+		</style>
+		
+	</head>
+	<body>
+	
+		<div id='container'>
+			Please enter color code:<br>
+			<input type='text' id='number' />
+			<br>
+			<br>
+			<button class='button' onclick='getResults();'> Go! </button>
+			<br>
+			<br>
+			<div id='result'>
+				x
+			</div>
+
+		</div>
+		
+		<script>
+			
+			var oldData = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "L", "M", "N", "X", "P"];
+			var newData = ["K", "C", "Z", "U", "Y", "S", "W", "J", "H", "I", "Q", "R", "T", "V", "A"];
+			
+			function getResults()
+			{
+				var isOldData = false;
+				var input = document.getElementById('number').value;
+				var result = document.getElementById('result');
+				
+				if(!input && input === '')
+				{
+					alert('Please enter color code!');
+					return false;
+				}
+				
+				input = input.toUpperCase();
+
+				oldData.forEach(function(item, index)
+				{
+					if(input.includes(item))
+					{
+						isOldData = true;
+					}
+				});
+				
+				var response = (isOldData ? "Old to New" : "New to Old") + " color code:<br>";
+
+				for(let i = 0; i < input.length; i++)
+				{
+					if(isOldData)
+					{
+						let index = oldData.indexOf(input[i]);
+						if(index === -1)
+						{
+							alert("Invalid input!");
+							return false;
+						}
+						response += newData[index];
+					} else
+					{
+						let index = newData.indexOf(input[i]);
+						if(index === -1)
+						{
+							alert("Invalid input!");
+							return false;
+						}
+						response += oldData[index];
+					}
+				}
+				
+				result.innerHTML = response;
+				
+			}
+		</script>
+	</body>
+</html>
