@@ -9,12 +9,11 @@
 			#myDIV
 			{
 				width: 500px;
-				height: 400px;
+				height: 500px;
 				background-color: lightgray;
-				background-image: url('https://picsum.photos/200/300');
-				/* background-image: url('http://wallpaperswide.com/download/straight_road_2-wallpaper-5472x1824.jpg'); */
 				background-repeat: no-repeat;
 				background-position: center center;
+				background-size: contain;
 			}
 		</style>
 		
@@ -28,28 +27,62 @@
 		<button onclick='zoomIn()'> + </button>
 		<button onclick='zoomOut()'> - </button>
 		
+		<br>
+		<br>
+
+		<button onclick='left()'> left </button>
+		<button onclick='top()'> top </button>
+		<button onclick='right()'> right </button>
+		<button onclick='bottom()'> bottom </button>
+		
+
 		<script>
+			var backgroundImageUrl = 'https://i.picsum.photos/id/634/2000/1000.jpg';
 			var myDIV = null;
 			var bgWidth = 0, bgHeight = 0;
-			var myDivWidth = 500, myDivHeight = 400;
+			var myDivWidth = 500, myDivHeight = 500;
 			var zoomStep = 5;
 			var bgPosX = 0;
 			var bgPosY = 0;
 			
+			var img = new Image();
+			img.onload = function() {
+				bgHeight = img.height;
+				bgWidth  = img.width;
+				init();
+			}
+			img.src = backgroundImageUrl;
+
 			function init()
 			{
 				myDIV = document.getElementById("myDIV");
+				myDIV.style.backgroundImage = "url('" + backgroundImageUrl + "')";
 				console.log('from init()', myDIV);
-							
-				bgWidth = 5472;
-				bgHeight = 1824;
+			
+				centerImage();
 				
 				bgPosX = -(bgWidth - myDivWidth)/2;
 				bgPosY = -(bgHeight - myDivHeight)/2;
 				
 				myDIV.addEventListener('wheel', onWheel);
 				myDIV.addEventListener('mousedown', draggable);
-			} init();
+			} 
+			
+			function centerImage()
+			{
+				let weight = 0;
+				if(bgWidth > bgHeight)
+				{
+					weight = bgWidth / myDivWidth;
+					bgWidth = myDivWidth;
+					bgHeight = bgHeight / weight;
+				} else
+				{
+					weight = bgHeight / myDivWidth;
+					bgHeight = myDivWidth;
+					bgWidth = bgWidth / weight;
+				}
+			}
 			
 			
 			function zoomIn()
@@ -71,7 +104,8 @@
 				//console.log('bgPosX: ' + bgPosX + ', bgPosY: ' + bgPosY);
 
 				myDIV.style.backgroundSize = bgWidth + "px " + bgHeight + "px";
-				myDIV.style.backgroundPosition = bgPosX + 'px ' + bgPosY + 'px';
+				//myDIV.style.backgroundPosition = bgPosX + 'px ' + bgPosY + 'px';
+				myDIV.style.backgroundPosition = 'center center';
 			}
 			
 			function onWheel(e)
