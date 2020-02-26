@@ -30,10 +30,10 @@
 		<br>
 		<br>
 
-		<button onclick='left()'> left </button>
-		<button onclick='top()'> top </button>
-		<button onclick='right()'> right </button>
-		<button onclick='bottom()'> bottom </button>
+		<button onclick='goLeft()'> left </button>
+		<button onclick='goTop()'> top </button>
+		<button onclick='goRight()'> right </button>
+		<button onclick='goBottom()'> bottom </button>
 		
 
 		<script>
@@ -42,6 +42,7 @@
 			var bgWidth = 0, bgHeight = 0;
 			var myDivWidth = 500, myDivHeight = 500;
 			var zoomStep = 5;
+			var moveStep = 10;
 			var bgPosX = 0;
 			var bgPosY = 0;
 			
@@ -95,6 +96,7 @@
 				__zoom(-zoomStep);
 			}
 			
+			let tempX = 0, tempY = 0, tempWeight = 2;
 			function __zoom(weight)
 			{
 				bgWidth = bgWidth + (bgWidth * weight)/100;
@@ -105,7 +107,25 @@
 
 				myDIV.style.backgroundSize = bgWidth + "px " + bgHeight + "px";
 				//myDIV.style.backgroundPosition = bgPosX + 'px ' + bgPosY + 'px';
-				myDIV.style.backgroundPosition = 'center center';
+				//myDIV.style.backgroundPosition = 'center center';
+				
+				if(weight > 0)
+				{
+					tempX = tempX + tempWeight;
+					tempY = tempY + tempWeight;
+					bgPosX -= (moveStep + tempX);
+					bgPosY -= (moveStep + tempY);
+					goTop ()
+				} else
+				{
+					tempX = tempX - tempWeight;
+					tempY = tempY - tempWeight;
+					bgPosX += (moveStep + tempX);
+					bgPosY += (moveStep + tempY);
+					goBottom ();
+				}
+				
+				__goMove();
 			}
 			
 			function onWheel(e)
@@ -170,7 +190,6 @@
 				
 				myDIV.style.backgroundSize = bgWidth + "px " + bgHeight + "px";
 				myDIV.style.backgroundPosition = bgPosX + 'px ' + bgPosY + 'px';
-				
 			}
 			
 			function removeDrag() {
@@ -178,16 +197,72 @@
 				document.removeEventListener('mousemove', drag);
 			}
 			
-			
-			function getMeta(url)
-			{   
-				var img = new Image();
-				img.addEventListener("load", function(){
-					alert( this.naturalWidth +' '+ this.naturalHeight );
-				});
-				img.src = url;
+			function __goMove()
+			{
+				console.log('bgPosX: ' + bgPosX + ', bgPosY: ' + bgPosY);
+				myDIV.style.backgroundPosition = bgPosX + 'px ' + bgPosY + 'px';
 			}
-			//getMeta('http://wallpaperswide.com/download/straight_road_2-wallpaper-5472x1824.jpg');
+			
+			function goLeft()
+			{
+				bgPosX += moveStep;
+				__goMove();
+			}
+			function goRight()
+			{
+				bgPosX -= moveStep;
+				__goMove();
+			}
+
+			function goTop()
+			{
+				bgPosY += moveStep;
+				__goMove();
+			}
+			function goBottom()
+			{
+				bgPosY -= moveStep;
+				__goMove();
+			}
+				
+			document.onkeydown = function(event)
+			{
+				let isCtrlKey = event.ctrlKey;
+				console.log(event.keyCode);
+				switch (event.keyCode)
+				{
+					case 37:
+						goLeft();
+						break;
+					case 38:
+						if(isCtrlKey)
+						{
+							zoomIn();
+						} else {
+							goTop();
+						}						
+						break;
+					case 39:
+						goRight();
+						break;
+					case 40:
+						if(isCtrlKey)
+						{
+							zoomOut();
+						} else {
+							goBottom();
+						}
+						break;
+						
+					case 187:
+						zoomIn();
+						break;
+					case 189:
+						zoomOut();
+						break;
+				}
+			};
+
 			</script>	
 		
 	</body>
