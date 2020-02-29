@@ -45,14 +45,15 @@
 			var moveStep = 10;
 			var bgPosX = 0;
 			var bgPosY = 0;
-			
 			var img = new Image();
-			img.onload = function() {
+			img.src = backgroundImageUrl;
+
+			img.onload = function()
+			{
 				bgHeight = img.height;
 				bgWidth  = img.width;
 				init();
 			}
-			img.src = backgroundImageUrl;
 
 			function init()
 			{
