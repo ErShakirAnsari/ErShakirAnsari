@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../bootstrap-v4.3.1.min.css">
+    <script src="../bootstrap-v4.3.1.min.js"></script>
+
+    <style>
+        div#btag-box {
+            font-family: 'Consolas', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+            font-family: monospace !important
+        }
+
+        div#btag-box.form-control {
+            overflow: hidden;
+            height: auto;
+        }
+
+        div#btag-box #btag-input {
+            display: inline;
+            width: auto;
+            border: none;
+        }
+
+        div#btag-box .btn span {
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body class="bg-light container mt-4">
+    <div id='btag-box' class="form-control">
+        <div class="btn btn-light my-1 border">
+            #Light
+            <span class="text-muted1" title="Click to remove">&VerticalLine;&times;</span>
+        </div>
+        <div class="btn btn-light my-1 border">
+            #Light
+            <span class="text-muted1" title="Click to remove">&VerticalLine;&times;</span>
+        </div>
+        <div class="btn btn-light my-1 border">
+            #Light
+            <span class="text-muted1" title="Click to remove">&VerticalLine;&times;</span>
+        </div>
+        <div class="btn btn-light my-1 border">
+            #Light
+            <span class="text-muted1" title="Click to remove">&VerticalLine;&times;</span>
+        </div>
+        <div class="btn btn-primary my-1">#primary<span class="text-muted1">&VerticalLine;&times;</span></div>
+        <div class="btn btn-danger my-1">#danger<span class="text-muted1">&VerticalLine;&times;</span></div>
+        <div class="btn btn-dark my-1">#dark<span class="text-muted1">&VerticalLine;&times;</span></div>
+        <div class="btn btn-secondary my-1">#secondary<span class="text-muted1">&VerticalLine;&times;</span></div>
+        <div class="btn btn-success my-1">#success<span class="text-muted1">&VerticalLine;&times;</span></div>
+        <input type="text" id="btag-input" class="form-control" />
+    </div>
+</body>
+
+</html>
