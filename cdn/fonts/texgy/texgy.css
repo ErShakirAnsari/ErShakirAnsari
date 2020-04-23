@@ -1,0 +1,11 @@
+@font-face {
+   font-family: 'Texgy';
+   src: url('Texgy.eot');
+   src: url('Texgy.eot?#iefix') format('embedded-opentype'),
+        url('Texgy.woff') format('woff'),
+        url('Texgy.ttf.ttf') format('truetype');
+   font-weight: normal;
+   font-style: normal;
+}
+
+.fontsforweb_fontid_28396 { font-family: 'Texgy' !important; }
