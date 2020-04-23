@@ -1,0 +1,7 @@
+@font-face {
+   font-family: 'RockSalt';
+   src: url('./RockSalt.eot');
+   src: local('RockSalt'), url('./RockSalt.woff') format('woff'), url('./RockSalt.ttf') format('truetype');
+}
+
+.fontsforweb_fontid_1379 { font-family: 'RockSalt' !important; }
