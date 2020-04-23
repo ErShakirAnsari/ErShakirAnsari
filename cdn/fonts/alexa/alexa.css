@@ -1,0 +1,12 @@
+@font-face {
+   font-family: 'alexa';
+   src: url("alexa.eot"),
+		url("alexa.eot#iefix") format("embedded-opentype"),
+        url("alexa.woff") format("woff"),
+        url("alexa.ttf") format("truetype"),
+        url("alexa.svg#octicons") format("svg");
+   font-weight: normal;
+   font-style: normal;
+}
+
+.fontsforweb_fontid_24798 { font-family: 'alexa' !important; }
