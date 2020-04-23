@@ -1,0 +1,7 @@
+@font-face {
+   font-family: 'BariolRegular';
+   src: url('./BariolRegular.eot');
+   src: local('BariolRegular'), url('./BariolRegular.woff') format('woff'), url('./BariolRegular.ttf') format('truetype');
+}
+
+.fontsforweb_fontid_25647 { font-family: 'BariolRegular' !important; }
