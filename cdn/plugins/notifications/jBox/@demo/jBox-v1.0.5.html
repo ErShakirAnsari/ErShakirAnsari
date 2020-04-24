@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jBoxDemo</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script type='text/javascript' src='../../../../js/jquery/jquery-v3.4.1.min.js'></script>
+		<link rel='stylesheet' type='text/css' href='../jBox-all-v1.0.5.min.css'>
+		<script type='text/javascript' src='../jBox-all-v1.0.5.min.js'></script>
+	</head>
+
+	<body style='padding: 20px'>
+		<span class="tooltip" title="My tooltip">Hover me!</span>
+		<br>
+		<br>
+		<span class="tooltip" title="Another tooltip">Hover me!</span>
+		
+		<h2>Notice</h2>
+		<button id='Notice-1'>Notice-1</button>
+		<button id='Notice-2'>Notice-2</button>
+		<button id='Notice-3'>Notice-3</button>
+		<button id='Notice-4'>Notice-4</button>
+
+		
+		<script>
+			$(function()
+			{
+				new jBox('Tooltip',
+				{
+					attach: '.tooltip'
+				});
+			});
+			
+			//NOTICE
+			$('#Notice-1').click(function () {
+				new jBox('Notice', {
+					content: 'Hello, I\'m a notice',
+					color: 'black'
+				});
+			});
+
+			  $('#Notice-2').click(function () {
+				new jBox('Notice', {
+				  animation: 'flip',
+				  color: getColor(),
+				  content: 'Oooh! They also come in colors',
+				  delayOnHover: true,
+				  showCountdown: true
+				});
+			  });
+
+			  $('#Notice-3').click(function () {
+				new jBox('Notice', {
+				  theme: 'NoticeFancy',
+				  attributes: {
+					x: 'left',
+					y: 'bottom'
+				  },
+				  color: getColor(),
+				  content: 'Hello, I\'m down here',
+				  audio: '../assets/audio/bling2',
+				  volume: 80,
+				  animation: {
+					open: 'slide:bottom',
+					close: 'slide:left'
+				  }
+				});
+			  });
+
+			  $('#Notice-4').click(function () {
+				new jBox('Notice', {
+				  attributes: {
+					x: 'left',
+					y: 'bottom'
+				  },
+				  stack: true,
+				  animation: {
+					open: 'tada',
+					close: 'zoomIn'
+				  },
+				  color: getColor(),
+				  title: 'Tadaaa! I\'m single',
+				  content: 'Open another notice, I won\'t stack'
+				});
+			  });
+			  
+			  var colors = ['red', 'green', 'blue', 'yellow'];
+			  var index = 0;
+			  var getColor = function () {
+				if (index >= colors.length) {
+				  index = 0;
+				}
+				return colors[index++];
+			  };
+		</script>
+	</body>
+</html>
