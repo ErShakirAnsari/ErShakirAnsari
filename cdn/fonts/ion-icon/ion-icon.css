@@ -5,11 +5,11 @@
  */
 @font-face {
    font-family: "Ionicons";
-   src: url("ionicons.eot?v=1.4.1");
-   src: url("ionicons.eot?v=1.4.1#iefix") format("embedded-opentype"),
-        url("ionicons.ttf?v=1.4.1") format("truetype"),
-        url("ionicons.woff?v=1.4.1") format("woff"),
-        url("ionicons.svg?v=1.4.1#Ionicons") format("svg");
+   src: url("ion-icon.eot?v=1.4.1");
+   src: url("ion-icon.eot?v=1.4.1#iefix") format("embedded-opentype"),
+        url("ion-icon.ttf?v=1.4.1") format("truetype"),
+        url("ion-icon.woff?v=1.4.1") format("woff"),
+        url("ion-icon.svg?v=1.4.1#Ionicons") format("svg");
    font-weight: normal;
    font-style: normal;
 }
