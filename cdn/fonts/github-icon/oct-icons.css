@@ -8,11 +8,11 @@
 
 @font-face {
    font-family: 'octicons';
-   src: url("OctIcon.eot");
-   src: url("OctIcon.eot#iefix") format("embedded-opentype"),
-        url("OctIcon.woff") format("woff"),
-        url("OctIcon.ttf") format("truetype"),
-        url("OctIcon.svg#octicons") format("svg");
+   src: url("oct-icons.eot");
+   src: url("oct-icons.eot#iefix") format("embedded-opentype"),
+        url("oct-icons.woff") format("woff"),
+        url("oct-icons.ttf") format("truetype"),
+        url("oct-icons.svg#octicons") format("svg");
    font-weight: normal;
    font-style: normal;
  }
