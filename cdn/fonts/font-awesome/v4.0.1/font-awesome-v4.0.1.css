@@ -5,11 +5,11 @@
  */
 @font-face {
    font-family: 'FontAwesome';
-   src: url('fa-4.0.1-webfont.eot?v=4.0.1');
-   src: url('fa-4.0.1-webfont.eot?#iefix&v=4.0.1') format('embedded-opentype'),
-        url('fa-4.0.1-webfont.woff?v=4.0.1') format('woff'),
-        url('fa-4.0.1-webfont.ttf?v=4.0.1') format('truetype'),
-        url('fa-4.0.1-webfont.svg?v=4.0.1#fontawesomeregular') format('svg');
+   src: url('font-awesome-v4.0.1.eot?v=4.0.1');
+   src: url('font-awesome-v4.0.1.eot?#iefix&v=4.0.1') format('embedded-opentype'),
+        url('font-awesome-v4.0.1.woff?v=4.0.1') format('woff'),
+        url('font-awesome-v4.0.1.ttf?v=4.0.1') format('truetype'),
+        url('font-awesome-v4.0.1.svg?v=4.0.1#fontawesomeregular') format('svg');
    font-weight: normal;
    font-style: normal;
 }
