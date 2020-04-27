@@ -4,7 +4,11 @@
     <title>SelectPure example</title>
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-	<link href="select-pure.css" rel="stylesheet">
+	<link href="../select-pure.css" rel="stylesheet">
+	<style>
+		body {font-family: "Roboto", sans-serif}
+    </style>
+
   </head>
   <body>
     <div class="select-wrapper">
@@ -29,7 +33,8 @@
       <h3>With disabled options:</h3>
       <span class="disabled-options-select"></span>
     </div>
-    <script src="select-pure.min.js"></script>
+
+    <script src="../select-pure.min.js"></script>
     <script>
       var single = new SelectPure(".single-select", {
         options: [
@@ -223,10 +228,5 @@
         autocomplete.reset();
       };
     </script>
-    <style>
-      body {
-        font-family: "Roboto", sans-serif;
-      }
-    </style>
   </body>
 </html>
