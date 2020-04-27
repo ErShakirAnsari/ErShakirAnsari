@@ -6,6 +6,7 @@
 <style>
 ul { list-style-type: none; }
 li { display: inline-block; }
+
 input[type="checkbox"][id^="cb"]
 {
     display: block;
@@ -40,7 +41,8 @@ img { width:200px }
 			<li>
 				<input type="checkbox" id="cb1" name="type" value='1' />
 				<a href='https://stackoverflow.com/questions/16352864/how-to-display-image-in-place-of-checkbox'>
-				<img src="https://www.gravatar.com/avatar/c0c658d7d75266a36a707e0f6407f9c0?s=328&d=identicon&r=PG" /></a>
+					<img src="https://www.gravatar.com/avatar/c0c658d7d75266a36a707e0f6407f9c0?s=328&d=identicon&r=PG" />
+				</a>
 			</li>
 			<li>
 				<input type="checkbox" id="cb2" name="type" value='2' />
@@ -52,8 +54,10 @@ img { width:200px }
 
 	<hr>
 	<button onclick='go()'>go</button>
+	<br>
+	<div id='response'></div>
 	
-	<script type='text/javascript' src='https://ershakiransari.github.io/cdn/jquery/jquery-v3.4.1.min.js'></script>
+	<script type='text/javascript' src='../cdn/js/jquery/jquery-v3.4.1.min.js'></script>
 	<script>
 	function go()
 	{
@@ -62,7 +66,7 @@ img { width:200px }
 		{
 			yourArray.push($(this).val());
 		});
-		alert(yourArray);
+		$('#response').html(JSON.stringify(yourArray));
 	}
 	</script>
 </body>
