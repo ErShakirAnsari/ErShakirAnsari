@@ -6,13 +6,13 @@
 
 //-----------------------------------------------
 
-(function($) {
-
+(function ($)
+{
    defaults = {
-      alertType: 'alert',                                      //- alert/confirm/prompt
-      title: 'JaxerAlerts|SKR',                                //- Title of alerts box
-      message: 'Custome message\nthis is JaxerAlerts v2.0',    //- Message of alerts box
-      inputType: 'text',                                       //- <input type='email/text/password' in prompt
+      alertType: 'alert',  //- alert/confirm/prompt
+      title: 'Jaxer Alerts',  //- Title of alerts box
+      message: 'Custome message\nthis is JaxerAlerts v2.0', //- Message of alerts box
+      inputType: 'text',   //- <input type='email/text/password' in prompt
       value: '',
 
       closeButton: 'Close',
@@ -22,21 +22,29 @@
 
       //draggable: true,
       resetOnScroll: true,
-      verticalOffset: -75,                                     // vertical offset of the dialog from center screen, in pixels
-      horizontalOffset: 0                                      // horizontal offset of the dialog from center screen, in pixels/
+      verticalOffset: -75, // vertical offset of the dialog from center screen, in pixels
+      horizontalOffset: 0  // horizontal offset of the dialog from center screen, in pixels/
    };
 
-   $.JaxerAlerts = function(options) {
+   $.JaxerAlerts = function (options)
+   {
       var opts = $.extend({}, defaults, options);
 
       show();
 
-      function _hide() {
-         $(".JaxerOverlay").fadeOut('slow', function(){ $(this).remove() });
+      function _hide()
+      {
+         $(".JaxerOverlay").fadeOut('slow', function ()
+         {
+            $(this).remove()
+         });
          _overlay('hide');
       };
-      function _overlay(status) {
-         switch(status) {
+
+      function _overlay(status)
+      {
+         switch (status)
+         {
             case 'show':
                _overlay('hide');
                $("body").append('<div id="jaxerPopUpOverlay" style="display:none"> </div>');
@@ -52,23 +60,43 @@
                });
                $('#jaxerPopUpOverlay').fadeIn('slow');
                break;
-            case 'hide': $("#jaxerPopUpOverlay").fadeOut('slow', function(){ $(this).remove() }); break;
+
+            case 'hide':
+               $("#jaxerPopUpOverlay").fadeOut('slow', function ()
+               {
+                  $(this).remove()
+               });
+               break;
          }
       }
 
-      function _reposition() {
+      function _reposition()
+      {
          var top = (($(window).height() / 2) - ($(".JaxerOverlay").outerHeight() / 2)) + opts.verticalOffset;
          var left = (($(window).width() / 2) - ($(".JaxerOverlay").outerWidth() / 2)) + opts.horizontalOffset;
-         if(top < 0) { top = 0; }
-         if(left < 0) { left = 0; }
+
+         if (top < 0)
+         {
+            top = 0;
+         }
+
+         if (left < 0)
+         {
+            left = 0;
+         }
 
          // IE6 fix
          top = top + $(window).scrollTop();
-         $(".JaxerOverlay").css({ top: top + 'px', left: left + 'px' });
+         $(".JaxerOverlay").css({
+            top: top + 'px',
+            left: left + 'px'
+         });
+
          $("#jaxerPopUpOverlay").height($(document).height());
       }
 
-      function show() {
+      function show()
+      {
          _hide();
          _overlay('show');
 
@@ -78,77 +106,82 @@
 
          $("body").append(
             '<div class="JaxerOverlay" style="display: none">'
-               + '<div class="JaxerContainer">'
-                  + '<div class="JaxerTitle"> &nbsp; </div>'
-                  + '<div class="JaxerMessage"> &nbsp; </div>'
-                  + '<div class="JaxerButtonBar"> &nbsp; </div>'
-               + '</div>'
-         + '</div>');
+            + '<div class="JaxerContainer">'
+            + '<div class="JaxerTitle"> &nbsp; </div>'
+            + '<div class="JaxerMessage"> &nbsp; </div>'
+            + '<div class="JaxerButtonBar"> &nbsp; </div>'
+            + '</div>'
+            + '</div>'
+         );
 
 
 
-      // IE6 Fix
-      //var pos = ($.browser.msie && parseInt($.browser.version) <= 6) ? 'absolute' : 'fixed';
-      var pos = 'absolute';
-      //var pos = 'fixed';
+         // IE6 Fix
+         //var pos = ($.browser.msie && parseInt($.browser.version) <= 6) ? 'absolute' : 'fixed';
+         var pos = 'absolute';
+         //var pos = 'fixed';
 
-      $(".JaxerOverlay").css({ position: pos, zIndex: 99998, padding: 0, margin: 0 });
-      $(".JaxerContainer").css({ zIndex: 99999 });
+         $(".JaxerOverlay").css({ position: pos, zIndex: 99998, padding: 0, margin: 0 });
+         $(".JaxerContainer").css({ zIndex: 99999 });
 
-      $(".JaxerTitle").html(opts.title.substring(0, 50).replace(/\n/g, '<br>'));
-      $(".JaxerMessage").html(opts.message.substring(0, 500).replace(/\n/g, '<br>'));
+         $(".JaxerTitle").html(opts.title.substring(0, 50).replace(/\n/g, '<br>'));
+         $(".JaxerMessage").html(opts.message.substring(0, 500).replace(/\n/g, '<br>'));
 
-      $(".JaxerOverlay").css({ minWidth: $(".JaxerOverlay").outerWidth(), maxWidth: $(".JaxerOverlay").outerWidth() }).fadeIn('slow');
+         $(".JaxerOverlay").css({ minWidth: $(".JaxerOverlay").outerWidth(), maxWidth: $(".JaxerOverlay").outerWidth() }).fadeIn('slow');
 
 
-      _reposition();
+         _reposition();
 
-      switch(opts.alertType) {
-         case 'alert':
-            $(".JaxerButtonBar").html(closeButton);
-            $("#jaxerCloseButton")
-            .click(function(){ _hide(); opts.response(true); })
-            .focus()
-            .keypress(function(e){ if(e.keyCode === 13 || e.keyCode === 27){ $("#jaxerCloseButton").trigger('click'); } });
-            break;
+         switch (opts.alertType)
+         {
+            case 'alert':
+               $(".JaxerButtonBar").html(closeButton);
+               $("#jaxerCloseButton")
+                  .click(function () { _hide(); opts.response(true); })
+                  .focus()
+                  .keypress(function (e) { if (e.keyCode === 13 || e.keyCode === 27) { $("#jaxerCloseButton").trigger('click'); } });
+               break;
 
-         case 'confirm':
-            $(".JaxerButtonBar").html(okButton + closeButton);
-            $("#jaxerOKButton").click(function(){ _hide(); if(opts.response){ opts.response(true); } });
-            $("#jaxerCloseButton").click(function(){ _hide(); if(opts.response){ opts.response(false); } }).focus();
-            $("#jaxerOKButton, #jaxerCloseButton").keypress(function(e){
-               if(e.keyCode === 13){ $("#jaxerOKButton").trigger('click'); }
-               if(e.keyCode === 27){ $("#jaxerCloseButton").trigger('click'); }
-            });
-            break;
+            case 'confirm':
+               $(".JaxerButtonBar").html(okButton + closeButton);
+               $("#jaxerOKButton").click(function () { _hide(); if (opts.response) { opts.response(true); } });
+               $("#jaxerCloseButton").click(function () { _hide(); if (opts.response) { opts.response(false); } }).focus();
+               $("#jaxerOKButton, #jaxerCloseButton").keypress(function (e)
+               {
+                  if (e.keyCode === 13) { $("#jaxerOKButton").trigger('click'); }
+                  if (e.keyCode === 27) { $("#jaxerCloseButton").trigger('click'); }
+               });
+               break;
 
-         case 'prompt':
-            $(".JaxerMessage").append('<br>' + inputFeild);
-            $(".JaxerButtonBar").html(okButton + closeButton);
-            $("#jaxerOKButton").click(function(){ var val = $("#jaxerInputFeild").val(); _hide(); if(opts.response){ opts.response(val); } });
-            $("#jaxerCloseButton").click(function(){ _hide(); if(opts.response){ opts.response(null); } });
-            $("#jaxerOKButton, #jaxerCloseButton").keypress(function(e){
-               if(e.keyCode === 13){ $("#jaxerOKButton").trigger('click'); }
-               if(e.keyCode === 27){ $("#jaxerCloseButton").trigger('click'); }
-            });
-            //if(value){ $("#jaxerInputFeild").val(value).focus().select(); }
-            $("#jaxerInputFeild").focus().select();
-            break;
+            case 'prompt':
+               $(".JaxerMessage").append('<br>' + inputFeild);
+               $(".JaxerButtonBar").html(okButton + closeButton);
+               $("#jaxerOKButton").click(function () { var val = $("#jaxerInputFeild").val(); _hide(); if (opts.response) { opts.response(val); } });
+               $("#jaxerCloseButton").click(function () { _hide(); if (opts.response) { opts.response(null); } });
+               $("#jaxerOKButton, #jaxerCloseButton").keypress(function (e)
+               {
+                  if (e.keyCode === 13) { $("#jaxerOKButton").trigger('click'); }
+                  if (e.keyCode === 27) { $("#jaxerCloseButton").trigger('click'); }
+               });
+               //if(value){ $("#jaxerInputFeild").val(value).focus().select(); }
+               $("#jaxerInputFeild").focus().select();
+               break;
          }
 
-         $(window).resize(function(){
+         $(window).resize(function ()
+         {
             _reposition();
          });
 
-          // Make draggable requires jQuery UI draggables
-          // if(opts.draggable){ alerts('OK'); try{$(".JaxerOverlay").draggable({handle:$(".JaxerTitle")});$(".JaxerTitle").css({cursor:'move'});}catch(e){alert('error' + e);}}
+         // Make draggable requires jQuery UI draggables
+         // if(opts.draggable){ alerts('OK'); try{$(".JaxerOverlay").draggable({handle:$(".JaxerTitle")});$(".JaxerTitle").css({cursor:'move'});}catch(e){alert('error' + e);}}
 
-       }
+      }
    }
 
    // Shortuct functions
-   jAlert      = function(options) { defaults.alertType = 'alert'; $.JaxerAlerts(options); }
-   jConfirm    = function(options) { defaults.alertType = 'confirm'; $.JaxerAlerts(options); }
-   jPrompt     = function(options) { defaults.alertType = 'prompt'; defaults.inputType = 'text'; $.JaxerAlerts(options); }
-   jPromptPass = function(options) { defaults.alertType = 'prompt'; defaults.inputType = 'password'; $.JaxerAlerts(options); }
+   jAlert = function (options) { defaults.alertType = 'alert'; $.JaxerAlerts(options); }
+   jConfirm = function (options) { defaults.alertType = 'confirm'; $.JaxerAlerts(options); }
+   jPrompt = function (options) { defaults.alertType = 'prompt'; defaults.inputType = 'text'; $.JaxerAlerts(options); }
+   jPromptPass = function (options) { defaults.alertType = 'prompt'; defaults.inputType = 'password'; $.JaxerAlerts(options); }
 })(jQuery);
