@@ -1,75 +1,70 @@
-.form-radio, .form-checkbox
-{
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	display: inline-block;
-	position: relative;
-	background-color: #f1f1f1;
-	color: #666;
-	top: 10px;
-	height: 30px;
-	width: 30px;
-	border: 0;
-	border-radius: 50px;
-	cursor: pointer;
-	margin-right: 7px;
-	outline: none;
+.form-radio,
+.form-checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  position: relative;
+  background-color: #f1f1f1;
+  color: #666;
+  top: 10px;
+  height: 30px;
+  width: 30px;
+  border: 0;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-right: 7px;
+  outline: none;
 }
 
-.form-radio:checked::before, .form-checkbox:checked::before
-{
-	position: absolute;
-	font: 13px/1 'Open Sans', sans-serif;
-	left: 11px;
-	top: 7px;
-	content: '\02143';
-	transform: rotate(40deg);
+.form-radio:checked::before,
+.form-checkbox:checked::before {
+  position: absolute;
+  font: 13px/1 "Open Sans", sans-serif;
+  left: 11px;
+  top: 7px;
+  content: "\02143";
+  transform: rotate(40deg);
 }
 
-.form-radio:hover, .form-checkbox:hover
-{
-	background-color: #f7f7f7;
+.form-radio:hover,
+.form-checkbox:hover {
+  background-color: #f7f7f7;
 }
 
-.form-radio:checked, .form-checkbox:checked
-{
-	background-color: #f1f1f1;
-	
-	/* override
+.form-radio:checked,
+.form-checkbox:checked {
+  background-color: #f1f1f1;
+
+  /* override
 	background-color: #158;
 	color: white;
 	font-weight: bold
 	 */
 }
 
-.form-checkbox
-{
-	border-radius: 3px;
+.form-checkbox {
+  border-radius: 3px;
 }
-.form-radio
-{
-	border-radius: 50px;
+.form-radio {
+  border-radius: 50px;
 }
 
-input[type][disabled]
-{
-	background-color: #f9f9f9;
-	color: #ddd;
-	cursor: default;
+input[type][disabled] {
+  background-color: #f9f9f9;
+  color: #ddd;
+  cursor: default;
 }
 
-input[type][disabled] + label
-{
-	color: #999;
-	cursor: default;
+input[type][disabled] + label {
+  color: #999;
+  cursor: default;
 }
 
-label
-{
-	font: 15px/1.7 'Open Sans', sans-serif;
-	color: #333;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	cursor: pointer;
+label {
+  font: 15px/1.7 "Open Sans", sans-serif;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: pointer;
 }

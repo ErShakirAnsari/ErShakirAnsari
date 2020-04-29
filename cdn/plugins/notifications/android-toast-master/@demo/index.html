@@ -1,17 +1,20 @@
 <html>
+
 <head>
 	<title>Android Toast Example</title>
 	<link rel="stylesheet" href="../android-toast.min.css" type="text/css">
 	<style>
-	.clickable{
-		cursor: pointer;
-		color: blue;
-	}
-	.clickable:hover{
-		text-decoration: underline;
-	}
+		.clickable {
+			cursor: pointer;
+			color: blue;
+		}
+
+		.clickable:hover {
+			text-decoration: underline;
+		}
 	</style>
 </head>
+
 <body>
 
 	<h1>Android Toast Example</h1>
@@ -35,17 +38,20 @@
 
 	<script src="../android-toast.min.js"></script>
 	<script>
-	document.getElementById('example1').addEventListener('click', toast_example1);
-	document.getElementById('example2').addEventListener('click', toast_example2);
+		document.getElementById('example1').addEventListener('click', toast_example1);
+		document.getElementById('example2').addEventListener('click', toast_example2);
 
 
-	function toast_example1(){
-		var toast1 = new Android_Toast({content: 'Please check your connection and try again.'});
-	}
+		function toast_example1()
+		{
+			var toast1 = new Android_Toast({ content: 'Please check your connection and try again.' });
+		}
 
-	function toast_example2(){
-		var toast2 = new Android_Toast({content: 'Connected to Wi-Fi network <em>Router Name</em>', duration: 4000, position: 'top'});
-	}
+		function toast_example2()
+		{
+			var toast2 = new Android_Toast({ content: 'Connected to Wi-Fi network <em>Router Name</em>', duration: 4000, position: 'top' });
+		}
 	</script>
 </body>
+
 </html>
