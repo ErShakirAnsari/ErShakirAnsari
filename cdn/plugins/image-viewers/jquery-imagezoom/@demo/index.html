@@ -1,0 +1,52 @@
+<!-- This is a static file -->
+<!-- You might want to try something fancier: -->
+<!-- html/nunjucks docs: http://mozilla.github.io/nunjucks/ -->
+<!-- jade: http://jade-lang.com/ -->
+<!-- haml: http://haml.info/tutorial.html -->
+<!-- hbs(handlebars): http://handlebarsjs.com/expressions.html -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>jquery.imagezoom Demo</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .container {
+      margin: 150px auto;
+      max-width: 600px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="jquery-script-menu">
+    <div class="jquery-script-center">
+      <ul>
+        <li><a
+            href="http://www.jqueryscript.net/zoom/Mobile-friendly-jQuery-Image-Magnifier-Plugin-imagezoom.html">Download
+            This Plugin</a></li>
+        <li><a href="http://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+      </ul>
+      <div class="jquery-script-clear"></div>
+    </div>
+  </div>
+  <div class="container">
+    <h1>jquery.imagezoom Demo</h1>
+    <div data-zoom="https://unsplash.it/2000/2400?image=628" class="zoom"
+      style="max-width: 600px; border: 1px solid black; overflow: hidden;">
+      <img src="https://unsplash.it/506/613?image=628" />
+    </div>
+  </div>
+  <!-- Your web-app is https, so your scripts need to be too -->
+  <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="jquery.imagezoom.js"></script>
+  <script>
+    $('.zoom').zoom();
+  </script>
+</body>
+
+</html>
