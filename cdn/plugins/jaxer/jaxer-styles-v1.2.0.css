@@ -30,19 +30,26 @@
   appearance: none;
   background: #fff;
   /* vertical-align: middle; */
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .jaxer-checkbox:checked:before,
 .jaxer-radio:checked:before {
-  color: #007bff;
+  /* color: #007bff; */
 }
 
 .checkbox-1:before,
 .checkbox-2:before,
 .checkbox-3:before,
+.checkbox-4:before,
 .radio-1:before,
 .radio-2:before,
-.radio-3:before {
+.radio-3:before,
+.radio-4:before {
   content: "\f10c";
 }
 
@@ -57,6 +64,10 @@
 .checkbox-3:checked:before,
 .radio-3:checked:before {
   content: "\f058";
+}
+.checkbox-4:checked:before,
+.radio-4:checked:before {
+  content: "\f111";
 }
 
 .radio-battery:before,
@@ -93,6 +104,32 @@
 .radio-check-list:checked:before,
 .checkbox-check-list:checked:before {
   content: "\f046";
+}
+
+.radio-envelope:before,
+.checkbox-envelope:before {
+  content: "\f2b6";
+}
+.radio-envelope:checked:before,
+.checkbox-envelope:checked:before {
+  content: "\f0e0";
+}
+.radio-envelope-o:before,
+.checkbox-envelope-o:before {
+  content: "\f2b7";
+}
+.radio-envelope-o:checked:before,
+.checkbox-envelope-o:checked:before {
+  content: "\f003";
+}
+
+.radio-star:before,
+.checkbox-star:before {
+  content: "\f006";
+}
+.radio-star:checked:before,
+.checkbox-star:checked:before {
+  content: "\f005";
 }
 
 .radio-switch:before,
