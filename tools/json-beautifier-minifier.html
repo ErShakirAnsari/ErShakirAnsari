@@ -2,14 +2,11 @@
 <html>
 
 <head>
-	<title>Web page title</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="../cdn/bootstrap/bootstrap-v4.3.1.min.css" rel="stylesheet">
-	<link href="../cdn/fonts/font-awesome-v4.7.0.min.css" rel="stylesheet">
-	<link rel="icon" type="image/gif" href="../cdn/images/gif/loader-001.gif">
-	<script src="./printer.js"></script>
+	<title>JSON beautifier and minifier</title>
 
+	<link href="../cdn/bootstrap/bootstrap-v4.4.1.min.css" rel="stylesheet">
 	<style>
 		.btn {
 			width: 100%
@@ -22,27 +19,94 @@
 	<hr>
 
 	<div class='row'>
-		<div class='col-6'>
+		<div class='col-lg-6 col-md-6 col-sm col-12 mb-2'>
 			Source<br>
-			<textarea class='form-control' rows='14'></textarea>
+			<textarea class='form-control' rows='10' id="sourceText"></textarea>
 		</div>
-		<div class='col-6'>
+		<div class='col-lg-6 col-md-6 col-sm col-12 mb-2'>
 			Target<br>
-			<textarea class='form-control' rows='14'></textarea>
+			<textarea class='form-control' rows='10' id="targetText"></textarea>
 		</div>
 	</div>
 
 	<div class='row my-2'>
-		<div class='col-6'>
-			<button class='btn btn-primary'>Beautify</button>
+		<div class='col-lg-2 col-6 mb-2'>
+			<button class='btn btn-primary' onclick="beautifier()">Beautify</button>
 		</div>
-		<div class='col-6'>
-			<button class='btn btn-primary'>Minify</button>
+		<div class='col-lg-2 col-6 mb-2'>
+			<button class='btn btn-primary' onclick="minifier()">Minify</button>
+		</div>
+		<div class='col-lg-2 col-12'>
+			<select class="form-control" id="tabSize" onchange="tabResized()">
+				<option value="1">Tab size &horbar; 1</option>
+				<option value="2">Tab size &horbar; 2</option>
+				<option value="3" selected>Tab size &horbar; 3</option>
+				<option value="4">Tab size &horbar; 4</option>
+				<option value="5">Tab size &horbar; 5</option>
+				<option value="6">Tab size &horbar; 6</option>
+				<option value="7">Tab size &horbar; 7</option>
+				<option value="8">Tab size &horbar; 8</option>
+				<option value="9">Tab size &horbar; 9</option>
+				<option value="10">Tab size &horbar; 10</option>
+			</select>
 		</div>
 	</div>
 
+	<script src="./js/printer.js"></script>
 	<script>
 		printFooter();
+
+		var sourceText = document.getElementById('sourceText');
+		var targetText = document.getElementById('targetText');
+		var tabSize = document.getElementById('tabSize');
+		var lastAction = 1;
+
+		function validator()
+		{
+			if (sourceText.value.length === 0)
+			{
+				return false;
+			}
+
+			try
+			{
+				JSON.parse(sourceText.value)
+				return true;
+			} catch (error)
+			{
+				alert("Invalid json");
+				return false;
+			}
+		}
+
+		function beautifier()
+		{
+			if (validator())
+			{
+				targetText.value = JSON.stringify(JSON.parse(sourceText.value), null, parseInt(tabSize.value));
+				lastAction = 1;
+			}
+		}
+
+		function minifier()
+		{
+			if (validator())
+			{
+				targetText.value = JSON.stringify(JSON.parse(sourceText.value), null, 0);
+				lastAction = 0;
+			}
+		}
+
+		function tabResized()
+		{
+			if (lastAction === 1)
+			{
+				beautifier();
+			} else
+			{
+				minifier();
+			}
+		}
 	</script>
 </body>
 
