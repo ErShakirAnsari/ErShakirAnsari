@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../js/jquery/jquery-v3.4.1.min.js"></script>
+    <script src="../../js/popper-v1.11.1.min.js"></script>
+    <script src="../bootstrap-v4.4.1.min.js"></script>
+    <link rel="stylesheet" href="../bootstrap-v4.4.1.min.css">
+    <title>bootstrap-toggle-buttons-v4.4.1</title>
+</head>
+
+<body>
+
+    <h1 class="p-4">Demo bootstrap toggle buttons v4.4.1</h1>
+
+    <div class="m-4 p-4 border rounded">
+        <h1>Toggle Button</h1>
+        <button type="button" class="btn btn-primary" data-toggle="button" autocomplete="off">
+            Single Toggle Button
+        </button>
+    </div>
+
+    <div class="m-4 p-4 border rounded">
+        <h1>Checkboxes - vertical</h1>
+        <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-info active">
+                <input type="checkbox" name="options" autocomplete="off" checked> Option A
+            </label>
+            <label class="btn btn-info">
+                <input type="checkbox" name="options" autocomplete="off"> Option B
+            </label>
+            <label class="btn btn-info active">
+                <input type="checkbox" name="options" autocomplete="off" checked> Option C
+            </label>
+        </div>
+
+        <h1>Checkboxes - horizontal</h1>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-primary active">
+                <input type="checkbox" name="options" autocomplete="off" checked> Option A
+            </label>
+            <label class="btn btn-primary">
+                <input type="checkbox" name="options" autocomplete="off"> Option B
+            </label>
+            <label class="btn btn-primary active">
+                <input type="checkbox" name="options" autocomplete="off" checked> Option C
+            </label>
+        </div>
+    </div>
+
+    <div class="m-4 p-4 border rounded">
+        <h1>Radio - horizontal</h1>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-light">
+                <input type="radio" name="options" autocomplete="off"> Option A
+            </label>
+            <label class="btn btn-light active">
+                <input type="radio" name="options" autocomplete="off" checked> Option B
+            </label>
+            <label class="btn btn-light">
+                <input type="radio" name="options" autocomplete="off"> Option C
+            </label>
+        </div>
+
+        <h1>Radio - vertical</h1>
+        <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-light border">
+                <input type="radio" name="options" autocomplete="off"> Option A
+            </label>
+            <label class="btn btn-light border active">
+                <input type="radio" name="options" autocomplete="off" checked> Option B
+            </label>
+            <label class="btn btn-light border">
+                <input type="radio" name="options" autocomplete="off"> Option C
+            </label>
+        </div>
+    </div>
+</body>
+
+</html>
