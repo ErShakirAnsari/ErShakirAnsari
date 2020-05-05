@@ -1,38 +1,47 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<meta charset="utf-8">
-<title>Untitled Document</title>
-<style>
-ul { list-style-type: none; }
-li { display: inline-block; }
+	<meta charset="utf-8">
+	<title>checkbox-v2</title>
+	<style>
+		ul {
+			list-style-type: none;
+		}
 
-input[type="checkbox"][id^="cb"]
-{
-    display: block;
-	position: fixed;
-	cursor: pointer;
-    -webkit-appearance: none;
-    outline: 0;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: contain;
-}
+		li {
+			display: inline-block;
+		}
 
-input[type=checkbox]:not(:checked)
-{
-	background-image: url('./images/add.svg');
-	width: 34px;
-    height: 53px;
-}
-input[type=checkbox]:checked
-{
-	background-image: url('./images/added.svg');
-	width: 34px;
-    height: 34px;
-}
-img { width:200px }
-</style>
+		input[type="checkbox"][id^="cb"] {
+			display: block;
+			position: fixed;
+			cursor: pointer;
+			-webkit-appearance: none;
+			outline: 0;
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: contain;
+		}
+
+		input[type=checkbox]:not(:checked) {
+			/* background-image: url('./images/add.svg'); */
+			background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2234%22%20height%3D%2253%22%20viewBox%3D%220%200%2034%2053%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20width%3D%2234%22%20height%3D%2253%22%20fill%3D%22%23FFF%22%20rx%3D%224%22%2F%3E%3Cpath%20fill%3D%22%232874F0%22%20d%3D%22M10.81%2043.014H7.505L6.813%2045h-1.54l3.222-8.531h1.33L13.054%2045h-1.547l-.697-1.986zm-2.89-1.196h2.474L9.157%2038.28l-1.236%203.54zM14.02%2045v-8.531h2.52c.754%200%201.423.168%202.007.504a3.436%203.436%200%200%201%201.356%201.43c.32.617.48%201.324.48%202.12v.428c0%20.809-.16%201.52-.483%202.133a3.395%203.395%200%200%201-1.377%201.418c-.595.332-1.278.498-2.047.498H14.02zm1.483-7.336v6.152h.967c.777%200%201.374-.243%201.79-.73.416-.485.628-1.184.636-2.094v-.474c0-.926-.202-1.633-.604-2.122-.402-.488-.986-.732-1.752-.732h-1.037zM21.86%2045v-8.531h2.52c.754%200%201.423.168%202.007.504a3.436%203.436%200%200%201%201.356%201.43c.32.617.48%201.324.48%202.12v.428c0%20.809-.16%201.52-.483%202.133a3.395%203.395%200%200%201-1.377%201.418c-.595.332-1.278.498-2.048.498H21.86zm1.483-7.336v6.152h.967c.777%200%201.374-.243%201.79-.73.416-.485.628-1.184.635-2.094v-.474c0-.926-.2-1.633-.603-2.122-.403-.488-.986-.732-1.752-.732h-1.037z%22%2F%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20x%3D%225%22%20y%3D%225%22%20fill%3D%22%23F5FAFF%22%20stroke%3D%22%232874F0%22%20stroke-width%3D%221.5%22%20rx%3D%222%22%2F%3E%3Cpath%20fill%3D%22%232874F0%22%20d%3D%22M23%2018.199h-5.212v5.528h-1.576V18.2H11v-1.67h5.212V11h1.576v5.528H23z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E%0A");
+			width: 34px;
+			height: 53px;
+		}
+
+		input[type=checkbox]:checked {
+			/* background-image: url('./images/added.svg'); */
+			background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2234%22%20height%3D%2234%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20width%3D%2234%22%20height%3D%2234%22%20fill%3D%22%23FFF%22%20rx%3D%224%22%2F%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20x%3D%225%22%20y%3D%225%22%20fill%3D%22%232874F0%22%20stroke%3D%22%232874F0%22%20stroke-width%3D%221.5%22%20rx%3D%222%22%2F%3E%3Cpath%20fill%3D%22%23FFF%22%20d%3D%22M14.733%2022.915L9.4%2017.58l1.504-1.514%203.83%203.829%208.095-8.096%201.504%201.515z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+			width: 34px;
+			height: 34px;
+		}
+
+		img {
+			width: 200px
+		}
+	</style>
 </head>
 
 <body>
@@ -41,13 +50,15 @@ img { width:200px }
 			<li>
 				<input type="checkbox" id="cb1" name="type" value='1' />
 				<a href='https://stackoverflow.com/questions/16352864/how-to-display-image-in-place-of-checkbox'>
-					<img src="https://www.gravatar.com/avatar/c0c658d7d75266a36a707e0f6407f9c0?s=328&d=identicon&r=PG" />
+					<img
+						src="https://www.gravatar.com/avatar/c0c658d7d75266a36a707e0f6407f9c0?s=328&d=identicon&r=PG" />
 				</a>
 			</li>
 			<li>
 				<input type="checkbox" id="cb2" name="type" value='2' />
 				<a href='https://stackoverflow.com/questions/16352864/how-to-display-image-in-place-of-checkbox'>
-				<img src="https://www.gravatar.com/avatar/c0c658d7d75266a36a707e0f6407f9c0?s=328&d=identicon&r=PG" /></a>
+					<img
+						src="https://www.gravatar.com/avatar/c0c658d7d75266a36a707e0f6407f9c0?s=328&d=identicon&r=PG" /></a>
 			</li>
 		</ul>
 	</div>
@@ -56,18 +67,19 @@ img { width:200px }
 	<button onclick='go()'>go</button>
 	<br>
 	<div id='response'></div>
-	
+
 	<script type='text/javascript' src='../cdn/js/jquery/jquery-v3.4.1.min.js'></script>
 	<script>
-	function go()
-	{
-		var yourArray = [];
-		$("input:checkbox[name=type]:checked").each(function()
+		function go()
 		{
-			yourArray.push($(this).val());
-		});
-		$('#response').html(JSON.stringify(yourArray));
-	}
+			var yourArray = [];
+			$("input:checkbox[name=type]:checked").each(function ()
+			{
+				yourArray.push($(this).val());
+			});
+			$('#response').html(JSON.stringify(yourArray));
+		}
 	</script>
 </body>
+
 </html>
