@@ -50,34 +50,48 @@
 			<li>
 				<input type="checkbox" id="cb1" name="type" value='1' />
 				<a href='https://stackoverflow.com/questions/16352864/how-to-display-image-in-place-of-checkbox'>
-					<img
-						src="https://www.gravatar.com/avatar/c0c658d7d75266a36a707e0f6407f9c0?s=328&d=identicon&r=PG" />
+					<img src="../cdn/images/joker.jpeg" />
 				</a>
 			</li>
 			<li>
 				<input type="checkbox" id="cb2" name="type" value='2' />
 				<a href='https://stackoverflow.com/questions/16352864/how-to-display-image-in-place-of-checkbox'>
-					<img
-						src="https://www.gravatar.com/avatar/c0c658d7d75266a36a707e0f6407f9c0?s=328&d=identicon&r=PG" /></a>
+					<img src="../cdn/images/joker.jpeg" />
+				</a>
 			</li>
 		</ul>
 	</div>
 
 	<hr>
-	<button onclick='go()'>go</button>
+	Response:
 	<br>
 	<div id='response'></div>
 
-	<script type='text/javascript' src='../cdn/js/jquery/jquery-v3.4.1.min.js'></script>
 	<script>
-		function go()
+		const responseDiv = document.getElementById('response');
+		const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+		const idList = [];
+
+		for (checkbox of checkboxes)
 		{
-			var yourArray = [];
-			$("input:checkbox[name=type]:checked").each(function ()
+			checkbox.addEventListener('change', function ()
 			{
-				yourArray.push($(this).val());
+				if (this.checked)
+				{
+					console.log('checked');
+					idList.push(this.value);
+				} else
+				{
+					console.log('unchecked')
+					var idx = idList.indexOf(this.value);
+					if (idx >= 0)
+					{
+						idList.splice(idx, 1);
+					}
+				}
+				// responseDiv.innerHTML = `Your id list: ${JSON.stringify(idList)}`;
+				responseDiv.innerHTML = `Your id list: ${idList}`;
 			});
-			$('#response').html(JSON.stringify(yourArray));
 		}
 	</script>
 </body>
