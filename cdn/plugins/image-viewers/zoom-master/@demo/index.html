@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <body>
+        <p> Two fingers to zoom, rotate, and move </p>
+        <p> Double Click to reset </p>
+        <div width=320 height=240 style="overflow:hidden;">
+            <img id="mysenn" width=320 height=240 src="../../../../images/joker.jpeg">
+        </div>
+        <hr>
+        <div style="overflow:hidden;">
+            <img id="mysenn1" src="../../../../images/joker.jpeg">
+        </div>
+        <hr>
+        <p> Single finger is for page scroll.</p>
+        <p>Get it here</p>
+        <a href="https://github.com/anitasv/zoom">https://github.com/anitasv/zoom</a>
+        <script type="text/javascript" src="../zoom-v1.0.7.min.js"> </script>
+        <script type="text/javascript">
+            var zm = new Zoom(document.getElementById('mysenn'), {
+                pan: true,
+                rotate: true
+            });
+            var zm = new Zoom(document.getElementById('mysenn1'), {
+                pan: true,
+                rotate: true
+            });
+        </script>
+    </body>
+</body>
+
+</html>
