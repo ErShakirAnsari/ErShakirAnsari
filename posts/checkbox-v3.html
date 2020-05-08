@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>checkbox-v3</title>
+	<style>
+		.spl-checkbox {
+			/* display: block;
+			position: fixed; */
+			position: absolute;
+			cursor: pointer;
+			-webkit-appearance: none;
+			outline: 0;
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: contain;
+		}
+
+		.spl-checkbox:not(:checked) {
+			background-image: url('../cdn/images/svgs/add.svg');
+			width: 34px;
+			height: 53px;
+		}
+
+		.spl-checkbox:checked {
+			background-image: url('../cdn/images/svgs/added.svg');
+			width: 34px;
+			height: 34px;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- <img src="../cdn/images/svgs/add.svg" alt=""> -->
+	<div class="container">
+		<input type="checkbox" id="cb1" name="type" value='1' class='spl-checkbox' />
+		<a href='https://stackoverflow.com/questions/16352864/how-to-display-image-in-place-of-checkbox'>
+			<img src="../cdn/images/joker.jpeg" />
+		</a>
+
+		<br>
+
+		<input type="checkbox" id="cb2" name="type" value='2' class='spl-checkbox' />
+		<a href='https://stackoverflow.com/questions/16352864/how-to-display-image-in-place-of-checkbox'>
+			<img src="../cdn/images/joker.jpeg" />
+		</a>
+	</div>
+
+	<hr>
+	Response:
+	<br>
+	<div id='response'></div>
+
+	<script>
+		const responseDiv = document.getElementById('response');
+		const checkboxes = document.querySelectorAll('.spl-checkbox');
+		const idList = [];
+
+		for (checkbox of checkboxes)
+		{
+			checkbox.addEventListener('change', function ()
+			{
+				if (this.checked)
+				{
+					console.log('checked');
+					idList.push(this.value);
+				} else
+				{
+					console.log('unchecked')
+					var idx = idList.indexOf(this.value);
+					if (idx >= 0)
+					{
+						idList.splice(idx, 1);
+					}
+				}
+				// responseDiv.innerHTML = `Your id list: ${JSON.stringify(idList)}`;
+				responseDiv.innerHTML = `Your id list: ${idList}`;
+			});
+		}
+	</script>
+</body>
+
+</html>
