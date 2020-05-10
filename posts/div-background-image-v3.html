@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>div-background-image-v2</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<style>
+		#myDIV {
+			width: 500px;
+			height: 500px;
+			background-color: lightgray;
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: contain;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div id='myDIV'>
+	</div>
+
+	<br>
+
+	<button onclick='zoomIn()'> + </button>
+	<button onclick='zoomOut()'> - </button>
+
+	<br>
+	<br>
+
+	<button onclick='goLeft()'> left </button>
+	<button onclick='goTop()'> top </button>
+	<button onclick='goRight()'> right </button>
+	<button onclick='goBottom()'> bottom </button>
+
+	<script>
+		var backgroundImageUrl = '../cdn/images/joker.jpeg';
+		var myDIV = null;
+		var bgWidth = 0, bgHeight = 0;
+		var myDivWidth = 500, myDivHeight = 500;
+		var zoomStep = 5;
+		var moveStep = 10;
+		var bgPosX = 0;
+		var bgPosY = 0;
+		var img = new Image();
+		img.src = backgroundImageUrl;
+
+		img.onload = function ()
+		{
+			bgHeight = img.height;
+			bgWidth = img.width;
+			init();
+		}
+
+		function init()
+		{
+			myDIV = document.getElementById("myDIV");
+			myDIV.style.backgroundImage = "url('" + backgroundImageUrl + "')";
+			console.log('from init()', myDIV);
+
+			centerImage();
+
+			bgPosX = -(bgWidth - myDivWidth) / 2;
+			bgPosY = -(bgHeight - myDivHeight) / 2;
+			console.log(`bgPosX: ${bgPosX}, bgPosY: ${bgPosY}`);
+
+			myDIV.addEventListener('wheel', onWheel);
+			myDIV.addEventListener('mousedown', draggable);
+		}
+
+		function centerImage()
+		{
+			let weight = 0;
+			if (bgWidth > bgHeight)
+			{
+				weight = bgWidth / myDivWidth;
+				bgWidth = myDivWidth;
+				bgHeight = bgHeight / weight;
+			} else
+			{
+				weight = bgHeight / myDivWidth;
+				bgHeight = myDivWidth;
+				bgWidth = bgWidth / weight;
+			}
+		}
+
+
+		function zoomIn()
+		{
+			__zoom(zoomStep);
+		}
+
+		function zoomOut()
+		{
+			__zoom(-zoomStep);
+		}
+
+		let tempX = 0, tempY = 0, tempWeight = 2;
+		function __zoom(weight)
+		{
+			bgWidth = bgWidth + (bgWidth * weight) / 100;
+			bgHeight = bgHeight + (bgHeight * weight) / 100;
+
+			//console.log('bgWidth: ' + bgWidth + ', bgHeight: ' + bgHeight + ', weight: ' + weight);
+			//console.log('bgPosX: ' + bgPosX + ', bgPosY: ' + bgPosY);
+
+			myDIV.style.backgroundSize = bgWidth + "px " + bgHeight + "px";
+			//myDIV.style.backgroundPosition = bgPosX + 'px ' + bgPosY + 'px';
+			//myDIV.style.backgroundPosition = 'center center';
+
+			if (weight > 0)
+			{
+				tempX = tempX + tempWeight;
+				tempY = tempY + tempWeight;
+				bgPosX -= (moveStep + tempX);
+				bgPosY -= (moveStep + tempY);
+				goTop()
+			} else
+			{
+				tempX = tempX - tempWeight;
+				tempY = tempY - tempWeight;
+				bgPosX += (moveStep + tempX);
+				bgPosY += (moveStep + tempY);
+				goBottom();
+			}
+
+			__goMove();
+		}
+
+		function onWheel(e)
+		{
+			e.preventDefault();
+			if (e.deltaY)
+			{
+				deltaY = e.deltaY;
+			} else if (e.wheelDelta) 
+			{
+				deltaY = -e.wheelDelta;
+			}
+
+			var weight = (deltaY > 0) ? -zoomStep : zoomStep;
+
+			var offsetX = e.pageX - bgPosX;
+			var offsetY = e.pageY - bgPosY;
+
+			offsetX = offsetX / bgWidth;
+			offsetY = offsetY / bgHeight;
+
+			bgPosX = bgPosX - (bgWidth * weight * offsetX) / 100;
+			bgPosY = bgPosY - (bgHeight * weight * offsetY) / 100;
+
+			// console.log(`bgPosX: ${bgPosX}, bgPosY: ${bgPosY}`);
+			console.log(`e.pageX: ${e.pageX}, e.pageY: ${e.pageY}`);
+
+
+			//console.log(rect);
+			//console.log('e.pageX: ' + e.pageX + ', rect.left: ' + rect.left+ ', bgPosX: ' + bgPosX);
+
+
+			bgWidth = bgWidth + (bgWidth * weight) / 100;
+			bgHeight = bgHeight + (bgHeight * weight) / 100;
+
+			myDIV.style.backgroundSize = bgWidth + "px " + bgHeight + "px";
+			myDIV.style.backgroundPosition = bgPosX + 'px ' + bgPosY + 'px';
+
+
+
+		}
+
+		function draggable(e)
+		{
+			e.preventDefault();
+			previousEvent = e;
+			document.addEventListener('mousemove', drag);
+			document.addEventListener('mouseup', removeDrag);
+		}
+
+		function drag(e)
+		{
+			e.preventDefault();
+			bgPosX += (e.pageX - previousEvent.pageX);
+			bgPosY += (e.pageY - previousEvent.pageY);
+
+			previousEvent = e;
+
+			console.log(`bgPosX: ${bgPosX}, bgPosY: ${bgPosY}`);
+
+
+			myDIV.style.backgroundSize = bgWidth + "px " + bgHeight + "px";
+			myDIV.style.backgroundPosition = bgPosX + 'px ' + bgPosY + 'px';
+		}
+
+		function removeDrag()
+		{
+			document.removeEventListener('mouseup', removeDrag);
+			document.removeEventListener('mousemove', drag);
+		}
+	</script>
+
+</body>
+
+</html>

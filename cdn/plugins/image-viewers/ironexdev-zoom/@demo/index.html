@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ironexdev-zoom-v1.0.0</title>
+    <style>
+        #container {
+            height: 100%;
+            margin: 0 auto 0 auto;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        #container .zoom {
+            background-color: #DDD;
+            height: 100%;
+            margin: auto;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        #container .zoom .media {
+            bottom: 0;
+            display: block;
+            left: 0;
+            margin: auto;
+            max-height: 100%;
+            max-width: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            -moz-transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+            -o-transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+        }
+
+        .transition {
+            transition: -moz-transform ease 200ms;
+            transition: -ms-transform ease 200ms;
+            transition: -o-transform ease 200ms;
+            transition: -webkit-transform ease 200ms;
+            transition: transform ease 200ms;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="zoom">
+            <img class="media" src="../../../../images/joker.jpeg" alt="test1">
+        </div>
+    </div>
+
+    <script type="text/javascript" src="../ironexdev-zoom-v1.0.0.js"></script>
+</body>
+
+</html>
