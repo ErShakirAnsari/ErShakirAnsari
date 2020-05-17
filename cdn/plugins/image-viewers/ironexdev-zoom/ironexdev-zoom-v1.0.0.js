@@ -1,8 +1,5 @@
 "use strict";
 
-/* @->zoom */
-zoom();
-
 /* @-<zoom ********************************************************************/
 /******************************************************************************/
 function zoom(classNames, settings) {
@@ -504,6 +501,7 @@ function zoom(classNames, settings) {
     /* @-<wheel *****************************************************************/
     /****************************************************************************/
     function wheel(e) {
+		event.preventDefault();
         /* Initialize selectors */
         $container = this;
         $element = this.children[0];
