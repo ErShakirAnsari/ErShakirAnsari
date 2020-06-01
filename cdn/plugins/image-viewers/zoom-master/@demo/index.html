@@ -20,6 +20,10 @@
             <img id="mysenn1" src="../../../../images/joker.jpeg">
         </div>
         <hr>
+		<button onclick='reset();'>
+			reset()
+		</button>
+        <hr>
         <p> Single finger is for page scroll.</p>
         <p>Get it here</p>
         <a href="https://github.com/anitasv/zoom">https://github.com/anitasv/zoom</a>
@@ -29,10 +33,16 @@
                 pan: true,
                 rotate: true
             });
-            var zm = new Zoom(document.getElementById('mysenn1'), {
+            var zm1 = new Zoom(document.getElementById('mysenn1'), {
                 pan: true,
                 rotate: true
             });
+			
+			function reset()
+			{
+				zm1.reset();
+				zm2.reset();
+			}
         </script>
     </body>
 </body>
