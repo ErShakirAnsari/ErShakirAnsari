@@ -1,7 +1,6 @@
 
 package cdn;
 
-
 import cdn.github.utils.AppUtilities;
 import cdn.github.utils.Constants;
 import java.io.BufferedWriter;
@@ -14,7 +13,7 @@ import java.util.ArrayList;
  *
  * @author Shakir Ansari
  */
-public class CdnMain2
+public class Main
 {
 	public static void main(String[] args) throws Exception
 	{
@@ -23,13 +22,14 @@ public class CdnMain2
 			throw new IllegalArgumentException("Please provide build mode [" + Constants.MODE_DEV + " OR " + Constants.MODE_PROD + "]");
 		}
 
+		int version = 3;
 		Constants.MODE = args[0];
-		System.out.println("cdn.CdnMain2.main() - Constants.MODE: " + Constants.MODE);
+		System.out.println("Main.main() - Constants.MODE: " + Constants.MODE);
 
 		try (Writer writer = new BufferedWriter(new FileWriter(Constants.indexFile));)
 		{
 			writer.append(AppUtilities.getLogo());
-			writer.append(AppUtilities.getHead(2));
+			writer.append(AppUtilities.getHead(version));
 
 			writer.append("<script>");
 
@@ -39,8 +39,8 @@ public class CdnMain2
 			writer.append("var timestamp=" + System.currentTimeMillis() + ";");
 			writer.append("</script>");
 
-			writer.append(AppUtilities.getAbout(2));
-			writer.append(AppUtilities.getBodyEnd(2));
+			writer.append(AppUtilities.getAbout(version));
+			writer.append(AppUtilities.getBodyEnd(version));
 
 			System.out.println("cdn.CdnMain2.main() - " + Constants.indexFile);
 			System.out.println("****************** DONE ******************");

@@ -1,5 +1,5 @@
-<script type='text/javascript' src='./jquery/jquery-v3.3.1.min.js'></script>
-<script type='text/javascript' src='./typed-js/typed-v2.0.9.min.js'></script>
+<script type='text/javascript' src='./js/jquery/jquery-v3.3.1.min.js'></script>
+<script type='text/javascript' src='./js/typed-v2.0.9.min.js'></script>
 <script type='text/javascript' src='./bootstrap/bootstrap-v4.3.1.min.js'></script>
 <script>
 	var typed = new Typed("#typed", {strings: ['NO WARRANTY EXPRESSED OR IMPLIED.', 'USE AT YOUR OWN RISK.', 'USE YOUR OWN COPY.', 'IT IS EXTREMELY UNWISE TO LOAD CODE FROM SERVERS YOU DO NOT CONTROL.'], typeSpeed: 30, backSpeed: 30, backDelay: 5000, startDelay: 1000, loop: true, cursorChar: '_'});
@@ -41,9 +41,9 @@
 		{
 			text = "<script type='text/javascript' src='" + text + "'></script" + ">";
 		} else if (textLowerCase.endsWith(".jpeg") ||
-				  textLowerCase.endsWith(".jpg") ||
-				  textLowerCase.endsWith(".gif") ||
-				  textLowerCase.endsWith(".png"))
+				textLowerCase.endsWith(".jpg") ||
+				textLowerCase.endsWith(".gif") ||
+				textLowerCase.endsWith(".png"))
 		{
 			text = "<img '" + text + "' alt='" + text.substring(text.lastIndexOf("/") + 1, text.length) + "' />";
 		}

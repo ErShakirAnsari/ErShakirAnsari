@@ -78,6 +78,11 @@ public class AppUtilities
 		}
 	}
 
+	public static String readFile(int version, String fileName, boolean minified) throws Exception
+	{
+		return readFile("v" + version + File.separator + fileName, minified);
+	}
+
 	public static String readFile(String fileName, boolean minified) throws Exception
 	{
 		if (fileName == null)
@@ -109,13 +114,13 @@ public class AppUtilities
 	public static String getBodyEnd(int version) throws Exception
 	{
 		boolean minified = Constants.MODE.equals(Constants.MODE_PROD);
-		return readFile(version + Constants.indexBodyEnd, minified);
+		return readFile(version, Constants.indexBodyEnd, minified);
 	}
 
 	public static String getHead(int version) throws Exception
 	{
 		boolean minified = Constants.MODE.equals(Constants.MODE_PROD);
-		return readFile(version + Constants.indexHead, minified);
+		return readFile(version, Constants.indexHead, minified);
 	}
 
 	public static String getLogo() throws Exception
