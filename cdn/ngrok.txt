@@ -1,0 +1,1 @@
+ngrok.exe http 8080 --authtoken 1i2xNCqLKZR5T7J4DHDCWULLhSg_tAe9hzmeVxePauTcS6vk
