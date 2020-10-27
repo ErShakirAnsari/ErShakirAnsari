@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Posts</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="../cdn/bootstrap/bootstrap-v4.3.1.min.css" rel="stylesheet">
+	<link href="../cdn/fonts/font-awesome-v4.7.0.min.css" rel="stylesheet">
+	<style>
+		body {
+			padding-top: 56px
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Navigation -->
+	<script language='javascript' type='text/javascript' src='nav-bar.txt'></script>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 mt-3" style='text-transform:capitalize'>
+				<i class='fa fa-book'></i>
+				<a href='how-to-create-local-network-without-internet-in-raspberry.html'>
+					how to create local network without internet in raspberry
+				</a>
+				<br>
+				<i class='fa fa-book'></i><a href='image-rotation.html'> image rotation with css and js</a><br>
+				<i class='fa fa-book'></i><a href='image-zoom.html'> image-zoom with css and js</a><br>
+				<i class='fa fa-book'></i><a href='autocomplete-js.html'> autocomplete-js.html</a><br>
+				<i class='fa fa-book'></i><a href='clipboard-copy-js.html'> clipboard-copy-js.html</a><br>
+				<i class='fa fa-book'></i><a href='custom-scrollbar.html'> custom-scrollbar.html</a><br>
+				<i class='fa fa-book'></i><a href='checkbox.html'> checkbox.html</a><br>
+				<i class='fa fa-book'></i><a href='checkbox-v2.html'> checkbox-v2.html</a><br>
+				<i class='fa fa-book'></i><a href='github-ajax.html'> github-ajax.html</a><br>
+				<i class='fa fa-book'></i><a href='github-ajax-promise.html'> github-ajax-promise.html</a><br>
+				<i class='fa fa-book'></i><a href='div-background-image.html'> div-background-image.html</a><br>
+				<i class='fa fa-book'></i><a href='qr.html'> qr.html</a><br>
+				<i class='fa fa-book'></i><a href='bootstrap-select-picker.html'> bootstrap-select-picker.html</a><br>
+				<!-- <i class='fa fa-book'></i><a href=''> </a><br> -->
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<script language='javascript' type='text/javascript' src='footer.txt'></script>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="../cdn/js/jquery/jquery-v3.3.1.min.js"></script>
+	<script src="../cdn/bootstrap/bootstrap-v4.3.1.min.js"></script>
+
+	<script>
+		(function ($, window, document, undefined)
+		{
+			$(function ()
+			{
+				$("#header").load("header.html");
+				$("#footer").load("./footer.html");
+			});
+		})(jQuery, window, document);
+	</script>
+</body>
+
+</html>
