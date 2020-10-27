@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>How to debug android app wirelessly on android studio</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="../cdn/bootstrap/bootstrap-v4.3.1.min.css" rel="stylesheet">
+
+	<style>
+		.post-logo {
+			background-image: url('./images/logo-android.png');
+			background-repeat: no-repeat;
+			background-position: center;
+			height: 163px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<!-- Navigation -->
+	<script language='javascript' type='text/javascript' src='nav-bar.txt'></script>
+
+	<div class="container mt-5">
+		<div class="row my-2">
+			<div class="col-lg-12 my-3">
+				<h1 class="mt-4">How to debug android app wirelessly on android studio</h1>
+
+				<p class="lead">
+					by <a href='../cv/index.html' target='_blank'>Shakir Ansari</a>
+				</p>
+
+				<hr>
+
+				<p>
+					<img src="./images/calendar-001.svg" width="18px"/>&nbsp;
+					Posted on Oct 27, 2020 at 12:28 PM
+				</p>
+
+				<hr>
+
+				<!-- Preview Image -->
+				<div class="post-logo">
+				</div>
+
+				<hr>
+
+				<h5>Step 1: </h5>
+				Goto your Android sdk folder -> platform tools and copy the whole path
+
+				<br>
+				For example: C:\Program Files (x86)\Android\android-sdk\platform-tools
+
+				<br><br>
+				<h5>Step 2: </h5>
+				Goto command prompt or Android studio terminal
+
+				<br>
+				<br>Windows users:
+				<br>cd C:\Program Files (x86)\Android\android-sdk\platform-tools
+
+				<br> Mac Users:
+				<br> /Users/&lt;username&gt;/Library/Android/sdk/platform-tools
+
+				<br>
+				<br>
+				and press enter
+
+				<br><br>
+				<h5>Step 3: </h5>
+				Connect your device & system with same wifi.
+
+				<br><br>
+				<h5>Step 4: </h5>
+				Type adb tcpip 5555 and press Enter.
+
+				<br><br>
+				<h5>Step 5: </h5>
+				Type adb connect x.x.x.x:5555, replacing the x.x.x.x with your phone IP address.
+
+				<br><br>
+				<h5>Find out phone IP address:</h5>
+				Settings -> About phone -> Status (some phones may be vary)
+
+				<br>
+				<br><b>Note: </b>In case that you connect more than one device, disconnect other phones except the one
+				you need
+				to connect.
+
+
+
+
+				<br>
+				<br>
+				<blockquote class="blockquote">
+					<a href="https://stackoverflow.com/a/44195944/7418534"
+						target="_blank">https://stackoverflow.com/a/44195944/7418534</a>
+					<footer class="blockquote-footer">Reference
+						<!--<cite title="Source Title">Please visit</cite>-->
+					</footer>
+				</blockquote>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<!-- Footer -->
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<script language='javascript' type='text/javascript' src='footer.txt'></script>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="../cdn/js/jquery/jquery-v3.3.1.min.js"></script>
+	<script src="../cdn/bootstrap/bootstrap-v4.3.1.min.js"></script>
+
+	<script>
+		$('.card-header').click(function ()
+		{
+			$(this).next('.card-body').toggle(500);
+		});
+	</script>
+</body>
+
+</html>
