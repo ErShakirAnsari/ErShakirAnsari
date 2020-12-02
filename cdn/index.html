@@ -17,82 +17,107 @@
 ---------------------------------------------------------------------------------------------- -->
 <!DOCTYPE html>
 <html>
-	<head>
-		<title> Static quick links </title>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<link rel='stylesheet' type='text/css' href='./bootstrap/bootstrap-v4.3.1.min.css'>
-		<link rel='stylesheet' type='text/css' href='./fonts/font-awesome-v4.7.0.min.css'>
-		<link rel="icon" type="image/gif" href="../cdn/images/gif/loader-001.gif">
-		<style>
-			body{background: transparent url('./images/web-bgs/min/web-bg-013.png');}
-			label{display:block;font:normal 1.15em consolas}
-			label code{color:#007bff !important}
-			label i {color:#555;cursor:pointer}
-			button {width:100%}
-		</style>
-	</head>
-	<body class='my-3 mx-5'>
-		<h1><i class="fa fa-archive" aria-hidden="true"></i> Static files</h1>
-		<h5 class='text-muted text-transform: lowercase'>$root: <span id="typed" style="white-space:pre;"></span></h5>
 
-		<hr>
-
-		<div class='row m-1'>
-			<div class='col-md-11 col-sm-10'>
-				<input type='search' class='form-control' onkeydown='search(this)' onkeyup='search(this)' placeholder='Search here..'/>
-			</div>
-			<div class='col-md-1 col-sm-2'>
-				<select class='form-control' id='idSelectResultSize'></select>
-			</div>
-		</div>
-
-		<div class='row mx-2'>
-			<div class='col-12' id='idDivSearchResult' style='background-color:rgba(255,255,255,0.2)'>
-				<!--<div class='col-12' id='idDivSearchResult' style='background-color:rgba(0,0,0,0.1)'>-->
-			</div>
-		</div>
-<script>var timestamp=1591265684891;</script><br><hr><h6 class='text-right p-0 m-0'>Writter by - <a href='https://ershakiransari.github.io/cv' target='_blank'>Shakir Ansari</a><br>&copy; Jaxer - 2020 | Version - 2<!-- <br>Last updated on: 04 Jun, 2020 - 15:44  --></h6><script type='text/javascript' src='./js/jquery/jquery-v3.3.1.min.js'></script>
-<script type='text/javascript' src='./js/typed-v2.0.9.min.js'></script>
-<script type='text/javascript' src='./bootstrap/bootstrap-v4.3.1.min.js'></script>
-<script>
-	var typed = new Typed("#typed", {strings: ['NO WARRANTY EXPRESSED OR IMPLIED.', 'USE AT YOUR OWN RISK.', 'USE YOUR OWN COPY.', 'IT IS EXTREMELY UNWISE TO LOAD CODE FROM SERVERS YOU DO NOT CONTROL.'], typeSpeed: 30, backSpeed: 30, backDelay: 5000, startDelay: 1000, loop: true, cursorChar: '_'});
-	var SEARCH_RESULT_SELECT = $('#idSelectResultSize');
-	var files = null;
-
-	function setLocal(key, valueObj)
-	{
-		localStorage.setItem(key, JSON.stringify(valueObj));
-	}
-
-	function getLocal(key)
-	{
-		if (localStorage.getItem(key) && localStorage.getItem(key) !== 'undefined')
-		{
-			return JSON.parse(localStorage.getItem(key));
+<head>
+	<title> Static quick links </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel='stylesheet' type='text/css' href='./bootstrap/bootstrap-v4.3.1.min.css'>
+	<link rel='stylesheet' type='text/css' href='./fonts/font-awesome-v4.7.0.min.css'>
+	<link rel="icon" type="image/gif" href="../cdn/images/gif/loader-001.gif">
+	<style>
+		body {
+			background: transparent url('./images/web-bgs/min/web-bg-013.png');
 		}
-		return null;
-	}
 
-	function genResultSize()
-	{
-		let str = "";
-		for (let i = 1; i <= 5; i++)
-		{
-			str += "<option value='" + (i * 10) + "'>" + (i * 10) + "</option>";
+		label {
+			display: block;
+			font: normal 1.15em consolas
 		}
-		SEARCH_RESULT_SELECT.html('').html(str);
-	}
-	genResultSize();
 
-	function copyAsHtml(text)
-	{
-		let textLowerCase = text.toLowerCase();
-		if (text.endsWith(".css"))
+		label code {
+			color: #007bff !important
+		}
+
+		label i {
+			color: #555;
+			cursor: pointer
+		}
+
+		button {
+			width: 100%
+		}
+	</style>
+</head>
+
+<body class='my-3 mx-5'>
+	<h1><i class="fa fa-archive" aria-hidden="true"></i> Static files</h1>
+	<h5 class='text-muted text-transform: lowercase'>$root: <span id="typed" style="white-space:pre;"></span></h5>
+
+	<hr>
+
+	<div class='row m-1'>
+		<div class='col-md-11 col-sm-10'>
+			<input type='search' class='form-control' onkeydown='search(this)' onkeyup='search(this)'
+				placeholder='Search here..' />
+		</div>
+		<div class='col-md-1 col-sm-2'>
+			<select class='form-control' id='idSelectResultSize'></select>
+		</div>
+	</div>
+
+	<div class='row mx-2'>
+		<div class='col-12' id='idDivSearchResult' style='background-color:rgba(255,255,255,0.2)'>
+			<!--<div class='col-12' id='idDivSearchResult' style='background-color:rgba(0,0,0,0.1)'>-->
+		</div>
+	</div>
+	<script>var timestamp = 1591265684891;</script><br>
+	<hr>
+	<h6 class='text-right p-0 m-0'>Writter by - <a href='https://ershakiransari.github.io/cv' target='_blank'>Shakir
+			Ansari</a><br>&copy; Jaxer - 2020 | Version - 2
+		<!-- <br>Last updated on: 04 Jun, 2020 - 15:44  -->
+	</h6>
+	<script type='text/javascript' src='./js/jquery/jquery-v3.3.1.min.js'></script>
+	<script type='text/javascript' src='./js/typed-v2.0.9.min.js'></script>
+	<script type='text/javascript' src='./bootstrap/bootstrap-v4.3.1.min.js'></script>
+	<script>
+		var typed = new Typed("#typed", { strings: ['NO WARRANTY EXPRESSED OR IMPLIED.', 'USE AT YOUR OWN RISK.', 'USE YOUR OWN COPY.', 'IT IS EXTREMELY UNWISE TO LOAD CODE FROM SERVERS YOU DO NOT CONTROL.'], typeSpeed: 30, backSpeed: 30, backDelay: 5000, startDelay: 1000, loop: true, cursorChar: '_' });
+		var SEARCH_RESULT_SELECT = $('#idSelectResultSize');
+		var files = null;
+
+		function setLocal(key, valueObj)
 		{
-			text = "<link rel='stylesheet' type='text/css' href='" + text + "'>";
-		} else if (text.endsWith(".js"))
+			localStorage.setItem(key, JSON.stringify(valueObj));
+		}
+
+		function getLocal(key)
 		{
-			text = "<script type='text/javascript' src='" + text + "'></script" + ">";
+			if (localStorage.getItem(key) && localStorage.getItem(key) !== 'undefined')
+			{
+				return JSON.parse(localStorage.getItem(key));
+			}
+			return null;
+		}
+
+		function genResultSize()
+		{
+			let str = "";
+			for (let i = 1; i <= 5; i++)
+			{
+				str += "<option value='" + (i * 10) + "'>" + (i * 10) + "</option>";
+			}
+			SEARCH_RESULT_SELECT.html('').html(str);
+		}
+		genResultSize();
+
+		function copyAsHtml(text)
+		{
+			let textLowerCase = text.toLowerCase();
+			if (text.endsWith(".css"))
+			{
+				text = "<link rel='stylesheet' type='text/css' href='" + text + "'>";
+			} else if (text.endsWith(".js"))
+			{
+				text = "<script type='text/javascript' src='" + text + "'></script" + ">";
 		} else if (textLowerCase.endsWith(".jpeg") ||
 				textLowerCase.endsWith(".jpg") ||
 				textLowerCase.endsWith(".gif") ||
@@ -194,4 +219,5 @@
 
 </script>
 </body>
+
 </html>
