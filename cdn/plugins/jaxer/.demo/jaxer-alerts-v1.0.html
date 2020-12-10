@@ -1,0 +1,67 @@
+<!--
+    Document   : JaxerAlerts-1.0
+    Created on : May 28, 2014, 6:24:05 PM
+    Author     : SKR
+-->
+<!DOCTYPE html>
+<html>
+   <head>
+      <title> SKR|Custom Pop Up </title>
+      <style> body { background: transparent url(../../../../RSC/img/FloatingClouds.jpg) no-repeat; background-size: cover auto; } </style>
+      <script type="text/javascript" src="../../../../RSC/jquery-1.9.1.js"></script>
+      <link  href="src/JaxerAlerts-1.0.css" rel="stylesheet">
+      <script src="src/JaxerAlerts-1.0.js"></script>
+      <script type="text/javascript">
+         $(document).ready(function() {
+            $("#idAlert").click(function() {
+               $.JaxerAlerts({
+                  title: 'Title',
+                  message: 'Hi everyOne this is simple alert box from Jaxer\n<a href="#"> Jaxer.com </a>',
+                  response: function(data) {
+                     //alert('result:\n' + data);
+                  }
+               });
+            });
+
+            $("#idConfirm").click(function() {
+               $.JaxerAlerts({
+                  alertType: 'confirm',
+                  message: 'Are you sure to delete this thread..??',
+                  okButton: 'DeleteDelete',
+                  response: function(data) {
+                     alert('result:\n' + data);
+                  }
+               });
+            });
+
+            $("#idPrompt").click(function() {
+               $.JaxerAlerts({
+                  alertType: 'prompt',
+                  value: 'whatever you want',
+                  response: function(data) {
+                     alert('result:\n' + data);
+                  }
+               });
+            });
+
+            $('#idPromptPass').click(function() {
+               $.JaxerAlerts({
+                  alertType: 'prompt',
+                  inputType: 'password',
+                  value: 'whatever you want',
+                  response: function(data) {
+                     alert('result:\n' + data);
+                  }
+               });
+            });
+         });
+      </script>
+   </head>
+
+   <body>
+      <a href="javascript: void(0);" id='idAlert'> Alert </a> <br>
+      <a href="javascript: void(0);" id='idConfirm'> Confirm Alert </a> <br>
+      <a href="javascript: void(0);" id='idPrompt'> Prompt Normal </a> <br>
+      <a href="javascript: void(0);" id='idPromptPass'> Prompt password </a> <br>
+   </body>
+</html>
