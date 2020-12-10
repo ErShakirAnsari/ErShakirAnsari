@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Cross-Browser QRCode generator for Javascript</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+		<link rel='stylesheet' type='text/css' href='../../bootstrap/bootstrap-v4.3.1.min.css'>
+	</head>
+	
+	<body class='m-5'>
+		
+		<div class='row'>
+			<div class='col-md-12 col-sm-12 mb-2'>
+				<h5 class='m-0'>Text or name</h5>
+				<input id="text" type="text" value="ErShakirAnsari" class='form-control'>
+			</div>
+			
+			<div class='col-sm-4 mb-2'>
+				<h5 class='m-0'>Width</h5>
+				<input id="width" type="number" value="200" class='form-control'>
+			</div>
+				
+			<div class='col-sm-4 mb-2'>
+				<h5 class='m-0'>Height</h5>
+				<input id="height" type="number" value="200" class='form-control'>
+			</div>
+				
+			<div class='col-sm-4 mb-2'>
+				<h5 class='m-0'>Border</h5>
+				<input id="border" type="number" value="10" class='form-control'>
+			</div>
+				
+			<div class='col-md-12 my-2 text-center'>				
+				<button class='btn btn-primary' onclick='makeCode()'>Generate QRCode</button>
+			</div>
+	
+			<hr>
+			<div class='col-md-12 mb-2'>				
+				<center>
+					<div id="qrcode" class='m-0 mt-2 mx-auto'></div>
+				</center>
+			</div>
+		</div>
+		
+		
+		<script type='text/javascript' src='../../jquery/jquery-v3.3.1.min.js'></script>
+		<script type="text/javascript" src="../qrcode-border.min.js"></script>
+		<script type="text/javascript">
+			var qrcode = new QRCode(document.getElementById("qrcode"),
+			{
+				width : $('#width').val(), //200, //parseInt(document.getElementById("width")),
+				height : $('#height').val(), //200, //parseInt(document.getElementById("height")),
+				border: $('#border').val() //4, //parseInt(document.getElementById("border"))
+			});
+			
+			function makeCode () 
+			{
+				var elText = $('#text').val();//document.getElementById("text");
+				if (!elText) {
+					alert("Input a text");
+					//elText.focus();
+					return;
+				}
+				qrcode.makeCode(elText);
+			}
+			makeCode();
+			
+			$("#text")
+			.on("blur", function () {
+				makeCode();
+			}).on("keydown", function (e) {
+				if (e.keyCode == 13) {
+					makeCode();
+				}
+			});
+		</script>
+		<hr>
+		<footer>
+			Developed by @shakir
+		</footer>
+	</body>
+</html>

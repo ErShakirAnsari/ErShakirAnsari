@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>insert title here</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+	</head>
+	<body>
+		<div id="results1" class="results">
+			<img data-src='https://picsum.photos/458/350' /> <br>
+			<img data-src='https://picsum.photos/458/351' /> <br>
+			<img data-src='https://picsum.photos/458/352' /> <br>
+			<img data-src='https://picsum.photos/458/353' /> <br>
+			<img data-src='https://picsum.photos/458/354' /> <br>
+			<img data-src='https://picsum.photos/458/355' /> <br>
+			<img data-src='https://picsum.photos/458/356' /> <br>
+			<img data-src='https://picsum.photos/458/357' /> <br>
+			<img data-src='https://picsum.photos/458/358' /> <br>
+			<img data-src='https://picsum.photos/458/359' /> <br>
+			<img data-src='https://picsum.photos/458/360' /> <br>
+			<img data-src='https://picsum.photos/458/361' /> <br>
+			<img data-src='https://picsum.photos/458/362' /> <br>
+			<img data-src='https://picsum.photos/458/363' /> <br>
+			<img data-src='https://picsum.photos/458/364' /> <br>
+			<img data-src='https://picsum.photos/458/365' /> <br>
+			<img data-src='https://picsum.photos/458/366' /> <br>
+			<img data-src='https://picsum.photos/458/367' /> <br>
+			<img data-src='https://picsum.photos/458/368' /> <br>
+			<img data-src='https://picsum.photos/458/369' /> <br>
+			<img data-src='https://picsum.photos/458/370' /> <br>
+			<img data-src='https://picsum.photos/458/371' /> <br>
+			<img data-src='https://picsum.photos/458/372' /> <br>
+			<img data-src='https://picsum.photos/458/373' /> <br>
+			<img data-src='https://picsum.photos/458/374' /> <br>
+			<img data-src='https://picsum.photos/458/375' /> <br>
+			<img data-src='https://picsum.photos/458/376' /> <br>
+			<img data-src='https://picsum.photos/458/377' /> <br>
+			<img data-src='https://picsum.photos/458/378' /> <br>
+			<img data-src='https://picsum.photos/458/379' /> <br>
+			<img data-src='https://picsum.photos/458/380' /> <br>
+			<img data-src='https://picsum.photos/458/381' /> <br>
+		</div>
+		
+		<script type='text/javascript' src='https://ershakiransari.github.io/cdn/vendors/jquery/jquery-v3.3.1.min.js'></script>
+		<script type='text/javascript' src='https://www.andreaverlicchi.eu/lazyload/dist/lazyload.js'></script>
+
+		<script>
+			(function () {
+
+			function logElementEvent(eventName, element) {
+				console.log(new Date().getTime(), eventName, element.getAttribute('data-src'));
+			}
+
+			function logEvent(eventName, elementsLeft) {
+				console.log(new Date().getTime(), eventName, elementsLeft + " images left");
+			}
+
+			/* Uncomment the callbacks in LazyLoad options to see the callbacks logs in your browser's console */
+
+			new LazyLoad({
+				container: document.getElementById('results1')
+				,
+				callback_load: function (element) {
+					logElementEvent("LOADED", element);
+				},
+				callback_set: function (element) {
+					logElementEvent("SET", element);
+				},
+				callback_processed: function(elementsLeft) {
+					logEvent("PROCESSED", elementsLeft);
+				}
+			});
+
+		}());
+		</script>
+		
+	</body>
+</html>

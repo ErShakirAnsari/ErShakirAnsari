@@ -1,0 +1,77 @@
+<html lang="en">
+
+<head>
+	<title>htmlDiff</title>
+	<style>
+	#out1 ins {display: none;}
+	#out1 del {text-decoration: none; background-color: #d4fcbc;}
+	#out2 ins {text-decoration: line-through;background-color: #fbb6c2;color: #555;}
+	#out2 del {display: none;}
+	textarea {width: 100%;height: 200px;;}
+	</style>
+</head>
+
+<body>
+
+	<table style="width:100%;">
+		<tr>
+			<td style="width:50%">text1</td>
+			<td style="width:50%">text2</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<hr>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<textarea id="text1"><p>Hello Mr. Wayne, decide what to do:</p>
+					<ul>
+						<li>Call Alfred</li>
+						<li>Take Thalia Al Gul to the cinema</li>
+						<li>Save Gotham</li>
+					</ul>
+					<span>Use the mouse to choose an option.</span></textarea>
+			</td>
+			<td>
+				<textarea id="text2"><p>Hello Batman, decide what to do:</p>
+					<ul>
+						<li>Kill The Joker</li>
+						<li>Save Thalia Al Gul</li>
+						<li>Save Gotham</li>
+					</ul>
+					<span>Use the batarang to choose an option.</span></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<hr>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p id="out1"></p>
+			</td>
+			<td>
+				<p id="out2"></p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<hr>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<button onclick="doHtmlDiffs()">html-diffs</button>
+			</td>
+		</tr>
+	</table>
+
+	<script type='text/javascript' src='../../jquery/jquery-v3.3.1.min.js'></script>
+	<script src="../html-diff.min.js"></script>
+	<script src="script.js"></script>
+
+</body>
+
+</html>
