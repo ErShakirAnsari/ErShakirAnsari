@@ -1,0 +1,135 @@
+@font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff2") format("woff2"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+.fimanager:before {
+      display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    display: block;
+}
+
+.flaticon-090-placeholder:before { content: "\f100"; }
+.flaticon-091-heart:before { content: "\f101"; }
+.flaticon-092-filter:before { content: "\f102"; }
+.flaticon-093-next:before { content: "\f103"; }
+.flaticon-094-back:before { content: "\f104"; }
+.flaticon-095-home:before { content: "\f105"; }
+.flaticon-096-star:before { content: "\f106"; }
+.flaticon-097-search:before { content: "\f107"; }
+.flaticon-098-share:before { content: "\f108"; }
+.flaticon-099-clock:before { content: "\f109"; }
+.flaticon-100-shield:before { content: "\f10a"; }
+.flaticon-001-tasks:before { content: "\f10b"; }
+.flaticon-002-check:before { content: "\f10c"; }
+.flaticon-003-cancel:before { content: "\f10d"; }
+.flaticon-004-zoom-in:before { content: "\f10e"; }
+.flaticon-005-zoom-out:before { content: "\f10f"; }
+.flaticon-006-settings:before { content: "\f110"; }
+.flaticon-007-trash:before { content: "\f111"; }
+.flaticon-008-file:before { content: "\f112"; }
+.flaticon-009-download:before { content: "\f113"; }
+.flaticon-010-plus:before { content: "\f114"; }
+.flaticon-011-upload:before { content: "\f115"; }
+.flaticon-012-refresh:before { content: "\f116"; }
+.flaticon-013-padlock:before { content: "\f117"; }
+.flaticon-014-unlock:before { content: "\f118"; }
+.flaticon-015-tag:before { content: "\f119"; }
+.flaticon-016-play-button:before { content: "\f11a"; }
+.flaticon-017-stop:before { content: "\f11b"; }
+.flaticon-018-pause:before { content: "\f11c"; }
+.flaticon-019-minus:before { content: "\f11d"; }
+.flaticon-020-inbox:before { content: "\f11e"; }
+.flaticon-021-information:before { content: "\f11f"; }
+.flaticon-022-warning:before { content: "\f120"; }
+.flaticon-023-error:before { content: "\f121"; }
+.flaticon-024-disabled:before { content: "\f122"; }
+.flaticon-025-down-arrow:before { content: "\f123"; }
+.flaticon-026-up-arrow:before { content: "\f124"; }
+.flaticon-027-left-arrow:before { content: "\f125"; }
+.flaticon-028-cloud-computing:before { content: "\f126"; }
+.flaticon-029-right-arrow:before { content: "\f127"; }
+.flaticon-030-resize:before { content: "\f128"; }
+.flaticon-031-exclamation:before { content: "\f129"; }
+.flaticon-032-question:before { content: "\f12a"; }
+.flaticon-033-chat:before { content: "\f12b"; }
+.flaticon-034-calendar:before { content: "\f12c"; }
+.flaticon-035-notification:before { content: "\f12d"; }
+.flaticon-036-folder:before { content: "\f12e"; }
+.flaticon-037-like:before { content: "\f12f"; }
+.flaticon-038-dislike:before { content: "\f130"; }
+.flaticon-039-email:before { content: "\f131"; }
+.flaticon-040-earth-grid:before { content: "\f132"; }
+.flaticon-041-link:before { content: "\f133"; }
+.flaticon-042-smartphone:before { content: "\f134"; }
+.flaticon-043-tablet:before { content: "\f135"; }
+.flaticon-044-laptop:before { content: "\f136"; }
+.flaticon-045-diskette:before { content: "\f137"; }
+.flaticon-046-question:before { content: "\f138"; }
+.flaticon-047-login:before { content: "\f139"; }
+.flaticon-048-logout:before { content: "\f13a"; }
+.flaticon-049-pencil:before { content: "\f13b"; }
+.flaticon-050-more:before { content: "\f13c"; }
+.flaticon-051-menu:before { content: "\f13d"; }
+.flaticon-052-credit-card:before { content: "\f13e"; }
+.flaticon-053-list:before { content: "\f13f"; }
+.flaticon-054-power-button:before { content: "\f140"; }
+.flaticon-055-wifi:before { content: "\f141"; }
+.flaticon-056-mute:before { content: "\f142"; }
+.flaticon-057-volume:before { content: "\f143"; }
+.flaticon-058-levels:before { content: "\f144"; }
+.flaticon-059-flag:before { content: "\f145"; }
+.flaticon-060-print:before { content: "\f146"; }
+.flaticon-061-bookmark:before { content: "\f147"; }
+.flaticon-062-book:before { content: "\f148"; }
+.flaticon-063-photo-camera:before { content: "\f149"; }
+.flaticon-064-video-camera:before { content: "\f14a"; }
+.flaticon-065-move:before { content: "\f14b"; }
+.flaticon-066-eject:before { content: "\f14c"; }
+.flaticon-067-qr-code:before { content: "\f14d"; }
+.flaticon-068-barcode:before { content: "\f14e"; }
+.flaticon-069-left-align:before { content: "\f14f"; }
+.flaticon-070-align-center:before { content: "\f150"; }
+.flaticon-071-align-right:before { content: "\f151"; }
+.flaticon-072-justify:before { content: "\f152"; }
+.flaticon-073-image:before { content: "\f153"; }
+.flaticon-074-screenshot:before { content: "\f154"; }
+.flaticon-075-vision:before { content: "\f155"; }
+.flaticon-076-vision:before { content: "\f156"; }
+.flaticon-077-shopping-cart:before { content: "\f157"; }
+.flaticon-078-chat:before { content: "\f158"; }
+.flaticon-079-shuffle:before { content: "\f159"; }
+.flaticon-080-certificate:before { content: "\f15a"; }
+.flaticon-081-briefcase:before { content: "\f15b"; }
+.flaticon-082-push-pin:before { content: "\f15c"; }
+.flaticon-083-dashboard:before { content: "\f15d"; }
+.flaticon-084-flash:before { content: "\f15e"; }
+.flaticon-085-telephone:before { content: "\f15f"; }
+.flaticon-086-bar-chart:before { content: "\f160"; }
+.flaticon-087-equalizer:before { content: "\f161"; }
+.flaticon-088-headphone:before { content: "\f162"; }
+.flaticon-089-user:before { content: "\f163"; }
