@@ -1,0 +1,95 @@
+<!--
+  /$$$$$$  /$$   /$$ /$$$$$$$
+ /$$__  $$| $$  /$$/| $$__  $$
+| $$  \__/| $$ /$$/ | $$  \ $$
+|  $$$$$$ | $$$$$/  | $$$$$$$/
+ \____  $$| $$  $$  | $$__  $$
+ /$$  \ $$| $$\  $$ | $$  \ $$
+|  $$$$$$/| $$ \  $$| $$  | $$
+ \______/ |__/  \__/|__/  |__/
+
+"THE WEB PAGE(S) IS/ARE PROPERTY OF JAXER"
+- NO WARRANTY EXPRESSED OR IMPLIED.
+- USE AT YOUR OWN RISK.
+- USE YOUR OWN COPY.
+- IT IS EXTREMELY UNWISE TO LOAD CODE FROM SERVERS YOU DO NOT CONTROL.
+- SOME OF THE CONTENT(S) IS/ARE COPIED FROM THE WWW, IS/ARE UNCHANGED AND FOR ONLY PERSONAL USE.
+-->
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Jaxer CDN</title>
+  <link rel='stylesheet' href='./bootstrap/core/bootstrap-v4.4.1.min.css'>
+  <!-- <script src='./bootstrap/core/bootstrap-v4.4.1.min.js'></script> -->
+  <style>
+    header {
+      background-color: transparent;
+      padding: 20px;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 0 20px #777;
+      margin-bottom: 20px
+    }
+
+    img {
+      padding: 0px;
+      margin-right: 10px;
+      background-color: transparent;
+      max-width: 60px
+    }
+
+    img.file {
+      border: 1px solid #ddd
+    }
+
+    .file-name {
+      word-break: break-word;
+      width: 100%
+    }
+
+    .jumbotron {
+      padding: 2rem 1rem;
+      margin: 10px 0
+    }
+  </style>
+</head>
+
+<body>
+  <div class='container-fluid'>
+    <div class='jumbotron'>
+      <h1 class='display-4'>CDN</h1>
+      <p class='lead'>A content delivery network by <strong>jaxer&trade;</strong> for <u>personal</u> use only.</p>
+    </div>
+  </div>
+  <div class='container'>
+    <div class='row my-2' id='main-container'>
+    </div>
+  </div>
+  
+  <script>
+    let folders = ["dir-001", "dir002", "dir003"];
+    let files = ["file001", "file002", "file003"];
+
+
+    var str = "";
+    for (let i = 0; i < folders.length; i++)
+    {
+      let value = folders[i];
+      str += `<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-6 box text-left mb-3'>
+                <a href='./${value}/dir.html'>
+                    <img src='./images/svgs/folder-001.svg' alt='${value}'>
+                    <div class='file-name'>${value}</div>
+                </a>
+            </div>`;
+    }
+
+    document.getElementById('main-container').innerHTML = str;
+
+
+  </script>
+</body>
+
+</html>
