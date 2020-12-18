@@ -1,5 +1,0 @@
-How to SSH PI
-IP:			172.24.1.1
-USER:		pi
-PASSWORD:	apple
-PROTOCOL:	SSH
