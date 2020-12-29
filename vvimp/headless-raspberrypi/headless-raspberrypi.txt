@@ -1,0 +1,14 @@
+Step1: put both file in boot folder(menory card)
+	wpa_supplicant.conf
+	ssh
+	
+Step2: insert memory card to raspberrypi and power up
+
+Step3: open putty or xShell
+
+host: raspberrypi
+user: pi
+pass: raspberryi
+
+
+both PC and pi should be on same network..
