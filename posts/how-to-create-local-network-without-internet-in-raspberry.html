@@ -30,10 +30,11 @@
 		}
 
 		.post-logo {
-			background: transparent url(./images/raspberry-pi3.jpg);
+			background: transparent url(./images/logo-raspberry-pi.svg);
+			background-size: auto 256px;
 			background-repeat: no-repeat;
 			background-position: center;
-			height: 464px;
+			height: 256px;
 		}
 	</style>
 </head>
@@ -128,8 +129,8 @@ iface wlan0 inet static
 #    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 </textarea>
 							<br>
-							Now restart <b>dhcpcd</b> with:<br>
-							<input class='form-control' value='sudo service dhcpcd restart' />
+							Now restart <b>dhcpcd</b> with: <span class='text-danger'>(Please ignore this step else you will be disconnected)</span><br>
+							<input class='form-control' style="text-decoration: line-through;" value='sudo service dhcpcd restart' />
 							<br>
 
 							and then reload the configuration for <b>wlan0</b> with:<br>
