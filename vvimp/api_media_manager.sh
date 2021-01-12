@@ -1,11 +1,11 @@
 SERVICE_NAME = "api_media_manager"
-PID_PATH_NAME = "/tmp/api_media_manager.pid"
+PID_PATH_NAME = "/tmp"
 
 case $1 in
 start)
 	echo "Starting $SERVICE_NAME ..."
 	if [ ! -f $PID_PATH_NAME ];	then
-		nohup "java -jar MediaManager.jar"
+		nohup "java -jar /home/pi/pi-network/api/MediaManagerApi.jar"
 		echo $! > $PID_PATH_NAME
 		echo "$SERVICE_NAME started ..."
 	else
@@ -31,7 +31,7 @@ restart)
       echo "$SERVICE_NAME stopped ...";
       rm $PID_PATH_NAME
       echo "$SERVICE_NAME starting ..."
-      nohup "put command here"
+      nohup "java -jar /home/pi/pi-network/api/MediaManagerApi.jar"
       echo $! > $PID_PATH_NAME
       echo "$SERVICE_NAME started ..."
   else
