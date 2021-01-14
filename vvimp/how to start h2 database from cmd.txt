@@ -1,0 +1,20 @@
+Step 1:
+java -cp h2-1.4.200.jar org.h2.tools.Shell
+
+
+Step 2: [jdbc:h2:~/test]
+URL:	jdbc:h2:/media/pi/102C0BF7102C0BF7/backup/i/mm;CIPHER=AES
+
+
+
+Step 3: [org.h2.Driver]
+Driver:	org.h2.Driver
+
+
+Strp 4:
+User:	admin
+
+
+Step 5:
+password:	Apple#1M Apple#1M
+

@@ -1,0 +1,8 @@
+
+Editing rc.local
+
+On your Pi, edit the file /etc/rc.local using the editor of your choice. You must edit it with root permissions:
+
+sudo nano /etc/rc.local
+
+NOTE: your command must be before exit 0

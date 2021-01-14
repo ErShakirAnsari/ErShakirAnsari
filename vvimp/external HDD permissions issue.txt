@@ -1,0 +1,8 @@
+
+Re: external HDD permissions(?) issue
+
+Fri Apr 07, 2017 11:57 am
+
+Is it formatted with ntfs? If so you must install ntfs-3g to get r/w permission.
+
+sudo apt-get install ntfs-3g
