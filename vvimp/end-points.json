@@ -1,8 +1,8 @@
 {
   "media-manager-system": "http://192.168.43.226:8080/MediaManager",
-  "last-modified": "2021-01-12 14:54:46",
+  "last-modified": "2021-01-15 16:47:48",
   "media-manager-ngrok": "http://ceafbdb536d7.ngrok.io",
-  "media-manager": "http://172.24.1.1:8080/MediaManager",
+  "media-manager": "http://192.168.43.226:8080/MediaManager",
   "media-manager-pi": "http://172.24.1.1:8080/MediaManager",
   "contextPath": "/MediaManager"
 }
