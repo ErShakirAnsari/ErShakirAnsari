@@ -1,0 +1,25 @@
+It should be quite straightforward to run your application from an IDE with some maven support (Eclipse, IntellIJ).
+These IDE's will take care about creating the correct classpath.
+
+If you want to do this manually, try this steps:
+
+STEP 1 - change to the directory that contains the pom.xml execute the maven command:
+mvn clean install
+
+This will compile your project and create the jar you defined in the pom.xml file.
+It runs the maven phases clean and every phase up to install (compile, test, etc).
+
+STEP 2 - Then collect all jar files you use as dependencies (required to run your project):
+mvn dependency:copy-dependencies
+
+This executes the dependency plugin which will copy all dependencies into target/dependency.
+
+
+STEP 3 - You can then run your main method using:
+cd target/
+java -cp TCPPing-0.0.1-SNAPSHOT.jar:dependency TCPPing
+
+
+-cp defines the classpath (all locations / jar files / folders that contain classes). TCPPing is the class your run that has a main method.
+
+Note the : is for Linux / Mac - I think windows uses a ;.
