@@ -1,0 +1,19 @@
+java -cp  h2-1.4.200.jar org.h2.tools.Shell
+
+
+URL:
+jdbc:h2:/media/pi/102C0BF7102C0BF7/backup/i/mm;CIPHER=AES
+
+Driver:
+org.h2.Driver
+
+User:
+admin
+
+Password: <you know it>
+Apple#1M Apple#1M
+
+
+then:
+show tables;
+
