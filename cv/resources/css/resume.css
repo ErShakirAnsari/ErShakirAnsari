@@ -220,3 +220,17 @@ a {
 a:hover, a:focus, a:active {
 	color: #824027;
 }
+
+
+.skill-tag:before
+{
+content: '';
+}
+.skill-tag
+{
+	border: solid 1px #ddd;
+	padding: 4px 7px;
+	border-radius: 10px;
+	margin-right: 5px;
+	
+}
