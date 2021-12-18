@@ -2,5 +2,5 @@
   "last-modified": "2021-02-16 17:31:58",
   "media-manager": "http://192.168.43.226:8080/MediaManager",
   "contextPath": "/MediaManager",
-  "media-manager-dev": "http://192.168.200.68:8080/MediaManager"
+  "media-manager-dev": "http://192.168.200.90:8080/MediaManager"
 }
