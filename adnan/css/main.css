@@ -124,10 +124,10 @@ section {
   background: linear-gradient(270deg, #00c9ff, #92fe9d);
   background-size: 400% 400%;
 
-  -webkit-animation: bg-animation 15s ease infinite;
-  -moz-animation: bg-animation 15s ease infinite;
-  -o-animation: bg-animation 15s ease infinite;
-  animation: bg-animation 15s ease infinite;
+  -webkit-animation: bg-animation 5s ease infinite;
+  -moz-animation: bg-animation 5s ease infinite;
+  -o-animation: bg-animation 5s ease infinite;
+  animation: bg-animation 5s ease infinite;
 }
 
 @-webkit-keyframes bg-animation {
