@@ -21,8 +21,8 @@
     <header>
       <nav class="navbar navbar-expand-md fixed-top shadow-sm bg-white">
         <div class="container">
-          <a class="navbar-brand" href="#">
-            <i class="bi bi-app-indicator fs-3"></i>
+          <a class="navbar-brand text-primary" href="#">
+            <i class="bi bi-body-text fs-3"></i>
             &nbsp;
             <span class="fs-4">Logo</span>
           </a>
@@ -38,14 +38,23 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav ms-auto mb-2 mb-md-0">
-              <li class="nav-item"><a href="#" class="nav-link active">Home</a></li>
+            <ul class="navbar-nav mx-auto mb-2 mb-md-0">
+              <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
               <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
-              <li class="nav-item"><a href="#" class="nav-link">Reviews</a></li>
-              <li class="nav-item"><a href="#" class="nav-link">Why us?</a></li>
-              <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-              <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+              <li class="nav-item"><a href="#reviews" class="nav-link">Reviews</a></li>
+              <li class="nav-item"><a href="#why-us" class="nav-link">Why us?</a></li>
+              <li class="nav-item"><a href="#about-us" class="nav-link">About</a></li>
+              <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
+
+            <div>
+              <p class="m-0 fs-7 text-danger text-end">
+                25% off on first order
+                <br />
+                Refer 5 friend and get 1 free work
+                <span class="fs-7">(T&C Apply)</span>
+              </p>
+            </div>
           </div>
         </div>
       </nav>
@@ -58,8 +67,8 @@
       <div class="container text-center mt-3"></div>
     </section> -->
 
-    <section class="bg-animated" id="banner">
-      <div class="px-4 py-5 my-5 text-center">
+    <section class="bg-light-blue" id="banner">
+      <div class="px-4 py-5 my-5">
         <!-- <img
             class="d-block mx-auto mb-4"
             src="/docs/5.2/assets/brand/bootstrap-logo.svg"
@@ -67,160 +76,253 @@
             width="72"
             height="57"
           /> -->
-        <h1 class="display-5 fw-normal baloo">
-          Trusted and affordable site
+        <h1 class="display-5 text-center fw-bold baloo">
+          Trusted and Affordable Site
           <br />
-          for assignment content writing work
+          For Assignment Content Writing Work
         </h1>
-        <div class="col-lg-6 mx-auto">
-          <p class="lead mb-4">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum nisi sint id cum veritatis, delectus
-            consequuntur quibusdam iste dolorum vitae tempore vero, quis expedita sed quae inventore nostrum
-            consequatur. Molestiae!
+        <div class="col-lg-7 mx-auto">
+          <p class="baloo fs-5">
+            &lt;company&gt; is the leading academic research organisation that provides high quality custom-written
+            essays, assignments, dissertations & thesis to students in the Major countries like UK, USA, Australia, USA,
+            Canada and many more. We also help in Project writing and Project developing, along with Proofreading
+            service, plagiarism check and many more.
           </p>
-          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <!-- <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
-              <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button> -->
-          </div>
         </div>
       </div>
       <div class="container px-4" id="hanging-icons">
-        <div class="row g-4 py-5 row-cols-1 row-cols-lg-2">
+        <div class="row g-4 pt-4 row-cols-1 row-cols-lg-1 justify-content-center">
           <div class="col d-flex align-items-start">
             <div class="p-4 bg-white shadow rounded">
-              <h2 class="baloo">Plogrian Free</h2>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, enim dignissimos. Ducimus facilis sit
-                aperiam aut! Non incidunt nihil, animi, commodi amet architecto quos aut odit eos ratione iste quis?
-              </p>
+              <div class="row">
+                <div class="col-sm-12 col-lg-1 text-center mb-2">
+                  <!-- <img src="./images/money-back.png" alt="plagiariam" width="96px" /> -->
+                  <i class="bi bi-credit-card-2-back fs-xl text-light-blue-a"></i>
+                </div>
+                <div class="col-sm-12 col-lg-11">
+                  <h2 class="baloo">200% money back guarantee</h2>
+                  <p>
+                    If you are not satisfied with our content or get less marks or grade after revision then we will
+                    give you 200% money back. We value our customer satisfaction above all. You are covered under our
+                    Money Back Guarantee
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+
+        <div class="row g-4 pt-4 row-cols-1 row-cols-lg-2">
+          <!-- Plagiarism Free -->
           <div class="col d-flex align-items-start">
             <div class="p-4 bg-white shadow rounded">
-              <h2 class="baloo">200% Money back</h2>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, enim dignissimos. Ducimus facilis sit
-                aperiam aut! Non incidunt nihil, animi, commodi amet architecto quos aut odit eos ratione iste quis?
-              </p>
+              <div class="row">
+                <div class="col-sm-12 col-lg-2 text-center mb-2">
+                  <!-- <img src="./images/plagiariam.jpg" alt="plagiariam" width="96px" /> -->
+                  <i class="bi bi-search fs-xl text-light-blue-a"></i>
+                </div>
+                <div class="col-sm-12 col-lg-10">
+                  <h2 class="baloo">Plagiarism Free</h2>
+                  <p>
+                    We use licensed software to scan paper before delivery to ensure 100% plagiarism free content.
+                    <br />
+                    We also give you plagiarism report for your satisfaction.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
+
+          <!-- On Time Delivery -->
           <div class="col d-flex align-items-start">
             <div class="p-4 bg-white shadow rounded">
-              <h2 class="baloo">On time delivery</h2>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, enim dignissimos. Ducimus facilis sit
-                aperiam aut! Non incidunt nihil, animi, commodi amet architecto quos aut odit eos ratione iste quis?
-              </p>
+              <div class="row">
+                <div class="col-sm-12 col-lg-2 text-center mb-2">
+                  <!-- <img src="./images/on-time-delivery.jpg" alt="plagiariam" width="96px" /> -->
+                  <i class="bi bi-truck fs-xl text-light-blue-a"></i>
+                </div>
+                <div class="col-sm-12 col-lg-10">
+                  <h2 class="baloo">On Time Delivery</h2>
+                  <p>
+                    We ensure to give you delivery before date otherwise we will do it free &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
+
+          <!-- Tailored Assignment -->
           <div class="col d-flex align-items-start">
             <div class="p-4 bg-white shadow rounded">
-              <h2 class="baloo">Tailored assignment</h2>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, enim dignissimos. Ducimus facilis sit
-                aperiam aut! Non incidunt nihil, animi, commodi amet architecto quos aut odit eos ratione iste quis?
-              </p>
+              <div class="row">
+                <div class="col-sm-12 col-lg-2 text-center mb-2">
+                  <!-- <img src="./images/tailored-assignment.png" alt="plagiariam" width="96px" /> -->
+                  <i class="bi bi-body-text fs-xl text-light-blue-a"></i>
+                </div>
+                <div class="col-sm-12 col-lg-10">
+                  <h2 class="baloo">Tailored Assignment</h2>
+                  <p>
+                    We custom our work according to your guidelines and requirement to ensure your satisfaction. &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Support -->
+          <div class="col d-flex align-items-start">
+            <div class="p-4 bg-white shadow rounded">
+              <div class="row">
+                <div class="col-sm-12 col-lg-2 text-center mb-2">
+                  <i class="bi bi-question-circle fs-xl text-light-blue-a"></i>
+                </div>
+                <div class="col-sm-12 col-lg-10">
+                  <h2 class="baloo">24/7 Support</h2>
+                  <p>
+                    Our marketing executives are all time available for your support &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp;
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="bg03 text-white" id="protection">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 col-sm-12 text-center">
-            <i class="bi bi-shield-check fs-xxl"></i>
-          </div>
-          <div class="col-md-8 col-sm-12">
-            <h1 class="mb-3 baloo">Protection for your privarcy</h1>
-            <div>
-              <p class="fs-5">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quaerat molestiae a harum voluptas
-                impedit.
-              </p>
-              <p class="fs-5">
-                Exercitationem laborum vero eius minima magni soluta hic maiores! Adipisci maxime architecto cumque
-                laborum voluptate?
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="py-4 bg07"></section>
 
-    <section class="bg00" id="features">
+    <section class="bg-light-blue" id="features">
       <div class="container">
         <h1 class="mb-3 baloo">Features</h1>
-        <div class="text-muted">
-          <p class="fs-6">
-            <i class="bi bi-star-fill text-primary"></i>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae voluptates impedit ?
-          </p>
-          <p class="fs-6">
-            <i class="bi bi-star-fill text-primary"></i>
-            Mollitia similique tempora debitis quae omnis error harum ullam possimus natus est molestiae modi
-            perferendis deserunt illo repudiandae neque nam?
-          </p>
-          <p class="fs-6">
-            <i class="bi bi-star-fill text-primary"></i>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae voluptates impedit ?
-          </p>
-          <p class="fs-6">
-            <i class="bi bi-star-fill text-primary"></i>
-            Mollitia similique tempora debitis quae omnis error harum ullam possimus natus est molestiae modi
-            perferendis deserunt illo repudiandae neque nam?
-          </p>
+        <div class="row">
+          <div class="col-lg-4">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <i class="bi bi-star-fill text-light-blue-a"></i>
+                Unlimited revision
+              </li>
+              <li class="list-group-item">
+                <i class="bi bi-star-fill text-light-blue-a"></i>
+                Before time delivery
+              </li>
+              <li class="list-group-item">
+                <i class="bi bi-star-fill text-light-blue-a"></i>
+                High quality work
+              </li>
+              <li class="list-group-item">
+                <i class="bi bi-star-fill text-light-blue-a"></i>
+                Professional work
+              </li>
+              <li class="list-group-item">
+                <i class="bi bi-star-fill text-light-blue-a"></i>
+                Capability for bulk work
+              </li>
+              <li class="list-group-item">
+                <i class="bi bi-star-fill text-light-blue-a"></i>
+                Capability for bulk work
+              </li>
+              <li class="list-group-item">
+                <i class="bi bi-star-fill text-light-blue-a"></i>
+                Refund on dissatisfaction
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-8">
+            <div class="row g-4 row-cols-1 row-cols-lg-3 baloo">
+              <div class="col d-flex align-items-start">
+                <div class="w-100 p-4 bg-white shadow rounded">
+                  <h2 class="baloo">50+</h2>
+                  <h5>Experts</h5>
+                  <p></p>
+                </div>
+              </div>
+              <div class="col d-flex align-items-start">
+                <div class="w-100 p-4 bg-white shadow rounded">
+                  <h2 class="baloo">9+</h2>
+                  <h5>years of exp</h5>
+                  <p></p>
+                </div>
+              </div>
+              <div class="col d-flex align-items-start">
+                <div class="w-100 p-4 bg-white shadow rounded">
+                  <h2 class="baloo">256845+</h2>
+                  <h5>happy clients</h5>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-          <div class="col d-flex align-items-start">
-            <div class="p-4 bg bg00 shadow rounded">
-              <h2 class="baloo">50+</h2>
-              <h5>Experts</h5>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, enim dignissimos. Ducimus facilis sit
-                aperiam aut! Non incidunt nihil, animi, commodi amet architecto quos aut odit eos ratione iste quis?
-              </p>
-            </div>
-          </div>
-          <div class="col d-flex align-items-start">
-            <div class="p-4 bg bg00 shadow rounded">
-              <h2 class="baloo">9+</h2>
-              <h5>years of exp</h5>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, enim dignissimos. Ducimus facilis sit
-                aperiam aut! Non incidunt nihil, animi, commodi amet architecto quos aut odit eos ratione iste quis?
-              </p>
-            </div>
-          </div>
-          <div class="col d-flex align-items-start">
-            <div class="p-4 bg bg00 shadow rounded">
-              <h2 class="baloo">256845+</h2>
-              <h5>happy clients</h5>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, enim dignissimos. Ducimus facilis sit
-                aperiam aut! Non incidunt nihil, animi, commodi amet architecto quos aut odit eos ratione iste quis?
-              </p>
-            </div>
-          </div>
-        </div>
+        <!-- <div class="text-muted">
+          <p class="fs-6">
+            <i class="bi bi-star-fill text-primary"></i>
+            Unlimited revision
+          </p>
+          <p class="fs-6">
+            <i class="bi bi-star-fill text-primary"></i>
+            Before time delivery
+          </p>
+          <p class="fs-6">
+            <i class="bi bi-star-fill text-primary"></i>
+            High quality work
+          </p>
+          <p class="fs-6">
+            <i class="bi bi-star-fill text-primary"></i>
+            Professional work
+          </p>
+          <p class="fs-6">
+            <i class="bi bi-star-fill text-primary"></i>
+            Capability for bulk work
+          </p>
+          <p class="fs-6">
+            <i class="bi bi-star-fill text-primary"></i>
+            Refund on dissatisfaction
+          </p>
+        </div> -->
       </div>
     </section>
 
-    <section class="bg-light-green" id="services">
+    <section class="bg03 text-white" id="services">
       <div class="container">
         <div class="row">
           <div class="col-md-4 col-sm-12 text-center">
-            <i class="bi bi-globe fs-xxl text-primary"></i>
+            <i class="bi bi-globe fs-xxl text-white"></i>
           </div>
 
           <div class="col-md-8 col-sm-12">
-            <h1 class="baloo">Services</h1>
-            <p class="fs-5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quaerat molestiae a harum voluptas
-            </p>
-            <div class="row g-2 row-cols-2 row-cols-md-3 row-cols-lg-4 fs-6">
+            <h1 class="baloo">Services and subjects</h1>
+            <p class="lead">We offer you variety of services and subjects as follows &mdash;</p>
+            <div class="">
+              <ul class="list-group list-group-numbered">
+                <li class="list-group-item bg07">Business</li>
+                <li class="list-group-item bg07">Management</li>
+                <li class="list-group-item bg07">HRM</li>
+                <li class="list-group-item bg07">Finance</li>
+                <li class="list-group-item bg07">Account</li>
+                <li class="list-group-item bg07">Law</li>
+                <li class="list-group-item bg07">Nursing</li>
+                <li class="list-group-item bg07">SPSS</li>
+                <li class="list-group-item bg07">Marketing</li>
+                <li class="list-group-item bg07">Thesis</li>
+                <li class="list-group-item bg07">Phd work</li>
+                <li class="list-group-item bg07">Essay</li>
+                <li class="list-group-item bg07">Dissertation</li>
+              </ul>
+            </div>
+            <div class="row g-2 row-cols-2 row-cols-md-3 row-cols-lg-4 fs-6" style="display: none">
               <div class="col d-flex align-items-start">
                 <div>&bullet; Business</div>
               </div>
@@ -266,6 +368,33 @@
       </div>
     </section>
 
+    <section class="bg03 text-white border-top" id="protection">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-sm-12 text-center">
+            <i class="bi bi-shield-check fs-xxl"></i>
+          </div>
+          <div class="col-md-8 col-sm-12">
+            <h1 class="mb-3 baloo">Protection for your privacy</h1>
+            <div class="text-dark">
+              <div class="p-3 bg-white rounded mb-2">
+                <p class="baloo fs-4 m-0"><i class="bi bi-check2-square"></i> &nbsp; Protect your identity</p>
+              </div>
+              <div class="p-3 bg-white rounded mb-2">
+                <p class="baloo fs-4 m-0"><i class="bi bi-check2-square"></i> &nbsp; Anonymous Communication</p>
+              </div>
+              <div class="p-3 bg-white rounded mb-2">
+                <p class="baloo fs-4 m-0"><i class="bi bi-check2-square"></i> &nbsp; Personal data protection</p>
+              </div>
+              <div class="p-3 bg-white rounded mb-2">
+                <p class="baloo fs-4 m-0"><i class="bi bi-check2-square"></i> &nbsp; Secure payment</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="bg-light-blue" id="free-facilities">
       <div class="container">
         <div class="row">
@@ -277,19 +406,19 @@
             <div class="text-dark">
               <p>
                 <i class="bi bi-chevron-right"></i>
-                Free title pages
+                We provide free title pages adjustment
               </p>
               <p>
                 <i class="bi bi-chevron-right"></i>
-                Free topic selection
+                We provide free topic selection
               </p>
               <p>
                 <i class="bi bi-chevron-right"></i>
-                Free formatting
+                We provide free formatting
               </p>
               <p>
                 <i class="bi bi-chevron-right"></i>
-                Free revision
+                We provide free revision
               </p>
             </div>
           </div>
@@ -297,11 +426,11 @@
       </div>
     </section>
 
-    <section class="bg00" id="reviews">
+    <section class="bg-light-blue-a" id="reviews">
       <div class="container">
         <div class="row">
           <div class="col-md-4 col-sm-12 text-center">
-            <i class="bi bi-circle-square fs-xxl"></i>
+            <i class="bi bi-person-heart text-light-blue fs-xxl"></i>
           </div>
           <div class="col-md-8 col-sm-12">
             <h1 class="mb-3 baloo">
@@ -309,6 +438,69 @@
             </h1>
 
             <div class="row">
+              <div class="col-lg-6 mb-4">
+                <div class="card p-3">
+                  <figure class="p-3 mb-0">
+                    <blockquote class="blockquote">
+                      <p>I got very good marks with the help of xyz</p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer mb-0 text-muted">George Thomas</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="col-lg-6 mb-4">
+                <div class="card p-3">
+                  <figure class="p-3 mb-0">
+                    <blockquote class="blockquote">
+                      <p>xyz give me genuine paper work for my thesis</p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer mb-0 text-muted">Scott wales</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="col-lg-6 mb-4">
+                <div class="card p-3">
+                  <figure class="p-3 mb-0">
+                    <blockquote class="blockquote">
+                      <p>With the help of xyz I completed my phd with very good marks</p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer mb-0 text-muted">Alina james</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="col-lg-6 mb-4">
+                <div class="card p-3">
+                  <figure class="p-3 mb-0">
+                    <blockquote class="blockquote">
+                      <p>I'm lucky to order my assignment help at xyz. I'm happy</p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer mb-0 text-muted">Noyan lors</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="col-lg-6 mb-4">
+                <div class="card p-3">
+                  <figure class="p-3 mb-0">
+                    <blockquote class="blockquote">
+                      <p>Glad to have found xyz for my homework. Good work by team</p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer mb-0 text-muted">Tony vans</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="col-lg-6 mb-4">
+                <div class="card p-3">
+                  <figure class="p-3 mb-0">
+                    <blockquote class="blockquote">
+                      <p>Excellent website for assignment help, nice support team</p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer mb-0 text-muted">Nina wats</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" style="display: none">
               <p class="baloo fs-4">Happy clients</p>
               <div class="col-lg-4">
                 <svg
@@ -386,12 +578,275 @@
       </div>
     </section>
 
-    <footer class="bg-dark text-center p-5" id="footer">
-      <div class="align-bottom text-primary">
-        <!-- <img src="./resources/images/logo/alpha-x-logo.svg" alt="logo" width="48" /> -->
-        <i class="bi bi-app-indicator fs-3"></i>
-        <br />
-        YourLogo © 2022
+    <section id="why-us">
+      <div class="container">
+        <h1 class="baloo">Why us?</h1>
+        <p>
+          Our dedicated writing team works every day and our customer care is online 24/7 to provide best assistance to
+          our clients. We know that assignment writing works are completely time specific work and so we cater to all
+          the requirements as soon as possible. We have never experienced complains on delay in response or delay in
+          submission.
+        </p>
+        <p>
+          This makes our client assured of timely assignment help as well as dissertation help. Writing dissertation
+          requires a proper methodology and experience. Content writing service is a continuous process and every
+          section requires proper care. We provide best Content writing service by being continuously available for
+          changes and free reworks. A proper research methodology and literature review is the most crucial part of the
+          study. we use licensed software to scan paper before delivery to ensure 100% plagiarism free content.
+        </p>
+        <p>
+          It is understood that the content writing is done chapter wise and may need changes based on feedback. By
+          providing chapter wise submission and by updating the work every time, it makes us the best online
+          dissertation writing company. if you are not satisfied with our content or get less marks or grade after
+          revision then we will give you 200% money back. We value our customer satisfaction above all. You are covered
+          under our Money Back Guarantee. We ensure to give you delivery before date otherwise we will do it free. we
+          custom our work according to your guidelines and requirement to ensure your satisfaction
+        </p>
+      </div>
+    </section>
+
+    <section class="py-4 bg07r"></section>
+
+    <section id="about-us">
+      <div class="container">
+        <h1 class="baloo">About us</h1>
+        <p>
+          The differences between academic content writing and other content writing (blog or website) are that, in the
+          former one, there are many specific standards for writing. Moreover, in such writings, one has to follow
+          different citation standards. In contrary to normal content writing, academic content writing has many
+          regulations and an academic content writer has to follow certain formats. Just have a link with Best Content
+          Solution and experience higher grades! We operate with trained professionals, who are well-aware of the art of
+          paraphrasing as well as necessary referencing style to help you complete a plagiarism-free assignment.
+        </p>
+        <p>
+          Plagiarism can be defined as illegally taking an author's published work without properly giving credit. While
+          preparing an educational assignment, you may take help from websites, journals and books available on the
+          internet. However, your hard work may not be acknowledged in case the assessor finds plagiarism in it. In one
+          hand, paraphrasing contents is a solution for avoiding plagiarism but on the other hand, a person may not know
+          how to paraphrase effectively and fall into the trap of plagiarism.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg03 text-white" id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-sm-12 text-center">
+            <i class="bi bi-envelope-open fs-xxl"></i>
+          </div>
+          <div class="col-md-8 col-sm-12">
+            <h1 class="mb-3 baloo">Contact us</h1>
+            <div class="baloo">
+              <h4>Don't wait anymore. Reach us and get our experts’ help whenever needed!</h4>
+              <h4>For any kind of assistance feel free to contact..!!!</h4>
+              <br />
+              <h4>
+                <i class="bi bi-phone me-2"></i>
+                +91 74 140 78 140
+              </h4>
+              <h4>
+                <i class="bi bi-envelope me-2"></i>
+                inquiry@xyz.com
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="disclaimer">
+      <div class="container baloo">
+        <div>
+          <h1>Disclaimer</h1>
+          <h5 class="mb-0">
+            Our support tends to meet tutorial satisfaction for university students as well as overcoming the gap of
+            learning in respective study field. We never expect to gain credit of student’s grade or violation of
+            academic guidelines. XYZ provides academics research writing facilities. Our research papers are used only
+            for reference purpose. They are not to be furnished paper; Customer need to create their own paper
+          </h5>
+        </div>
+
+        <hr class="my-5" />
+
+        <div>
+          <h3>Accepted payment methods &mdash;</h3>
+          <div>
+            <div class="d-inline-block text-center me-4">
+              <img src="./images/pay-google-pay.svg" alt="google-pay" width="48px" />
+              <br />
+              GooglePay
+            </div>
+            <div class="d-inline-block text-center me-4">
+              <img src="./images/pay-phonepe.svg" alt="phonepe" width="48px" />
+              <br />
+              PhonePe
+            </div>
+            <div class="d-inline-block text-center me-4">
+              <img src="./images/pay-paytm.svg" alt="paytm" width="48px" />
+              <br />
+              Paytm
+            </div>
+            <div class="d-inline-block text-center me-4">
+              <img src="./images/pay-paypal.svg" alt="paypal" width="48px" />
+              <br />
+              Paypal
+            </div>
+            <div class="d-inline-block text-center me-4">
+              <img src="./images/pay-visa.svg" alt="visa" width="48px" />
+              <br />
+              Visa card
+            </div>
+            <div class="d-inline-block text-center me-4">
+              <img src="./images/pay-master.svg" alt="master" width="48px" />
+              <br />
+              Master card
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-5" />
+
+        <div>
+          <h3>We works in &mdash;</h3>
+          <div>
+            <div class="d-inline-block text-center me-4">
+              <img src="./images/cntry-au.svg" alt="Australia" height="48px" />
+              <br />
+              Australia
+            </div>
+            <div class="d-inline-block text-center me-4">
+              <img src="./images/cntry-ca.svg" alt="Canada" height="48px" />
+              <br />
+              Canada
+            </div>
+            <div class="d-inline-block text-center me-4">
+              <img src="./images/cntry-my.svg" alt="Malaysia" height="48px" />
+              <br />
+              Malaysia
+            </div>
+            <div class="d-inline-block text-center me-4">
+              <img src="./images/cntry-nz.svg" alt="New Zealand" height="48px" />
+              <br />
+              New Zealand
+            </div>
+            <div class="d-inline-block text-center me-4">
+              <img src="./images/cntry-sg.svg" alt="Singapore" height="48px" />
+              <br />
+              Singapore
+            </div>
+            <div class="d-inline-block text-center me-4">
+              <img src="./images/cntry-uae.svg" alt="UAE" height="48px" />
+              <br />
+              UAE
+            </div>
+            <div class="d-inline-block text-center me-4">
+              <img src="./images/cntry-uk.svg" alt="UK" height="48px" />
+              <br />
+              UK
+            </div>
+            <div class="d-inline-block text-center me-4">
+              <img src="./images/cntry-us.svg" alt="US" height="48px" />
+              <br />
+              USA
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-5" />
+
+        <div>
+          <h4 class="mb-3">Money Back Guarantee Policy &mdash;</h4>
+          <div>
+            <h6 class="fw-bold mb-0">200% Refund</h6>
+            <p>If you get less marks or got fail after the revision of our work then we will refund 200% money back</p>
+          </div>
+          <div>
+            <h6 class="fw-bold mb-0">100% Refund</h6>
+            <p>
+              We take pride in our paper helpers that we can deliver all the client's requirements on time. However, if
+              we miss any deadline, we allow the customers to request a 100% refund. And if you are ready to extend the
+              deadline, we offer you a compensation of 20%. Also, if you come across any technical issues during
+              payment, you can ask for a refund. In this case, you need to report the problem instantly before the
+              assigned writer begins writing the task.
+            </p>
+          </div>
+          <div>
+            <h6 class="fw-bold mb-0">50% Refund</h6>
+            <p>
+              We allow you to raise a request for a refund of confirmed orders if the client has canceled the order.
+              However, in such cases, we only give a 50% refund of the total amount. All the refund requests undergo a
+              confirmation check before accepting the proposal. Rebates do not apply when the error was from the
+              client's side, such as delayed uploading of needed documents and delayed payment. For refunds requested
+              due to plagiarism, a Turnitin report should be available. Reports from other plagiarism checkers are not
+              acceptable. Without the Turnitin report, no refund will apply.
+            </p>
+          </div>
+        </div>
+
+        <hr class="my-5" />
+
+        <div>
+          <h4 class="mb-3">No refund in these cases &mdash;</h4>
+          <div>
+            <h6 class="fw-bold mb-0">Guaranteed On Time Delivery</h6>
+            <p>
+              On time delivery of all the orders is guaranteed. Sometimes delay happens because of the late upload of
+              the needed materials on the customer`s side. In this situation, NO REFUND CAN BE GRANTED. That is why it
+              is always ideal to send the details of the task and the required additional resources all at once when
+              making the initial order. Delayed Payment If the customer claims that the order has been delayed when the
+              reality is that the payment was also delayed, we shall not bear responsibility for it. Moreover, a REFUND
+              CANNOT BE REQUESTED. Note: in the case of revision deadline, the previously mentioned delay refunds and
+              the recalculation of the price do not apply as the end dates are different.
+            </p>
+          </div>
+          <div>
+            <h6 class="fw-bold mb-0">Plagiarized Content</h6>
+            <p>
+              If the claim is that the paper is plagiarized, a Turnitin report is needed. There will be no other reports
+              that can be accepted aside from this or else NO REFUND is possible.
+            </p>
+          </div>
+          <div>
+            <h6 class="fw-bold mb-0">Disputed Claims</h6>
+            <p>
+              If the customer is not satisfied and would like to get a refund instead, the agency administration will
+              conduct an investigation. The claim and refund will be based on its result. We always want our customers
+              to be fully satisfied. Hence, we will always do our best just to achieve the customer`s satisfaction.
+              Additionally, we don’t guarantee grades, and a REFUND WILL NOT BE PROVIDED if you were poorly assessed.
+              But we might help you for next order. IMPORTANT NOTE: Refund requests must be made within 30 days from the
+              date we submitted the paper. If requests are made after 30 days, a partial credit on the CheapestEssay
+              accunt can be provided if your refund is valid.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="whatsapp">
+      <a href="https://wa.me/917414078140" class="float" target="_blank">
+        <i class="bi bi-whatsapp fs-2 my-float"></i>
+      </a>
+    </div>
+
+    <footer class="bg-dark text-center text-light p-5" id="footer">
+      <div class="row">
+        <div class="col-sm-12 col-lg-6">
+          <div class="align-bottom">
+            <!-- <img src="./resources/images/logo/alpha-x-logo.svg" alt="logo" width="48" /> -->
+            <i class="bi bi-body-text fs-2"></i>
+            <br />
+            YourLogo © 2022
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-lg-6">
+          <a href="#" class="text-light-blue"><i class="me-4 bi bi-facebook fs-4"></i></a>
+          <a href="#" class="text-light-blue"><i class="me-4 bi bi-twitter fs-4"></i></a>
+          <a href="#" class="text-light-blue"><i class="me-4 bi bi-instagram fs-4"></i></a>
+          <a href="#" class="text-light-blue"><i class="me-4 bi bi-youtube fs-4"></i></a>
+          <a href="#" class="text-light-blue"><i class="me-4 bi bi-linkedin fs-4"></i></a>
+          <a href="#" class="text-light-blue"><i class="me-4 bi bi-whatsapp fs-4"></i></a>
+        </div>
       </div>
     </footer>
 
