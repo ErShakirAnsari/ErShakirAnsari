@@ -223,7 +223,7 @@ section {
 }
 
 .fs-7 {
-  font-size: 0.75rem;
+  font-size: 0.5rem;
 }
 
 .float {
@@ -243,4 +243,12 @@ section {
 
 .my-float {
   margin-top: 20px;
+}
+
+.nav-link {
+  color: #000 !important;
+}
+
+.accordion-item {
+  border-color: gray;
 }
