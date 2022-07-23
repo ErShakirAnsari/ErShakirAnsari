@@ -13,16 +13,14 @@
     <title>CDN</title>
   </head>
   <body>
-    <header>
-      <h1>CDN</h1>
-      <h4>A content delivery network by</h4>
-      <h4>ajaxer&trade; for personal use only.</h4>
-      <h6>No warranty expressed or implied, use at your own risk !</h6>
+    <header class="text-cprimary ps-md-5 ps-2">
+      <h1 class="text-md-start text-center">CDN</h1>
+      <p class="text-md-start text-center">Private content delivery network by ajaxer&trade; for personal use only.</p>
     </header>
 
     <main class="container-fluid p-4">
       <nav aria-label="breadcrumb">
-        <ol class="breadcrumb fs-6 p-2 rounded-sm">
+        <ol class="breadcrumb fs-6 p-2 text-cprimary fs-5">
           <li class="breadcrumb-item">
             <i class="bi bi-house"></i>
             <a href="#">Home</a>
@@ -33,16 +31,25 @@
 
       <hr />
 
-      <div class="vh-100no">
-        <table class="table table-hover">
+      <div class="d-none">
+        <table class="table table-hover1 border-0 text-cprimary">
           <thead>
-            <th>Resource name</th>
-            <th class="col-2">Last modified</th>
-            <th class="col-1">Size</th>
+            <tr>
+              <th>Resource name</th>
+              <th class="col-2">Last modified</th>
+              <th class="col-1">Size</th>
+            </tr>
           </thead>
           <tr>
             <td>
-              <i class="bi bi-folder-fill text-warning"></i>
+              <a href="#"><i class="bi bi-arrow-left"></i> back</a>
+            </td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <i class="bi bi-folder-fill fs-5"></i>
               <a href="#" data-bs-toggle="modal" data-bs-target="#resourceModal">Some old folder</a>
               <!-- <button type="button" class="btn btn-primary">Launch demo modal</button> -->
             </td>
@@ -51,7 +58,7 @@
           </tr>
           <tr>
             <td>
-              <i class="bi bi-folder-fill text-warning"></i>
+              <i class="bi bi-folder-fill fs-5"></i>
               <a href="#">Some old folder</a>
             </td>
             <td>2022-07-21 18:09</td>
@@ -59,7 +66,7 @@
           </tr>
           <tr>
             <td>
-              <i class="bi bi-folder-fill text-warning"></i>
+              <i class="bi bi-folder-fill fs-5"></i>
               <a href="#">Some old folder</a>
             </td>
             <td>2022-07-21 18:09</td>
@@ -67,7 +74,7 @@
           </tr>
           <tr>
             <td>
-              <i class="bi bi-file-earmark"></i>
+              <i class="bi bi-file-earmark fs-5"></i>
               <a href="#">jaxer-notification-bundle-v1.0.0.js</a>
             </td>
             <td>2022-07-21 18:09</td>
@@ -75,7 +82,7 @@
           </tr>
           <tr>
             <td>
-              <i class="bi bi-filetype-js fs-4"></i>
+              <i class="bi bi-filetype-js fs-5"></i>
               <a href="#">jaxer-notification-bundle-v1.0.0.js</a>
             </td>
             <td>2022-07-21 18:09</td>
@@ -83,8 +90,25 @@
           </tr>
         </table>
       </div>
+
+      <div class="text-center pt-5">
+        <!-- <img src="./images/folder-empty.svg" alt="" width="128" /> -->
+        <h1>404</h1>
+        <p>No resource found</p>
+      </div>
     </main>
 
+    <footer class="bg-cprimary mt-5 border-top">
+      <div class="p-5 text-md-end text-center">
+        <div class="align-bottom text-cprimary">
+          <img src="./images/folder-empty.svg" class="mb-1" alt="logo" width="48" />
+          <p class="fs-5 m-0">ajaxer&trade;</p>
+          <p class="fs-6 m-0">v2022-07-23</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- start-of-model -->
     <div
       class="modal modal-lg fade"
       id="resourceModal"
@@ -93,7 +117,7 @@
       aria-hidden="true"
     >
       <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content bg-cprimary">
           <div class="modal-body">
             <div class="p-4 pb-3">
               <div class="row">
@@ -164,5 +188,6 @@
         </div>
       </div>
     </div>
+    <!-- end-of-model -->
   </body>
 </html>
